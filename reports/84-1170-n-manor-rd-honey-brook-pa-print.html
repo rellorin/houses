@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Black-and-white printable family convenience report for 1170 N Manor Road, Honey Brook, Pennsylvania"
+    />
+    <title>1170 N Manor Rd — Printable Family Convenience Report</title>
+    <style>
+      :root {
+        --black: #000;
+        --gray: #555;
+        --line: #999;
+        --light: #eee;
+        --paper: #fff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        background: #d8d8d8;
+      }
+      body {
+        margin: 0;
+        color: var(--black);
+        font:
+          10.5pt/1.34 Arial,
+          Helvetica,
+          sans-serif;
+        -webkit-print-color-adjust: economy;
+        print-color-adjust: economy;
+      }
+      .page {
+        position: relative;
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0.25in auto;
+        padding: 0.5in 0.55in 0.46in;
+        background: var(--paper);
+        box-shadow: 0 2px 14px #888;
+        break-after: page;
+        page-break-after: always;
+      }
+      .page:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+      .kicker {
+        margin: 0 0 7pt;
+        font-size: 8pt;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      h1 {
+        margin: 0;
+        font:
+          700 29pt/1.02 Georgia,
+          'Times New Roman',
+          serif;
+        letter-spacing: -0.025em;
+      }
+      h2 {
+        margin: 0 0 10pt;
+        padding-bottom: 5pt;
+        border-bottom: 2px solid #000;
+        font:
+          700 19pt/1.05 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      h3 {
+        margin: 0 0 5pt;
+        font-size: 11pt;
+      }
+      p {
+        margin: 0 0 8pt;
+      }
+      a {
+        color: #000;
+        text-decoration: underline;
+        text-decoration-thickness: 0.5px;
+        text-underline-offset: 2px;
+      }
+      .muted {
+        color: var(--gray);
+      }
+      .deck {
+        max-width: 6.8in;
+        margin: 12pt 0 15pt;
+        font:
+          12pt/1.35 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .rule {
+        height: 3px;
+        margin: 16pt 0;
+        background: #000;
+      }
+      .summary-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 18pt;
+        align-items: start;
+      }
+      .score {
+        display: flex;
+        align-items: baseline;
+        gap: 5pt;
+        margin: 2pt 0 8pt;
+        font-weight: 700;
+      }
+      .score strong {
+        font:
+          700 46pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .score span {
+        font-size: 12pt;
+      }
+      .label {
+        display: inline-block;
+        padding: 2pt 5pt;
+        border: 1px solid #000;
+        font-size: 7.5pt;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .callout {
+        padding: 10pt 12pt;
+        border: 2px solid #000;
+      }
+      .callout p:last-child {
+        margin-bottom: 0;
+      }
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8pt;
+        margin: 12pt 0;
+      }
+      .stat {
+        padding: 8pt;
+        border-top: 2px solid #000;
+        border-bottom: 1px solid var(--line);
+      }
+      .stat b {
+        display: block;
+        font-size: 16pt;
+      }
+      .stat span {
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 8.8pt;
+      }
+      th {
+        padding: 5pt 5pt;
+        border-top: 1.5px solid #000;
+        border-bottom: 1.5px solid #000;
+        text-align: left;
+        font-size: 7.3pt;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      td {
+        padding: 5pt;
+        border-bottom: 0.6px solid #bbb;
+        vertical-align: top;
+      }
+      td.num,
+      th.num {
+        text-align: right;
+        white-space: nowrap;
+      }
+      tr {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .section {
+        margin-top: 14pt;
+      }
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14pt;
+      }
+      .item {
+        padding: 9pt 0;
+        border-top: 1px solid #000;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .item:first-child {
+        border-top: 0;
+      }
+      .item-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 8pt;
+        align-items: baseline;
+      }
+      .item h3 {
+        font-size: 10.5pt;
+      }
+      .item .rating {
+        white-space: nowrap;
+        font-size: 8pt;
+        font-weight: 700;
+      }
+      .item .meta {
+        margin: 0 0 4pt;
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      .item p {
+        margin: 0;
+        font-size: 8.8pt;
+      }
+      .rating-box {
+        display: grid;
+        grid-template-columns: 1fr 36pt;
+        gap: 7pt;
+        align-items: center;
+        margin: 6pt 0;
+      }
+      .track {
+        height: 7pt;
+        border: 1px solid #000;
+      }
+      .track i {
+        display: block;
+        height: 100%;
+        background: #000;
+      }
+      .rating-box b {
+        text-align: right;
+        font-size: 9pt;
+      }
+      .list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .list li {
+        position: relative;
+        padding: 5pt 0 5pt 17pt;
+        border-top: 0.6px solid #bbb;
+      }
+      .list li:first-child {
+        border-top: 0;
+      }
+      .list li:before {
+        position: absolute;
+        left: 0;
+        top: 5pt;
+        font-weight: 700;
+      }
+      .pros li:before {
+        content: '+';
+      }
+      .cons li:before {
+        content: '–';
+      }
+      .corridor {
+        display: grid;
+        grid-template-columns: 85pt 1fr;
+        gap: 8pt;
+        margin: 8pt 0;
+        padding: 7pt 0;
+        border-top: 0.6px solid #bbb;
+      }
+      .corridor:first-child {
+        border-top: 0;
+      }
+      .corridor b {
+        font-size: 8.5pt;
+      }
+      .corridor span {
+        font-size: 8.5pt;
+      }
+      .sources {
+        margin: 0;
+        padding-left: 16pt;
+        font-size: 7.8pt;
+      }
+      .sources li {
+        margin: 0 0 5pt;
+      }
+      .fine {
+        font-size: 7.5pt;
+        color: var(--gray);
+      }
+      .profile-score {
+        display: flex;
+        align-items: center;
+        gap: 12pt;
+        margin: 10pt 0;
+      }
+      .profile-grade {
+        display: grid;
+        place-items: center;
+        width: 52pt;
+        height: 52pt;
+        border: 2px solid #000;
+        font:
+          700 26pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .event-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 14pt;
+      }
+      .page-footer {
+        position: absolute;
+        left: 0.55in;
+        right: 0.55in;
+        bottom: 0.24in;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 5pt;
+        border-top: 0.6px solid #777;
+        font-size: 7pt;
+        color: #555;
+      }
+      @page {
+        size: Letter;
+        margin: 0;
+      }
+      @media print {
+        html {
+          background: #fff;
+        }
+        body {
+          font-size: 10.5pt;
+        }
+        .page {
+          width: 8.5in;
+          min-height: 11in;
+          margin: 0;
+          box-shadow: none;
+        }
+        .screen-note {
+          display: none !important;
+        }
+      }
+      @media screen and (max-width: 900px) {
+        .page {
+          width: calc(100% - 24px);
+          min-height: auto;
+          margin: 12px;
+          padding: 28px;
+        }
+        .page-footer {
+          position: static;
+          margin-top: 24px;
+        }
+        .summary-grid,
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="page"><p class="kicker">Family convenience report · Print edition · September 13, 2026</p><h1>1170 N Manor Road<br />Honey Brook, Pennsylvania 19344</h1><p class="deck">A 4-bedroom Wallace Township country home on about 2.1 acres, with a detached bank barn, excellent public-school access and a practical 20-minute family-services radius.</p><div class="rule"></div>
+      <div class="summary-grid"><div><span class="label">Overall assessment</span><div class="score"><strong>84</strong><span>/ 100</span></div><p><b>Excellent schools and solid everyday convenience—if you are comfortable driving.</b> The likely K–5 campus and private alternative are eight minutes away; grocery, dance, Walmart, fitness and martial arts fit within twenty minutes. Walkability is the clear weakness.</p></div><div class="callout"><h3>Important school finding</h3><p>The Honey Brook mailing address is in <b>Wallace Township and Downingtown Area School District</b>, not Honey Brook Borough or Twin Valley. Springton Manor Elementary is the likely K–5 campus; verify directly with DASD.</p></div></div>
+      <div class="stat-grid"><div class="stat"><b>8 min</b><span>LIKELY K–5 SCHOOL</span></div><div class="stat"><b>10 min</b><span>GROCERY + DANCE</span></div><div class="stat"><b>20 min</b><span>BJJ + MUAY THAI</span></div></div>
+      <div class="section"><h3>Essential-distance snapshot</h3><table><thead><tr><th>Need</th><th>Best fit</th><th class="num">Road</th><th class="num">Drive*</th></tr></thead><tbody><tr><td>Public elementary</td><td>Springton Manor Elementary</td><td class="num">2.8 mi</td><td class="num">8 min</td></tr><tr><td>Private elementary</td><td>Pope John Paul II Regional</td><td class="num">3.1 mi</td><td class="num">8 min</td></tr><tr><td>Montessori under 5</td><td>Step By Step Montessori</td><td class="num">8.4 mi</td><td class="num">16 min</td></tr><tr><td>Proper grocery</td><td>Crop's Fresh Marketplace</td><td class="num">4.4 mi</td><td class="num">10 min</td></tr><tr><td>Walmart / Target</td><td>Elverson / Uwchlan</td><td class="num">7.3–10.9 mi</td><td class="num">15–24 min</td></tr><tr><td>Dance / gymnastics</td><td>Victoria Irey / Metzler's</td><td class="num">4.4–10.3 mi</td><td class="num">10–20 min</td></tr><tr><td>Adult gym</td><td>Anytime Fitness Thorndale</td><td class="num">7.9 mi</td><td class="num">18 min</td></tr><tr><td>BJJ + Muay Thai</td><td>Paramount BJJ</td><td class="num">9.4 mi</td><td class="num">20 min</td></tr></tbody></table><p class="fine">*OSRM routing without live traffic; rounded up. Research date: September 13, 2026.</p></div><div class="page-footer"><span>1170 N Manor Rd · Family Radius</span><span>1 / 5</span></div></section>
+
+    <section class="page"><p class="kicker">Place profile · Wallace Township</p><h2>Chester County country living with strong schools</h2><p>The address is outside Honey Brook Borough in Wallace Township: a small, low-density community of farms, woods, preserved land and larger-lot homes. It feels rural, but Downingtown and Exton are close enough for regular family routines.</p>
+      <div class="two-col"><div><div class="profile-score"><div class="profile-grade">A</div><div><b>Niche overall grade</b><br><span class="muted">Schools A · Housing B+ · Families A+ · Jobs A+ · Outdoors A− · Commute C+</span></div></div><p>The 2020 Census counted 3,711 residents; Chester County estimated 3,760 in 2023. Niche reports 94% owner occupancy and a rural feel.</p></div><div class="callout"><h3>The niche</h3><p>Quiet acreage and agricultural character paired with Downingtown schools, Springton Manor Farm and Marsh Creek—more refined exurban country than isolated rural.</p></div></div>
+      <div class="section"><h3>What the area feels like</h3><div class="corridor"><b>At home</b><span>2.1 acres, mature setting and a detached two-story stone/block bank barn; well and septic.</span></div><div class="corridor"><b>Nearby</b><span>Glenmoore and Honey Brook supply basics; roads are scenic, winding and mostly car-oriented.</span></div><div class="corridor"><b>Broader orbit</b><span>Downingtown and Exton add shopping and classes; Elverson provides Walmart and Turnpike access.</span></div></div>
+      <div class="section"><h3>Events and family life</h3><div class="event-list"><div class="item"><h3>Wallace Community Day</h3><p>A neighbor-focused township gathering with recreation, food and family activities.</p></div><div class="item"><h3>Township traditions</h3><p>Easter Egg Hunt, Halloween Party, Tree Lighting, movie nights and special events.</p></div><div class="item"><h3>Springton Manor Farm</h3><p>Animals, trails, a farm museum and public programs on a 300-acre county property.</p></div><div class="item"><h3>Marsh Creek</h3><p>Boating, fishing, hiking, wildlife and guided outdoor education programs.</p></div></div></div>
+      <div class="callout"><h3>Daily reality</h3><p>This is not a walkable town-center address. The payoff is peace, acreage, outdoor access and excellent schools; the cost is a car for nearly every errand and activity.</p></div><div class="page-footer"><span>1170 N Manor Rd · Print edition</span><span>2 / 5</span></div></section>
+
+    <section class="page"><p class="kicker">Education</p><h2>A standout public-school position</h2><div class="two-col"><div><div class="item"><div class="item-head"><h3>Springton Manor Elementary</h3><span class="rating">9 / 10 GS</span></div><p class="meta">400 Fairview Rd · 2.8 mi · 8 min</p><p>Likely assigned Downingtown Area K–5 school. GreatSchools reports 555 students and 97% regular attendance. Confirm assignment with DASD.</p></div><div class="item"><div class="item-head"><h3>Pope John Paul II Regional</h3><span class="rating">PK3–8</span></div><p class="meta">2875 Manor Rd · 3.1 mi · 8 min</p><p>Coeducational Catholic school from preschool age three through grade eight; the campus also offers infant and toddler care.</p></div></div><div><div class="item"><div class="item-head"><h3>Step By Step Montessori</h3><span class="rating">16 min</span></div><p class="meta">122 W Pennsylvania Ave · 8.4 mi</p><p>Full-day Montessori preschool in Downingtown, currently listed with weekday 7:30–5:30 hours.</p></div><div class="item"><div class="item-head"><h3>Ducklings Glenmoore</h3><span class="rating">5 min</span></div><p class="meta">1556 Horseshoe Pike · 2.6 mi</p><p>Not Montessori, but a close full-day early-learning backup for ages six weeks through pre-K.</p></div></div></div>
+      <div class="section"><h3>School decision checklist</h3><table><thead><tr><th>Question</th><th>Why it matters</th></tr></thead><tbody><tr><td>Confirm district and campus</td><td>The Honey Brook mailing address can be mistaken for Twin Valley; obtain DASD confirmation.</td></tr><tr><td>Read rating components</td><td>The 9/10 summary is strong, but subgroup data and fit still matter.</td></tr><tr><td>Verify bus timing</td><td>An eight-minute car route does not predict the school-bus schedule.</td></tr><tr><td>Tour the private option</td><td>PJPII is unusually close; compare tuition, faith formation and aftercare.</td></tr><tr><td>Check Montessori openings</td><td>Confirm ages, schedule, classroom placement and current availability.</td></tr></tbody></table></div><div class="callout"><h3>Bottom line</h3><p>Education is this address’s strongest convenience category: an excellent-rated likely public campus and a full PK–8 private alternative both route in about eight minutes.</p></div><div class="page-footer"><span>1170 N Manor Rd · Print edition</span><span>3 / 5</span></div></section>
+
+    <section class="page"><p class="kicker">Shopping, activities & fitness</p><h2>A useful 10–20 minute family radius</h2><div class="two-col"><div><div class="item"><div class="item-head"><h3>Crop's Fresh Marketplace</h3><span class="rating">10 min</span></div><p class="meta">1257 Horseshoe Pike · 4.4 mi</p><p>Full local supermarket with produce, meat, deli, bakery and everyday groceries.</p></div><div class="item"><div class="item-head"><h3>Walmart Elverson</h3><span class="rating">15 min</span></div><p class="meta">100 Crossings Blvd · 7.3 mi</p><p>Closest verified Supercenter for groceries, pharmacy and general merchandise.</p></div><div class="item"><div class="item-head"><h3>Target Uwchlan</h3><span class="rating">24 min</span></div><p class="meta">180 Eagleview Blvd · 10.9 mi</p><p>Closest verified Target found; more planned errand than quick stop.</p></div><div class="item"><div class="item-head"><h3>Victoria Irey Dance</h3><span class="rating">10 min</span></div><p class="meta">1233 Horseshoe Pike · 4.4 mi</p><p>Kinderdance, ballet/tap/tumble, jazz, hip-hop and acro through DARC.</p></div></div>
+        <div><div class="item"><div class="item-head"><h3>Metzler's Gymnastics</h3><span class="rating">20 min</span></div><p class="meta">472 Acorn Ln · 10.3 mi</p><p>Dedicated recreational and competitive gymnastics facility.</p></div><div class="item"><div class="item-head"><h3>Anytime Fitness Thorndale</h3><span class="rating">18 min</span></div><p class="meta">3227 Lincoln Hwy E · 7.9 mi</p><p>24/7 cardio, strength and functional-training gym with coaching.</p></div><div class="item"><div class="item-head"><h3>Paramount BJJ</h3><span class="rating">20 min</span></div><p class="meta">530 Trestle Pl · 9.4 mi</p><p>BJJ, Muay Thai kickboxing, boxing and children's programs in one gym.</p></div><div class="item"><div class="item-head"><h3>Outdoor anchors</h3><span class="rating">13–23 min</span></div><p class="meta">Springton Manor Farm / Marsh Creek</p><p>Trails, animals, boating, fishing and public nature programs.</p></div></div></div>
+      <div class="callout"><h3>Practical pattern</h3><p>The property is rural, but the essentials are well distributed: grocery and dance at ten minutes, Walmart at fifteen, and dedicated fitness, gymnastics and martial arts at eighteen to twenty.</p></div><div class="page-footer"><span>1170 N Manor Rd · Print edition</span><span>4 / 5</span></div></section>
+
+    <section class="page"><p class="kicker">Score, trade-offs & sources</p><h2>How this address scores</h2><div class="two-col"><div><h3>Weighted category scores</h3><div class="rating-box"><span>Public schools · 30%</span><div><b>96</b></div></div><div class="track"><i style="width:96%"></i></div><div class="rating-box"><span>Private / early · 15%</span><div><b>90</b></div></div><div class="track"><i style="width:90%"></i></div><div class="rating-box"><span>Shopping · 20%</span><div><b>84</b></div></div><div class="track"><i style="width:84%"></i></div><div class="rating-box"><span>Kids activities · 15%</span><div><b>83</b></div></div><div class="track"><i style="width:83%"></i></div><div class="rating-box"><span>Adult fitness · 10%</span><div><b>80</b></div></div><div class="track"><i style="width:80%"></i></div><div class="rating-box"><span>Martial arts · 5%</span><div><b>80</b></div></div><div class="track"><i style="width:80%"></i></div><div class="rating-box"><span>Walkability · 5%</span><div><b>8</b></div></div><div class="track"><i style="width:8%"></i></div><p class="fine">Weighted result: 84.0. Travel bands prioritize ≤10 minutes, then 11–20, 21–30 and 30+.</p></div><div><h3>What works</h3><ul class="list pros"><li>9/10 likely elementary eight minutes away.</li><li>Private PK–8 option also eight minutes.</li><li>Grocery and dance in ten minutes.</li><li>Walmart, gym and martial arts within twenty.</li><li>Strong parks and outdoor recreation.</li></ul><h3 style="margin-top:10pt">What to plan around</h3><ul class="list cons"><li>Almost no practical walkability.</li><li>Target is roughly twenty-four minutes.</li><li>Dedicated gymnastics is twenty minutes.</li><li>Well, septic and older barn need diligence.</li></ul></div></div>
+      <div class="section"><h3>Sources</h3><ol class="sources"><li><a href="https://www.redfin.com/PA/Honey-Brook/1170-N-Manor-Rd-19344/home/38973940">Redfin / Bright MLS</a>; <a href="https://www.coldwellbankerhomes.com/pa/honey-brook/1170-n-manor-rd/pid_72502920/">Coldwell Banker</a>.</li><li><a href="https://www.niche.com/places-to-live/wallace-township-chester-pa/">Niche</a>; <a href="https://www.wallacetownship.org/">Wallace Township</a>; Chester County population data.</li><li><a href="https://sm.dasd.org/">Springton Manor Elementary</a>; <a href="https://www.greatschools.org/pennsylvania/glenmoore/10982-Springton-Manor-El-School/">GreatSchools</a>; DASD registration.</li><li><a href="https://www.popejohnpaul2sch.org/contact-us">Pope John Paul II Regional</a>; <a href="https://www.stepbystepmontessori0122.fun/contact">Step By Step Montessori</a>; Ducklings Glenmoore.</li><li><a href="https://www.cropsmarketplace.com/store-information/">Crop's</a>; Walmart Elverson; Target Uwchlan.</li><li>DARC / Victoria Irey; <a href="https://metzlersgymnastics.com/">Metzler's</a>; Anytime Fitness Thorndale.</li><li><a href="https://www.paramountbjj.com/">Paramount BJJ</a>; Springton Manor Farm; Marsh Creek State Park.</li><li>OSRM road routing checked September 13, 2026; excludes traffic and is rounded up.</li></ol></div><p class="fine">Research aid only. Verify enrollment, programs, availability, property condition and travel times directly.</p><div class="page-footer"><span>1170 N Manor Rd · Print edition</span><span>5 / 5</span></div></section>
+  </body>
+</html>
+
+
+

@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Black-and-white printable family convenience report for 83 Flint Ridge Drive, Reading, Pennsylvania"
+    />
+    <title>83 Flint Ridge Dr — Printable Family Convenience Report</title>
+    <style>
+      :root {
+        --black: #000;
+        --gray: #555;
+        --line: #999;
+        --light: #eee;
+        --paper: #fff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        background: #d8d8d8;
+      }
+      body {
+        margin: 0;
+        color: var(--black);
+        font:
+          10.5pt/1.34 Arial,
+          Helvetica,
+          sans-serif;
+        -webkit-print-color-adjust: economy;
+        print-color-adjust: economy;
+      }
+      .page {
+        position: relative;
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0.25in auto;
+        padding: 0.5in 0.55in 0.46in;
+        background: var(--paper);
+        box-shadow: 0 2px 14px #888;
+        break-after: page;
+        page-break-after: always;
+      }
+      .page:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+      .kicker {
+        margin: 0 0 7pt;
+        font-size: 8pt;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      h1 {
+        margin: 0;
+        font:
+          700 29pt/1.02 Georgia,
+          'Times New Roman',
+          serif;
+        letter-spacing: -0.025em;
+      }
+      h2 {
+        margin: 0 0 10pt;
+        padding-bottom: 5pt;
+        border-bottom: 2px solid #000;
+        font:
+          700 19pt/1.05 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      h3 {
+        margin: 0 0 5pt;
+        font-size: 11pt;
+      }
+      p {
+        margin: 0 0 8pt;
+      }
+      a {
+        color: #000;
+        text-decoration: underline;
+        text-decoration-thickness: 0.5px;
+        text-underline-offset: 2px;
+      }
+      .muted {
+        color: var(--gray);
+      }
+      .deck {
+        max-width: 6.8in;
+        margin: 12pt 0 15pt;
+        font:
+          12pt/1.35 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .rule {
+        height: 3px;
+        margin: 16pt 0;
+        background: #000;
+      }
+      .summary-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 18pt;
+        align-items: start;
+      }
+      .score {
+        display: flex;
+        align-items: baseline;
+        gap: 5pt;
+        margin: 2pt 0 8pt;
+        font-weight: 700;
+      }
+      .score strong {
+        font:
+          700 46pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .score span {
+        font-size: 12pt;
+      }
+      .label {
+        display: inline-block;
+        padding: 2pt 5pt;
+        border: 1px solid #000;
+        font-size: 7.5pt;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .callout {
+        padding: 10pt 12pt;
+        border: 2px solid #000;
+      }
+      .callout p:last-child {
+        margin-bottom: 0;
+      }
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8pt;
+        margin: 12pt 0;
+      }
+      .stat {
+        padding: 8pt;
+        border-top: 2px solid #000;
+        border-bottom: 1px solid var(--line);
+      }
+      .stat b {
+        display: block;
+        font-size: 16pt;
+      }
+      .stat span {
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 8.8pt;
+      }
+      th {
+        padding: 5pt 5pt;
+        border-top: 1.5px solid #000;
+        border-bottom: 1.5px solid #000;
+        text-align: left;
+        font-size: 7.3pt;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      td {
+        padding: 5pt;
+        border-bottom: 0.6px solid #bbb;
+        vertical-align: top;
+      }
+      td.num,
+      th.num {
+        text-align: right;
+        white-space: nowrap;
+      }
+      tr {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .section {
+        margin-top: 14pt;
+      }
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14pt;
+      }
+      .item {
+        padding: 9pt 0;
+        border-top: 1px solid #000;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .item:first-child {
+        border-top: 0;
+      }
+      .item-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 8pt;
+        align-items: baseline;
+      }
+      .item h3 {
+        font-size: 10.5pt;
+      }
+      .item .rating {
+        white-space: nowrap;
+        font-size: 8pt;
+        font-weight: 700;
+      }
+      .item .meta {
+        margin: 0 0 4pt;
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      .item p {
+        margin: 0;
+        font-size: 8.8pt;
+      }
+      .rating-box {
+        display: grid;
+        grid-template-columns: 1fr 36pt;
+        gap: 7pt;
+        align-items: center;
+        margin: 6pt 0;
+      }
+      .track {
+        height: 7pt;
+        border: 1px solid #000;
+      }
+      .track i {
+        display: block;
+        height: 100%;
+        background: #000;
+      }
+      .rating-box b {
+        text-align: right;
+        font-size: 9pt;
+      }
+      .list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .list li {
+        position: relative;
+        padding: 5pt 0 5pt 17pt;
+        border-top: 0.6px solid #bbb;
+      }
+      .list li:first-child {
+        border-top: 0;
+      }
+      .list li:before {
+        position: absolute;
+        left: 0;
+        top: 5pt;
+        font-weight: 700;
+      }
+      .pros li:before {
+        content: '+';
+      }
+      .cons li:before {
+        content: '–';
+      }
+      .corridor {
+        display: grid;
+        grid-template-columns: 85pt 1fr;
+        gap: 8pt;
+        margin: 8pt 0;
+        padding: 7pt 0;
+        border-top: 0.6px solid #bbb;
+      }
+      .corridor:first-child {
+        border-top: 0;
+      }
+      .corridor b {
+        font-size: 8.5pt;
+      }
+      .corridor span {
+        font-size: 8.5pt;
+      }
+      .sources {
+        margin: 0;
+        padding-left: 16pt;
+        font-size: 7.8pt;
+      }
+      .sources li {
+        margin: 0 0 5pt;
+      }
+      .fine {
+        font-size: 7.5pt;
+        color: var(--gray);
+      }
+      .profile-score {
+        display: flex;
+        align-items: center;
+        gap: 12pt;
+        margin: 10pt 0;
+      }
+      .profile-grade {
+        display: grid;
+        place-items: center;
+        width: 52pt;
+        height: 52pt;
+        border: 2px solid #000;
+        font:
+          700 26pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .event-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 14pt;
+      }
+      .page-footer {
+        position: absolute;
+        left: 0.55in;
+        right: 0.55in;
+        bottom: 0.24in;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 5pt;
+        border-top: 0.6px solid #777;
+        font-size: 7pt;
+        color: #555;
+      }
+      @page {
+        size: Letter;
+        margin: 0;
+      }
+      @media print {
+        html {
+          background: #fff;
+        }
+        body {
+          font-size: 10.5pt;
+        }
+        .page {
+          width: 8.5in;
+          min-height: 11in;
+          margin: 0;
+          box-shadow: none;
+        }
+        .screen-note {
+          display: none !important;
+        }
+      }
+      @media screen and (max-width: 900px) {
+        .page {
+          width: calc(100% - 24px);
+          min-height: auto;
+          margin: 12px;
+          padding: 28px;
+        }
+        .page-footer {
+          position: static;
+          margin-top: 24px;
+        }
+        .summary-grid,
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="page">
+      <p class="kicker">Family convenience report · Print edition · September 13, 2026</p>
+      <h1>83 Flint Ridge Drive<br />Reading, Pennsylvania 19607</h1>
+      <p class="deck">A private Overbrook cul-de-sac home in Cumru Township, with direct Shillington Park trail access and nearly every core family destination within fourteen minutes.</p>
+      <div class="rule"></div>
+      <div class="summary-grid"><div><span class="label">Overall assessment</span><div class="score"><strong>88</strong><span>/ 100</span></div><p><b>Excellent family convenience with a park-edge advantage.</b> School, activities, gyms and martial arts are unusually close; Target is still only fourteen minutes away. The main caveats are car-dependent errands and a middling public-school rating.</p></div>
+        <div class="callout"><h3>School boundary</h3><p>Current property sources place the parcel in <b>Governor Mifflin School District</b> and show <b>Cumru Elementary</b> as the serving PK–4 school. Confirm directly before relying on enrollment.</p></div></div>
+      <div class="stat-grid"><div class="stat"><b>6 min</b><span>SERVING PK–4 SCHOOL</span></div><div class="stat"><b>8 min</b><span>DANCE + GYMNASTICS</span></div><div class="stat"><b>8 min</b><span>BJJ + MUAY THAI</span></div></div>
+      <div class="section"><h3>Essential-distance snapshot</h3><table><thead><tr><th>Need</th><th>Best fit</th><th class="num">Road</th><th class="num">Drive*</th></tr></thead><tbody>
+        <tr><td>Public elementary</td><td>Cumru Elementary</td><td class="num">2.1 mi</td><td class="num">6 min</td></tr><tr><td>Private elementary</td><td>La Salle Academy</td><td class="num">2.5 mi</td><td class="num">8 min</td></tr><tr><td>Montessori under 5</td><td>Montessori Country Day</td><td class="num">4.5 mi</td><td class="num">13 min</td></tr><tr><td>Proper grocery</td><td>GIANT Food Stores</td><td class="num">3.4 mi</td><td class="num">10 min</td></tr><tr><td>Target / Walmart</td><td>Spring Twp / Wyomissing</td><td class="num">5.1–7.6 mi</td><td class="num">12–14 min</td></tr><tr><td>Kids dance / gymnastics</td><td>Morgantown Road studios</td><td class="num">3.3 mi</td><td class="num">8 min</td></tr><tr><td>Adult gym / YMCA</td><td>Planet Fitness / Mifflin YMCA</td><td class="num">1.6–2.3 mi</td><td class="num">6–7 min</td></tr><tr><td>BJJ / Muay Thai</td><td>CFS Academy</td><td class="num">2.5 mi</td><td class="num">8 min</td></tr>
+      </tbody></table><p class="fine">*Verified road routing without live traffic; rounded up. Research date: September 13, 2026.</p></div>
+      <div class="page-footer"><span>83 Flint Ridge Dr · Family Radius</span><span>1 / 5</span></div>
+    </section>
+
+    <section class="page">
+      <p class="kicker">Place profile · Cumru Township & Shillington</p><h2>Quiet cul-de-sac, direct park access</h2>
+      <p>The mailing address says Reading, but the home is in Cumru Township’s Overbrook neighborhood, immediately south of Shillington. This is an established suburban pocket with mature trees, quick services and a direct physical connection to Shillington Park.</p>
+      <div class="two-col"><div><div class="profile-score"><div class="profile-grade">B+</div><div><b>Niche overall grade</b><br><span class="muted">Dense suburban · Good for Families B+ · Housing B · Outdoors A− · Jobs A− · Commute B</span></div></div><p>Census QuickFacts reports 15,619 residents in 2020 and an estimated 15,927 in 2025; 20.7% are under 18 and median household income is about $90,797.</p></div>
+        <div class="callout"><h3>The niche</h3><p>A park-edge suburban home that feels private without being remote. The backyard’s Shillington Park access is the defining advantage; the property also remains minutes from school, classes and shopping.</p></div></div>
+      <div class="section"><h3>What the area feels like</h3><div class="corridor"><b>At home</b><span>End-of-cul-de-sac privacy, mature trees, fenced yard and roughly 0.8 acre.</span></div><div class="corridor"><b>Shillington</b><span>Governor Mifflin campus, borough traditions, parks and a practical local service corridor.</span></div><div class="corridor"><b>Broader orbit</b><span>West Reading, Wyomissing and Reading add restaurants, shopping, health care and specialty activities.</span></div></div>
+      <div class="section"><h3>Events and family life</h3><div class="event-list"><div class="item"><h3>Governor Mifflin Community Days</h3><p>Annual fair with rides, food and game stands, entertainment and fireworks.</p></div><div class="item"><h3>Concerts in the Park</h3><p>Free summer community music nights in Shillington’s park system.</p></div><div class="item"><h3>Memorial Day Parade</h3><p>A long-running borough tradition with fire-company and civic participation.</p></div><div class="item"><h3>Nolde Forest programs</h3><p>Guided hikes, nature education, storytime walks, camps and volunteer days six minutes away.</p></div></div></div>
+      <div class="callout"><h3>Daily-life reality</h3><p>Park walks can begin at home, but school, groceries and classes still assume a car. This is recreation-adjacent, not a walk-to-errands location.</p></div>
+      <div class="page-footer"><span>83 Flint Ridge Dr · Print edition</span><span>2 / 5</span></div>
+    </section>
+
+    <section class="page">
+      <p class="kicker">Education</p><h2>Public, private and Montessori choices</h2>
+      <div class="two-col"><div><div class="item"><div class="item-head"><h3>Cumru Elementary</h3><span class="rating">5 / 10 GS</span></div><p class="meta">10 S Waverly St · 2.1 mi · 6 min</p><p>Serving PK–4 school shown by property sources. GreatSchools lists 513 students and 90% regular attendance. Confirm the legal parcel boundary with Governor Mifflin.</p></div><div class="item"><div class="item-head"><h3>La Salle Academy</h3><span class="rating">NR</span></div><p class="meta">440 Holland St · 2.5 mi · 8 min</p><p>Coeducational Catholic private school serving preschool through grade 8. Ask directly about admissions, tuition, transportation and current capacity.</p></div></div>
+        <div><div class="item"><div class="item-head"><h3>Montessori Country Day</h3><span class="rating">NR</span></div><p class="meta">53 Vermont Rd, Sinking Spring · 4.5 mi · 13 min</p><p>The closest verified Montessori fit for children under five. Primary begins at age 2 years 10 months, with preschool, pre-K, kindergarten and elementary grades.</p></div><div class="callout"><h3>Rating note</h3><p>GreatSchools rates public schools on a 1–10 scale. “NR” for private and Montessori schools means no comparable public rating is published—not low quality.</p></div></div></div>
+      <div class="section"><h3>School decision checklist</h3><table><thead><tr><th>Question</th><th>Why it matters here</th></tr></thead><tbody><tr><td>Confirm exact elementary assignment</td><td>Property sources identify Cumru Elementary; only the district can make a binding determination.</td></tr><tr><td>Study the rating components</td><td>A 5/10 summary compresses achievement, progress and equity into one number.</td></tr><tr><td>Visit both school settings</td><td>Cumru and La Salle offer different scale, culture, cost and faith context.</td></tr><tr><td>Verify Montessori age cutoff</td><td>The nearest fit starts at 2 years 10 months, not infancy.</td></tr><tr><td>Test peak-hour routes</td><td>Routed times exclude live traffic and school pickup congestion.</td></tr></tbody></table></div>
+      <div class="callout"><h3>Bottom line</h3><p>The address offers unusually short public and private elementary drives plus a practical Montessori option. The central diligence item is the public school’s 5/10 rating and the evidence behind it.</p></div>
+      <div class="page-footer"><span>83 Flint Ridge Dr · Print edition</span><span>3 / 5</span></div>
+    </section>
+
+    <section class="page">
+      <p class="kicker">Shopping, activities & fitness</p><h2>Most routines fit inside fourteen minutes</h2>
+      <div class="two-col"><div><div class="item"><div class="item-head"><h3>GIANT Food Stores</h3><span class="rating">10 min</span></div><p class="meta">2641 Shillington Rd · 3.4 mi</p><p>Full-service supermarket with produce, meat, deli, pharmacy and pickup.</p></div><div class="item"><div class="item-head"><h3>Walmart Wyomissing</h3><span class="rating">12 min</span></div><p class="meta">1135 Berkshire Blvd · 5.1 mi</p><p>General merchandise, pharmacy and grocery pickup/delivery.</p></div><div class="item"><div class="item-head"><h3>Target Spring Township</h3><span class="rating">14 min</span></div><p class="meta">2769 Papermill Rd · 7.6 mi</p><p>General merchandise, CVS pharmacy, Starbucks and drive-up service.</p></div><div class="item"><div class="item-head"><h3>Dance Your Dreams</h3><span class="rating">8 min</span></div><p class="meta">340 Morgantown Rd · 3.3 mi</p><p>Ballet, tap, jazz, hip-hop, contemporary, acro/tumbling and cheer dance.</p></div></div>
+        <div><div class="item"><div class="item-head"><h3>Berks Gymnastics Academy</h3><span class="rating">8 min</span></div><p class="meta">325 Morgantown Rd · 3.3 mi</p><p>Parent-and-tot, preschool, recreational gymnastics, ninja and competitive programs.</p></div><div class="item"><div class="item-head"><h3>Planet Fitness / Mifflin YMCA</h3><span class="rating">6–7 min</span></div><p class="meta">Shillington / Mohnton · 1.6–2.3 mi</p><p>A quick adult-gym option plus a family center with sports, camps and youth programs.</p></div><div class="item"><div class="item-head"><h3>CFS Academy</h3><span class="rating">8 min</span></div><p class="meta">6525 Shillington Plaza · 2.5 mi</p><p>The strongest two-need martial-arts match: Brazilian jiu-jitsu plus Muay Thai/kickboxing and wrestling.</p></div><div class="item"><div class="item-head"><h3>10th Planet Reading</h3><span class="rating">10 min</span></div><p class="meta">547 Penn Ave, West Reading · 4.1 mi</p><p>Dedicated no-gi jiu-jitsu, wrestling and MMA alternative.</p></div></div></div>
+      <div class="callout"><h3>Practical pattern</h3><p>This is one of the strongest activity clusters in the comparison set: dance, gymnastics, gym, YMCA, BJJ and Muay Thai all route within eight minutes, while weekly shopping stays inside fourteen.</p></div>
+      <div class="page-footer"><span>83 Flint Ridge Dr · Print edition</span><span>4 / 5</span></div>
+    </section>
+
+    <section class="page">
+      <p class="kicker">Score, trade-offs & sources</p><h2>How this address scores</h2>
+      <div class="two-col"><div><h3>Weighted category scores</h3><div class="rating-box"><span>Public schools · 30%</span><div><b>88</b></div></div><div class="track"><i style="width:88%"></i></div><div class="rating-box"><span>Private / early · 15%</span><div><b>91</b></div></div><div class="track"><i style="width:91%"></i></div><div class="rating-box"><span>Shopping · 20%</span><div><b>88</b></div></div><div class="track"><i style="width:88%"></i></div><div class="rating-box"><span>Kids activities · 15%</span><div><b>94</b></div></div><div class="track"><i style="width:94%"></i></div><div class="rating-box"><span>Adult fitness · 10%</span><div><b>94</b></div></div><div class="track"><i style="width:94%"></i></div><div class="rating-box"><span>Martial arts · 5%</span><div><b>96</b></div></div><div class="track"><i style="width:96%"></i></div><div class="rating-box"><span>Walkability · 5%</span><div><b>35</b></div></div><div class="track"><i style="width:35%"></i></div><p class="fine">Weighted result: 87.7, rounded to 88. Travel bands prioritize ≤10 minutes, then 11–20, 21–30 and 30+.</p></div>
+        <div><h3>What works</h3><ul class="list pros"><li>Six-minute serving elementary trip.</li><li>Direct Shillington Park trail access.</li><li>Activities and fitness in 6–8 minutes.</li><li>Target, Walmart and GIANT within 14 minutes.</li></ul><h3 style="margin-top:10pt">What to plan around</h3><ul class="list cons"><li>Most errands still require a car.</li><li>Cumru Elementary is currently 5/10.</li><li>Montessori begins at age 2 years 10 months.</li><li>Verify the school assignment and all schedules.</li></ul></div></div>
+      <div class="section"><h3>Sources</h3><ol class="sources"><li><a href="https://www.redfin.com/PA/Reading/83-Flint-Ridge-Dr-19607/home/38392265">Redfin / Bright MLS</a>; <a href="https://www.coldwellbankerhomes.com/pa/reading-berks-county/83-flint-ridge-dr/pid_70606430/">Coldwell Banker</a> — property facts.</li><li><a href="https://www.niche.com/places-to-live/cumru-township-berks-pa/">Niche</a>; <a href="https://www.census.gov/quickfacts/fact/table/cumrutownshipberkscountypennsylvania/PST040225">Census QuickFacts</a> — township profile.</li><li><a href="https://ce.gmsd.org/">Cumru Elementary</a>; <a href="https://www.greatschools.org/pennsylvania/shillington/1018-Cumru-El-School/">GreatSchools</a>; <a href="https://www.lsabear.com/">La Salle</a>; <a href="https://mcdsberks.org/">Montessori Country Day</a>.</li><li><a href="https://stores.giantfoodstores.com/pa/reading/2641-shillington-rd">GIANT</a>; <a href="https://www.walmart.com/store/1670-wyomissing-pa">Walmart</a>; <a href="https://www.target.com/sl/spring-township/1222">Target</a>.</li><li><a href="https://www.danceyourdreams.studio/">Dance Your Dreams</a>; <a href="https://www.berksgymnastics.com/">Berks Gymnastics</a>; <a href="https://www.ymcarbc.org/branch/mifflin/">YMCA</a>; <a href="https://www.planetfitness.com/gyms/shillington-pa/">Planet Fitness</a>.</li><li><a href="https://www.cfsacademy.net/">CFS Academy</a>; <a href="https://www.10thplanetreading.com/">10th Planet Reading</a>.</li><li>Drive figures: OSRM road routing, checked September 13, 2026; excludes traffic and is rounded up.</li></ol></div>
+      <p class="fine">This is a research aid, not a guarantee of enrollment, business availability, ratings, hours or travel time. Verify school assignment, programs and schedules directly.</p>
+      <div class="page-footer"><span>83 Flint Ridge Dr · Print edition</span><span>5 / 5</span></div>
+    </section>
+  </body>
+</html>
+

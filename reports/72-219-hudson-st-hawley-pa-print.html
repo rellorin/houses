@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Black-and-white printable family convenience report for 219 Hudson Street, Hawley, Pennsylvania"
+    />
+    <title>219 Hudson St — Printable Family Convenience Report</title>
+    <style>
+      :root {
+        --black: #000;
+        --gray: #555;
+        --line: #999;
+        --light: #eee;
+        --paper: #fff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        background: #d8d8d8;
+      }
+      body {
+        margin: 0;
+        color: var(--black);
+        font:
+          10.5pt/1.34 Arial,
+          Helvetica,
+          sans-serif;
+        -webkit-print-color-adjust: economy;
+        print-color-adjust: economy;
+      }
+      .page {
+        position: relative;
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0.25in auto;
+        padding: 0.5in 0.55in 0.46in;
+        background: var(--paper);
+        box-shadow: 0 2px 14px #888;
+        break-after: page;
+        page-break-after: always;
+      }
+      .page:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+      .kicker {
+        margin: 0 0 7pt;
+        font-size: 8pt;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      h1 {
+        margin: 0;
+        font:
+          700 29pt/1.02 Georgia,
+          'Times New Roman',
+          serif;
+        letter-spacing: -0.025em;
+      }
+      h2 {
+        margin: 0 0 10pt;
+        padding-bottom: 5pt;
+        border-bottom: 2px solid #000;
+        font:
+          700 19pt/1.05 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      h3 {
+        margin: 0 0 5pt;
+        font-size: 11pt;
+      }
+      p {
+        margin: 0 0 8pt;
+      }
+      a {
+        color: #000;
+        text-decoration: underline;
+        text-decoration-thickness: 0.5px;
+        text-underline-offset: 2px;
+      }
+      .muted {
+        color: var(--gray);
+      }
+      .deck {
+        max-width: 6.8in;
+        margin: 12pt 0 15pt;
+        font:
+          12pt/1.35 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .rule {
+        height: 3px;
+        margin: 16pt 0;
+        background: #000;
+      }
+      .summary-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 18pt;
+        align-items: start;
+      }
+      .score {
+        display: flex;
+        align-items: baseline;
+        gap: 5pt;
+        margin: 2pt 0 8pt;
+        font-weight: 700;
+      }
+      .score strong {
+        font:
+          700 46pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .score span {
+        font-size: 12pt;
+      }
+      .label {
+        display: inline-block;
+        padding: 2pt 5pt;
+        border: 1px solid #000;
+        font-size: 7.5pt;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .callout {
+        padding: 10pt 12pt;
+        border: 2px solid #000;
+      }
+      .callout p:last-child {
+        margin-bottom: 0;
+      }
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8pt;
+        margin: 12pt 0;
+      }
+      .stat {
+        padding: 8pt;
+        border-top: 2px solid #000;
+        border-bottom: 1px solid var(--line);
+      }
+      .stat b {
+        display: block;
+        font-size: 16pt;
+      }
+      .stat span {
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 8.8pt;
+      }
+      th {
+        padding: 5pt 5pt;
+        border-top: 1.5px solid #000;
+        border-bottom: 1.5px solid #000;
+        text-align: left;
+        font-size: 7.3pt;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      td {
+        padding: 5pt;
+        border-bottom: 0.6px solid #bbb;
+        vertical-align: top;
+      }
+      td.num,
+      th.num {
+        text-align: right;
+        white-space: nowrap;
+      }
+      tr {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .section {
+        margin-top: 14pt;
+      }
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14pt;
+      }
+      .item {
+        padding: 9pt 0;
+        border-top: 1px solid #000;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .item:first-child {
+        border-top: 0;
+      }
+      .item-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 8pt;
+        align-items: baseline;
+      }
+      .item h3 {
+        font-size: 10.5pt;
+      }
+      .item .rating {
+        white-space: nowrap;
+        font-size: 8pt;
+        font-weight: 700;
+      }
+      .item .meta {
+        margin: 0 0 4pt;
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      .item p {
+        margin: 0;
+        font-size: 8.8pt;
+      }
+      .rating-box {
+        display: grid;
+        grid-template-columns: 1fr 36pt;
+        gap: 7pt;
+        align-items: center;
+        margin: 6pt 0;
+      }
+      .track {
+        height: 7pt;
+        border: 1px solid #000;
+      }
+      .track i {
+        display: block;
+        height: 100%;
+        background: #000;
+      }
+      .rating-box b {
+        text-align: right;
+        font-size: 9pt;
+      }
+      .list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .list li {
+        position: relative;
+        padding: 5pt 0 5pt 17pt;
+        border-top: 0.6px solid #bbb;
+      }
+      .list li:first-child {
+        border-top: 0;
+      }
+      .list li:before {
+        position: absolute;
+        left: 0;
+        top: 5pt;
+        font-weight: 700;
+      }
+      .pros li:before {
+        content: '+';
+      }
+      .cons li:before {
+        content: '–';
+      }
+      .corridor {
+        display: grid;
+        grid-template-columns: 85pt 1fr;
+        gap: 8pt;
+        margin: 8pt 0;
+        padding: 7pt 0;
+        border-top: 0.6px solid #bbb;
+      }
+      .corridor:first-child {
+        border-top: 0;
+      }
+      .corridor b {
+        font-size: 8.5pt;
+      }
+      .corridor span {
+        font-size: 8.5pt;
+      }
+      .sources {
+        margin: 0;
+        padding-left: 16pt;
+        font-size: 7.8pt;
+      }
+      .sources li {
+        margin: 0 0 5pt;
+      }
+      .fine {
+        font-size: 7.5pt;
+        color: var(--gray);
+      }
+      .profile-score {
+        display: flex;
+        align-items: center;
+        gap: 12pt;
+        margin: 10pt 0;
+      }
+      .profile-grade {
+        display: grid;
+        place-items: center;
+        width: 52pt;
+        height: 52pt;
+        border: 2px solid #000;
+        font:
+          700 26pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .event-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 14pt;
+      }
+      .page-footer {
+        position: absolute;
+        left: 0.55in;
+        right: 0.55in;
+        bottom: 0.24in;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 5pt;
+        border-top: 0.6px solid #777;
+        font-size: 7pt;
+        color: #555;
+      }
+      @page {
+        size: Letter;
+        margin: 0;
+      }
+      @media print {
+        html {
+          background: #fff;
+        }
+        body {
+          font-size: 10.5pt;
+        }
+        .page {
+          width: 8.5in;
+          min-height: 11in;
+          margin: 0;
+          box-shadow: none;
+        }
+        .screen-note {
+          display: none !important;
+        }
+      }
+      @media screen and (max-width: 900px) {
+        .page {
+          width: calc(100% - 24px);
+          min-height: auto;
+          margin: 12px;
+          padding: 28px;
+        }
+        .page-footer {
+          position: static;
+          margin-top: 24px;
+        }
+        .summary-grid,
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="page"><p class="kicker">Family convenience report · Print edition · September 13, 2026</p><h1>219 Hudson Street<br />Hawley, Pennsylvania 18428</h1><p class="deck">An 1869 Historic Revival home near Bingham Park and downtown Hawley, with strong local activities and groceries—but weak access to Target and specialized BJJ/Muay Thai.</p><div class="rule"></div>
+      <div class="summary-grid"><div><span class="label">Overall assessment</span><div class="score"><strong>72</strong><span>/ 100</span></div><p><b>Walkable small-town character; uneven regional convenience.</b> Dance, gym, park and downtown access are excellent. Public school campuses, groceries and Walmart are practical. Target and current specialty martial arts are roughly hour-long trips.</p></div><div class="callout"><h3>School structure</h3><p>The address is in <b>Wallenpaupack Area School District</b>. Elementary grades are split between North Primary (K–2) and North Intermediate (3–5). Confirm enrollment directly.</p></div></div>
+      <div class="stat-grid"><div class="stat"><b>9–11 min</b><span>ELEMENTARY CAMPUSES</span></div><div class="stat"><b>2 min</b><span>DANCE + ACRO</span></div><div class="stat"><b>60 min</b><span>BJJ + MUAY THAI</span></div></div>
+      <div class="section"><h3>Essential-distance snapshot</h3><table><thead><tr><th>Need</th><th>Best fit</th><th class="num">Road</th><th class="num">Drive*</th></tr></thead><tbody><tr><td>Public elementary</td><td>North Primary / Intermediate</td><td class="num">2.9–3.1 mi</td><td class="num">9–11 min</td></tr><tr><td>Private elementary</td><td>Canaan Christian Academy</td><td class="num">17.8 mi</td><td class="num">38 min</td></tr><tr><td>Montessori under 5</td><td>Bethany Children’s House</td><td class="num">8.4 mi</td><td class="num">19 min</td></tr><tr><td>Proper grocery</td><td>Lake Region IGA</td><td class="num">2.0 mi</td><td class="num">6 min</td></tr><tr><td>Walmart / Target</td><td>Honesdale / Dickson City</td><td class="num">6.6–35.8 mi</td><td class="num">15–62 min</td></tr><tr><td>Dance / gymnastics</td><td>Hawley Hub / Balance</td><td class="num">0.5–4.0 mi</td><td class="num">2–8 min</td></tr><tr><td>Adult gym</td><td>Lake Region Fitness</td><td class="num">1.3 mi</td><td class="num">5 min</td></tr><tr><td>BJJ + Muay Thai</td><td>Macarra / Simrell</td><td class="num">33.8 mi</td><td class="num">60 min</td></tr></tbody></table><p class="fine">*OSRM routing without live traffic; rounded up. Research date: September 13, 2026.</p></div><div class="page-footer"><span>219 Hudson St · Family Radius</span><span>1 / 5</span></div></section>
+
+    <section class="page"><p class="kicker">Place profile · Hawley Borough</p><h2>Small-town charm with a lake-region pulse</h2><p>Hawley is a compact borough on the Lackawaxen River and a gateway to Lake Wallenpaupack. The permanent population is small, but tourism supports more restaurants, lodging, events and independent businesses than the number alone suggests.</p>
+      <div class="two-col"><div><div class="profile-score"><div class="profile-grade">B+</div><div><b>Niche overall grade</b><br><span class="muted">Schools B+ · Safety A · Families B+ · Outdoors A− · Commute A−</span></div></div><p>Niche reports a recent population estimate of 925; the 2020 Census counted 1,229. The borough covers roughly 0.6 square mile and has a dense small-town street pattern.</p></div><div class="callout"><h3>The niche</h3><p>A historic in-town estate that can walk to park, river, dining and community life—a rare contrast to the car-dependent lake developments surrounding Hawley.</p></div></div>
+      <div class="section"><h3>What the area feels like</h3><div class="corridor"><b>At home</b><span>Large 1869 character house, landscaped 1.42-acre double lot and flexible former office space.</span></div><div class="corridor"><b>Downtown</b><span>Cafes, restaurants, shops, Hawley Hub, Bingham Park and river access within a short walk.</span></div><div class="corridor"><b>Broader orbit</b><span>Lake recreation nearby; Honesdale for services; Scranton/Dickson City for major retail and specialty training.</span></div></div>
+      <div class="section"><h3>Events and family life</h3><div class="event-list"><div class="item"><h3>Wally Lake Fest</h3><p>Three August days with 60+ lake and downtown events, music, markets and family activities.</p></div><div class="item"><h3>Hawley Winterfest</h3><p>Holiday music, shopping, family programs and decorated historic streets.</p></div><div class="item"><h3>Harvest Hoedown</h3><p>Fall food, crafts, music and seasonal community activity.</p></div><div class="item"><h3>Hawley Hub & borough calendar</h3><p>Classes, theater, workshops, fire-company events and civic gatherings throughout the year.</p></div></div></div>
+      <div class="callout"><h3>Seasonal reality</h3><p>The same lake-and-festival economy that creates unusually rich amenities also brings weekend traffic and visitor energy, especially in summer and during major events.</p></div><div class="page-footer"><span>219 Hudson St · Print edition</span><span>2 / 5</span></div></section>
+
+    <section class="page"><p class="kicker">Education</p><h2>Two public campuses; alternatives require travel</h2><div class="two-col"><div><div class="item"><div class="item-head"><h3>Wallenpaupack North Primary</h3><span class="rating">NR GS</span></div><p class="meta">158 Atlantic Ave · 3.1 mi · 11 min</p><p>District grades K–2 campus. Niche grades the broader public-school category B+; GreatSchools does not currently show a 1–10 summary.</p></div><div class="item"><div class="item-head"><h3>North Intermediate</h3><span class="rating">5 / 10 GS</span></div><p class="meta">187 Atlantic Ave · 2.9 mi · 9 min</p><p>District grades 3–5 campus. GreatSchools reports 474 students, a 5/10 rating and 85% regular attendance.</p></div></div><div><div class="item"><div class="item-head"><h3>Canaan Christian Academy</h3><span class="rating">B− Niche</span></div><p class="meta">30 Hemlock Rd · 17.8 mi · 38 min</p><p>Christian PK–12 option with 193 students, average class size 15 and rolling admission.</p></div><div class="item"><div class="item-head"><h3>Bethany Children’s House</h3><span class="rating">NAMC</span></div><p class="meta">827 Church St · 8.4 mi · 19 min</p><p>Montessori preschool ages 2.5–6 with a reported 6:1 ratio. Potty training is not required.</p></div></div></div>
+      <div class="section"><h3>School decision checklist</h3><table><thead><tr><th>Question</th><th>Why it matters</th></tr></thead><tbody><tr><td>Confirm campus assignment</td><td>The district splits K–2 and 3–5; confirm transportation and enrollment details.</td></tr><tr><td>Study rating components</td><td>The 5/10 intermediate score is only a summary measure.</td></tr><tr><td>Test both school routes</td><td>Short mileage still routes around local road and campus patterns.</td></tr><tr><td>Evaluate private-school commute</td><td>Thirty-eight minutes each way is a major daily commitment.</td></tr><tr><td>Verify Montessori schedule</td><td>Bethany operates a school-day/school-year model rather than full daycare hours.</td></tr></tbody></table></div><div class="callout"><h3>Bottom line</h3><p>Public campuses are practical, and Montessori preschool is available within twenty minutes. Full private-school choice is the weak point because the best verified option found is distant.</p></div><div class="page-footer"><span>219 Hudson St · Print edition</span><span>3 / 5</span></div></section>
+
+    <section class="page"><p class="kicker">Shopping, activities & fitness</p><h2>Excellent local life; thin specialty access</h2><div class="two-col"><div><div class="item"><div class="item-head"><h3>Lake Region IGA</h3><span class="rating">6 min</span></div><p class="meta">52 Welwood Ave · 2.0 mi</p><p>A proper local supermarket for weekly food shopping.</p></div><div class="item"><div class="item-head"><h3>Walmart Honesdale</h3><span class="rating">15 min</span></div><p class="meta">723A Old Willow Ave · 6.6 mi</p><p>Full Supercenter with grocery, pharmacy, vision and auto care.</p></div><div class="item"><div class="item-head"><h3>Target Dickson City</h3><span class="rating">62 min</span></div><p class="meta">1140 Commerce Blvd · 35.8 mi</p><p>The nearest verified Target found; firmly a planned regional trip.</p></div><div class="item"><div class="item-head"><h3>Hawley Hub / Eddy Studio</h3><span class="rating">2 min</span></div><p class="meta">318 Main Ave · 0.5 mi</p><p>Ballet, tap, jazz, acro, musical theater, art, yoga and fitness.</p></div></div>
+        <div><div class="item"><div class="item-head"><h3>Balance Gymnastics</h3><span class="rating">8 min</span></div><p class="meta">785 Texas Palmyra Hwy · 4.0 mi</p><p>Pre-K and recreational gymnastics, tumbling, ninja, cheer and team.</p></div><div class="item"><div class="item-head"><h3>Lake Region Fitness</h3><span class="rating">5 min</span></div><p class="meta">8 Silk Mill Dr · 1.3 mi</p><p>24-hour cardio and strength gym with classes and training.</p></div><div class="item"><div class="item-head"><h3>Woodloch Sports Complex</h3><span class="rating">15 min</span></div><p class="meta">533 Woodloch Dr · 7.0 mi</p><p>Fitness center, indoor pool, group classes and swim school.</p></div><div class="item"><div class="item-head"><h3>Macarra BJJ / Simrell Muay Thai</h3><span class="rating">60 min</span></div><p class="meta">717 Capouse Ave, Scranton · 33.8 mi</p><p>Current two-need BJJ and Muay Thai academy; the commute is the limitation.</p></div></div></div>
+      <div class="callout"><h3>Practical pattern</h3><p>Hawley excels at daily quality of life: park, downtown, dance, gymnastics and gym. The regional gap appears when a family needs Target or specialized combat-sports instruction.</p></div><div class="page-footer"><span>219 Hudson St · Print edition</span><span>4 / 5</span></div></section>
+
+    <section class="page"><p class="kicker">Score, trade-offs & sources</p><h2>How this address scores</h2><div class="two-col"><div><h3>Weighted category scores</h3><div class="rating-box"><span>Public schools · 30%</span><div><b>78</b></div></div><div class="track"><i style="width:78%"></i></div><div class="rating-box"><span>Private / early · 15%</span><div><b>62</b></div></div><div class="track"><i style="width:62%"></i></div><div class="rating-box"><span>Shopping · 20%</span><div><b>66</b></div></div><div class="track"><i style="width:66%"></i></div><div class="rating-box"><span>Kids activities · 15%</span><div><b>92</b></div></div><div class="track"><i style="width:92%"></i></div><div class="rating-box"><span>Adult fitness · 10%</span><div><b>92</b></div></div><div class="track"><i style="width:92%"></i></div><div class="rating-box"><span>Martial arts · 5%</span><div><b>22</b></div></div><div class="track"><i style="width:22%"></i></div><div class="rating-box"><span>Walkability · 5%</span><div><b>40</b></div></div><div class="track"><i style="width:40%"></i></div><p class="fine">Weighted result: 72.0. Travel bands prioritize ≤10 minutes, then 11–20, 21–30 and 30+.</p></div><div><h3>What works</h3><ul class="list pros"><li>Walkable park and downtown.</li><li>District campuses within 11 minutes.</li><li>Dance, gymnastics and gym in 2–8 minutes.</li><li>Grocery six minutes; Walmart fifteen.</li></ul><h3 style="margin-top:10pt">What to plan around</h3><ul class="list cons"><li>Target is about an hour away.</li><li>Verified BJJ + Muay Thai is about an hour.</li><li>Private PK–12 choice is 38 minutes.</li><li>Historic-home systems and former office use need diligence.</li></ul></div></div>
+      <div class="section"><h3>Sources</h3><ol class="sources"><li><a href="https://www.zillow.com/homedetails/219-Hudson-St-Hawley-PA-18428/462500088_zpid/">Zillow / Pike Wayne MLS</a>; <a href="https://www.realtor.com/realestateandhomes-detail/219-Hudson-St_Hawley_PA_18428_M95303-93370">Realtor.com</a>.</li><li><a href="https://www.niche.com/places-to-live/hawley-wayne-pa/">Niche</a>; <a href="https://hawley-borough.org/">Hawley Borough</a>.</li><li><a href="https://www.wallenpaupack.org/our-schools">Wallenpaupack schools</a>; <a href="https://www.greatschools.org/pennsylvania/hawley/2887-Wallenpaupack-North-Intrmd-School/">GreatSchools</a>.</li><li><a href="https://www.canaanchristianacademy.org/">Canaan Christian</a>; <a href="https://www.bethanychildrenshouse.org/">Bethany Children’s House</a>.</li><li><a href="https://shooksigastores.iga.com/StoreLocator/Store/?L=30510">IGA</a>; <a href="https://www.walmart.com/store/2480-honesdale-pa">Walmart</a>; <a href="https://www.target.com/sl/location/1474">Target</a>.</li><li><a href="https://www.thehawleyhub.com/classes-events/">Hawley Hub</a>; <a href="https://balancegymnasticsandwellness.com/">Balance</a>; <a href="https://woodlochsportscomplex.com/">Woodloch</a>.</li><li><a href="https://www.graciesportsteammacarrabjjsimrellmuaythaiscranton.com/">Macarra BJJ / Simrell Muay Thai</a>; <a href="https://www.northernpoconos.org/wally-lake-fest/">Wally Lake Fest</a>.</li><li>OSRM road routing checked September 13, 2026; excludes traffic and is rounded up.</li></ol></div><p class="fine">Research aid only. Verify enrollment, programs, availability, historic-home condition and travel times directly.</p><div class="page-footer"><span>219 Hudson St · Print edition</span><span>5 / 5</span></div></section>
+  </body>
+</html>
+
+

@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Black-and-white printable family convenience report for 1 Heidelberg Court, Bernville, Pennsylvania"
+    />
+    <title>1 Heidelberg Ct — Printable Family Convenience Report</title>
+    <style>
+      :root {
+        --black: #000;
+        --gray: #555;
+        --line: #999;
+        --light: #eee;
+        --paper: #fff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        background: #d8d8d8;
+      }
+      body {
+        margin: 0;
+        color: var(--black);
+        font:
+          10.5pt/1.34 Arial,
+          Helvetica,
+          sans-serif;
+        -webkit-print-color-adjust: economy;
+        print-color-adjust: economy;
+      }
+      .page {
+        position: relative;
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0.25in auto;
+        padding: 0.5in 0.55in 0.46in;
+        background: var(--paper);
+        box-shadow: 0 2px 14px #888;
+        break-after: page;
+        page-break-after: always;
+      }
+      .page:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+      .kicker {
+        margin: 0 0 7pt;
+        font-size: 8pt;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      h1 {
+        margin: 0;
+        font:
+          700 29pt/1.02 Georgia,
+          'Times New Roman',
+          serif;
+        letter-spacing: -0.025em;
+      }
+      h2 {
+        margin: 0 0 10pt;
+        padding-bottom: 5pt;
+        border-bottom: 2px solid #000;
+        font:
+          700 19pt/1.05 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      h3 {
+        margin: 0 0 5pt;
+        font-size: 11pt;
+      }
+      p {
+        margin: 0 0 8pt;
+      }
+      a {
+        color: #000;
+        text-decoration: underline;
+        text-decoration-thickness: 0.5px;
+        text-underline-offset: 2px;
+      }
+      .muted {
+        color: var(--gray);
+      }
+      .deck {
+        max-width: 6.8in;
+        margin: 12pt 0 15pt;
+        font:
+          12pt/1.35 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .rule {
+        height: 3px;
+        margin: 16pt 0;
+        background: #000;
+      }
+      .summary-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 18pt;
+        align-items: start;
+      }
+      .score {
+        display: flex;
+        align-items: baseline;
+        gap: 5pt;
+        margin: 2pt 0 8pt;
+        font-weight: 700;
+      }
+      .score strong {
+        font:
+          700 46pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .score span {
+        font-size: 12pt;
+      }
+      .label {
+        display: inline-block;
+        padding: 2pt 5pt;
+        border: 1px solid #000;
+        font-size: 7.5pt;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .callout {
+        padding: 10pt 12pt;
+        border: 2px solid #000;
+      }
+      .callout p:last-child {
+        margin-bottom: 0;
+      }
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8pt;
+        margin: 12pt 0;
+      }
+      .stat {
+        padding: 8pt;
+        border-top: 2px solid #000;
+        border-bottom: 1px solid var(--line);
+      }
+      .stat b {
+        display: block;
+        font-size: 16pt;
+      }
+      .stat span {
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 8.8pt;
+      }
+      th {
+        padding: 5pt 5pt;
+        border-top: 1.5px solid #000;
+        border-bottom: 1.5px solid #000;
+        text-align: left;
+        font-size: 7.3pt;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      td {
+        padding: 5pt;
+        border-bottom: 0.6px solid #bbb;
+        vertical-align: top;
+      }
+      td.num,
+      th.num {
+        text-align: right;
+        white-space: nowrap;
+      }
+      tr {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .section {
+        margin-top: 14pt;
+      }
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14pt;
+      }
+      .item {
+        padding: 9pt 0;
+        border-top: 1px solid #000;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .item:first-child {
+        border-top: 0;
+      }
+      .item-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 8pt;
+        align-items: baseline;
+      }
+      .item h3 {
+        font-size: 10.5pt;
+      }
+      .item .rating {
+        white-space: nowrap;
+        font-size: 8pt;
+        font-weight: 700;
+      }
+      .item .meta {
+        margin: 0 0 4pt;
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      .item p {
+        margin: 0;
+        font-size: 8.8pt;
+      }
+      .rating-box {
+        display: grid;
+        grid-template-columns: 1fr 36pt;
+        gap: 7pt;
+        align-items: center;
+        margin: 6pt 0;
+      }
+      .track {
+        height: 7pt;
+        border: 1px solid #000;
+      }
+      .track i {
+        display: block;
+        height: 100%;
+        background: #000;
+      }
+      .rating-box b {
+        text-align: right;
+        font-size: 9pt;
+      }
+      .list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .list li {
+        position: relative;
+        padding: 5pt 0 5pt 17pt;
+        border-top: 0.6px solid #bbb;
+      }
+      .list li:first-child {
+        border-top: 0;
+      }
+      .list li:before {
+        position: absolute;
+        left: 0;
+        top: 5pt;
+        font-weight: 700;
+      }
+      .pros li:before {
+        content: '+';
+      }
+      .cons li:before {
+        content: '–';
+      }
+      .corridor {
+        display: grid;
+        grid-template-columns: 85pt 1fr;
+        gap: 8pt;
+        margin: 8pt 0;
+        padding: 7pt 0;
+        border-top: 0.6px solid #bbb;
+      }
+      .corridor:first-child {
+        border-top: 0;
+      }
+      .corridor b {
+        font-size: 8.5pt;
+      }
+      .corridor span {
+        font-size: 8.5pt;
+      }
+      .sources {
+        margin: 0;
+        padding-left: 16pt;
+        font-size: 7.8pt;
+      }
+      .sources li {
+        margin: 0 0 5pt;
+      }
+      .fine {
+        font-size: 7.5pt;
+        color: var(--gray);
+      }
+      .profile-score {
+        display: flex;
+        align-items: center;
+        gap: 12pt;
+        margin: 10pt 0;
+      }
+      .profile-grade {
+        display: grid;
+        place-items: center;
+        width: 52pt;
+        height: 52pt;
+        border: 2px solid #000;
+        font:
+          700 26pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .event-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 14pt;
+      }
+      .page-footer {
+        position: absolute;
+        left: 0.55in;
+        right: 0.55in;
+        bottom: 0.24in;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 5pt;
+        border-top: 0.6px solid #777;
+        font-size: 7pt;
+        color: #555;
+      }
+      @page {
+        size: Letter;
+        margin: 0;
+      }
+      @media print {
+        html {
+          background: #fff;
+        }
+        body {
+          font-size: 10.5pt;
+        }
+        .page {
+          width: 8.5in;
+          min-height: 11in;
+          margin: 0;
+          box-shadow: none;
+        }
+        .screen-note {
+          display: none !important;
+        }
+      }
+      @media screen and (max-width: 900px) {
+        .page {
+          width: calc(100% - 24px);
+          min-height: auto;
+          margin: 12px;
+          padding: 28px;
+        }
+        .page-footer {
+          position: static;
+          margin-top: 24px;
+        }
+        .summary-grid,
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="page">
+      <p class="kicker">Family convenience report · Print edition · September 11, 2026</p>
+      <h1>1 Heidelberg Court<br />Bernville, Pennsylvania 19506</h1>
+      <p class="deck">A quiet Jefferson Township home at the end of a golf-course lane, with public elementary school and groceries close by—but specialty family activities mostly in the 24–32 minute range.</p>
+      <div class="rule"></div>
+      <div class="summary-grid"><div><span class="label">Overall assessment</span><div class="score"><strong>68</strong><span>/ 100</span></div><p><b>Strong local basics; a planned-drive lifestyle.</b> The unusually good pieces are Penn-Bernville Elementary, Boyer’s supermarket and Koziar’s Christmas Village. The limitation is depth: Target, Walmart, Montessori, gymnastics and martial arts are not quick trips.</p></div>
+        <div class="callout"><h3>School boundary</h3><p>Property records place the parcel in <b>Tulpehocken Area School District</b>. Penn-Bernville Elementary is the closest district elementary and likely K–6 assignment. Confirm directly before relying on enrollment.</p></div></div>
+      <div class="stat-grid"><div class="stat"><b>7 min</b><span>LIKELY K–6 SCHOOL</span></div><div class="stat"><b>8 min</b><span>PROPER GROCERY</span></div><div class="stat"><b>24 min</b><span>BJJ OPTION</span></div></div>
+      <div class="section"><h3>Essential-distance snapshot</h3><table><thead><tr><th>Need</th><th>Best fit</th><th class="num">Road</th><th class="num">Drive*</th></tr></thead><tbody>
+        <tr><td>Public elementary</td><td>Penn-Bernville Elementary</td><td class="num">2.7 mi</td><td class="num">7 min</td></tr>
+        <tr><td>Private elementary</td><td>Summer Mountain School</td><td class="num">6.9 mi</td><td class="num">15 min</td></tr>
+        <tr><td>Montessori under 5</td><td>Montessori Country Day</td><td class="num">19.3 mi</td><td class="num">32 min</td></tr>
+        <tr><td>Proper grocery</td><td>Boyer’s Food Market</td><td class="num">3.3 mi</td><td class="num">8 min</td></tr>
+        <tr><td>Target / Walmart</td><td>Muhlenberg / Hamburg</td><td class="num">14–16 mi</td><td class="num">26–31 min</td></tr>
+        <tr><td>Kids dance</td><td>Horizons Dance</td><td class="num">8.1 mi</td><td class="num">19 min</td></tr>
+        <tr><td>Gymnastics</td><td>Berks Gymnastics</td><td class="num">15.4 mi</td><td class="num">26 min</td></tr>
+        <tr><td>Adult gym</td><td>Anytime Fitness Leesport</td><td class="num">12.6 mi</td><td class="num">26 min</td></tr>
+        <tr><td>BJJ / Muay Thai</td><td>BCBJJ / Pereira BJJ</td><td class="num">13.7–14.5 mi</td><td class="num">24–28 min</td></tr>
+      </tbody></table><p class="fine">*Verified road routing without live traffic; rounded up. Research date: September 11, 2026.</p></div>
+      <div class="page-footer"><span>1 Heidelberg Ct · Family Radius</span><span>1 / 5</span></div>
+    </section>
+
+    <section class="page">
+      <p class="kicker">Place profile · Jefferson Township & Bernville</p><h2>Rural privacy with a small-town service spine</h2>
+      <p>Bernville is the mailing label, but the home is in Jefferson Township, southwest of the borough. The immediate setting is low-density, wooded and agricultural; Route 183 connects the household to school, groceries, Leesport and Reading.</p>
+      <div class="two-col"><div><div class="profile-score"><div class="profile-grade">B−</div><div><b>Niche overall grade</b><br><span class="muted">Rural · Good for Families B · Housing B− · Outdoors B+ · Jobs B+ · Commute C+</span></div></div><p>Niche reports a population of 2,348, a median age of 42.6, 94% homeownership and median household income around $116,250.</p></div>
+        <div class="callout"><h3>The niche</h3><p>A golf-course-edge acreage property that feels secluded while remaining about eight minutes from a full supermarket. This is appealing for space and quiet, less so for spontaneous classes or walkable social life.</p></div></div>
+      <div class="section"><h3>What the area feels like</h3><div class="corridor"><b>At home</b><span>End-of-lane quiet, mature landscape, 1.91 acres, pool and views over Heidelberg Country Club.</span></div><div class="corridor"><b>Bernville</b><span>Small borough identity, public school, library, local grocery and civic organizations.</span></div><div class="corridor"><b>Broader orbit</b><span>Leesport, Hamburg, Muhlenberg, Wyomissing and Reading supply the missing retail and activity depth.</span></div></div>
+      <div class="section"><h3>Events and family life</h3><div class="event-list">
+        <div class="item"><h3>Koziar’s Christmas Village</h3><p>About four minutes away. Its 79th season opens November 7, 2026; nightly operation begins at Thanksgiving through January 2.</p></div>
+        <div class="item"><h3>Blue Marsh Lake</h3><p>Beach days, boating, fishing, trails, picnics and seasonal recreation in the nearby lake corridor.</p></div>
+        <div class="item"><h3>School & youth sports</h3><p>Tulpehocken games, performances and youth leagues are a core part of the community calendar.</p></div>
+        <div class="item"><h3>Library & borough programs</h3><p>Storytimes, children’s programming and smaller civic events provide local indoor gathering points.</p></div>
+      </div></div>
+      <div class="callout"><h3>Seasonal caution</h3><p>Koziar’s is a local asset, but its own visitor guidance warns of traffic delays on popular December Saturdays between 5 and 8 p.m.</p></div>
+      <div class="page-footer"><span>1 Heidelberg Ct · Print edition</span><span>2 / 5</span></div>
+    </section>
+
+    <section class="page">
+      <p class="kicker">Education</p><h2>School choices: close public, niche private, distant Montessori</h2>
+      <div class="two-col"><div>
+        <div class="item"><div class="item-head"><h3>Penn-Bernville Elementary</h3><span class="rating">6 / 10 GS</span></div><p class="meta">24 Shartlesville Rd · 2.7 mi · 7 min</p><p>District K–6 elementary and likely assignment. GreatSchools reports 302 students and a 6/10 rating. Confirm the parcel boundary with Tulpehocken Area School District.</p></div>
+        <div class="item"><div class="item-head"><h3>Summer Mountain School</h3><span class="rating">NR</span></div><p class="meta">36 Seigfried Rd · 6.9 mi · 15 min</p><p>Small private Mennonite school listed for grades 1–8. Public detail is limited; ask directly about curriculum, admissions, transportation and current capacity.</p></div>
+      </div><div>
+        <div class="item"><div class="item-head"><h3>Montessori Country Day</h3><span class="rating">NR</span></div><p class="meta">53 Vermont Rd, Sinking Spring · 19.3 mi · 32 min</p><p>The closest verified Montessori fit found for children under five. Primary begins at age 2 years 10 months; the site also describes toddler programming and extended care.</p></div>
+        <div class="callout"><h3>Rating note</h3><p>GreatSchools rates public schools on a 1–10 scale. Private and Montessori schools shown as “NR” are not being judged low-quality; a comparable public rating is simply not published.</p></div>
+      </div></div>
+      <div class="section"><h3>School decision checklist</h3><table><thead><tr><th>Question</th><th>Why it matters here</th></tr></thead><tbody>
+        <tr><td>Confirm exact elementary assignment</td><td>Property-level sources identify Tulpehocken Area; only the district can make a binding determination.</td></tr>
+        <tr><td>Ask about bus pickup and ride length</td><td>Road distance is short, but rural routes may be indirect.</td></tr>
+        <tr><td>Visit Summer Mountain</td><td>The closest private option is small and faith-specific, with limited public program information.</td></tr>
+        <tr><td>Test the Montessori commute</td><td>A 32-minute no-traffic drive becomes a major twice-daily commitment.</td></tr>
+        <tr><td>Verify current age cutoff</td><td>Montessori Country Day lists primary from age 2 years 10 months; confirm the selected program and availability.</td></tr>
+      </tbody></table></div>
+      <div class="callout"><h3>Bottom line</h3><p>Public elementary access is a real strength. Private elementary is nearby but specialized, while Montessori under age five is available only with a long commute.</p></div>
+      <div class="page-footer"><span>1 Heidelberg Ct · Print edition</span><span>3 / 5</span></div>
+    </section>
+
+    <section class="page">
+      <p class="kicker">Shopping, activities & fitness</p><h2>Good grocery access; specialty needs spread out</h2>
+      <div class="two-col"><div>
+        <div class="item"><div class="item-head"><h3>Boyer’s Food Market</h3><span class="rating">8 min</span></div><p class="meta">7166 Bernville Rd · 3.3 mi</p><p>A true local supermarket with produce, meat, deli and long daily hours—excellent everyday coverage for a rural address.</p></div>
+        <div class="item"><div class="item-head"><h3>Target Muhlenberg</h3><span class="rating">26 min</span></div><p class="meta">4220 N 5th Street Hwy · 14.1 mi</p><p>General merchandise, pharmacy, grocery and drive-up; not a quick errand.</p></div>
+        <div class="item"><div class="item-head"><h3>Walmart Hamburg</h3><span class="rating">31 min</span></div><p class="meta">1800 Tilden Ridge · 16.0 mi</p><p>Supercenter with grocery, pharmacy and broad one-stop shopping.</p></div>
+        <div class="item"><div class="item-head"><h3>Horizons Dance Conservatory</h3><span class="rating">19 min</span></div><p class="meta">2735 Bernville Rd, Leesport · 8.1 mi</p><p>Ballet, contemporary, jazz, hip-hop, acrobatics and conditioning; current site highlights age-five-and-up classes.</p></div>
+      </div><div>
+        <div class="item"><div class="item-head"><h3>Berks Gymnastics Academy</h3><span class="rating">26 min</span></div><p class="meta">325 Morgantown Rd, Reading · 15.4 mi</p><p>Dedicated 10,000-square-foot facility with preschool equipment, recreational gymnastics, ninja and competitive programs.</p></div>
+        <div class="item"><div class="item-head"><h3>Anytime Fitness Leesport</h3><span class="rating">26 min</span></div><p class="meta">5479 Pottsville Pike · 12.6 mi</p><p>24/7 member access, cardio, strength, functional equipment and coaching.</p></div>
+        <div class="item"><div class="item-head"><h3>Berks County BJJ</h3><span class="rating">24 min</span></div><p class="meta">4700 N 5th Street Hwy, Temple · 13.7 mi</p><p>Adult and kids Brazilian jiu-jitsu, MMA, striking and strength/conditioning.</p></div>
+        <div class="item"><div class="item-head"><h3>Pereira BJJ</h3><span class="rating">28 min</span></div><p class="meta">1414 Moss St, Reading · 14.5 mi</p><p>The strongest two-need match found: BJJ plus dedicated Muay Thai, kickboxing, boxing and MMA.</p></div>
+      </div></div>
+      <div class="callout"><h3>Practical pattern</h3><p>Daily food shopping is easy. Dance is reasonable. Gymnastics, a full adult gym, BJJ and Muay Thai all function as scheduled outings rather than neighborhood conveniences.</p></div>
+      <div class="page-footer"><span>1 Heidelberg Ct · Print edition</span><span>4 / 5</span></div>
+    </section>
+
+    <section class="page">
+      <p class="kicker">Score, trade-offs & sources</p><h2>How this address scores</h2>
+      <div class="two-col"><div><h3>Weighted category scores</h3>
+        <div class="rating-box"><span>Public schools · 30%</span><div><b>84</b></div></div><div class="track"><i style="width:84%"></i></div>
+        <div class="rating-box"><span>Private / early · 15%</span><div><b>55</b></div></div><div class="track"><i style="width:55%"></i></div>
+        <div class="rating-box"><span>Shopping · 20%</span><div><b>78</b></div></div><div class="track"><i style="width:78%"></i></div>
+        <div class="rating-box"><span>Kids activities · 15%</span><div><b>65</b></div></div><div class="track"><i style="width:65%"></i></div>
+        <div class="rating-box"><span>Adult fitness · 10%</span><div><b>62</b></div></div><div class="track"><i style="width:62%"></i></div>
+        <div class="rating-box"><span>Martial arts · 5%</span><div><b>60</b></div></div><div class="track"><i style="width:60%"></i></div>
+        <div class="rating-box"><span>Walkability · 5%</span><div><b>5</b></div></div><div class="track"><i style="width:5%"></i></div>
+        <p class="fine">Weighted result: 68.25, rounded to 68. Travel bands prioritize ≤10 minutes, then 11–20, 21–30 and 30+.</p></div>
+        <div><h3>What works</h3><ul class="list pros"><li>Seven-minute likely public elementary trip.</li><li>Eight-minute proper supermarket.</li><li>Quiet acreage and golf-course view.</li><li>Koziar’s and Blue Marsh outdoor orbit.</li></ul><h3 style="margin-top:10pt">What to plan around</h3><ul class="list cons"><li>Fully car-dependent.</li><li>Big-box shopping takes 26–31 minutes.</li><li>Montessori is about 32 minutes.</li><li>Gymnastics, gym and martial arts take 24–28 minutes.</li></ul></div></div>
+      <div class="section"><h3>Sources</h3><ol class="sources">
+        <li><a href="https://www.zillow.com/homedetails/1-Heidelberg-Ct-Bernville-PA-19506/8891875_zpid/">Zillow</a>; <a href="https://www.redfin.com/PA/Bernville/1-Heidelberg-Ct-19506/home/38541389">Redfin</a> — parcel and listing facts.</li>
+        <li><a href="https://www.niche.com/places-to-live/jefferson-township-berks-pa/">Niche</a>; <a href="https://censusreporter.org/profiles/06000US4201137824-jefferson-township-berks-county-pa/">Census Reporter</a> — township profile.</li>
+        <li><a href="https://www.tulpehocken.org/o/pbes">Penn-Bernville Elementary</a>; <a href="https://www.greatschools.org/pennsylvania/bernville/2783-Penn-Bernville-El-School/">GreatSchools</a>.</li>
+        <li><a href="https://www.privateschoolreview.com/summer-mountain-school-profile">Summer Mountain School</a>; <a href="https://mcdsberks.org/programs/preschool/">Montessori Country Day</a>.</li>
+        <li><a href="https://www.boyersfood.com/store-locator/bernville/">Boyer’s</a>; <a href="https://www.target.com/sl/muhlenberg-township/2536">Target</a>; <a href="https://www.walmart.com/store/4612-hamburg-pa">Walmart</a>.</li>
+        <li><a href="https://www.horizonsdance.com/">Horizons Dance</a>; <a href="https://www.berksgymnastics.com/">Berks Gymnastics</a>; <a href="https://www.anytimefitness.com/locations/leesport-pennsylvania-5014">Anytime Fitness</a>.</li>
+        <li><a href="https://www.bcbjj.org/">Berks County BJJ</a>; <a href="https://www.pereirabjj.com/">Pereira BJJ</a>; <a href="https://koziarschristmasvillage.com/visit-koziars/">Koziar’s</a>.</li>
+        <li>Drive figures: OSRM road routing, checked September 11, 2026; excludes traffic and is rounded up.</li>
+      </ol></div>
+      <p class="fine">This is a research aid, not a guarantee of enrollment, business availability, ratings, hours or travel time. Verify school assignment, programs and schedules directly.</p>
+      <div class="page-footer"><span>1 Heidelberg Ct · Print edition</span><span>5 / 5</span></div>
+    </section>
+  </body>
+</html>
+

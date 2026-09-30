@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Black-and-white printable family convenience report for 2775 Kuter Road, Bath, Pennsylvania"
+    />
+    <title>80 · 2775 Kuter Road — Printable Family Convenience Report</title>
+    <style>
+      :root {
+        --black: #000;
+        --gray: #555;
+        --line: #999;
+        --light: #eee;
+        --paper: #fff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        background: #d8d8d8;
+      }
+      body {
+        margin: 0;
+        color: var(--black);
+        font:
+          10.5pt/1.34 Arial,
+          Helvetica,
+          sans-serif;
+        -webkit-print-color-adjust: economy;
+        print-color-adjust: economy;
+      }
+      .page {
+        position: relative;
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0.25in auto;
+        padding: 0.5in 0.55in 0.46in;
+        background: var(--paper);
+        box-shadow: 0 2px 14px #888;
+        break-after: page;
+        page-break-after: always;
+      }
+      .page:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+      .kicker {
+        margin: 0 0 7pt;
+        font-size: 8pt;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      h1 {
+        margin: 0;
+        font:
+          700 29pt/1.02 Georgia,
+          'Times New Roman',
+          serif;
+        letter-spacing: -0.025em;
+      }
+      h2 {
+        margin: 0 0 10pt;
+        padding-bottom: 5pt;
+        border-bottom: 2px solid #000;
+        font:
+          700 19pt/1.05 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      h3 {
+        margin: 0 0 5pt;
+        font-size: 11pt;
+      }
+      p {
+        margin: 0 0 8pt;
+      }
+      a {
+        color: #000;
+        text-decoration: underline;
+        text-decoration-thickness: 0.5px;
+        text-underline-offset: 2px;
+      }
+      .muted {
+        color: var(--gray);
+      }
+      .deck {
+        max-width: 6.8in;
+        margin: 12pt 0 15pt;
+        font:
+          12pt/1.35 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .rule {
+        height: 3px;
+        margin: 16pt 0;
+        background: #000;
+      }
+      .summary-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 18pt;
+        align-items: start;
+      }
+      .score {
+        display: flex;
+        align-items: baseline;
+        gap: 5pt;
+        margin: 2pt 0 8pt;
+        font-weight: 700;
+      }
+      .score strong {
+        font:
+          700 46pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .score span {
+        font-size: 12pt;
+      }
+      .label {
+        display: inline-block;
+        padding: 2pt 5pt;
+        border: 1px solid #000;
+        font-size: 7.5pt;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .callout {
+        padding: 10pt 12pt;
+        border: 2px solid #000;
+      }
+      .callout p:last-child {
+        margin-bottom: 0;
+      }
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8pt;
+        margin: 12pt 0;
+      }
+      .stat {
+        padding: 8pt;
+        border-top: 2px solid #000;
+        border-bottom: 1px solid var(--line);
+      }
+      .stat b {
+        display: block;
+        font-size: 16pt;
+      }
+      .stat span {
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 8.8pt;
+      }
+      th {
+        padding: 5pt 5pt;
+        border-top: 1.5px solid #000;
+        border-bottom: 1.5px solid #000;
+        text-align: left;
+        font-size: 7.3pt;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      td {
+        padding: 5pt;
+        border-bottom: 0.6px solid #bbb;
+        vertical-align: top;
+      }
+      td.num,
+      th.num {
+        text-align: right;
+        white-space: nowrap;
+      }
+      tr {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .section {
+        margin-top: 14pt;
+      }
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14pt;
+      }
+      .item {
+        padding: 9pt 0;
+        border-top: 1px solid #000;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .item:first-child {
+        border-top: 0;
+      }
+      .item-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 8pt;
+        align-items: baseline;
+      }
+      .item h3 {
+        font-size: 10.5pt;
+      }
+      .item .rating {
+        white-space: nowrap;
+        font-size: 8pt;
+        font-weight: 700;
+      }
+      .item .meta {
+        margin: 0 0 4pt;
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      .item p {
+        margin: 0;
+        font-size: 8.8pt;
+      }
+      .rating-box {
+        display: grid;
+        grid-template-columns: 1fr 36pt;
+        gap: 7pt;
+        align-items: center;
+        margin: 6pt 0;
+      }
+      .track {
+        height: 7pt;
+        border: 1px solid #000;
+      }
+      .track i {
+        display: block;
+        height: 100%;
+        background: #000;
+      }
+      .rating-box b {
+        text-align: right;
+        font-size: 9pt;
+      }
+      .list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .list li {
+        position: relative;
+        padding: 5pt 0 5pt 17pt;
+        border-top: 0.6px solid #bbb;
+      }
+      .list li:first-child {
+        border-top: 0;
+      }
+      .list li:before {
+        position: absolute;
+        left: 0;
+        top: 5pt;
+        font-weight: 700;
+      }
+      .pros li:before {
+        content: '+';
+      }
+      .cons li:before {
+        content: '–';
+      }
+      .corridor {
+        display: grid;
+        grid-template-columns: 85pt 1fr;
+        gap: 8pt;
+        margin: 8pt 0;
+        padding: 7pt 0;
+        border-top: 0.6px solid #bbb;
+      }
+      .corridor:first-child {
+        border-top: 0;
+      }
+      .corridor b {
+        font-size: 8.5pt;
+      }
+      .corridor span {
+        font-size: 8.5pt;
+      }
+      .sources {
+        margin: 0;
+        padding-left: 16pt;
+        font-size: 7.8pt;
+      }
+      .sources li {
+        margin: 0 0 5pt;
+      }
+      .fine {
+        font-size: 7.5pt;
+        color: var(--gray);
+      }
+      .profile-score {
+        display: flex;
+        align-items: center;
+        gap: 12pt;
+        margin: 10pt 0;
+      }
+      .profile-grade {
+        display: grid;
+        place-items: center;
+        width: 52pt;
+        height: 52pt;
+        border: 2px solid #000;
+        font:
+          700 26pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .event-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 14pt;
+      }
+      .page-footer {
+        position: absolute;
+        left: 0.55in;
+        right: 0.55in;
+        bottom: 0.24in;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 5pt;
+        border-top: 0.6px solid #777;
+        font-size: 7pt;
+        color: #555;
+      }
+      @page {
+        size: Letter;
+        margin: 0;
+      }
+      @media print {
+        html {
+          background: #fff;
+        }
+        body {
+          font-size: 10.5pt;
+        }
+        .page {
+          width: 8.5in;
+          min-height: 11in;
+          margin: 0;
+          box-shadow: none;
+        }
+        .screen-note {
+          display: none !important;
+        }
+      }
+      @media screen and (max-width: 900px) {
+        .page {
+          width: calc(100% - 24px);
+          min-height: auto;
+          margin: 12px;
+          padding: 28px;
+        }
+        .page-footer {
+          position: static;
+          margin-top: 24px;
+        }
+        .summary-grid,
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <section class="page"><p class="kicker">Family Radius · Property Brief</p><h1>2775 Kuter Road<br>Bath, PA 18014</h1><p class="deck">A private Moore Township home on 1.63 acres, with Bath close by and a practical Nazareth-centered family amenity network.</p><div class="rule"></div><div class="summary-grid"><div><span class="label">Family convenience score</span><div class="score"><strong>80</strong><span>/ 100</span></div><p><b>Bottom line:</b> strong early-learning and activity choices within a workable drive, offset by car dependence, modest public-school ratings and an elementary boundary that needs direct confirmation.</p></div><div class="callout"><h3>Important location finding</h3><p>The postal city is Bath, but the property is in <b>Moore Township</b> and Northampton Area School District—not Bath Borough. The district changed elementary boundaries for 2026–27.</p></div></div><div class="stat-grid"><div class="stat"><b>~7–8 min</b><span>elementary + family sports</span></div><div class="stat"><b>13–18 min</b><span>Nazareth essentials</span></div><div class="stat"><b>~18–23 min</b><span>martial arts choices</span></div></div><h3>Property snapshot</h3><table><tr><th>Active listing</th><th>Site</th><th>Notable extras</th></tr><tr><td>$550,000 · 4 beds · 2.5 baths · roughly 2,785 listed sq ft · built 1991</td><td>1.63 acres · Moore Township · Northampton Area SD</td><td>Finished basement · in-ground pool · multiple sheds · attached 2-car garage</td></tr></table><div class="callout" style="margin-top:14pt"><h3>Due-diligence note</h3><p>The listing references discounted auction-platform pricing. Clarify sale terms, inspection rights, financing rules, well/septic condition, oil heat, pool equipment, taxes and current disclosures.</p></div><footer>1 / 5 · Overview · Researched September 30, 2026</footer></section>
+    <section class="page"><p class="kicker">Schools & early learning</p><h2>Northampton Area school path</h2><table><tr><th>Option</th><th>Grades / rating</th><th>Planning estimate</th><th>Assessment</th></tr><tr><td><b>George Wolf Elementary</b></td><td>PK–5 · 6/10 GS · B− Niche</td><td>~2.1 mi · ~7 min</td><td>Current listing names it; confirm exact 2026–27 assignment with NASD.</td></tr><tr><td><b>Northampton Area Middle</b></td><td>6–8 · 4/10 GS</td><td>~8.1 mi · ~17 min</td><td>Official plan says no middle-school placement change.</td></tr><tr><td><b>Northampton Area High</b></td><td>9–12 · 5/10 GS</td><td>~7.7 mi · ~17 min</td><td>Adjacent to the middle-school campus.</td></tr><tr><td><b>Holy Family School</b></td><td>Catholic · PK3/PK4–8</td><td>~6.3 mi · ~15 min</td><td>Middle States-accredited; full-day kindergarten.</td></tr><tr><td><b>Dragonfly Montessori</b></td><td>Toddler 1–2 · preschool 3–6</td><td>~7.0 mi · ~16 min</td><td>Authentic Montessori under age five; rolling admission if space permits.</td></tr></table><div class="callout" style="margin-top:16pt"><h3>Elementary assignment changed nearby</h3><p>NASD closed Moore Elementary for 2026–27 and redrew K–5 attendance zones. Do not rely on an older portal or the nearest-school assumption; confirm this parcel with district registration.</p></div><footer>2 / 5 · Schools</footer></section>
+    <section class="page"><p class="kicker">Shopping, activities & fitness</p><h2>Everyday destinations</h2><table><tr><th>Need</th><th>Best nearby option</th><th>Planning estimate</th><th>Notes</th></tr><tr><td>Proper grocery</td><td><b>Wegmans Nazareth</b></td><td>~8.2 mi · ~18 min</td><td>Full supermarket, prepared foods and pharmacy.</td></tr><tr><td>Target</td><td><b>Target Lower Nazareth</b></td><td>~8.3 mi · ~18 min</td><td>Pickup, drive up, CVS and Starbucks.</td></tr><tr><td>Walmart</td><td><b>Walmart Easton</b></td><td>~8.4 mi · ~18 min</td><td>Supercenter, pharmacy, vision and auto care.</td></tr><tr><td>Kids dance</td><td><b>Jeannie Cardinal’s</b></td><td>~6.7 mi · ~15 min</td><td>Age 2–adult; broad dance and tumbling menu.</td></tr><tr><td>Gymnastics</td><td><b>Force Gymnastics</b></td><td>~6.1 mi · ~13 min</td><td>Preschool, recreation, tumbling and team programs.</td></tr><tr><td>Family sports</td><td><b>In The Zone</b></td><td>~2.6 mi · ~8 min</td><td>Basketball, volleyball, pickleball and training.</td></tr><tr><td>Adult gym</td><td><b>Planet Fitness Nazareth</b></td><td>~5.9 mi · ~14 min</td><td>Cardio, strength and guided training.</td></tr><tr><td>BJJ</td><td><b>Finishers MMA</b></td><td>~10.1 mi · ~23 min</td><td>No-gi BJJ, kids, wrestling and MMA.</td></tr><tr><td>Muay Thai + BJJ</td><td><b>Zombie BJJ</b></td><td>~9.6 mi · ~18 min</td><td>Adults, teens and kids; 40+ weekly classes.</td></tr></table><p class="muted" style="margin-top:14pt">Road mileage and time are off-peak route-planning estimates calculated September 30, 2026, not live traffic.</p><footer>3 / 5 · Daily convenience</footer></section>
+    <section class="page"><p class="kicker">Place profile</p><h2>Moore Township + Bath / Nazareth orbit</h2><div class="stat-grid"><div class="stat"><b>9,322</b><span>2020 Census population</span></div><div class="stat"><b>37.2 sq mi</b><span>township land area</span></div><div class="stat"><b>car-based</b><span>daily mobility pattern</span></div></div><div class="two-col"><div><h3>General vibe</h3><p>Rural-residential and spacious rather than isolated. Moore Township’s preserved-farm landscape and low-density roads give the home a country feel, while Bath and Nazareth keep ordinary services within reach.</p><h3>Local niche</h3><p>Bath is the compact historic hometown; Nazareth is the more active restaurant, retail and activity hub. Allentown and Bethlehem expand the job, cultural and martial-arts options farther south.</p></div><div><h3>Events families notice</h3><ul><li><b>Community Days:</b> bands, vendors, community groups and fireworks.</li><li><b>Summer Band Nights:</b> free, family-friendly township concerts.</li><li><b>Bath Farmers Market:</b> a limited 2026 late-summer pilot market.</li><li><b>Movies in the park:</b> outdoor family nights at Friendship Stage.</li><li><b>Bath concerts:</b> seasonal live music at the park stage.</li><li><b>Old Home Weekend:</b> a September borough tradition.</li></ul></div></div><div class="callout" style="margin-top:18pt"><h3>Daily-life caveat</h3><p>The nearby elementary and sports complex are valuable, but there is no walk-to-errands pattern. Most shopping and organized activities require a 13–18 minute drive.</p></div><footer>4 / 5 · Community</footer></section>
+    <section class="page"><p class="kicker">Decision summary</p><h2>Pros, trade-offs & methodology</h2><div class="two-col"><div><h3>What works well</h3><ul><li>Reported elementary school about seven minutes away.</li><li>True Montessori toddler and preschool program around sixteen minutes.</li><li>Strong Nazareth dance, gymnastics and gym choices.</li><li>Large indoor family sports complex about eight minutes away.</li><li>BJJ and dedicated Muay Thai within the practical regional orbit.</li></ul></div><div><h3>What to plan around</h3><ul><li>Near-total car dependence.</li><li>Middle/high around seventeen minutes with modest ratings.</li><li>Elementary assignment requires current confirmation.</li><li>Well, septic, oil heat and pool add inspection scope.</li><li>Auction-platform language needs careful review.</li></ul></div></div><h3 style="margin-top:14pt">Comparison scorecard</h3><table><tr><th>Category</th><th>Score</th><th>Weight</th><th>Weighted</th></tr><tr><td>Public schools</td><td>72</td><td>30%</td><td>21.6</td></tr><tr><td>Private / early learning</td><td>89</td><td>15%</td><td>13.35</td></tr><tr><td>Shopping & grocery</td><td>88</td><td>20%</td><td>17.6</td></tr><tr><td>Kids activities</td><td>91</td><td>15%</td><td>13.65</td></tr><tr><td>Adult fitness</td><td>91</td><td>10%</td><td>9.1</td></tr><tr><td>Martial arts</td><td>86</td><td>5%</td><td>4.3</td></tr><tr><td>Walkability</td><td>8</td><td>5%</td><td>0.4</td></tr><tr><td><b>Total</b></td><td></td><td>100%</td><td><b>80.0 → 80</b></td></tr></table><h3 style="margin-top:14pt">Principal sources</h3><p class="small">Current MLS/Redfin listing; Northampton Area SD; GreatSchools; Niche; Holy Family; Dragonfly Montessori; Wegmans; Target; Walmart; Jeannie Cardinal’s; Force Gymnastics; In The Zone; Planet Fitness; Finishers MMA; Zombie BJJ; U.S. Census; Moore Township; Bath Borough. Distances and drive times are planning estimates.</p><footer>5 / 5 · Decision summary</footer></section>  </body>
+</html>
+
+
+

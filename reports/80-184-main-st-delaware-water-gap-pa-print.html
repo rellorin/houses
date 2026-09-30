@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Black-and-white printable family convenience report for 184 Main Street, Delaware Water Gap, Pennsylvania"
+    />
+    <title>184 Main Street — Printable Family Convenience Report</title>
+    <style>
+      :root {
+        --black: #000;
+        --gray: #555;
+        --line: #999;
+        --light: #eee;
+        --paper: #fff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        background: #d8d8d8;
+      }
+      body {
+        margin: 0;
+        color: var(--black);
+        font:
+          10.5pt/1.34 Arial,
+          Helvetica,
+          sans-serif;
+        -webkit-print-color-adjust: economy;
+        print-color-adjust: economy;
+      }
+      .page {
+        position: relative;
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0.25in auto;
+        padding: 0.5in 0.55in 0.46in;
+        background: var(--paper);
+        box-shadow: 0 2px 14px #888;
+        break-after: page;
+        page-break-after: always;
+      }
+      .page:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+      .kicker {
+        margin: 0 0 7pt;
+        font-size: 8pt;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      h1 {
+        margin: 0;
+        font:
+          700 29pt/1.02 Georgia,
+          'Times New Roman',
+          serif;
+        letter-spacing: -0.025em;
+      }
+      h2 {
+        margin: 0 0 10pt;
+        padding-bottom: 5pt;
+        border-bottom: 2px solid #000;
+        font:
+          700 19pt/1.05 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      h3 {
+        margin: 0 0 5pt;
+        font-size: 11pt;
+      }
+      p {
+        margin: 0 0 8pt;
+      }
+      a {
+        color: #000;
+        text-decoration: underline;
+        text-decoration-thickness: 0.5px;
+        text-underline-offset: 2px;
+      }
+      .muted {
+        color: var(--gray);
+      }
+      .deck {
+        max-width: 6.8in;
+        margin: 12pt 0 15pt;
+        font:
+          12pt/1.35 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .rule {
+        height: 3px;
+        margin: 16pt 0;
+        background: #000;
+      }
+      .summary-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 18pt;
+        align-items: start;
+      }
+      .score {
+        display: flex;
+        align-items: baseline;
+        gap: 5pt;
+        margin: 2pt 0 8pt;
+        font-weight: 700;
+      }
+      .score strong {
+        font:
+          700 46pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .score span {
+        font-size: 12pt;
+      }
+      .label {
+        display: inline-block;
+        padding: 2pt 5pt;
+        border: 1px solid #000;
+        font-size: 7.5pt;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .callout {
+        padding: 10pt 12pt;
+        border: 2px solid #000;
+      }
+      .callout p:last-child {
+        margin-bottom: 0;
+      }
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8pt;
+        margin: 12pt 0;
+      }
+      .stat {
+        padding: 8pt;
+        border-top: 2px solid #000;
+        border-bottom: 1px solid var(--line);
+      }
+      .stat b {
+        display: block;
+        font-size: 16pt;
+      }
+      .stat span {
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 8.8pt;
+      }
+      th {
+        padding: 5pt 5pt;
+        border-top: 1.5px solid #000;
+        border-bottom: 1.5px solid #000;
+        text-align: left;
+        font-size: 7.3pt;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      td {
+        padding: 5pt;
+        border-bottom: 0.6px solid #bbb;
+        vertical-align: top;
+      }
+      td.num,
+      th.num {
+        text-align: right;
+        white-space: nowrap;
+      }
+      tr {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .section {
+        margin-top: 14pt;
+      }
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14pt;
+      }
+      .item {
+        padding: 9pt 0;
+        border-top: 1px solid #000;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .item:first-child {
+        border-top: 0;
+      }
+      .item-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 8pt;
+        align-items: baseline;
+      }
+      .item h3 {
+        font-size: 10.5pt;
+      }
+      .item .rating {
+        white-space: nowrap;
+        font-size: 8pt;
+        font-weight: 700;
+      }
+      .item .meta {
+        margin: 0 0 4pt;
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      .item p {
+        margin: 0;
+        font-size: 8.8pt;
+      }
+      .rating-box {
+        display: grid;
+        grid-template-columns: 1fr 36pt;
+        gap: 7pt;
+        align-items: center;
+        margin: 6pt 0;
+      }
+      .track {
+        height: 7pt;
+        border: 1px solid #000;
+      }
+      .track i {
+        display: block;
+        height: 100%;
+        background: #000;
+      }
+      .rating-box b {
+        text-align: right;
+        font-size: 9pt;
+      }
+      .list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .list li {
+        position: relative;
+        padding: 5pt 0 5pt 17pt;
+        border-top: 0.6px solid #bbb;
+      }
+      .list li:first-child {
+        border-top: 0;
+      }
+      .list li:before {
+        position: absolute;
+        left: 0;
+        top: 5pt;
+        font-weight: 700;
+      }
+      .pros li:before {
+        content: '+';
+      }
+      .cons li:before {
+        content: '–';
+      }
+      .corridor {
+        display: grid;
+        grid-template-columns: 85pt 1fr;
+        gap: 8pt;
+        margin: 8pt 0;
+        padding: 7pt 0;
+        border-top: 0.6px solid #bbb;
+      }
+      .corridor:first-child {
+        border-top: 0;
+      }
+      .corridor b {
+        font-size: 8.5pt;
+      }
+      .corridor span {
+        font-size: 8.5pt;
+      }
+      .sources {
+        margin: 0;
+        padding-left: 16pt;
+        font-size: 7.8pt;
+      }
+      .sources li {
+        margin: 0 0 5pt;
+      }
+      .fine {
+        font-size: 7.5pt;
+        color: var(--gray);
+      }
+      .profile-score {
+        display: flex;
+        align-items: center;
+        gap: 12pt;
+        margin: 10pt 0;
+      }
+      .profile-grade {
+        display: grid;
+        place-items: center;
+        width: 52pt;
+        height: 52pt;
+        border: 2px solid #000;
+        font:
+          700 26pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .event-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 14pt;
+      }
+      .page-footer {
+        position: absolute;
+        left: 0.55in;
+        right: 0.55in;
+        bottom: 0.24in;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 5pt;
+        border-top: 0.6px solid #777;
+        font-size: 7pt;
+        color: #555;
+      }
+      @page {
+        size: Letter;
+        margin: 0;
+      }
+      @media print {
+        html {
+          background: #fff;
+        }
+        body {
+          font-size: 10.5pt;
+        }
+        .page {
+          width: 8.5in;
+          min-height: 11in;
+          margin: 0;
+          box-shadow: none;
+        }
+        .screen-note {
+          display: none !important;
+        }
+      }
+      @media screen and (max-width: 900px) {
+        .page {
+          width: calc(100% - 24px);
+          min-height: auto;
+          margin: 12px;
+          padding: 28px;
+        }
+        .page-footer {
+          position: static;
+          margin-top: 24px;
+        }
+        .summary-grid,
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="page"><p class="kicker">Family convenience report · Print edition · September 18, 2026</p><h1>184 Main Street<br />Delaware Water Gap, Pennsylvania 18327</h1><p class="deck">A spacious 5-bedroom Colonial on 1.17 acres in a tiny Appalachian Trail village, combining immediate outdoor access with a short Stroudsburg family-services radius.</p><div class="rule"></div>
+      <div class="summary-grid"><div><span class="label">Overall assessment</span><div class="score"><strong>80</strong><span>/ 100</span></div><p><b>One of the strongest convenience-and-character combinations in this series.</b> Grocery, dance, kids fitness and the YMCA are around ten minutes away; Target, Walmart and martial arts remain practical. The assigned elementary rating is the major caution.</p></div><div class="callout"><h3>Important school finding</h3><p>The property is in <b>Delaware Water Gap Borough and Stroudsburg Area School District</b>. B.F. Morey Elementary is the listed assigned K–4 campus, 2.9 miles away, and currently rates 4/10 on GreatSchools. Confirm directly with SASD.</p></div></div>
+      <div class="stat-grid"><div class="stat"><b>6–8 min</b><span>ASSIGNED ELEMENTARY</span></div><div class="stat"><b>8–10 min</b><span>GROCERY + DANCE</span></div><div class="stat"><b>12–15 min</b><span>TARGET + MARTIAL ARTS</span></div></div>
+      <div class="section"><h3>Essential-distance snapshot</h3><table><thead><tr><th>Need</th><th>Best fit</th><th class="num">Road*</th><th class="num">Drive*</th></tr></thead><tbody><tr><td>Public elementary</td><td>B.F. Morey Elementary</td><td class="num">2.9 mi</td><td class="num">6–8 min</td></tr><tr><td>Private elementary</td><td>Notre Dame Elementary</td><td class="num">~5 mi</td><td class="num">8–10 min</td></tr><tr><td>Montessori under 5</td><td>PocoNoski Child Care</td><td class="num">~9 mi</td><td class="num">15–18 min</td></tr><tr><td>Proper grocery</td><td>GIANT Stroudsburg</td><td class="num">~4 mi</td><td class="num">8–10 min</td></tr><tr><td>Walmart / Target</td><td>East Stroudsburg / Stroudsburg</td><td class="num">~5–7 mi</td><td class="num">10–15 min</td></tr><tr><td>Dance / gymnastics</td><td>Gigi & Company / International</td><td class="num">~4–13 mi</td><td class="num">8–22 min</td></tr><tr><td>Adult gym</td><td>Pocono Family YMCA</td><td class="num">~4 mi</td><td class="num">7–9 min</td></tr><tr><td>BJJ + Muay Thai</td><td>American Killer Bees PA</td><td class="num">~7 mi</td><td class="num">12–15 min</td></tr></tbody></table><p class="fine">*Approximate planning estimates without live traffic. Research date: September 18, 2026.</p></div><div class="page-footer"><span>184 Main Street · Family Radius</span><span>1 / 5</span></div></section>
+
+    <section class="page"><p class="kicker">Place profile · Delaware Water Gap Borough</p><h2>A tiny trail town with an outsized arts identity</h2><p>The property is inside Delaware Water Gap Borough, not merely the wider ZIP code: a historic village where the Appalachian Trail, Delaware River, jazz history, inns and cafés meet at the eastern edge of the Poconos.</p>
+      <div class="two-col"><div><div class="profile-score"><div class="profile-grade">B+</div><div><b>Stroudsburg Area district grade</b><br><span class="muted">Niche: Academics B · Diversity A · Teachers B+ · College Prep A− · Activities A</span></div></div><p>The 2020 Census counted only 675 residents. The 2024 ACS reports median household income of $95,313 and 42.6% of adults holding a bachelor’s degree or higher.</p></div><div class="callout"><h3>The niche</h3><p>An Appalachian Trail gateway with a serious jazz tradition—one of the rare small towns where outdoors, history and live music are part of the everyday identity.</p></div></div>
+      <div class="section"><h3>What the area feels like</h3><div class="corridor"><b>At home</b><span>1.17 acres, five bedrooms, four finished levels, detached two-car garage, public water and public sewer.</span></div><div class="corridor"><b>Nearby</b><span>Main Street offers restaurants, cafés, music and village life; the national recreation area and trailheads sit close by.</span></div><div class="corridor"><b>Broader orbit</b><span>Stroudsburg and East Stroudsburg add schools, supermarkets, classes, healthcare and major retail in roughly 10–15 minutes.</span></div></div>
+      <div class="section"><h3>Events and family life</h3><div class="event-list"><div class="item"><h3>COTA Jazz Festival</h3><p>A major September music-and-arts weekend rooted in the village since 1978.</p></div><div class="item"><h3>Gazebo concerts</h3><p>Free Sunday-evening music on the Church of the Mountain lawn from June through August.</p></div><div class="item"><h3>Hiker dinners</h3><p>Weekly summer meals for Appalachian Trail hikers reinforce the trail-community culture.</p></div><div class="item"><h3>National park programs</h3><p>Hiking, paddling, fishing, history and ranger-led exploration along the river corridor.</p></div></div></div>
+      <div class="callout"><h3>Daily reality</h3><p>You can walk to some village destinations and outdoor recreation, but Redfin still classifies the address as car-required for most errands. I-80 access is useful and also a noise consideration.</p></div><div class="page-footer"><span>184 Main Street · Print edition</span><span>2 / 5</span></div></section>
+
+    <section class="page"><p class="kicker">Education</p><h2>Strong district context, weaker assigned elementary rating</h2><div class="two-col"><div><div class="item"><div class="item-head"><h3>B.F. Morey Elementary</h3><span class="rating">4 / 10 GS</span></div><p class="meta">1044 W Main St · 2.9 mi · 6–8 min</p><p>Listed assigned Stroudsburg Area K–4 campus with about 228 students and a lower student-teacher ratio than the state average.</p></div><div class="item"><div class="item-head"><h3>District context</h3><span class="rating">B+ Niche</span></div><p class="meta">4,361 students · 13:1 ratio</p><p>Niche grades the district B+ overall, with A for diversity and activities, B+ for teachers and A− for college preparation.</p></div></div><div><div class="item"><div class="item-head"><h3>Notre Dame Elementary</h3><span class="rating">Pre-K–6</span></div><p class="meta">60 Spangenburg Ave · ~5 mi · 8–10 min</p><p>Catholic school with Montessori preschool, full-day kindergarten, elementary grades and extended care.</p></div><div class="item"><div class="item-head"><h3>PocoNoski Child Care</h3><span class="rating">15–18 min</span></div><p class="meta">2591 Milford Rd · ~9 mi</p><p>Licensed program for ages two through five using Maria Montessori methodology; weekdays 7 a.m.–6 p.m.</p></div></div></div>
+      <div class="section"><h3>School decision checklist</h3><table><thead><tr><th>Question</th><th>Why it matters</th></tr></thead><tbody><tr><td>Confirm elementary assignment</td><td>Obtain SASD confirmation for this exact parcel before relying on listing data.</td></tr><tr><td>Investigate the 4/10 rating</td><td>Ask about academic growth, attendance, intervention, subgroup performance and class climate.</td></tr><tr><td>Compare district trajectory</td><td>The district’s B+ profile is materially stronger than the assigned elementary summary.</td></tr><tr><td>Tour Notre Dame</td><td>Compare tuition, Catholic formation, Montessori preschool, extended care and transportation.</td></tr><tr><td>Check Montessori openings</td><td>Confirm age cutoffs, current availability, schedule and teaching approach directly.</td></tr></tbody></table></div><div class="callout"><h3>Bottom line</h3><p>The school commute is excellent and the district is above average, but B.F. Morey’s current 4/10 rating makes an in-person school investigation especially important.</p></div><div class="page-footer"><span>184 Main Street · Print edition</span><span>3 / 5</span></div></section>
+
+    <section class="page"><p class="kicker">Shopping, activities & fitness</p><h2>A strong 10–15 minute everyday radius</h2><div class="two-col"><div><div class="item"><div class="item-head"><h3>GIANT Stroudsburg</h3><span class="rating">8–10 min</span></div><p class="meta">65 N 9th St · ~4 mi</p><p>Full-service supermarket with produce, meat, deli, bakery and pharmacy.</p></div><div class="item"><div class="item-head"><h3>Walmart East Stroudsburg</h3><span class="rating">10–12 min</span></div><p class="meta">355 Lincoln Ave · ~5 mi</p><p>Full Supercenter with grocery pickup, pharmacy, vision and general merchandise.</p></div><div class="item"><div class="item-head"><h3>Target Stroudsburg</h3><span class="rating">12–15 min</span></div><p class="meta">155 Mountaineer Dr · ~7 mi</p><p>Full Target with drive-up, CVS pharmacy, Starbucks and optical.</p></div><div class="item"><div class="item-head"><h3>Gigi & Company Dance</h3><span class="rating">8–10 min</span></div><p class="meta">564 Main St · ~4 mi</p><p>Ballet, jazz, contemporary, acro, hip-hop, tap and musical theatre.</p></div></div>
+        <div><div class="item"><div class="item-head"><h3>International Gymnastics</h3><span class="rating">18–22 min</span></div><p class="meta">100 Gymnastics Way · ~13 mi</p><p>Dedicated classes, clinics and camps for recreational and serious gymnasts.</p></div><div class="item"><div class="item-head"><h3>Pocono Family YMCA</h3><span class="rating">7–9 min</span></div><p class="meta">809 Main St · ~4 mi</p><p>Fitness center, weights, pool, classes, child watch and youth programming.</p></div><div class="item"><div class="item-head"><h3>American Killer Bees PA</h3><span class="rating">12–15 min</span></div><p class="meta">344 Stroud Mall Rd · ~7 mi</p><p>BJJ, Muay Thai, boxing, wrestling, cardio kickboxing and kids programs.</p></div><div class="item"><div class="item-head"><h3>Outdoor anchor</h3><span class="rating">3–5 min</span></div><p class="meta">Delaware Water Gap National Recreation Area</p><p>Hiking, paddling, fishing, river scenery and historic sites essentially at home.</p></div></div></div>
+      <div class="callout"><h3>Practical pattern</h3><p>The unusually useful cluster is downtown Stroudsburg: grocery, dance, kids fitness and the YMCA all fit in one short trip. Target, Walmart and martial arts remain easy add-ons.</p></div><div class="page-footer"><span>184 Main Street · Print edition</span><span>4 / 5</span></div></section>
+
+    <section class="page"><p class="kicker">Score, trade-offs & sources</p><h2>How this address scores</h2><div class="two-col"><div><h3>Weighted category scores</h3><div class="rating-box"><span>Public schools · 30%</span><div><b>73</b></div></div><div class="track"><i style="width:73%"></i></div><div class="rating-box"><span>Private / early · 15%</span><div><b>83</b></div></div><div class="track"><i style="width:83%"></i></div><div class="rating-box"><span>Shopping · 20%</span><div><b>88</b></div></div><div class="track"><i style="width:88%"></i></div><div class="rating-box"><span>Kids activities · 15%</span><div><b>84</b></div></div><div class="track"><i style="width:84%"></i></div><div class="rating-box"><span>Adult fitness · 10%</span><div><b>90</b></div></div><div class="track"><i style="width:90%"></i></div><div class="rating-box"><span>Martial arts · 5%</span><div><b>84</b></div></div><div class="track"><i style="width:84%"></i></div><div class="rating-box"><span>Walkability · 5%</span><div><b>35</b></div></div><div class="track"><i style="width:35%"></i></div><p class="fine">Weighted result: 79.5, rounded to 80. Travel bands prioritize ≤10 minutes, then 11–20, 21–30 and 30+.</p></div><div><h3>What works</h3><ul class="list pros"><li>Village character and trails at the doorstep.</li><li>Grocery, dance, kids fitness and YMCA near ten minutes.</li><li>Target, Walmart and martial arts within fifteen.</li><li>Private Pre-K–6 and Montessori choices nearby.</li><li>Distinctive jazz and trail-community culture.</li></ul><h3 style="margin-top:10pt">What to plan around</h3><ul class="list cons"><li>Assigned elementary currently rates 4/10.</li><li>Most errands still require a car.</li><li>I-80 convenience brings traffic and noise.</li><li>A 1910 four-level home needs careful inspection.</li></ul></div></div>
+      <div class="section"><h3>Sources</h3><ol class="sources"><li><a href="https://www.redfin.com/PA/Delaware-Water-Gap/184-Main-St-18327/home/193598409">Redfin / PMAR MLS</a>; Realtor.com.</li><li><a href="https://dwgpa.gov/about-us/">Delaware Water Gap Borough</a>; U.S. Census; <a href="https://www.nps.gov/dewa/index.htm">National Park Service</a>.</li><li><a href="https://morey.sburg.org/">B.F. Morey</a>; <a href="https://www.greatschools.org/pennsylvania/stroudsburg/2716-B-F-Morey-El-School/">GreatSchools</a>; <a href="https://www.niche.com/k12/d/stroudsburg-area-school-district-pa/">Niche</a>.</li><li><a href="https://www.notredamees.org/">Notre Dame</a>; <a href="https://www.poconoski.org/home">PocoNoski</a>; Growing Concern.</li><li>GIANT Stroudsburg; Walmart East Stroudsburg; Target Stroudsburg.</li><li>Gigi & Company; International Gymnastics; Youth Movement; Pocono YMCA.</li><li><a href="https://killerbeespa.com/">American Killer Bees PA</a>; COTA Jazz; Gazebo concerts.</li><li>Drive figures are approximate planning estimates; check live routing before travel.</li></ol></div><p class="fine">Research aid only. Verify enrollment, programs, availability, property condition and travel times directly.</p><div class="page-footer"><span>184 Main Street · Print edition</span><span>5 / 5</span></div></section>
+  </body>
+</html>
+
+
+

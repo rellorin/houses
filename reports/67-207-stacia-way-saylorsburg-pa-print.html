@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Black-and-white printable family convenience report for 207 Stacia Way, Saylorsburg, Pennsylvania"
+    />
+    <title>207 Stacia Way — Printable Family Convenience Report</title>
+    <style>
+      :root {
+        --black: #000;
+        --gray: #555;
+        --line: #999;
+        --light: #eee;
+        --paper: #fff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        background: #d8d8d8;
+      }
+      body {
+        margin: 0;
+        color: var(--black);
+        font:
+          10.5pt/1.34 Arial,
+          Helvetica,
+          sans-serif;
+        -webkit-print-color-adjust: economy;
+        print-color-adjust: economy;
+      }
+      .page {
+        position: relative;
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0.25in auto;
+        padding: 0.5in 0.55in 0.46in;
+        background: var(--paper);
+        box-shadow: 0 2px 14px #888;
+        break-after: page;
+        page-break-after: always;
+      }
+      .page:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+      .kicker {
+        margin: 0 0 7pt;
+        font-size: 8pt;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      h1 {
+        margin: 0;
+        font:
+          700 29pt/1.02 Georgia,
+          'Times New Roman',
+          serif;
+        letter-spacing: -0.025em;
+      }
+      h2 {
+        margin: 0 0 10pt;
+        padding-bottom: 5pt;
+        border-bottom: 2px solid #000;
+        font:
+          700 19pt/1.05 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      h3 {
+        margin: 0 0 5pt;
+        font-size: 11pt;
+      }
+      p {
+        margin: 0 0 8pt;
+      }
+      a {
+        color: #000;
+        text-decoration: underline;
+        text-decoration-thickness: 0.5px;
+        text-underline-offset: 2px;
+      }
+      .muted {
+        color: var(--gray);
+      }
+      .deck {
+        max-width: 6.8in;
+        margin: 12pt 0 15pt;
+        font:
+          12pt/1.35 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .rule {
+        height: 3px;
+        margin: 16pt 0;
+        background: #000;
+      }
+      .summary-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 18pt;
+        align-items: start;
+      }
+      .score {
+        display: flex;
+        align-items: baseline;
+        gap: 5pt;
+        margin: 2pt 0 8pt;
+        font-weight: 700;
+      }
+      .score strong {
+        font:
+          700 46pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .score span {
+        font-size: 12pt;
+      }
+      .label {
+        display: inline-block;
+        padding: 2pt 5pt;
+        border: 1px solid #000;
+        font-size: 7.5pt;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .callout {
+        padding: 10pt 12pt;
+        border: 2px solid #000;
+      }
+      .callout p:last-child {
+        margin-bottom: 0;
+      }
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8pt;
+        margin: 12pt 0;
+      }
+      .stat {
+        padding: 8pt;
+        border-top: 2px solid #000;
+        border-bottom: 1px solid var(--line);
+      }
+      .stat b {
+        display: block;
+        font-size: 16pt;
+      }
+      .stat span {
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 8.8pt;
+      }
+      th {
+        padding: 5pt 5pt;
+        border-top: 1.5px solid #000;
+        border-bottom: 1.5px solid #000;
+        text-align: left;
+        font-size: 7.3pt;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      td {
+        padding: 5pt;
+        border-bottom: 0.6px solid #bbb;
+        vertical-align: top;
+      }
+      td.num,
+      th.num {
+        text-align: right;
+        white-space: nowrap;
+      }
+      tr {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .section {
+        margin-top: 14pt;
+      }
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14pt;
+      }
+      .item {
+        padding: 9pt 0;
+        border-top: 1px solid #000;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .item:first-child {
+        border-top: 0;
+      }
+      .item-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 8pt;
+        align-items: baseline;
+      }
+      .item h3 {
+        font-size: 10.5pt;
+      }
+      .item .rating {
+        white-space: nowrap;
+        font-size: 8pt;
+        font-weight: 700;
+      }
+      .item .meta {
+        margin: 0 0 4pt;
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      .item p {
+        margin: 0;
+        font-size: 8.8pt;
+      }
+      .rating-box {
+        display: grid;
+        grid-template-columns: 1fr 36pt;
+        gap: 7pt;
+        align-items: center;
+        margin: 6pt 0;
+      }
+      .track {
+        height: 7pt;
+        border: 1px solid #000;
+      }
+      .track i {
+        display: block;
+        height: 100%;
+        background: #000;
+      }
+      .rating-box b {
+        text-align: right;
+        font-size: 9pt;
+      }
+      .list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .list li {
+        position: relative;
+        padding: 5pt 0 5pt 17pt;
+        border-top: 0.6px solid #bbb;
+      }
+      .list li:first-child {
+        border-top: 0;
+      }
+      .list li:before {
+        position: absolute;
+        left: 0;
+        top: 5pt;
+        font-weight: 700;
+      }
+      .pros li:before {
+        content: '+';
+      }
+      .cons li:before {
+        content: '–';
+      }
+      .corridor {
+        display: grid;
+        grid-template-columns: 85pt 1fr;
+        gap: 8pt;
+        margin: 8pt 0;
+        padding: 7pt 0;
+        border-top: 0.6px solid #bbb;
+      }
+      .corridor:first-child {
+        border-top: 0;
+      }
+      .corridor b {
+        font-size: 8.5pt;
+      }
+      .corridor span {
+        font-size: 8.5pt;
+      }
+      .sources {
+        margin: 0;
+        padding-left: 16pt;
+        font-size: 7.8pt;
+      }
+      .sources li {
+        margin: 0 0 5pt;
+      }
+      .fine {
+        font-size: 7.5pt;
+        color: var(--gray);
+      }
+      .profile-score {
+        display: flex;
+        align-items: center;
+        gap: 12pt;
+        margin: 10pt 0;
+      }
+      .profile-grade {
+        display: grid;
+        place-items: center;
+        width: 52pt;
+        height: 52pt;
+        border: 2px solid #000;
+        font:
+          700 26pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .event-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 14pt;
+      }
+      .page-footer {
+        position: absolute;
+        left: 0.55in;
+        right: 0.55in;
+        bottom: 0.24in;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 5pt;
+        border-top: 0.6px solid #777;
+        font-size: 7pt;
+        color: #555;
+      }
+      @page {
+        size: Letter;
+        margin: 0;
+      }
+      @media print {
+        html {
+          background: #fff;
+        }
+        body {
+          font-size: 10.5pt;
+        }
+        .page {
+          width: 8.5in;
+          min-height: 11in;
+          margin: 0;
+          box-shadow: none;
+        }
+        .screen-note {
+          display: none !important;
+        }
+      }
+      @media screen and (max-width: 900px) {
+        .page {
+          width: calc(100% - 24px);
+          min-height: auto;
+          margin: 12px;
+          padding: 28px;
+        }
+        .page-footer {
+          position: static;
+          margin-top: 24px;
+        }
+        .summary-grid,
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="page"><p class="kicker">Family convenience report · Print edition · September 18, 2026</p><h1>207 Stacia Way<br />Saylorsburg, Pennsylvania 18353</h1><p class="deck">A 4-bedroom Ross Township home on 2.41 wooded acres, with Pleasant Valley schools and a car-dependent family-services radius centered on Brodheadsville and Stroudsburg.</p><div class="rule"></div>
+      <div class="summary-grid"><div><span class="label">Overall assessment</span><div class="score"><strong>67</strong><span>/ 100</span></div><p><b>Peaceful acreage with workable basics, but most family routines require deliberate driving.</b> Public K–5 campuses and full grocery are practical; major retail, Montessori, gymnastics and martial arts are planned trips.</p></div><div class="callout"><h3>Important school finding</h3><p>The Saylorsburg mailing address is in <b>Ross Township and Pleasant Valley School District</b>. Elementary students use Pleasant Valley Elementary for K–2 and Pleasant Valley Intermediate for grades 3–5. Confirm enrollment directly with PVSD.</p></div></div>
+      <div class="stat-grid"><div class="stat"><b>12–16 min</b><span>PUBLIC K–5 CAMPUSES</span></div><div class="stat"><b>15–18 min</b><span>PROPER GROCERY</span></div><div class="stat"><b>25–30 min</b><span>TARGET + MARTIAL ARTS</span></div></div>
+      <div class="section"><h3>Essential-distance snapshot</h3><table><thead><tr><th>Need</th><th>Best fit</th><th class="num">Road*</th><th class="num">Drive*</th></tr></thead><tbody><tr><td>Public elementary</td><td>PVE K–2 / PVI 3–5</td><td class="num">~7 mi</td><td class="num">12–16 min</td></tr><tr><td>Private elementary</td><td>Immaculate Conception</td><td class="num">~9 mi</td><td class="num">15–18 min</td></tr><tr><td>Montessori under 5</td><td>The Growing Concern</td><td class="num">~18 mi</td><td class="num">25–30 min</td></tr><tr><td>Proper grocery</td><td>Kinsley's ShopRite</td><td class="num">~9 mi</td><td class="num">15–18 min</td></tr><tr><td>Walmart / Target</td><td>East Stroudsburg / Stroudsburg</td><td class="num">~18–23 mi</td><td class="num">25–35 min</td></tr><tr><td>Dance / gymnastics</td><td>West End / International</td><td class="num">~10–17 mi</td><td class="num">16–30 min</td></tr><tr><td>Adult gym</td><td>Signature Health & Fitness</td><td class="num">~10 mi</td><td class="num">16–20 min</td></tr><tr><td>BJJ + Muay Thai</td><td>American Killer Bees PA</td><td class="num">~18 mi</td><td class="num">25–30 min</td></tr></tbody></table><p class="fine">*Approximate planning estimates without live traffic. Research date: September 18, 2026.</p></div><div class="page-footer"><span>207 Stacia Way · Family Radius</span><span>1 / 5</span></div></section>
+
+    <section class="page"><p class="kicker">Place profile · Ross Township</p><h2>Quiet Poconos foothill living, spread across a wide radius</h2><p>The property is in Ross Township, Monroe County: a low-density community of woods, farms and winding roads. Saylorsburg is the mailing identity, while Brodheadsville and Stroudsburg provide most everyday services.</p>
+      <div class="two-col"><div><div class="profile-score"><div class="profile-grade">C+</div><div><b>Pleasant Valley district grade</b><br><span class="muted">Niche: Academics B− · Diversity B+ · Teachers C+ · Resources D</span></div></div><p>The 2020 Census counted 5,464 residents. The 2024 ACS estimate is 5,488 across 22.9 square miles, with a median age of 53.4.</p></div><div class="callout"><h3>The niche</h3><p>Affordable-space Poconos living: quieter and more rural than Stroudsburg, with outdoor access and enough West End services for weekly routines—but little walkability.</p></div></div>
+      <div class="section"><h3>What the area feels like</h3><div class="corridor"><b>At home</b><span>2.41 wooded acres, four bedrooms, two-car garage, well and septic, built in 2003, no HOA.</span></div><div class="corridor"><b>Nearby</b><span>Kunkletown holds the K–5 campuses; Brodheadsville supplies supermarket, dance and adult fitness.</span></div><div class="corridor"><b>Broader orbit</b><span>Stroudsburg and East Stroudsburg add major retail, gymnastics, martial arts, dining and regional events.</span></div></div>
+      <div class="section"><h3>Events and family life</h3><div class="event-list"><div class="item"><h3>Township events</h3><p>Seasonal civic programs, cleanups and special events are posted through Ross Township.</p></div><div class="item"><h3>Van Buskirk–Haney Park</h3><p>One-mile walking trail, pavilion and playground for close-to-home family time.</p></div><div class="item"><h3>Quiet Valley</h3><p>Living-history farm festivals, demonstrations and hands-on seasonal programming.</p></div><div class="item"><h3>Stroudsburg orbit</h3><p>Main-street festivals, arts, dining and wider Poconos event calendars.</p></div></div></div>
+      <div class="callout"><h3>Daily reality</h3><p>This is not a town-center address. The payoff is peace, acreage and access to outdoors; the cost is a car for nearly every school run, errand and activity.</p></div><div class="page-footer"><span>207 Stacia Way · Print edition</span><span>2 / 5</span></div></section>
+
+    <section class="page"><p class="kicker">Education</p><h2>A two-campus K–5 path with mixed current ratings</h2><div class="two-col"><div><div class="item"><div class="item-head"><h3>Pleasant Valley Elementary</h3><span class="rating">NR · GS</span></div><p class="meta">476 Polk Township Rd · ~7 mi · 12–16 min</p><p>District K–2 campus. GreatSchools currently publishes no summary rating, and reports about 907 students and 98% regular attendance.</p></div><div class="item"><div class="item-head"><h3>Pleasant Valley Intermediate</h3><span class="rating">6 / 10 GS</span></div><p class="meta">477 Polk Township Rd · ~7 mi · 12–16 min</p><p>District grades 3–5 campus beside PVE; GreatSchools reports about 916 students and 99% regular attendance.</p></div></div><div><div class="item"><div class="item-head"><h3>Immaculate Conception</h3><span class="rating">PK–8</span></div><p class="meta">290 W Babbitt Ave · ~9 mi · 15–18 min</p><p>Traditional Catholic school serving preschool through grade eight and welcoming families of all faiths.</p></div><div class="item"><div class="item-head"><h3>The Growing Concern</h3><span class="rating">25–30 min</span></div><p class="meta">539 Railroad Dr · ~18 mi</p><p>Nonprofit Montessori preschool/kindergarten and private elementary program through grade five.</p></div></div></div>
+      <div class="section"><h3>School decision checklist</h3><table><thead><tr><th>Question</th><th>Why it matters</th></tr></thead><tbody><tr><td>Confirm district and campuses</td><td>Obtain PVSD confirmation for this exact parcel and current K–2 / 3–5 placement.</td></tr><tr><td>Read beyond ratings</td><td>PVE is unrated and PVI is 6/10; subgroup growth, class size and fit still matter.</td></tr><tr><td>Verify bus timing</td><td>A 12–16-minute car estimate does not predict the school-bus schedule.</td></tr><tr><td>Tour the private option</td><td>Compare tuition, faith formation, aftercare and transportation.</td></tr><tr><td>Check Montessori logistics</td><td>Confirm ages, schedule, openings and district transportation before relying on it.</td></tr></tbody></table></div><div class="callout"><h3>Bottom line</h3><p>Elementary access is practical but not a standout: the two public campuses are conveniently co-located, while ratings and district-level indicators are mixed.</p></div><div class="page-footer"><span>207 Stacia Way · Print edition</span><span>3 / 5</span></div></section>
+
+    <section class="page"><p class="kicker">Shopping, activities & fitness</p><h2>A workable 15–30 minute family radius</h2><div class="two-col"><div><div class="item"><div class="item-head"><h3>Kinsley's ShopRite</h3><span class="rating">15–18 min</span></div><p class="meta">107 Kinsley Dr · ~9 mi</p><p>Full-service supermarket with produce, meat, deli, bakery, pharmacy and weekly groceries.</p></div><div class="item"><div class="item-head"><h3>Walmart East Stroudsburg</h3><span class="rating">30–35 min</span></div><p class="meta">355 Lincoln Ave · ~23 mi</p><p>Full Supercenter for groceries, pharmacy and general merchandise.</p></div><div class="item"><div class="item-head"><h3>Target Stroudsburg</h3><span class="rating">25–30 min</span></div><p class="meta">155 Mountaineer Dr · ~18 mi</p><p>Full Target with drive-up, CVS, Starbucks and optical.</p></div><div class="item"><div class="item-head"><h3>West End Academy of Dance</h3><span class="rating">16–20 min</span></div><p class="meta">137 Erin Ln · ~10 mi</p><p>Current dance programs for ages two through adult.</p></div></div>
+        <div><div class="item"><div class="item-head"><h3>International Gymnastics</h3><span class="rating">25–30 min</span></div><p class="meta">100 Gymnastics Way · ~17 mi</p><p>Dedicated classes from parent-and-child ages through recreational and team gymnastics.</p></div><div class="item"><div class="item-head"><h3>Signature Health & Fitness</h3><span class="rating">16–20 min</span></div><p class="meta">137 Erin Ln · ~10 mi</p><p>24/7 gym with weights, machines, turf, classes and childcare.</p></div><div class="item"><div class="item-head"><h3>American Killer Bees PA</h3><span class="rating">25–30 min</span></div><p class="meta">344 Stroud Mall Rd · ~18 mi</p><p>BJJ, Muay Thai, boxing, wrestling, cardio kickboxing and kids programs.</p></div><div class="item"><div class="item-head"><h3>Local outdoor anchor</h3><span class="rating">10–15 min</span></div><p class="meta">Van Buskirk–Haney Community Park</p><p>One-mile trail, pavilion and playground close to home.</p></div></div></div>
+      <div class="callout"><h3>Practical pattern</h3><p>Brodheadsville handles grocery, dance and adult fitness; Stroudsburg handles major retail, gymnastics and martial arts. Bundling errands and classes will matter.</p></div><div class="page-footer"><span>207 Stacia Way · Print edition</span><span>4 / 5</span></div></section>
+
+    <section class="page"><p class="kicker">Score, trade-offs & sources</p><h2>How this address scores</h2><div class="two-col"><div><h3>Weighted category scores</h3><div class="rating-box"><span>Public schools · 30%</span><div><b>67</b></div></div><div class="track"><i style="width:67%"></i></div><div class="rating-box"><span>Private / early · 15%</span><div><b>72</b></div></div><div class="track"><i style="width:72%"></i></div><div class="rating-box"><span>Shopping · 20%</span><div><b>65</b></div></div><div class="track"><i style="width:65%"></i></div><div class="rating-box"><span>Kids activities · 15%</span><div><b>72</b></div></div><div class="track"><i style="width:72%"></i></div><div class="rating-box"><span>Adult fitness · 10%</span><div><b>82</b></div></div><div class="track"><i style="width:82%"></i></div><div class="rating-box"><span>Martial arts · 5%</span><div><b>68</b></div></div><div class="track"><i style="width:68%"></i></div><div class="rating-box"><span>Walkability · 5%</span><div><b>5</b></div></div><div class="track"><i style="width:5%"></i></div><p class="fine">Weighted result: 66.6, rounded to 67. Travel bands prioritize ≤10 minutes, then 11–20, 21–30 and 30+.</p></div><div><h3>What works</h3><ul class="list pros"><li>K–5 public campuses share one complex.</li><li>Proper supermarket is under twenty minutes.</li><li>Dance and adult gym share one address.</li><li>One academy covers BJJ and Muay Thai.</li><li>Quiet acreage and nearby township park.</li></ul><h3 style="margin-top:10pt">What to plan around</h3><ul class="list cons"><li>Almost no practical walkability.</li><li>Major retail is roughly 25–35 minutes.</li><li>School ratings are mixed; district is C+.</li><li>Montessori and gymnastics are planned trips.</li></ul></div></div>
+      <div class="section"><h3>Sources</h3><ol class="sources"><li><a href="https://www.redfin.com/PA/Saylorsburg/207-Stacia-Way-18353/home/137661284">Redfin / Bright MLS</a>; Zillow property profile.</li><li><a href="https://rosstwpmcpa.gov/">Ross Township</a>; <a href="https://censusreporter.org/profiles/06000US4208966280-ross-township-monroe-county-pa/">Census Reporter / ACS</a>.</li><li><a href="https://www.pvbears.org/our-district/school-locator-directions">PVSD</a>; <a href="https://www.greatschools.org/pennsylvania/kunkletown/2293-Pleasant-Valley-El-School/">PVE</a>; <a href="https://www.greatschools.org/pennsylvania/kunkletown/5226-Pleasant-Valley-Intrmd-School/">PVI</a>; Niche.</li><li><a href="https://www.immaculateconceptionschool.net/">Immaculate Conception</a>; <a href="https://www.growingconcern.org/">Growing Concern</a>; Sunny Day.</li><li>Kinsley's ShopRite; Walmart East Stroudsburg; Target Stroudsburg.</li><li>West End Academy; International Gymnastics; Signature Health & Fitness.</li><li><a href="https://killerbeespa.com/">American Killer Bees PA</a>; Ross Township parks; Quiet Valley.</li><li>Drive figures are approximate planning estimates; check live routing before travel.</li></ol></div><p class="fine">Research aid only. Verify enrollment, programs, availability, property condition and travel times directly.</p><div class="page-footer"><span>207 Stacia Way · Print edition</span><span>5 / 5</span></div></section>
+  </body>
+</html>
+
+
+

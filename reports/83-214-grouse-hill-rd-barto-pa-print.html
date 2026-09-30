@@ -1,0 +1,1085 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Black-and-white printable family convenience report for 214 Grouse Hill Road, Barto, Pennsylvania"
+    />
+    <title>214 Grouse Hill Rd — Printable Family Convenience Report</title>
+    <style>
+      :root {
+        --black: #000;
+        --gray: #555;
+        --line: #999;
+        --light: #eee;
+        --paper: #fff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        background: #d8d8d8;
+      }
+      body {
+        margin: 0;
+        color: var(--black);
+        font:
+          10.5pt/1.34 Arial,
+          Helvetica,
+          sans-serif;
+        -webkit-print-color-adjust: economy;
+        print-color-adjust: economy;
+      }
+      .page {
+        position: relative;
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0.25in auto;
+        padding: 0.5in 0.55in 0.46in;
+        background: var(--paper);
+        box-shadow: 0 2px 14px #888;
+        break-after: page;
+        page-break-after: always;
+      }
+      .page:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+      .kicker {
+        margin: 0 0 7pt;
+        font-size: 8pt;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      h1 {
+        margin: 0;
+        font:
+          700 29pt/1.02 Georgia,
+          'Times New Roman',
+          serif;
+        letter-spacing: -0.025em;
+      }
+      h2 {
+        margin: 0 0 10pt;
+        padding-bottom: 5pt;
+        border-bottom: 2px solid #000;
+        font:
+          700 19pt/1.05 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      h3 {
+        margin: 0 0 5pt;
+        font-size: 11pt;
+      }
+      p {
+        margin: 0 0 8pt;
+      }
+      a {
+        color: #000;
+        text-decoration: underline;
+        text-decoration-thickness: 0.5px;
+        text-underline-offset: 2px;
+      }
+      .muted {
+        color: var(--gray);
+      }
+      .deck {
+        max-width: 6.8in;
+        margin: 12pt 0 15pt;
+        font:
+          12pt/1.35 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .rule {
+        height: 3px;
+        margin: 16pt 0;
+        background: #000;
+      }
+      .summary-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 18pt;
+        align-items: start;
+      }
+      .score {
+        display: flex;
+        align-items: baseline;
+        gap: 5pt;
+        margin: 2pt 0 8pt;
+        font-weight: 700;
+      }
+      .score strong {
+        font:
+          700 46pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .score span {
+        font-size: 12pt;
+      }
+      .label {
+        display: inline-block;
+        padding: 2pt 5pt;
+        border: 1px solid #000;
+        font-size: 7.5pt;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .callout {
+        padding: 10pt 12pt;
+        border: 2px solid #000;
+      }
+      .callout p:last-child {
+        margin-bottom: 0;
+      }
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8pt;
+        margin: 12pt 0;
+      }
+      .stat {
+        padding: 8pt;
+        border-top: 2px solid #000;
+        border-bottom: 1px solid var(--line);
+      }
+      .stat b {
+        display: block;
+        font-size: 16pt;
+      }
+      .stat span {
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 8.8pt;
+      }
+      th {
+        padding: 5pt 5pt;
+        border-top: 1.5px solid #000;
+        border-bottom: 1.5px solid #000;
+        text-align: left;
+        font-size: 7.3pt;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      td {
+        padding: 5pt;
+        border-bottom: 0.6px solid #bbb;
+        vertical-align: top;
+      }
+      td.num,
+      th.num {
+        text-align: right;
+        white-space: nowrap;
+      }
+      tr {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .section {
+        margin-top: 14pt;
+      }
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14pt;
+      }
+      .item {
+        padding: 9pt 0;
+        border-top: 1px solid #000;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .item:first-child {
+        border-top: 0;
+      }
+      .item-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 8pt;
+        align-items: baseline;
+      }
+      .item h3 {
+        font-size: 10.5pt;
+      }
+      .item .rating {
+        white-space: nowrap;
+        font-size: 8pt;
+        font-weight: 700;
+      }
+      .item .meta {
+        margin: 0 0 4pt;
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      .item p {
+        margin: 0;
+        font-size: 8.8pt;
+      }
+      .rating-box {
+        display: grid;
+        grid-template-columns: 1fr 36pt;
+        gap: 7pt;
+        align-items: center;
+        margin: 6pt 0;
+      }
+      .track {
+        height: 7pt;
+        border: 1px solid #000;
+      }
+      .track i {
+        display: block;
+        height: 100%;
+        background: #000;
+      }
+      .rating-box b {
+        text-align: right;
+        font-size: 9pt;
+      }
+      .list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .list li {
+        position: relative;
+        padding: 5pt 0 5pt 17pt;
+        border-top: 0.6px solid #bbb;
+      }
+      .list li:first-child {
+        border-top: 0;
+      }
+      .list li:before {
+        position: absolute;
+        left: 0;
+        top: 5pt;
+        font-weight: 700;
+      }
+      .pros li:before {
+        content: '+';
+      }
+      .cons li:before {
+        content: '–';
+      }
+      .corridor {
+        display: grid;
+        grid-template-columns: 85pt 1fr;
+        gap: 8pt;
+        margin: 8pt 0;
+        padding: 7pt 0;
+        border-top: 0.6px solid #bbb;
+      }
+      .corridor:first-child {
+        border-top: 0;
+      }
+      .corridor b {
+        font-size: 8.5pt;
+      }
+      .corridor span {
+        font-size: 8.5pt;
+      }
+      .sources {
+        margin: 0;
+        padding-left: 16pt;
+        font-size: 7.8pt;
+      }
+      .sources li {
+        margin: 0 0 5pt;
+      }
+      .fine {
+        font-size: 7.5pt;
+        color: var(--gray);
+      }
+      .profile-score {
+        display: flex;
+        align-items: center;
+        gap: 12pt;
+        margin: 10pt 0;
+      }
+      .profile-grade {
+        display: grid;
+        place-items: center;
+        width: 52pt;
+        height: 52pt;
+        border: 2px solid #000;
+        font:
+          700 26pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .event-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 14pt;
+      }
+      .page-footer {
+        position: absolute;
+        left: 0.55in;
+        right: 0.55in;
+        bottom: 0.24in;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 5pt;
+        border-top: 0.6px solid #777;
+        font-size: 7pt;
+        color: #555;
+      }
+      @page {
+        size: Letter;
+        margin: 0;
+      }
+      @media print {
+        html {
+          background: #fff;
+        }
+        body {
+          font-size: 10.5pt;
+        }
+        .page {
+          width: 8.5in;
+          min-height: 11in;
+          margin: 0;
+          box-shadow: none;
+        }
+        .screen-note {
+          display: none !important;
+        }
+      }
+      @media screen and (max-width: 900px) {
+        .page {
+          width: calc(100% - 24px);
+          min-height: auto;
+          margin: 12px;
+          padding: 28px;
+        }
+        .page-footer {
+          position: static;
+          margin-top: 24px;
+        }
+        .summary-grid,
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="page">
+      <p class="kicker">
+        Family convenience report · Print edition · September 10, 2026
+      </p>
+      <h1>214 Grouse Hill Road<br />Barto, Pennsylvania 19504</h1>
+      <p class="deck">
+        A quiet, wooded Hereford Township address with excellent
+        early-elementary proximity and a useful cluster of family
+        services—balanced by near-total car dependence.
+      </p>
+      <div class="rule"></div>
+      <div class="summary-grid">
+        <div>
+          <span class="label">Overall assessment</span>
+          <div class="score"><strong>83</strong><span>/ 100</span></div>
+          <p>
+            <b>Strong for a rural address.</b> The assigned K–3 school, two
+            private schools, Montessori and Walmart all fall near or within the
+            10-minute planning band. Most weekly activities are 15–17 minutes
+            away in Boyertown.
+          </p>
+        </div>
+        <div class="callout">
+          <h3>School boundary: verify</h3>
+          <p>
+            Property-level listing data places this home in
+            <b>Upper Perkiomen School District</b>, with Hereford Elementary
+            assigned—not Boyertown Area.
+          </p>
+          <p class="fine">
+            The Barto ZIP crosses district boundaries. Confirm enrollment
+            directly with the district before purchase.
+          </p>
+        </div>
+      </div>
+      <div class="stat-grid">
+        <div class="stat"><b>~4 min</b><span>assigned K–3 school</span></div>
+        <div class="stat"><b>~6 min</b><span>nearest private school</span></div>
+        <div class="stat"><b>~10 min</b><span>closest Walmart</span></div>
+      </div>
+      <div class="section">
+        <h3>Quick destination summary</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Need</th>
+              <th>Best nearby option</th>
+              <th class="num">Distance*</th>
+              <th class="num">Drive*</th>
+              <th>Assessment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Assigned public K–3</td>
+              <td>Hereford Elementary</td>
+              <td class="num">1.8 mi</td>
+              <td class="num">~4 min</td>
+              <td>Excellent</td>
+            </tr>
+            <tr>
+              <td>Public grades 4–5</td>
+              <td>Upper Perkiomen 4th & 5th Grade Center</td>
+              <td class="num">~5.8 mi</td>
+              <td class="num">~10 min</td>
+              <td>Excellent</td>
+            </tr>
+            <tr>
+              <td>Private elementary</td>
+              <td>Salem Christian School</td>
+              <td class="num">~3.1 mi</td>
+              <td class="num">~6 min</td>
+              <td>Excellent</td>
+            </tr>
+            <tr>
+              <td>Montessori under 5</td>
+              <td>Brookeside Montessori, ages 3+</td>
+              <td class="num">~6.5 mi</td>
+              <td class="num">~11 min</td>
+              <td>Very good</td>
+            </tr>
+            <tr>
+              <td>Walmart</td>
+              <td>East Greenville Supercenter</td>
+              <td class="num">~5.8 mi</td>
+              <td class="num">~10 min</td>
+              <td>Excellent</td>
+            </tr>
+            <tr>
+              <td>Proper grocery</td>
+              <td>Redner’s Warehouse Market</td>
+              <td class="num">~9.5 mi</td>
+              <td class="num">~16 min</td>
+              <td>Good</td>
+            </tr>
+            <tr>
+              <td>Target</td>
+              <td>Pottstown / Upland Square</td>
+              <td class="num">~16 mi</td>
+              <td class="num">~24 min</td>
+              <td>Planned trip</td>
+            </tr>
+            <tr>
+              <td>Kids dance</td>
+              <td>Visions Dance Company</td>
+              <td class="num">~10 mi</td>
+              <td class="num">~17 min</td>
+              <td>Good</td>
+            </tr>
+            <tr>
+              <td>Gymnastics / fitness</td>
+              <td>CE Tumbling / Boyertown YMCA</td>
+              <td class="num">~9–10 mi</td>
+              <td class="num">~15–16 min</td>
+              <td>Good</td>
+            </tr>
+            <tr>
+              <td>Adult gym</td>
+              <td>Boyertown YMCA / Bear’s Den Fitness</td>
+              <td class="num">~9–10 mi</td>
+              <td class="num">~16–17 min</td>
+              <td>Good</td>
+            </tr>
+            <tr>
+              <td>BJJ</td>
+              <td>Sentry Jiu-Jitsu</td>
+              <td class="num">~9.4 mi</td>
+              <td class="num">~15 min</td>
+              <td>Good</td>
+            </tr>
+            <tr>
+              <td>Muay Thai</td>
+              <td>Kingstreet Kickboxing & Muay Thai</td>
+              <td class="num">~16.4 mi</td>
+              <td class="num">~25 min</td>
+              <td>Fair</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="fine" style="margin-top: 6pt">
+          *Rounded planning estimates under normal conditions; not live traffic.
+          Verify important trips at the time of day you expect to travel.
+        </p>
+      </div>
+      <div class="page-footer">
+        <span>214 Grouse Hill Rd · Family Radius</span><span>1 / 5</span>
+      </div>
+    </section>
+
+    <section class="page">
+      <p class="kicker">Place profile · Hereford Township & Barto</p>
+      <h2>What it’s like here</h2>
+      <p class="deck" style="margin-top: 6pt">
+        Barto is the mailing/community label. The home’s everyday setting is
+        rural Hereford Township, while Boyertown and East Greenville/Pennsburg
+        provide most shopping, activities and public events.
+      </p>
+      <div class="two-col">
+        <div>
+          <span class="label">Niche profile</span>
+          <div class="profile-score">
+            <div class="profile-grade">B</div>
+            <div>
+              <h3>Overall Niche grade</h3>
+              <p class="fine">
+                Suburban–rural mix · Good for Families B · Housing B+ · Outdoor
+                Activities B+ · Jobs B+ · Commute C
+              </p>
+            </div>
+          </div>
+          <p>
+            Niche describes a homeowner-heavy, conservative-leaning township
+            with above-average public schools. Its small review sample is mixed,
+            but recurring themes are quiet roads, scenery, farmland and a
+            family-oriented pace.
+          </p>
+        </div>
+        <div>
+          <span class="label">Population & household snapshot</span>
+          <div class="stat-grid" style="grid-template-columns: 1fr 1fr">
+            <div class="stat">
+              <b>2,962</b><span>official 2020 Census</span>
+            </div>
+            <div class="stat">
+              <b>3,048</b><span>Niche current profile</span>
+            </div>
+            <div class="stat"><b>82%</b><span>owner-occupied, Niche</span></div>
+            <div class="stat">
+              <b>$115.8k</b><span>median household income, Niche</span>
+            </div>
+          </div>
+          <p class="fine">
+            Different population figures reflect different source years and
+            methods; the Census number is the official 2020 count.
+          </p>
+        </div>
+      </div>
+      <div class="section callout">
+        <h3>The general vibe</h3>
+        <p>
+          More countryside than town center: wooded and agricultural roads,
+          detached homes, quiet nights and little walkability. This is a calm,
+          private, home-centered setting for households that value space and
+          nature. The trade-off is that errands, classes and social plans almost
+          always begin with a car trip.
+        </p>
+      </div>
+      <div class="section">
+        <h3>Where community life happens</h3>
+        <div class="corridor">
+          <b>Close to home</b
+          ><span
+            >Schools, churches and fire-company gatherings provide the most
+            local social fabric. Events are smaller and less centralized than in
+            a traditional town center.</span
+          >
+        </div>
+        <div class="corridor">
+          <b>Boyertown</b
+          ><span
+            >The strongest public-event hub, generally 15–20 minutes away:
+            downtown festivals, market days, library programs and civic
+            gatherings.</span
+          >
+        </div>
+        <div class="corridor">
+          <b>East Greenville / Pennsburg</b
+          ><span
+            >A practical service corridor for school, Walmart and everyday
+            errands, with additional borough and community programming.</span
+          >
+        </div>
+      </div>
+      <div class="section">
+        <h3>Recurring events in the local orbit</h3>
+        <div class="event-list">
+          <div class="item">
+            <div class="item-head">
+              <h3>Boyertown Oktoberfest</h3>
+              <span class="rating">Annual fall</span>
+            </div>
+            <p>
+              Food, music and community vendors. The official 2026 calendar
+              lists September 11–12.
+            </p>
+          </div>
+          <div class="item">
+            <div class="item-head">
+              <h3>Boyertown Farmers Market</h3>
+              <span class="rating">Seasonal</span>
+            </div>
+            <p>Local food and makers; an easy low-key family outing.</p>
+          </div>
+          <div class="item">
+            <div class="item-head">
+              <h3>Chillin’ on Main</h3>
+              <span class="rating">Holiday</span>
+            </div>
+            <p>
+              Vendors, food trucks, live entertainment, Santa and downtown
+              shopping. December 5 on the 2026 calendar.
+            </p>
+          </div>
+          <div class="item">
+            <div class="item-head">
+              <h3>Library & park programs</h3>
+              <span class="rating">Year-round</span>
+            </div>
+            <p>
+              StoryWalks, story times, kids yoga, crafts, teen activities, book
+              sales and seasonal family programs.
+            </p>
+          </div>
+        </div>
+        <p class="fine" style="margin-top: 8pt">
+          Event dates change. Check Building a Better Boyertown and the
+          Boyertown Borough calendar before planning.
+        </p>
+      </div>
+      <div class="page-footer">
+        <span>214 Grouse Hill Rd · Print edition</span><span>2 / 5</span>
+      </div>
+    </section>
+
+    <section class="page">
+      <p class="kicker">Schools & early learning</p>
+      <h2>Education options</h2>
+      <div class="two-col">
+        <div>
+          <span class="label">Assigned public path</span>
+          <div class="item">
+            <div class="item-head">
+              <h3>Hereford Elementary School</h3>
+              <span class="rating">6/10 GreatSchools</span>
+            </div>
+            <p class="meta">
+              1043 Gravel Pike, Hereford · K–3 · 1.8 mi / ~4 min
+            </p>
+            <p>
+              Assigned early-elementary school. GreatSchools reports 504
+              students and 85% regular attendance. The exceptionally short trip
+              is the strongest convenience feature in this report.
+            </p>
+          </div>
+          <div class="item">
+            <div class="item-head">
+              <h3>Upper Perkiomen 4th & 5th Grade Center</h3>
+              <span class="rating">9/10 GreatSchools</span>
+            </div>
+            <p class="meta">
+              510 Jefferson St, East Greenville · Grades 4–5 · ~5.8 mi / ~10 min
+            </p>
+            <p>
+              All district students converge here for grades 4 and 5. Its
+              published rating is notably stronger than the K–3 school.
+            </p>
+          </div>
+          <div class="callout" style="margin-top: 12pt">
+            <h3>How to interpret ratings</h3>
+            <p class="fine">
+              GreatSchools ratings are comparative indicators, not a complete
+              measure of fit. Visit the schools, review state performance data
+              and ask about programs important to your child.
+            </p>
+          </div>
+        </div>
+        <div>
+          <span class="label">Private & Montessori</span>
+          <div class="item">
+            <div class="item-head">
+              <h3>Salem Christian School</h3>
+              <span class="rating">NR</span>
+            </div>
+            <p class="meta">
+              8031 Salem Bible Church Rd, Macungie · PK–12 · ~3.1 mi / ~6 min
+            </p>
+            <p>
+              The nearest private option found. A Christian school serving
+              preschool through grade 12. “NR” means no public comparative
+              school rating is published.
+            </p>
+          </div>
+          <div class="item">
+            <div class="item-head">
+              <h3>Saint Francis Classical Catholic Academy</h3>
+              <span class="rating">NR</span>
+            </div>
+            <p class="meta">668 Pine St, Bally · PK–12 · ~4.6 mi / ~9 min</p>
+            <p>
+              A close classical Catholic alternative serving pre-kindergarten
+              through grade 12.
+            </p>
+          </div>
+          <div class="item">
+            <div class="item-head">
+              <h3>Brookeside Montessori School</h3>
+              <span class="rating">NR</span>
+            </div>
+            <p class="meta">
+              1075 Route 100, Bechtelsville · Ages 3+ · ~6.5 mi / ~11 min
+            </p>
+            <p>
+              Montessori early-childhood and elementary option. Current school
+              information states it serves ages 3 through 8th grade, meeting the
+              under-age-5 requirement beginning at age 3.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <h3>Travel pattern</h3>
+        <div class="corridor">
+          <b>Near home</b
+          ><span
+            >Hereford Elementary and Salem Christian are the easiest regular
+            school trips.</span
+          >
+        </div>
+        <div class="corridor">
+          <b>East / southeast</b
+          ><span
+            >The grades 4–5 center and East Greenville Walmart can be combined
+            along the same general trip corridor.</span
+          >
+        </div>
+        <div class="corridor">
+          <b>South</b
+          ><span
+            >Saint Francis in Bally and Brookeside in Bechtelsville sit closer
+            to the Route 100 activity and shopping corridor.</span
+          >
+        </div>
+      </div>
+      <div class="section callout">
+        <h3>Enrollment check before purchase</h3>
+        <p>
+          Ask Upper Perkiomen School District to confirm the assigned K–3
+          building for the parcel at 214 Grouse Hill Road and the current grade
+          configuration. Property sites explicitly caution that boundary data is
+          for reference.
+        </p>
+      </div>
+      <div class="page-footer">
+        <span>214 Grouse Hill Rd · Print edition</span><span>3 / 5</span>
+      </div>
+    </section>
+
+    <section class="page">
+      <p class="kicker">Shopping, activities & fitness</p>
+      <h2>Weekly family life</h2>
+      <div class="two-col">
+        <div>
+          <span class="label">Shopping</span>
+          <div class="item">
+            <div class="item-head">
+              <h3>Walmart Supercenter</h3>
+              <span class="rating">~10 min</span>
+            </div>
+            <p class="meta">620 Gravel Pike, East Greenville · ~5.8 mi</p>
+            <p>
+              Closest Walmart; grocery, pharmacy, household goods and general
+              merchandise in one trip.
+            </p>
+          </div>
+          <div class="item">
+            <div class="item-head">
+              <h3>Redner’s Warehouse Market</h3>
+              <span class="rating">~16 min</span>
+            </div>
+            <p class="meta">116 County Line Rd, Boyertown · ~9.5 mi</p>
+            <p>
+              A proper full-service regional supermarket rather than a
+              convenience or dollar store.
+            </p>
+          </div>
+          <div class="item">
+            <div class="item-head">
+              <h3>Target Pottstown</h3>
+              <span class="rating">~24 min</span>
+            </div>
+            <p class="meta">100 Upland Square Dr, Pottstown · ~16 mi</p>
+            <p>
+              The closest practical Target option found, but far enough away to
+              be a planned errand.
+            </p>
+          </div>
+          <span class="label" style="margin-top: 12pt">Kids activities</span>
+          <div class="item">
+            <div class="item-head">
+              <h3>Visions Dance Company</h3>
+              <span class="rating">~17 min</span>
+            </div>
+            <p class="meta">116 S Pear St, Boyertown · ~10 mi</p>
+            <p>
+              Recreational and advanced dance, including a caregiver “Little
+              Movers” class for ages 0–4.
+            </p>
+          </div>
+          <div class="item">
+            <div class="item-head">
+              <h3>CE Tumbling</h3>
+              <span class="rating">~15 min</span>
+            </div>
+            <p class="meta">1090B N Reading Ave, Boyertown · ~9.2 mi</p>
+            <p>Small local gymnastics and All-Star cheer program.</p>
+          </div>
+        </div>
+        <div>
+          <span class="label">Adult & family fitness</span>
+          <div class="item">
+            <div class="item-head">
+              <h3>Boyertown YMCA</h3>
+              <span class="rating">~16 min</span>
+            </div>
+            <p class="meta">301 W Spring St, Boyertown · ~9.4 mi</p>
+            <p>
+              The strongest all-round family option: adult gym, group classes,
+              pool, KidZone, family amenities and youth gymnastics.
+            </p>
+          </div>
+          <div class="item">
+            <div class="item-head">
+              <h3>Bear’s Den Fitness</h3>
+              <span class="rating">~17 min</span>
+            </div>
+            <p class="meta">400 E 2nd St, Boyertown · ~10.2 mi</p>
+            <p>
+              CrossFit affiliate with scalable adult training and a dedicated
+              CrossFit Kids program.
+            </p>
+          </div>
+          <span class="label" style="margin-top: 12pt">Martial arts</span>
+          <div class="item">
+            <div class="item-head">
+              <h3>Sentry Jiu-Jitsu</h3>
+              <span class="rating">~15 min</span>
+            </div>
+            <p class="meta">311 County Line Rd, Gilbertsville · ~9.4 mi</p>
+            <p>
+              Closest strong BJJ fit: gi, no-gi, judo and self-defense, with
+              kids tiers ages 6–14. Striking/combatives is offered for ages 14+,
+              but it is described as boxing and kickboxing rather than dedicated
+              Muay Thai.
+            </p>
+          </div>
+          <div class="item">
+            <div class="item-head">
+              <h3>Kingstreet Kickboxing & Muay Thai</h3>
+              <span class="rating">~25 min</span>
+            </div>
+            <p class="meta">26 E 8th St, Pottstown · ~16.4 mi</p>
+            <p>
+              The nearest clearly identified dedicated Muay Thai program found.
+              This is the least convenient recurring activity in the requested
+              set.
+            </p>
+          </div>
+          <div class="callout" style="margin-top: 12pt">
+            <h3>Best errand pairing</h3>
+            <p class="fine">
+              <b>Boyertown loop:</b> Redner’s + Visions / CE Tumbling + YMCA /
+              Bear’s Den. <b>East Greenville loop:</b> 4th & 5th Grade Center +
+              Walmart.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="page-footer">
+        <span>214 Grouse Hill Rd · Print edition</span><span>4 / 5</span>
+      </div>
+    </section>
+
+    <section class="page">
+      <p class="kicker">Comparison framework & sources</p>
+      <h2>How this address scores</h2>
+      <div class="two-col">
+        <div>
+          <h3>Weighted category scores</h3>
+          <div class="rating-box">
+            <span>Public schools · 30%</span>
+            <div class="track"><i style="width: 92%"></i></div>
+            <b>92</b>
+          </div>
+          <div class="rating-box">
+            <span>Private / early learning · 15%</span>
+            <div class="track"><i style="width: 91%"></i></div>
+            <b>91</b>
+          </div>
+          <div class="rating-box">
+            <span>Shopping & grocery · 20%</span>
+            <div class="track"><i style="width: 80%"></i></div>
+            <b>80</b>
+          </div>
+          <div class="rating-box">
+            <span>Kids activities · 15%</span>
+            <div class="track"><i style="width: 80%"></i></div>
+            <b>80</b>
+          </div>
+          <div class="rating-box">
+            <span>Adult fitness · 10%</span>
+            <div class="track"><i style="width: 79%"></i></div>
+            <b>79</b>
+          </div>
+          <div class="rating-box">
+            <span>Martial arts · 5%</span>
+            <div class="track"><i style="width: 70%"></i></div>
+            <b>70</b>
+          </div>
+          <div class="rating-box">
+            <span>Walkability · 5%</span>
+            <div class="track"><i style="width: 8%"></i></div>
+            <b>08</b>
+          </div>
+          <p class="fine" style="margin-top: 10pt">
+            Distance bands: ≤10 minutes is strongest; 11–20 practical; 21–30 a
+            planned trip; 30+ weak. Quality indicators and breadth of choice
+            then adjust the category score. Weighted result is rounded.
+          </p>
+        </div>
+        <div>
+          <h3>Decision summary</h3>
+          <div class="two-col" style="gap: 10pt">
+            <div>
+              <b>Pros</b>
+              <ul class="list pros">
+                <li>Very short assigned K–3 trip.</li>
+                <li>Two nearby private choices.</li>
+                <li>Montessori begins at age 3.</li>
+                <li>Good Boyertown activity cluster.</li>
+                <li>YMCA is a strong family all-rounder.</li>
+              </ul>
+            </div>
+            <div>
+              <b>Cons</b>
+              <ul class="list cons">
+                <li>Car required for nearly everything.</li>
+                <li>Target is a planned trip.</li>
+                <li>Dedicated Muay Thai is ~25 minutes.</li>
+                <li>ZIP-level school lookup is misleading.</li>
+                <li>Times need rush-hour verification.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <h3>Sources</h3>
+        <ol class="sources">
+          <li>
+            <a
+              href="https://www.niche.com/places-to-live/hereford-township-berks-pa/"
+              >Niche: Hereford Township</a
+            >;
+            <a
+              href="https://tigerweb.geo.census.gov/tigerwebmain/Files/acs25/tigerweb_acs25_cousub_2020_tab20_pa.html"
+              >U.S. Census geography table</a
+            >;
+            <a href="https://www.herefordtownship.org/">Hereford Township</a> —
+            population, profile indicators and local context.
+          </li>
+          <li>
+            <a href="https://www.buildingabetterboyertown.org/events/"
+              >Building a Better Boyertown events</a
+            >;
+            <a href="https://www.buildingabetterboyertown.org/calendar/"
+              >community calendar</a
+            >;
+            <a href="https://www.boyertownborough.org/calendar"
+              >Boyertown Borough calendar</a
+            >
+            — recurring festivals and family programs.
+          </li>
+          <li>
+            <a
+              href="https://www.coldwellbankerhomes.com/pa/barto/214-grouse-hill-rd/pid_73477094/"
+              >Coldwell Banker property record</a
+            >
+            — property-level district, assigned-school distance and property
+            facts.
+          </li>
+          <li>
+            <a
+              href="https://www.greatschools.org/pennsylvania/hereford/2867-Hereford-El-School/"
+              >GreatSchools: Hereford Elementary</a
+            >
+            — K–3, 6/10 rating, enrollment and attendance.
+          </li>
+          <li>
+            <a
+              href="https://www.greatschools.org/pennsylvania/east-greenville/15668-UPPER-PERKIOMEN-4TH-AND-5TH-GRADE-CENTER/"
+              >GreatSchools: Upper Perkiomen 4th & 5th Grade Center</a
+            >
+            — grades 4–5 and 9/10 rating.
+          </li>
+          <li>
+            <a href="https://salemchristian.org/">Salem Christian School</a>;
+            <a href="https://sfcca.school/"
+              >Saint Francis Classical Catholic Academy</a
+            >;
+            <a href="https://brookesidemontessori.org/"
+              >Brookeside Montessori</a
+            >
+            — current programs and addresses.
+          </li>
+          <li>
+            <a href="https://www.walmart.com/store/3810-east-greenville-pa"
+              >Walmart East Greenville</a
+            >;
+            <a
+              href="https://www.target.com/store-locator/store-directory/pennsylvania"
+              >Target store directory</a
+            >; <a href="https://www.rednersmarkets.com/">Redner’s Markets</a> —
+            store locations.
+          </li>
+          <li>
+            <a href="https://www.visionsdanceco.com/">Visions Dance</a>;
+            <a
+              href="https://business.tricountyareachamber.com/list/member/ce-tumbling-35160"
+              >CE Tumbling</a
+            >;
+            <a href="https://www.philaymca.org/locations/boyertown-ymca"
+              >Boyertown YMCA</a
+            >; <a href="https://bearsdenfitness.com/">Bear’s Den Fitness</a> —
+            activity and fitness programs.
+          </li>
+          <li>
+            <a href="https://www.sentryjj.com/">Sentry Jiu-Jitsu</a>;
+            <a href="https://kingstkickboxing.com/"
+              >Kingstreet Kickboxing & Muay Thai</a
+            >
+            — martial-arts programs and locations.
+          </li>
+        </ol>
+      </div>
+      <div class="section callout">
+        <h3>Limitations</h3>
+        <p class="fine">
+          School attendance, program availability, business hours, ratings and
+          travel conditions can change. Private schools are not scored by
+          GreatSchools in the same way as public schools. Drive figures are
+          rounded planning estimates, not live routing measurements. This report
+          supports comparison; it does not replace direct verification.
+        </p>
+      </div>
+      <div class="page-footer">
+        <span>214 Grouse Hill Rd · Print edition</span><span>5 / 5</span>
+      </div>
+    </section>
+  </body>
+</html>

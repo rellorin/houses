@@ -1,0 +1,1192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Family convenience report for 219 Hudson Street, Hawley, Pennsylvania"
+    />
+    <title>219 Hudson St · Family Convenience Report</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      crossorigin=""
+    />
+    <style>
+      :root {
+        --ink: #18211d;
+        --muted: #60706a;
+        --paper: #f4f7f2;
+        --card: #fff;
+        --line: #dce5df;
+        --pine: #163f34;
+        --mint: #d6eee2;
+        --lime: #dff39b;
+        --shadow: 0 16px 40px rgba(22, 63, 52, 0.09);
+        --r: 20px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font:
+          16px/1.5 Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          'Segoe UI',
+          sans-serif;
+      }
+      button,
+      a {
+        font: inherit;
+      }
+      a {
+        color: inherit;
+      }
+      .shell {
+        max-width: 1440px;
+        margin: auto;
+        padding: 18px;
+      }
+      .topbar {
+        position: sticky;
+        top: 12px;
+        z-index: 999;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 12px 16px;
+        background: rgba(244, 247, 242, 0.92);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        backdrop-filter: blur(15px);
+        box-shadow: 0 8px 25px rgba(22, 63, 52, 0.07);
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 850;
+        letter-spacing: -0.02em;
+      }
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 11px;
+        background: var(--pine);
+        color: white;
+      }
+      .nav {
+        display: flex;
+        gap: 6px;
+        overflow: auto;
+      }
+      .nav a {
+        text-decoration: none;
+        color: var(--muted);
+        font-size: 0.86rem;
+        font-weight: 750;
+        padding: 8px 10px;
+        border-radius: 10px;
+        white-space: nowrap;
+      }
+      .nav a:hover {
+        background: white;
+        color: var(--ink);
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: 1.18fr 0.82fr;
+        min-height: 440px;
+        margin-top: 18px;
+        border-radius: 30px;
+        overflow: hidden;
+        background: var(--pine);
+        color: white;
+        box-shadow: var(--shadow);
+      }
+      .hero-copy {
+        padding: clamp(28px, 5vw, 72px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .eyebrow {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        text-transform: uppercase;
+        font-size: 0.74rem;
+        font-weight: 850;
+        letter-spacing: 0.12em;
+        color: #b7d7ca;
+      }
+      .dot {
+        width: 7px;
+        height: 7px;
+        background: var(--lime);
+        border-radius: 50%;
+      }
+      .hero h1 {
+        font-size: clamp(2.35rem, 5vw, 5.6rem);
+        line-height: 0.94;
+        letter-spacing: -0.065em;
+        margin: 14px 0 18px;
+        max-width: 830px;
+      }
+      .hero h1 span {
+        color: var(--lime);
+      }
+      .hero p {
+        font-size: 1.05rem;
+        color: #d5e4de;
+        max-width: 660px;
+        margin: 0;
+      }
+      .hero-media {
+        position: relative;
+        min-height: 340px;
+        background: #2e5f50;
+      }
+      .hero-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .photo-credit {
+        position: absolute;
+        right: 12px;
+        bottom: 12px;
+        padding: 7px 10px;
+        border-radius: 9px;
+        background: rgba(9, 22, 18, 0.78);
+        font-size: 0.7rem;
+        color: #e7efeb;
+      }
+      .scorecard {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 20px;
+        align-items: center;
+        margin-top: 26px;
+      }
+      .score-ring {
+        width: 108px;
+        height: 108px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: conic-gradient(
+          var(--lime) 0 72%,
+          rgba(255, 255, 255, 0.16) 72% 100%
+        );
+        position: relative;
+      }
+      .score-ring:after {
+        content: '';
+        position: absolute;
+        inset: 9px;
+        border-radius: 50%;
+        background: var(--pine);
+      }
+      .score-number {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        font-weight: 900;
+        font-size: 2rem;
+        line-height: 1;
+      }
+      .score-number small {
+        display: block;
+        font-size: 0.66rem;
+        color: #b7d7ca;
+        margin-top: 4px;
+      }
+      .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+      .hero-stat {
+        padding: 13px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 14px;
+      }
+      .hero-stat b {
+        font-size: 1.05rem;
+        display: block;
+      }
+      .hero-stat span {
+        font-size: 0.73rem;
+        color: #b7d7ca;
+      }
+      .section {
+        padding: 64px 0 0;
+      }
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+      .section h2 {
+        font-size: clamp(1.75rem, 3vw, 2.6rem);
+        letter-spacing: -0.045em;
+        line-height: 1.05;
+        margin: 0;
+      }
+      .section-intro {
+        max-width: 660px;
+        color: var(--muted);
+        margin: 8px 0 0;
+      }
+      .notice {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 15px;
+        padding: 18px;
+        background: #fff7dd;
+        border: 1px solid #ead79f;
+        border-radius: 16px;
+        margin-bottom: 20px;
+      }
+      .notice b {
+        display: block;
+      }
+      .notice p {
+        margin: 3px 0 0;
+        color: #645b43;
+        font-size: 0.91rem;
+      }
+      .map-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 310px;
+        gap: 16px;
+      }
+      .map-wrap {
+        height: 600px;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        overflow: hidden;
+        background: #dfe8e3;
+        position: relative;
+        box-shadow: var(--shadow);
+      }
+      #map {
+        height: 100%;
+        width: 100%;
+      }
+      .map-fallback {
+        position: absolute;
+        inset: auto 14px 14px;
+        z-index: 500;
+        background: white;
+        padding: 9px 12px;
+        border-radius: 10px;
+        font-size: 0.78rem;
+        color: var(--muted);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+      .map-side {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .mini-card {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 17px;
+        padding: 16px;
+      }
+      .mini-card h3 {
+        margin: 0 0 7px;
+        font-size: 1rem;
+      }
+      .mini-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.86rem;
+      }
+      .legend {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-top: 12px;
+      }
+      .legend span {
+        font-size: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .legend i {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
+      .filters {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin: 18px 0;
+      }
+      .filter {
+        border: 1px solid var(--line);
+        background: white;
+        padding: 9px 13px;
+        border-radius: 999px;
+        font-weight: 800;
+        font-size: 0.79rem;
+        color: var(--muted);
+        cursor: pointer;
+      }
+      .filter.active,
+      .filter:hover {
+        background: var(--pine);
+        border-color: var(--pine);
+        color: white;
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 15px;
+      }
+      .place-card {
+        display: flex;
+        flex-direction: column;
+        min-height: 275px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: var(--r);
+        overflow: hidden;
+        box-shadow: 0 6px 18px rgba(22, 63, 52, 0.04);
+        transition:
+          0.2s transform,
+          0.2s box-shadow;
+      }
+      .place-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow);
+      }
+      .place-card.hidden {
+        display: none;
+      }
+      .card-photo {
+        height: 156px;
+        background: #e5ebe7;
+        position: relative;
+        overflow: hidden;
+      }
+      .card-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .card-photo .card-icon {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        font-size: 3.2rem;
+        background: linear-gradient(135deg, #e8f3ed, #d4e5dc);
+      }
+      .card-photo.has-image .card-icon {
+        display: none;
+      }
+      .pill {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: white;
+        padding: 6px 9px;
+        border-radius: 999px;
+        font-size: 0.69rem;
+        font-weight: 900;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      .card-body {
+        padding: 17px;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+      }
+      .card-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: start;
+      }
+      .card-body h3 {
+        font-size: 1.1rem;
+        letter-spacing: -0.02em;
+        line-height: 1.15;
+        margin: 0;
+      }
+      .rating {
+        white-space: nowrap;
+        background: #eef5f0;
+        border-radius: 9px;
+        padding: 5px 8px;
+        font-size: 0.75rem;
+        font-weight: 900;
+      }
+      .meta {
+        font-size: 0.79rem;
+        color: var(--muted);
+        margin: 6px 0;
+      }
+      .desc {
+        font-size: 0.88rem;
+        color: #45534e;
+        margin: 8px 0 15px;
+      }
+      .card-actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: auto;
+      }
+      .card-actions a,
+      .map-button {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        text-decoration: none;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 8px 10px;
+        font-size: 0.76rem;
+        font-weight: 850;
+        background: white;
+        cursor: pointer;
+      }
+      .card-actions a.primary {
+        background: var(--pine);
+        border-color: var(--pine);
+        color: white;
+      }
+      .snapshot {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .panel {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: var(--r);
+        padding: 22px;
+      }
+      .panel h3 {
+        margin: 0 0 16px;
+        font-size: 1.2rem;
+      }
+      .bar-row {
+        display: grid;
+        grid-template-columns: 120px 1fr 42px;
+        gap: 10px;
+        align-items: center;
+        margin: 12px 0;
+        font-size: 0.84rem;
+      }
+      .bar {
+        height: 10px;
+        background: #edf1ee;
+        border-radius: 999px;
+        overflow: hidden;
+      }
+      .bar i {
+        height: 100%;
+        display: block;
+        border-radius: 999px;
+        background: var(--pine);
+      }
+      .proscons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .list li {
+        display: grid;
+        grid-template-columns: 25px 1fr;
+        gap: 9px;
+        padding: 10px 0;
+        border-top: 1px solid var(--line);
+        font-size: 0.91rem;
+      }
+      .list li:first-child {
+        border-top: 0;
+      }
+      .check,
+      .minus {
+        display: grid;
+        place-items: center;
+        width: 22px;
+        height: 22px;
+        border-radius: 7px;
+        font-size: 0.75rem;
+        font-weight: 900;
+      }
+      .check {
+        background: var(--mint);
+        color: var(--pine);
+      }
+      .minus {
+        background: #ffe2da;
+        color: #8b3c2a;
+      }
+      .method {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+      .method div {
+        padding: 15px;
+        border-radius: 15px;
+        background: #f4f7f2;
+      }
+      .method b {
+        display: block;
+      }
+      .method span {
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+      .sources {
+        font-size: 0.86rem;
+        color: var(--muted);
+      }
+      .sources a {
+        color: var(--pine);
+        font-weight: 750;
+      }
+      .sources li {
+        margin: 8px 0;
+      }
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 36px 0 20px;
+        margin-top: 54px;
+        border-top: 1px solid var(--line);
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+      .popup-title {
+        font-weight: 900;
+      }
+      .popup-meta {
+        font-size: 0.78rem;
+        color: #5f6d68;
+        margin: 3px 0 8px;
+      }
+      .popup-link {
+        font-size: 0.76rem;
+        font-weight: 850;
+        color: #163f34;
+      }
+      .pin {
+        width: 31px;
+        height: 31px;
+        border-radius: 50% 50% 50% 10%;
+        transform: rotate(-45deg);
+        display: grid;
+        place-items: center;
+        border: 3px solid white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.24);
+      }
+      .pin span {
+        transform: rotate(45deg);
+        font-size: 13px;
+      }
+      .pin-home {
+        background: #163f34;
+      }
+      .pin-school {
+        background: #80b9d5;
+      }
+      .pin-private {
+        background: #8f75b8;
+      }
+      .pin-montessori {
+        background: #dd9e44;
+      }
+      .pin-shopping {
+        background: #ec7962;
+      }
+      .pin-activity {
+        background: #de6aa7;
+      }
+      .pin-fitness {
+        background: #5baa7b;
+      }
+      .pin-martial {
+        background: #536b91;
+      }
+      @media (max-width: 980px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+        .hero-media {
+          height: 330px;
+          order: -1;
+        }
+        .map-layout {
+          grid-template-columns: 1fr;
+        }
+        .map-side {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
+        .cards {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .method {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 650px) {
+        .shell {
+          padding: 10px;
+        }
+        .topbar {
+          top: 6px;
+        }
+        .nav {
+          display: none;
+        }
+        .hero {
+          border-radius: 22px;
+        }
+        .hero-copy {
+          padding: 26px 20px;
+        }
+        .hero h1 {
+          font-size: 2.55rem;
+        }
+        .scorecard {
+          grid-template-columns: 86px 1fr;
+        }
+        .score-ring {
+          width: 84px;
+          height: 84px;
+        }
+        .hero-stats {
+          grid-template-columns: 1fr;
+        }
+        .hero-stat:nth-child(n + 2) {
+          display: none;
+        }
+        .map-wrap {
+          height: 480px;
+        }
+        .map-side,
+        .cards,
+        .snapshot,
+        .proscons {
+          grid-template-columns: 1fr;
+        }
+        .section {
+          padding-top: 48px;
+        }
+        .section-head {
+          align-items: start;
+          flex-direction: column;
+        }
+        .bar-row {
+          grid-template-columns: 100px 1fr 36px;
+        }
+        .method {
+          grid-template-columns: 1fr 1fr;
+        }
+        .footer {
+          flex-direction: column;
+        }
+      }
+      @media print {
+        .topbar,
+        .filters,
+        .card-actions,
+        .map-fallback {
+          display: none !important;
+        }
+        .hero {
+          break-inside: avoid;
+        }
+        .section {
+          padding-top: 30px;
+        }
+        .map-wrap {
+          height: 420px;
+        }
+        .place-card {
+          break-inside: avoid;
+          box-shadow: none;
+        }
+        .shell {
+          max-width: none;
+        }
+        .footer {
+          margin-top: 25px;
+        }
+      }
+      .area-grid {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 16px;
+      }
+      .area-card {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: var(--r);
+        padding: 22px;
+      }
+      .area-card h3 {
+        margin: 0 0 10px;
+        font-size: 1.2rem;
+      }
+      .grade-line {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 14px 0;
+      }
+      .grade {
+        display: grid;
+        place-items: center;
+        width: 76px;
+        height: 76px;
+        border-radius: 22px;
+        background: var(--pine);
+        color: white;
+        font-size: 2.4rem;
+        font-weight: 900;
+      }
+      .grade-copy b {
+        display: block;
+        font-size: 1.05rem;
+      }
+      .grade-copy span,
+      .area-card p {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      .fact-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin: 16px 0;
+      }
+      .fact {
+        padding: 13px;
+        border-radius: 14px;
+        background: #f4f7f2;
+      }
+      .fact b {
+        display: block;
+        font-size: 1.15rem;
+      }
+      .fact span {
+        font-size: 0.74rem;
+        color: var(--muted);
+      }
+      .vibe-grid,
+      .event-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 16px;
+      }
+      .vibe,
+      .event {
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: white;
+      }
+      .vibe h3,
+      .event h3 {
+        margin: 0 0 6px;
+        font-size: 1rem;
+      }
+      .vibe p,
+      .event p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.84rem;
+      }
+      .event a {
+        display: inline-block;
+        margin-top: 10px;
+        color: var(--pine);
+        font-size: 0.78rem;
+        font-weight: 850;
+      }
+      @media (max-width: 980px) {
+        .area-grid {
+          grid-template-columns: 1fr;
+        }
+        .fact-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 650px) {
+        .vibe-grid,
+        .event-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark">⌂</span><span>Family Radius</span>
+        </div>
+        <nav class="nav" aria-label="Report sections">
+          <a href="#map-section">Map</a><a href="#area">Area</a
+          ><a href="#places">Places</a><a href="#score">Score</a
+          ><a href="#decision">Decision notes</a><a href="#sources">Sources</a>
+        </nav>
+      </header>
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow">
+            <span class="dot"></span>Family convenience report · researched Sep
+            13, 2026
+          </div>
+          <h1>219 Hudson St<br /><span>Hawley, PA 18428</span></h1>
+          <p>An 1869 Historic Revival home in Hawley Borough, a short walk from Bingham Park, the Lackawaxen River and downtown shops and dining.</p>
+          <div class="scorecard"><div class="score-ring" aria-label="Family convenience score 72 out of 100"><div class="score-number">72<small>out of 100</small></div></div>
+            <div class="hero-stats"><div class="hero-stat"><b>9–11 min</b><span>to district elementary campuses</span></div><div class="hero-stat"><b>2 min</b><span>to local dance + fitness</span></div><div class="hero-stat"><b>60 min</b><span>to verified BJJ + Muay Thai</span></div></div></div>        </div>
+        <div class="hero-media">
+          <img
+            src="https://photos.zillowstatic.com/fp/587b11a1ca9595b028020ef17f5ebe55-cc_ft_1536.jpg"
+            alt="Exterior of 219 Hudson Street in Hawley, Pennsylvania"
+          /><a
+            class="photo-credit"
+            href="https://www.zillow.com/homedetails/219-Hudson-St-Hawley-PA-18428/462500088_zpid/"
+            target="_blank"
+            rel="noreferrer"
+            >Property photo · listing source ↗</a
+          >
+        </div>
+      </section>
+      <section class="section" id="map-section">
+        <div class="section-head">
+          <div>
+            <h2>Everything in one radius</h2>
+            <p class="section-intro">
+              Tap a marker for the verified no-traffic route and a live route.
+              Google Maps links recalculate from the property when opened.
+            </p>
+          </div>
+        </div>
+        <div class="notice">
+          <div>⚑</div>
+          <div>
+            <b>School-boundary finding</b><p>Current property sources place this Hawley Borough address in <strong>Wallenpaupack Area School District</strong>. The district splits elementary grades between Wallenpaupack Area North Primary (K–2) and North Intermediate (3–5). Confirm enrollment directly with the district.</p>
+          </div>
+        </div>
+        <div class="map-layout">
+          <div class="map-wrap">
+            <div
+              id="map"
+              role="application"
+              aria-label="Interactive map of the property and nearby family destinations"
+            ></div>
+            <div class="map-fallback">
+              Map tiles and place photos need an internet connection. All
+              addresses and route links remain usable offline.
+            </div>
+          </div>
+          <aside class="map-side">
+            <div class="mini-card">
+              <h3>Drive-time bands</h3>
+              <p>
+                <strong>≤10 min:</strong> excellent ·
+                <strong>11–20:</strong> practical ·
+                <strong>21+:</strong> planned trip
+              </p>
+              <div class="legend">
+                <span><i style="background: #80b9d5"></i>Public school</span
+                ><span><i style="background: #8f75b8"></i>Private</span
+                ><span><i style="background: #dd9e44"></i>Montessori</span
+                ><span><i style="background: #ec7962"></i>Shopping</span
+                ><span><i style="background: #de6aa7"></i>Kids activity</span
+                ><span><i style="background: #5baa7b"></i>Fitness</span
+                ><span><i style="background: #536b91"></i>Martial arts</span>
+              </div>
+            </div>
+            <div class="mini-card"><h3>At a glance</h3><p>Downtown, Bingham Park, local dance and a 24-hour gym are exceptionally close. Grocery and Walmart are practical; Target and specialized martial arts are regional trips.</p></div>
+            <div class="mini-card">
+              <h3>Estimate standard</h3>
+              <p>
+                Road distance and drive time were verified with mapped routing
+                on September 13, 2026. They exclude live traffic and are rounded
+                up to whole minutes; open a live route before a real trip.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </section>
+      <section class="section" id="area">
+        <div class="section-head"><div><h2>What it’s like here</h2><p class="section-intro">This property is inside Hawley Borough—a compact Pocono lake-region town on the Lackawaxen River, with a small downtown, historic buildings and tourism tied to Lake Wallenpaupack.</p></div></div>
+        <div class="area-grid">
+          <article class="area-card"><span class="pill" style="position:static;display:inline-block;box-shadow:none">Hawley Borough profile</span><div class="grade-line"><div class="grade">B+</div><div class="grade-copy"><b>Overall Niche grade</b><span>Public Schools B+ · Crime & Safety A · Housing B− · Good for Families B+ · Outdoor Activities A− · Commute A−</span></div></div><p>Niche describes Hawley as dense suburban, with many renters, coffee shops and bars. At borough scale it feels more like a walkable small town and weekend gateway than a conventional suburb.</p></article>
+          <article class="area-card"><h3>Historic, compact and visitor-oriented</h3><div class="fact-grid"><div class="fact"><b>1,229</b><span>2020 Census population</span></div><div class="fact"><b>925</b><span>recent Niche estimate</span></div><div class="fact"><b>0.6 mi²</b><span>borough land area</span></div><div class="fact"><b>42</b><span>Walk Score at property</span></div></div><p>The 1.42-acre 1869 home sits within a short stroll of The Settlers Inn, Bingham Park, the river and downtown. Tourism adds restaurants and events beyond what the resident count suggests.</p></article>
+        </div>
+        <div class="vibe-grid"><article class="vibe"><h3>Daily feel</h3><p>Historic, scenic and neighborly, with real downtown destinations nearby. Summer and holiday weekends bring visitors and more traffic.</p></article><article class="vibe"><h3>The local niche</h3><p>A small Pocono river town that functions as a gateway to Lake Wallenpaupack—outdoorsy, hospitality-driven and stronger in charm than big-box convenience.</p></article><article class="vibe"><h3>Social radius</h3><p>Hawley supplies parks, cafes, arts and events; Honesdale adds family services; Dickson City/Scranton provides major retail and specialty training.</p></article></div>
+        <div class="section-head" style="margin-top:28px"><div><h2 style="font-size:1.65rem">Events in the local orbit</h2><p class="section-intro">Hawley’s calendar punches above its population because downtown and the lake serve residents and visitors together.</p></div></div>
+        <div class="event-grid">
+          <article class="event"><h3>Wally Lake Fest</h3><p>The region’s signature August weekend: 60+ lake and downtown events, live music, boat activities, markets, cars and family programming.</p><a href="https://www.northernpoconos.org/wally-lake-fest/" target="_blank">Festival site ↗</a></article>
+          <article class="event"><h3>Hawley Winterfest</h3><p>A December downtown celebration with music, seasonal shopping, family activities and decorated historic streets.</p><a href="https://visithawleypa.com/winterfest/" target="_blank">Winterfest ↗</a></article>
+          <article class="event"><h3>Harvest Hoedown</h3><p>A long-running fall festival centered on local food, crafts, music and seasonal community activity.</p><a href="https://visithawleypa.com/" target="_blank">Downtown Hawley ↗</a></article>
+          <article class="event"><h3>The Hawley Hub</h3><p>Dance, acro, theater, art, yoga and fitness classes plus workshops and small events in the restored Murray Building.</p><a href="https://www.thehawleyhub.com/classes-events/" target="_blank">Classes & events ↗</a></article>
+          <article class="event"><h3>Lake Wallenpaupack</h3><p>Boating, fishing, paddling, lakeside festivals and seasonal outdoor recreation define the broader community identity.</p><a href="https://www.northernpoconos.org/" target="_blank">Lake region guide ↗</a></article>
+          <article class="event"><h3>Borough & fire events</h3><p>Municipal meetings, fire-department events and neighborhood observances add a smaller year-round civic layer.</p><a href="https://hawley-borough.org/events-and-meetings" target="_blank">Borough calendar ↗</a></article>
+        </div>
+      </section>      <section class="section" id="places">
+        <div class="section-head">
+          <div>
+            <h2>Family essentials, compared</h2>
+            <p class="section-intro">
+              A consistent card format makes this report easy to compare with
+              future addresses. “NR” means a public rating is not published—not
+              that the school is low quality.
+            </p>
+          </div>
+        </div>
+        <div class="filters" role="group" aria-label="Filter places">
+          <button class="filter active" data-filter="all">All 12</button
+          ><button class="filter" data-filter="school">Public school</button
+          ><button class="filter" data-filter="private">Private</button
+          ><button class="filter" data-filter="montessori">Montessori</button
+          ><button class="filter" data-filter="shopping">Shopping</button
+          ><button class="filter" data-filter="activity">Kids activities</button
+          ><button class="filter" data-filter="fitness">Fitness</button
+          ><button class="filter" data-filter="martial">Martial arts</button>
+        </div>
+        <div class="cards" id="cards"></div>
+      </section>
+      <section class="section" id="score">
+        <div class="section-head">
+          <div>
+            <h2>Why the score is 72</h2>
+            <p class="section-intro">
+              Weighted for everyday family use: schools and groceries count more
+              than occasional destinations.
+            </p>
+          </div>
+        </div>
+        <div class="snapshot">
+          <div class="panel"><h3>Category scores</h3>
+            <div class="bar-row"><span>Public schools</span><div class="bar"><i style="width:78%"></i></div><b>78</b></div>
+            <div class="bar-row"><span>Private / early</span><div class="bar"><i style="width:62%"></i></div><b>62</b></div>
+            <div class="bar-row"><span>Daily shopping</span><div class="bar"><i style="width:66%"></i></div><b>66</b></div>
+            <div class="bar-row"><span>Kids activities</span><div class="bar"><i style="width:92%"></i></div><b>92</b></div>
+            <div class="bar-row"><span>Adult fitness</span><div class="bar"><i style="width:92%"></i></div><b>92</b></div>
+            <div class="bar-row"><span>Martial arts</span><div class="bar"><i style="width:22%;background:#f28c72"></i></div><b>22</b></div>
+            <div class="bar-row"><span>Walkability</span><div class="bar"><i style="width:40%;background:#dd9e44"></i></div><b>40</b></div>
+          </div>          <div class="panel">
+            <h3>Comparison formula</h3>
+            <div class="method">
+              <div><b>30%</b><span>public schools</span></div>
+              <div><b>15%</b><span>private / early learning</span></div>
+              <div><b>20%</b><span>shopping & grocery</span></div>
+              <div><b>15%</b><span>kids activities</span></div>
+              <div><b>10%</b><span>adult fitness</span></div>
+              <div><b>5%</b><span>martial arts</span></div>
+              <div><b>5%</b><span>walkability</span></div>
+              <div><b>72</b><span>weighted total, rounded</span></div>
+            </div>
+            <p
+              style="color: var(--muted); font-size: 0.82rem; margin: 16px 0 0"
+            >
+              Distance bands: ≤10 min is strongest, 11–20 min practical, 21–30
+              min a planned trip, and 30+ min weak. Quality indicators and
+              breadth of choice then adjust each category.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="decision"><div class="section-head"><div><h2>Decision notes</h2><p class="section-intro">The useful trade-offs, stripped of real-estate gloss.</p></div></div><div class="proscons">
+        <div class="panel"><h3>What works well</h3><ul class="list"><li><span class="check">✓</span><span>Bingham Park, downtown dining and the Hawley Hub are genuinely walkable from the property.</span></li><li><span class="check">✓</span><span>The district’s K–2 and 3–5 campuses route in about 9–11 minutes; North Intermediate currently rates 5/10.</span></li><li><span class="check">✓</span><span>Dance/acro is two minutes away, Balance Gymnastics eight minutes, and Lake Region Fitness five minutes.</span></li><li><span class="check">✓</span><span>A proper IGA supermarket is six minutes away and Walmart is about fifteen.</span></li></ul></div>
+        <div class="panel"><h3>What to plan around</h3><ul class="list"><li><span class="minus">–</span><span>The nearest Target found is in Dickson City, about 36 routed miles and roughly an hour without live traffic.</span></li><li><span class="minus">–</span><span>The closest currently verified two-need BJJ/Muay Thai academy found is also in Scranton, about an hour away.</span></li><li><span class="minus">–</span><span>The strongest full-range private-school option found is 38 minutes away; Montessori preschool is about 19 minutes.</span></li><li><span class="minus">–</span><span>The 1869 house includes a former dental-office conversion; residential-use plans, systems and renovation scope deserve careful diligence.</span></li></ul></div>
+      </div></section>      <section class="section" id="sources"><div class="section-head"><div><h2>Sources & verification</h2><p class="section-intro">Current as researched September 13, 2026. Programs, ratings and assignments can change.</p></div></div><div class="panel sources"><ol>
+        <li><a href="https://www.zillow.com/homedetails/219-Hudson-St-Hawley-PA-18428/462500088_zpid/" target="_blank">Zillow / Pike Wayne MLS</a> and <a href="https://www.realtor.com/realestateandhomes-detail/219-Hudson-St_Hawley_PA_18428_M95303-93370" target="_blank">Realtor.com</a> — property, photo, district and walkability facts.</li>
+        <li><a href="https://www.niche.com/places-to-live/hawley-wayne-pa/" target="_blank">Niche: Hawley</a> and <a href="https://hawley-borough.org/" target="_blank">Hawley Borough</a> — profile and local context.</li>
+        <li><a href="https://www.wallenpaupack.org/our-schools" target="_blank">Wallenpaupack Area schools</a> and <a href="https://www.greatschools.org/pennsylvania/hawley/2887-Wallenpaupack-North-Intrmd-School/" target="_blank">GreatSchools</a> — campuses, grades and 5/10 rating.</li>
+        <li><a href="https://www.canaanchristianacademy.org/" target="_blank">Canaan Christian Academy</a> and <a href="https://www.bethanychildrenshouse.org/" target="_blank">Bethany Children’s House</a> — private and Montessori programs.</li>
+        <li><a href="https://shooksigastores.iga.com/StoreLocator/Store/?L=30510" target="_blank">Lake Region IGA</a>, <a href="https://www.walmart.com/store/2480-honesdale-pa" target="_blank">Walmart Honesdale</a> and <a href="https://www.target.com/sl/location/1474" target="_blank">Target Dickson City</a> — shopping.</li>
+        <li><a href="https://www.thehawleyhub.com/classes-events/" target="_blank">Hawley Hub</a>, <a href="https://balancegymnasticsandwellness.com/" target="_blank">Balance Gymnastics</a>, <a href="https://hawleysilkmill.com/" target="_blank">Lake Region Fitness</a> and <a href="https://woodlochsportscomplex.com/" target="_blank">Woodloch Sports Complex</a> — activities and fitness.</li>
+        <li><a href="https://www.graciesportsteammacarrabjjsimrellmuaythaiscranton.com/" target="_blank">Gracie Sports Team Macarra BJJ / Simrell Muay Thai</a> — current BJJ and Muay Thai programs.</li>
+        <li><a href="https://www.northernpoconos.org/wally-lake-fest/" target="_blank">Wally Lake Fest</a>, <a href="https://visithawleypa.com/" target="_blank">Visit Hawley</a> and <a href="https://hawley-borough.org/events-and-meetings" target="_blank">borough events</a>.</li>
+        <li>Locations were geocoded with ArcGIS. Drive figures were verified with OSRM road routing on September 13, 2026; they exclude live traffic and are rounded up.</li>
+      </ol></div></section>      <footer class="footer">
+        <span>Family Radius · comparison-ready neighborhood report</span
+        ><span
+          >Not a guarantee of enrollment, availability, ratings, hours or travel
+          time.</span
+        >
+      </footer>
+    </div>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      crossorigin=""
+    ></script>
+    <script>
+      const HOME={name:'219 Hudson St',address:'219 Hudson St, Hawley, PA 18428',lat:41.482662,lng:-75.18306};
+      const places=[
+        {id:'north-primary',name:'Wallenpaupack Area North Primary',cat:'school',label:'District K–2',icon:'🏫',address:'158 Atlantic Ave, Hawley, PA 18428',miles:'3.1 mi',time:'11 min',rating:'B+ Niche / NR GS',desc:'District primary campus for grades K–2. GreatSchools does not currently publish a 1–10 summary rating.',lat:41.4575186,lng:-75.1717738,url:'https://www.wallenpaupack.org/our-schools'},
+        {id:'north-intermediate',name:'Wallenpaupack North Intermediate',cat:'school',label:'District 3–5',icon:'🏫',address:'187 Atlantic Ave, Hawley, PA 18428',miles:'2.9 mi',time:'9 min',rating:'5/10 GS',desc:'District grades 3–5 campus; GreatSchools reports a 5/10 rating and 85% regular attendance.',lat:41.4559921,lng:-75.1741758,url:'https://www.greatschools.org/pennsylvania/hawley/2887-Wallenpaupack-North-Intrmd-School/'},
+        {id:'canaan',name:'Canaan Christian Academy',cat:'private',label:'Private PK–12',icon:'⛪',address:'30 Hemlock Rd, Lake Ariel, PA 18436',miles:'17.8 mi',time:'38 min',rating:'B− Niche',desc:'Christian PK–12 school; current profile reports 193 students, average class size 15 and rolling admission.',lat:41.4912588,lng:-75.3965478,url:'https://www.canaanchristianacademy.org/'},
+        {id:'bethany',name:'Bethany Children’s House',cat:'montessori',label:'Ages 2½–6',icon:'🧩',address:'827 Church St, Honesdale, PA 18431',miles:'8.4 mi',time:'19 min',rating:'NAMC',desc:'Montessori preschool with a 6:1 ratio, ages 2.5–6 and a school-year schedule; potty training is not required.',lat:41.5735909,lng:-75.2548332,url:'https://www.bethanychildrenshouse.org/'},
+        {id:'iga',name:'Lake Region IGA',cat:'shopping',label:'Proper grocery',icon:'🥕',address:'52 Welwood Ave, Hawley, PA 18428',miles:'2.0 mi',time:'6 min',rating:'Supermarket',desc:'Full local supermarket for produce, meat, deli and weekly household groceries.',lat:41.4635431,lng:-75.1801410,url:'https://shooksigastores.iga.com/StoreLocator/Store/?L=30510'},
+        {id:'walmart',name:'Walmart Honesdale',cat:'shopping',label:'Closest Walmart',icon:'🛒',address:'723A Old Willow Ave, Honesdale, PA 18431',miles:'6.6 mi',time:'15 min',rating:'Supercenter',desc:'Full Supercenter with grocery, pharmacy, vision, auto care and general merchandise.',lat:41.5573859,lng:-75.2264533,url:'https://www.walmart.com/store/2480-honesdale-pa'},
+        {id:'target',name:'Target Dickson City',cat:'shopping',label:'Closest Target found',icon:'🎯',address:'1140 Commerce Blvd, Dickson City, PA 18519',miles:'35.8 mi',time:'62 min',rating:'Regional trip',desc:'The nearest verified Target found, with CVS, Starbucks, pickup and drive-up; not a routine local errand.',lat:41.4674310,lng:-75.6392575,url:'https://www.target.com/sl/location/1474'},
+        {id:'hub',name:'The Hawley Hub / Eddy Studio',cat:'activity',label:'Dance + acro',icon:'💃',address:'318 Main Ave, Hawley, PA 18428',miles:'0.5 mi',time:'2 min',rating:'Walkable',desc:'Ballet, tap, jazz, acro, musical-theatre dance, art, theater, yoga and changing youth/adult classes.',lat:41.4760449,lng:-75.1832326,url:'https://www.thehawleyhub.com/classes-events/'},
+        {id:'balance',name:'Balance Gymnastics & Wellness',cat:'activity',label:'Gymnastics / ninja',icon:'🤸',address:'785 Texas Palmyra Hwy, Hawley, PA 18428',miles:'4.0 mi',time:'8 min',rating:'Pre-K+',desc:'Recreational and pre-K gymnastics, tumbling, ninja, beginner cheer, competitive team and open gyms.',lat:41.5309541,lng:-75.2132269,url:'https://balancegymnasticsandwellness.com/'},
+        {id:'lake-fitness',name:'Lake Region Fitness',cat:'fitness',label:'Adult gym',icon:'🏋️',address:'8 Silk Mill Dr, Hawley, PA 18428',miles:'1.3 mi',time:'5 min',rating:'24-hour',desc:'Full-service 24-hour gym in the Hawley Silk Mill with cardio, strength equipment, classes and training.',lat:41.4718290,lng:-75.1720800,url:'https://hawleysilkmill.com/'},
+        {id:'woodloch',name:'Woodloch Sports Complex',cat:'fitness',label:'Pool + family fitness',icon:'🏊',address:'533 Woodloch Dr, Hawley, PA 18428',miles:'7.0 mi',time:'15 min',rating:'Full complex',desc:'Fitness center, indoor pool, group exercise, personal training and swim school.',lat:41.4965589,lng:-75.1052729,url:'https://woodlochsportscomplex.com/'},
+        {id:'gracie',name:'Macarra BJJ / Simrell Muay Thai',cat:'martial',label:'BJJ + Muay Thai',icon:'🥊',address:'717 Capouse Ave, Scranton, PA 18509',miles:'33.8 mi',time:'60 min',rating:'Two needs, one gym',desc:'The closest currently verified two-need academy found; the commute is the major drawback.',lat:41.4156948,lng:-75.6602461,url:'https://www.graciesportsteammacarrabjjsimrellmuaythaiscranton.com/'},
+        {id:'home',name:'The property',cat:'home',label:'Home base',icon:'⌂',address:HOME.address,miles:'0 mi',time:'Home',rating:'72/100',desc:'Historic 1869 Hawley Borough home on two lots totaling about 1.42 acres, close to park, river and downtown.',lat:HOME.lat,lng:HOME.lng,url:'https://www.zillow.com/homedetails/219-Hudson-St-Hawley-PA-18428/462500088_zpid/'}
+      ];
+      const names = {
+        school: 'Public school',
+        private: 'Private school',
+        montessori: 'Montessori',
+        shopping: 'Shopping',
+        activity: 'Kids activity',
+        fitness: 'Fitness',
+        martial: 'Martial arts',
+        home: 'Home',
+      };
+      const route = (p) =>
+        `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(HOME.address)}&destination=${encodeURIComponent(p.address)}&travelmode=driving`;
+      const cards = document.getElementById('cards');
+      places
+        .filter((p) => p.cat !== 'home')
+        .forEach((p) => {
+          const el = document.createElement('article');
+          el.className = 'place-card';
+          el.dataset.cat = p.cat;
+          const media = p.photo
+            ? `<div class="card-photo has-image"><img loading="lazy" src="${p.photo}" alt="${p.name}"><span class="pill">${p.label}</span><span class="card-icon">${p.icon}</span></div>`
+            : `<div class="card-photo"><span class="pill">${p.label}</span><span class="card-icon">${p.icon}</span></div>`;
+          el.innerHTML = `${media}<div class="card-body"><div class="card-top"><h3>${p.name}</h3><span class="rating">${p.rating}</span></div><div class="meta">${names[p.cat]} · ${p.miles} · ${p.time} routed, no traffic</div><p class="desc">${p.desc}</p><div class="card-actions"><a class="primary" href="${route(p)}" target="_blank">Live route ↗</a><button class="map-button" data-id="${p.id}">Show on map</button><a href="${p.url}" target="_blank">Website ↗</a></div></div>`;
+          cards.appendChild(el);
+        });
+      document.querySelectorAll('.filter').forEach((btn) =>
+        btn.addEventListener('click', () => {
+          document
+            .querySelectorAll('.filter')
+            .forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+          const f = btn.dataset.filter;
+          document
+            .querySelectorAll('.place-card')
+            .forEach((c) =>
+              c.classList.toggle('hidden', f !== 'all' && c.dataset.cat !== f),
+            );
+          if (window.mapMarkers)
+            Object.entries(window.mapMarkers).forEach(([id, m]) => {
+              const p = places.find((x) => x.id === id);
+              if (f === 'all' || p.cat === f || p.cat === 'home')
+                m.addTo(window.familyMap);
+              else m.remove();
+            });
+        }),
+      );
+      if (window.L) {
+        const map = L.map('map', { scrollWheelZoom: false }).setView(
+          [40.31, -75.965],
+          11,
+        );
+        window.familyMap = map;
+        const streetTiles = L.tileLayer(
+          'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
+          {
+          maxZoom: 19,
+          attribution:
+            'Tiles &copy; Esri; data &copy; OpenStreetMap contributors and the GIS user community',
+          },
+        ).addTo(map);
+        let tileErrors = 0;
+        streetTiles.on('tileerror', () => {
+          tileErrors += 1;
+          if (tileErrors !== 3) return;
+          map.removeLayer(streetTiles);
+          L.tileLayer(
+            'https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}',
+            {
+              maxZoom: 19,
+              attribution: 'Tiles courtesy of the U.S. Geological Survey',
+            },
+          ).addTo(map);
+        });
+        window.mapMarkers = {};
+        const icon = (p) =>
+          L.divIcon({
+            className: '',
+            html: `<div class="pin pin-${p.cat}"><span>${p.icon}</span></div>`,
+            iconSize: [31, 31],
+            iconAnchor: [15, 30],
+            popupAnchor: [0, -28],
+          });
+        places.forEach((p) => {
+          const m = L.marker([p.lat, p.lng], { icon: icon(p) })
+            .addTo(map)
+            .bindPopup(
+              `<div class="popup-title">${p.name}</div><div class="popup-meta">${p.miles} · ${p.time}${p.cat === 'home' ? '' : ' routed, no traffic'}</div>${p.cat === 'home' ? '' : `<a class="popup-link" href="${route(p)}" target="_blank">Open live route ↗</a>`}`,
+            );
+          window.mapMarkers[p.id] = m;
+        });
+        map.fitBounds(
+          L.latLngBounds(places.map((p) => [p.lat, p.lng])),
+          { padding: [28, 28] },
+        );
+        L.circle([HOME.lat, HOME.lng], {
+          radius: 8047,
+          color: '#163f34',
+          fillColor: '#d6eee2',
+          fillOpacity: 0.08,
+          weight: 1,
+          dashArray: '6 7',
+        }).addTo(map);
+        document.querySelectorAll('.map-button').forEach((b) =>
+          b.addEventListener('click', () => {
+            const p = places.find((x) => x.id === b.dataset.id);
+            document.getElementById('map-section').scrollIntoView();
+            setTimeout(() => {
+              map.setView([p.lat, p.lng], 13);
+              window.mapMarkers[p.id].addTo(map).openPopup();
+            }, 350);
+          }),
+        );
+      }
+    </script>
+  </body>
+</html>
+
+

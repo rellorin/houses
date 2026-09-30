@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Black-and-white printable family convenience report for 237 Footprint Road, East Stroudsburg, Pennsylvania"
+    />
+    <title>72 · 237 Footprint Road — Printable Family Convenience Report</title>
+    <style>
+      :root {
+        --black: #000;
+        --gray: #555;
+        --line: #999;
+        --light: #eee;
+        --paper: #fff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        background: #d8d8d8;
+      }
+      body {
+        margin: 0;
+        color: var(--black);
+        font:
+          10.5pt/1.34 Arial,
+          Helvetica,
+          sans-serif;
+        -webkit-print-color-adjust: economy;
+        print-color-adjust: economy;
+      }
+      .page {
+        position: relative;
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0.25in auto;
+        padding: 0.5in 0.55in 0.46in;
+        background: var(--paper);
+        box-shadow: 0 2px 14px #888;
+        break-after: page;
+        page-break-after: always;
+      }
+      .page:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+      .kicker {
+        margin: 0 0 7pt;
+        font-size: 8pt;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      h1 {
+        margin: 0;
+        font:
+          700 29pt/1.02 Georgia,
+          'Times New Roman',
+          serif;
+        letter-spacing: -0.025em;
+      }
+      h2 {
+        margin: 0 0 10pt;
+        padding-bottom: 5pt;
+        border-bottom: 2px solid #000;
+        font:
+          700 19pt/1.05 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      h3 {
+        margin: 0 0 5pt;
+        font-size: 11pt;
+      }
+      p {
+        margin: 0 0 8pt;
+      }
+      a {
+        color: #000;
+        text-decoration: underline;
+        text-decoration-thickness: 0.5px;
+        text-underline-offset: 2px;
+      }
+      .muted {
+        color: var(--gray);
+      }
+      .deck {
+        max-width: 6.8in;
+        margin: 12pt 0 15pt;
+        font:
+          12pt/1.35 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .rule {
+        height: 3px;
+        margin: 16pt 0;
+        background: #000;
+      }
+      .summary-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 18pt;
+        align-items: start;
+      }
+      .score {
+        display: flex;
+        align-items: baseline;
+        gap: 5pt;
+        margin: 2pt 0 8pt;
+        font-weight: 700;
+      }
+      .score strong {
+        font:
+          700 46pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .score span {
+        font-size: 12pt;
+      }
+      .label {
+        display: inline-block;
+        padding: 2pt 5pt;
+        border: 1px solid #000;
+        font-size: 7.5pt;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .callout {
+        padding: 10pt 12pt;
+        border: 2px solid #000;
+      }
+      .callout p:last-child {
+        margin-bottom: 0;
+      }
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8pt;
+        margin: 12pt 0;
+      }
+      .stat {
+        padding: 8pt;
+        border-top: 2px solid #000;
+        border-bottom: 1px solid var(--line);
+      }
+      .stat b {
+        display: block;
+        font-size: 16pt;
+      }
+      .stat span {
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 8.8pt;
+      }
+      th {
+        padding: 5pt 5pt;
+        border-top: 1.5px solid #000;
+        border-bottom: 1.5px solid #000;
+        text-align: left;
+        font-size: 7.3pt;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      td {
+        padding: 5pt;
+        border-bottom: 0.6px solid #bbb;
+        vertical-align: top;
+      }
+      td.num,
+      th.num {
+        text-align: right;
+        white-space: nowrap;
+      }
+      tr {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .section {
+        margin-top: 14pt;
+      }
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14pt;
+      }
+      .item {
+        padding: 9pt 0;
+        border-top: 1px solid #000;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .item:first-child {
+        border-top: 0;
+      }
+      .item-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 8pt;
+        align-items: baseline;
+      }
+      .item h3 {
+        font-size: 10.5pt;
+      }
+      .item .rating {
+        white-space: nowrap;
+        font-size: 8pt;
+        font-weight: 700;
+      }
+      .item .meta {
+        margin: 0 0 4pt;
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      .item p {
+        margin: 0;
+        font-size: 8.8pt;
+      }
+      .rating-box {
+        display: grid;
+        grid-template-columns: 1fr 36pt;
+        gap: 7pt;
+        align-items: center;
+        margin: 6pt 0;
+      }
+      .track {
+        height: 7pt;
+        border: 1px solid #000;
+      }
+      .track i {
+        display: block;
+        height: 100%;
+        background: #000;
+      }
+      .rating-box b {
+        text-align: right;
+        font-size: 9pt;
+      }
+      .list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .list li {
+        position: relative;
+        padding: 5pt 0 5pt 17pt;
+        border-top: 0.6px solid #bbb;
+      }
+      .list li:first-child {
+        border-top: 0;
+      }
+      .list li:before {
+        position: absolute;
+        left: 0;
+        top: 5pt;
+        font-weight: 700;
+      }
+      .pros li:before {
+        content: '+';
+      }
+      .cons li:before {
+        content: '–';
+      }
+      .corridor {
+        display: grid;
+        grid-template-columns: 85pt 1fr;
+        gap: 8pt;
+        margin: 8pt 0;
+        padding: 7pt 0;
+        border-top: 0.6px solid #bbb;
+      }
+      .corridor:first-child {
+        border-top: 0;
+      }
+      .corridor b {
+        font-size: 8.5pt;
+      }
+      .corridor span {
+        font-size: 8.5pt;
+      }
+      .sources {
+        margin: 0;
+        padding-left: 16pt;
+        font-size: 7.8pt;
+      }
+      .sources li {
+        margin: 0 0 5pt;
+      }
+      .fine {
+        font-size: 7.5pt;
+        color: var(--gray);
+      }
+      .profile-score {
+        display: flex;
+        align-items: center;
+        gap: 12pt;
+        margin: 10pt 0;
+      }
+      .profile-grade {
+        display: grid;
+        place-items: center;
+        width: 52pt;
+        height: 52pt;
+        border: 2px solid #000;
+        font:
+          700 26pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .event-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 14pt;
+      }
+      .page-footer {
+        position: absolute;
+        left: 0.55in;
+        right: 0.55in;
+        bottom: 0.24in;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 5pt;
+        border-top: 0.6px solid #777;
+        font-size: 7pt;
+        color: #555;
+      }
+      @page {
+        size: Letter;
+        margin: 0;
+      }
+      @media print {
+        html {
+          background: #fff;
+        }
+        body {
+          font-size: 10.5pt;
+        }
+        .page {
+          width: 8.5in;
+          min-height: 11in;
+          margin: 0;
+          box-shadow: none;
+        }
+        .screen-note {
+          display: none !important;
+        }
+      }
+      @media screen and (max-width: 900px) {
+        .page {
+          width: calc(100% - 24px);
+          min-height: auto;
+          margin: 12px;
+          padding: 28px;
+        }
+        .page-footer {
+          position: static;
+          margin-top: 24px;
+        }
+        .summary-grid,
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="page"><p class="kicker">Family convenience report · Print edition · September 20, 2026</p><h1>237 Footprint Road<br />East Stroudsburg, Pennsylvania 18302</h1><p class="deck">A 5-bedroom Price Township home on 1.52 acres, with East Stroudsburg schools and a family-services radius centered on the Milford Road corridor.</p><div class="rule"></div>
+      <div class="summary-grid"><div><span class="label">Overall assessment</span><div class="score"><strong>72</strong><span>/ 100</span></div><p><b>Rural privacy with a surprisingly useful Milford Road service radius.</b> Montessori care and full grocery are close, while the assigned elementary’s current 4/10 GreatSchools rating is the main constraint.</p></div><div class="callout"><h3>Important school finding</h3><p>The East Stroudsburg mailing address is in <b>Price Township and East Stroudsburg Area School District</b>. Current property sources identify East Stroudsburg Elementary as the assigned K–5 campus. Confirm enrollment directly with ESASD.</p></div></div>
+      <div class="stat-grid"><div class="stat"><b>12–16 min</b><span>ASSIGNED K–5 SCHOOL</span></div><div class="stat"><b>8–12 min</b><span>MONTESSORI + GROCERY</span></div><div class="stat"><b>15–22 min</b><span>RETAIL + ACTIVITIES</span></div></div>
+      <div class="section"><h3>Essential-distance snapshot</h3><table><thead><tr><th>Need</th><th>Best fit</th><th class="num">Road*</th><th class="num">Drive*</th></tr></thead><tbody><tr><td>Public elementary</td><td>East Stroudsburg Elementary</td><td class="num">~7 mi</td><td class="num">12–16 min</td></tr><tr><td>Private elementary</td><td>Notre Dame Elementary</td><td class="num">~8 mi</td><td class="num">15–20 min</td></tr><tr><td>Montessori under 5</td><td>PocoNoski</td><td class="num">~5 mi</td><td class="num">8–12 min</td></tr><tr><td>Proper grocery</td><td>Price Chopper</td><td class="num">~5 mi</td><td class="num">8–12 min</td></tr><tr><td>Walmart / Target</td><td>East Stroudsburg / Stroudsburg</td><td class="num">~9–12 mi</td><td class="num">15–25 min</td></tr><tr><td>Dance / gymnastics</td><td>Fusia / International</td><td class="num">~10–15 mi</td><td class="num">18–28 min</td></tr><tr><td>Adult gym</td><td>MoR Sports Facility</td><td class="num">~8 mi</td><td class="num">14–18 min</td></tr><tr><td>BJJ + Muay Thai</td><td>American Killer Bees PA</td><td class="num">~12 mi</td><td class="num">18–22 min</td></tr></tbody></table><p class="fine">*Approximate planning estimates without live traffic. Research date: September 20, 2026.</p></div><div class="page-footer"><span>237 Footprint Road · Family Radius</span><span>1 / 5</span></div></section>
+
+    <section class="page"><p class="kicker">Place profile · Price Township</p><h2>Forested Poconos privacy with an East Stroudsburg orbit</h2><p>The property is in Price Township, Monroe County. The East Stroudsburg mailing identity is accurate for services, but the home is outside the borough in a much quieter, lower-density setting.</p>
+      <div class="two-col"><div><div class="profile-score"><div class="profile-grade">B−</div><div><b>East Stroudsburg Area district grade</b><br><span class="muted">Niche: Academics B− · Diversity A+ · Teachers B− · Resources C−</span></div></div><p>The 2020 Census counted 3,675 residents across roughly 25.2 square miles; a recent ACS estimate is about 3,734.</p></div><div class="callout"><h3>The niche</h3><p>Quiet, wooded Poconos living with groceries and early learning along Milford Road, while school, classes, festivals and major retail pull the family south toward East Stroudsburg.</p></div></div>
+      <div class="section"><h3>What the area feels like</h3><div class="corridor"><b>At home</b><span>1.52 acres, five bedrooms, central air, two-car garage, well and septic, built in 2013.</span></div><div class="corridor"><b>Nearby</b><span>Milford Road supplies Montessori-method preschool, supermarket shopping and everyday services.</span></div><div class="corridor"><b>Broader orbit</b><span>East Stroudsburg and Stroudsburg add school, private education, major retail, dance, gymnastics, martial arts and festivals.</span></div></div>
+      <div class="section"><h3>Events and family life</h3><div class="event-list"><div class="item"><h3>Township civic life</h3><p>Price Township’s calendar is modest: meetings, cleanups and seasonal notices rather than dense recreation programming.</p></div><div class="item"><h3>Pickle Me Poconos</h3><p>Annual downtown festival with themed food, vendors, entertainment and family activities.</p></div><div class="item"><h3>Eastburg events</h3><p>Parades, summer programs and the All-American Picnic add a genuine downtown community calendar.</p></div><div class="item"><h3>Outdoor orbit</h3><p>Delaware Water Gap hiking, fishing, waterfalls and seasonal foliage shape weekend life.</p></div></div></div>
+      <div class="callout"><h3>Daily reality</h3><p>This is not a walkable address, but the drive pattern is workable: early learning and weekly grocery fit near ten minutes, with most other family needs inside roughly fifteen to twenty-five.</p></div><div class="page-footer"><span>237 Footprint Road · Print edition</span><span>2 / 5</span></div></section>
+
+    <section class="page"><p class="kicker">Education</p><h2>One assigned K–5 campus, with stronger private and early-learning choice</h2><div class="two-col"><div><div class="item"><div class="item-head"><h3>East Stroudsburg Elementary</h3><span class="rating">4 / 10 GS</span></div><p class="meta">93 Independence Rd · ~7 mi · 12–16 min</p><p>Assigned district K–5 campus. GreatSchools reports about 616 students, strong IEP support and a below-average overall rating.</p></div><div class="item"><div class="item-head"><h3>East Stroudsburg Area SD</h3><span class="rating">B− Niche</span></div><p class="meta">~6,350 K–12 students · 14:1 ratio</p><p>Niche grades the district B− overall, including A+ diversity, B− academics and B+ college preparation.</p></div></div><div><div class="item"><div class="item-head"><h3>Notre Dame Elementary</h3><span class="rating">PK–6</span></div><p class="meta">60 Spangenburg Ave · ~8 mi · 15–20 min</p><p>Catholic elementary school with Montessori pre-K, full-day kindergarten and extended care.</p></div><div class="item"><div class="item-head"><h3>PocoNoski</h3><span class="rating">8–12 min</span></div><p class="meta">2591 Milford Rd · ~5 mi</p><p>Montessori-method multilingual preschool for children ages two through five, open weekdays 7 a.m.–6 p.m.</p></div></div></div>
+      <div class="section"><h3>School decision checklist</h3><table><thead><tr><th>Question</th><th>Why it matters</th></tr></thead><tbody><tr><td>Confirm assigned campus</td><td>Obtain ESASD confirmation for this exact parcel before relying on listing data.</td></tr><tr><td>Read beyond 4/10</td><td>Review achievement trends, attendance, class size, IEP support and school fit.</td></tr><tr><td>Verify bus timing</td><td>A 12–16-minute car estimate does not predict the actual school-bus route.</td></tr><tr><td>Tour Notre Dame</td><td>Compare tuition, faith formation, Montessori pre-K, aftercare and transportation.</td></tr><tr><td>Check PocoNoski capacity</td><td>The school publishes a waiting-list process; confirm schedule, openings and tuition.</td></tr></tbody></table></div><div class="callout"><h3>Bottom line</h3><p>The elementary drive is practical, but the assigned school’s current rating is a weakness. Private and Montessori choices are unusually convenient and materially improve the family-education picture.</p></div><div class="page-footer"><span>237 Footprint Road · Print edition</span><span>3 / 5</span></div></section>
+
+    <section class="page"><p class="kicker">Shopping, activities & fitness</p><h2>A strong Milford Road core with broader activities farther south</h2><div class="two-col"><div><div class="item"><div class="item-head"><h3>Price Chopper</h3><span class="rating">8–12 min</span></div><p class="meta">4547 Milford Rd · ~5 mi</p><p>Full-service supermarket for produce, meat, deli, bakery and weekly groceries.</p></div><div class="item"><div class="item-head"><h3>Walmart East Stroudsburg</h3><span class="rating">15–20 min</span></div><p class="meta">355 Lincoln Ave · ~9 mi</p><p>Full Supercenter for groceries, pharmacy, pickup and general merchandise.</p></div><div class="item"><div class="item-head"><h3>Target Stroudsburg</h3><span class="rating">20–25 min</span></div><p class="meta">155 Mountaineer Dr · ~12 mi</p><p>Full Target with drive-up, CVS, Starbucks and optical.</p></div><div class="item"><div class="item-head"><h3>Fusia Center for the Arts</h3><span class="rating">18–22 min</span></div><p class="meta">40 N 2nd St · ~10 mi</p><p>Dance programs for ages two through eighteen plus adult programming.</p></div></div>
+        <div><div class="item"><div class="item-head"><h3>International Gymnastics</h3><span class="rating">22–28 min</span></div><p class="meta">100 Gymnastics Way · ~15 mi</p><p>Dedicated gymnastics facility with year-round clinics and camp programs.</p></div><div class="item"><div class="item-head"><h3>MoR Sports Facility</h3><span class="rating">14–18 min</span></div><p class="meta">216 Skyline Dr · ~8 mi</p><p>Fitness, group classes, Peloton, yoga, tennis, racquetball and multipurpose courts.</p></div><div class="item"><div class="item-head"><h3>American Killer Bees PA</h3><span class="rating">18–22 min</span></div><p class="meta">344 Stroud Mall Rd · ~12 mi</p><p>BJJ, Muay Thai, boxing, wrestling, cardio kickboxing and kids programs.</p></div><div class="item"><div class="item-head"><h3>Pocono Kidz Zone</h3><span class="rating">10–14 min</span></div><p class="meta">247 Fox Run Ln · ~6 mi</p><p>Indoor active play, toddler sessions, preschool-prep and sensory-friendly access.</p></div></div></div>
+      <div class="callout"><h3>Practical pattern</h3><p>Milford Road handles preschool and grocery; East Stroudsburg handles school, Walmart, fitness and indoor play; Stroudsburg adds Target, dance, gymnastics and martial arts.</p></div><div class="page-footer"><span>237 Footprint Road · Print edition</span><span>4 / 5</span></div></section>
+
+    <section class="page"><p class="kicker">Score, trade-offs & sources</p><h2>How this address scores</h2><div class="two-col"><div><h3>Weighted category scores</h3><div class="rating-box"><span>Public schools · 30%</span><div><b>62</b></div></div><div class="track"><i style="width:62%"></i></div><div class="rating-box"><span>Private / early · 15%</span><div><b>90</b></div></div><div class="track"><i style="width:90%"></i></div><div class="rating-box"><span>Shopping · 20%</span><div><b>85</b></div></div><div class="track"><i style="width:85%"></i></div><div class="rating-box"><span>Kids activities · 15%</span><div><b>76</b></div></div><div class="track"><i style="width:76%"></i></div><div class="rating-box"><span>Adult fitness · 10%</span><div><b>80</b></div></div><div class="track"><i style="width:80%"></i></div><div class="rating-box"><span>Martial arts · 5%</span><div><b>82</b></div></div><div class="track"><i style="width:82%"></i></div><div class="rating-box"><span>Walkability · 5%</span><div><b>5</b></div></div><div class="track"><i style="width:5%"></i></div><p class="fine">Weighted result: 72.3, rounded to 72. Travel bands prioritize ≤10 minutes, then 11–20, 21–30 and 30+.</p></div><div><h3>What works</h3><ul class="list pros"><li>Montessori-method preschool near ten minutes.</li><li>Proper supermarket is roughly ten minutes.</li><li>Walmart, gym and indoor play are practical.</li><li>One academy covers BJJ and Muay Thai.</li><li>Five bedrooms and quiet 1.52-acre setting.</li></ul><h3 style="margin-top:10pt">What to plan around</h3><ul class="list cons"><li>Almost no practical walkability.</li><li>Assigned elementary currently rates 4/10.</li><li>Target, dance and gymnastics are planned trips.</li><li>Private programs require admissions checks.</li></ul></div></div>
+      <div class="section"><h3>Sources</h3><ol class="sources"><li><a href="https://www.redfin.com/PA/East-Stroudsburg/237-Footprint-Rd-18302/home/137282774">Redfin</a>; <a href="https://www.zillow.com/homedetails/237-Footprint-Rd-East-Stroudsburg-PA-18302/121890234_zpid/">Zillow</a>; Realtor.</li><li><a href="https://www.pricetownship.org/">Price Township</a>; Monroe County municipal profile; Census Reporter.</li><li><a href="https://www.esasd.net/">ESASD</a>; <a href="https://www.greatschools.org/pennsylvania/east-stroudsburg/821-East-Stroudsburg-Elementary-School/">East Stroudsburg Elementary</a>; Niche.</li><li><a href="https://www.notredamees.org/">Notre Dame</a>; <a href="https://www.poconoski.org/home">PocoNoski</a>; <a href="https://www.growingconcern.org/">Growing Concern</a>.</li><li>Price Chopper; Walmart East Stroudsburg; Target Stroudsburg.</li><li>Fusia; International Gymnastics; MoR Sports Facility.</li><li><a href="https://killerbeespa.com/">American Killer Bees PA</a>; Pocono Kidz Zone; Eastburg Community Alliance.</li><li>Drive figures are approximate planning estimates; check live routing before travel.</li></ol></div><p class="fine">Research aid only. Verify enrollment, programs, availability, property condition and travel times directly.</p><div class="page-footer"><span>237 Footprint Road · Print edition</span><span>5 / 5</span></div></section>
+  </body>
+</html>
+
+
+

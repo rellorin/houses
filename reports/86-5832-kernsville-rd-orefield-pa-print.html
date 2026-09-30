@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Black-and-white printable family convenience report for 5832 Kernsville Road, Orefield, Pennsylvania"
+    />
+    <title>5832 Kernsville Road — Printable Family Convenience Report</title>
+    <style>
+      :root {
+        --black: #000;
+        --gray: #555;
+        --line: #999;
+        --light: #eee;
+        --paper: #fff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        background: #d8d8d8;
+      }
+      body {
+        margin: 0;
+        color: var(--black);
+        font:
+          10.5pt/1.34 Arial,
+          Helvetica,
+          sans-serif;
+        -webkit-print-color-adjust: economy;
+        print-color-adjust: economy;
+      }
+      .page {
+        position: relative;
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0.25in auto;
+        padding: 0.5in 0.55in 0.46in;
+        background: var(--paper);
+        box-shadow: 0 2px 14px #888;
+        break-after: page;
+        page-break-after: always;
+      }
+      .page:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+      .kicker {
+        margin: 0 0 7pt;
+        font-size: 8pt;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      h1 {
+        margin: 0;
+        font:
+          700 29pt/1.02 Georgia,
+          'Times New Roman',
+          serif;
+        letter-spacing: -0.025em;
+      }
+      h2 {
+        margin: 0 0 10pt;
+        padding-bottom: 5pt;
+        border-bottom: 2px solid #000;
+        font:
+          700 19pt/1.05 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      h3 {
+        margin: 0 0 5pt;
+        font-size: 11pt;
+      }
+      p {
+        margin: 0 0 8pt;
+      }
+      a {
+        color: #000;
+        text-decoration: underline;
+        text-decoration-thickness: 0.5px;
+        text-underline-offset: 2px;
+      }
+      .muted {
+        color: var(--gray);
+      }
+      .deck {
+        max-width: 6.8in;
+        margin: 12pt 0 15pt;
+        font:
+          12pt/1.35 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .rule {
+        height: 3px;
+        margin: 16pt 0;
+        background: #000;
+      }
+      .summary-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 18pt;
+        align-items: start;
+      }
+      .score {
+        display: flex;
+        align-items: baseline;
+        gap: 5pt;
+        margin: 2pt 0 8pt;
+        font-weight: 700;
+      }
+      .score strong {
+        font:
+          700 46pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .score span {
+        font-size: 12pt;
+      }
+      .label {
+        display: inline-block;
+        padding: 2pt 5pt;
+        border: 1px solid #000;
+        font-size: 7.5pt;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .callout {
+        padding: 10pt 12pt;
+        border: 2px solid #000;
+      }
+      .callout p:last-child {
+        margin-bottom: 0;
+      }
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8pt;
+        margin: 12pt 0;
+      }
+      .stat {
+        padding: 8pt;
+        border-top: 2px solid #000;
+        border-bottom: 1px solid var(--line);
+      }
+      .stat b {
+        display: block;
+        font-size: 16pt;
+      }
+      .stat span {
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 8.8pt;
+      }
+      th {
+        padding: 5pt 5pt;
+        border-top: 1.5px solid #000;
+        border-bottom: 1.5px solid #000;
+        text-align: left;
+        font-size: 7.3pt;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      td {
+        padding: 5pt;
+        border-bottom: 0.6px solid #bbb;
+        vertical-align: top;
+      }
+      td.num,
+      th.num {
+        text-align: right;
+        white-space: nowrap;
+      }
+      tr {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .section {
+        margin-top: 14pt;
+      }
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14pt;
+      }
+      .item {
+        padding: 9pt 0;
+        border-top: 1px solid #000;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .item:first-child {
+        border-top: 0;
+      }
+      .item-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 8pt;
+        align-items: baseline;
+      }
+      .item h3 {
+        font-size: 10.5pt;
+      }
+      .item .rating {
+        white-space: nowrap;
+        font-size: 8pt;
+        font-weight: 700;
+      }
+      .item .meta {
+        margin: 0 0 4pt;
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      .item p {
+        margin: 0;
+        font-size: 8.8pt;
+      }
+      .rating-box {
+        display: grid;
+        grid-template-columns: 1fr 36pt;
+        gap: 7pt;
+        align-items: center;
+        margin: 6pt 0;
+      }
+      .track {
+        height: 7pt;
+        border: 1px solid #000;
+      }
+      .track i {
+        display: block;
+        height: 100%;
+        background: #000;
+      }
+      .rating-box b {
+        text-align: right;
+        font-size: 9pt;
+      }
+      .list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .list li {
+        position: relative;
+        padding: 5pt 0 5pt 17pt;
+        border-top: 0.6px solid #bbb;
+      }
+      .list li:first-child {
+        border-top: 0;
+      }
+      .list li:before {
+        position: absolute;
+        left: 0;
+        top: 5pt;
+        font-weight: 700;
+      }
+      .pros li:before {
+        content: '+';
+      }
+      .cons li:before {
+        content: '–';
+      }
+      .corridor {
+        display: grid;
+        grid-template-columns: 85pt 1fr;
+        gap: 8pt;
+        margin: 8pt 0;
+        padding: 7pt 0;
+        border-top: 0.6px solid #bbb;
+      }
+      .corridor:first-child {
+        border-top: 0;
+      }
+      .corridor b {
+        font-size: 8.5pt;
+      }
+      .corridor span {
+        font-size: 8.5pt;
+      }
+      .sources {
+        margin: 0;
+        padding-left: 16pt;
+        font-size: 7.8pt;
+      }
+      .sources li {
+        margin: 0 0 5pt;
+      }
+      .fine {
+        font-size: 7.5pt;
+        color: var(--gray);
+      }
+      .profile-score {
+        display: flex;
+        align-items: center;
+        gap: 12pt;
+        margin: 10pt 0;
+      }
+      .profile-grade {
+        display: grid;
+        place-items: center;
+        width: 52pt;
+        height: 52pt;
+        border: 2px solid #000;
+        font:
+          700 26pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .event-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 14pt;
+      }
+      .page-footer {
+        position: absolute;
+        left: 0.55in;
+        right: 0.55in;
+        bottom: 0.24in;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 5pt;
+        border-top: 0.6px solid #777;
+        font-size: 7pt;
+        color: #555;
+      }
+      @page {
+        size: Letter;
+        margin: 0;
+      }
+      @media print {
+        html {
+          background: #fff;
+        }
+        body {
+          font-size: 10.5pt;
+        }
+        .page {
+          width: 8.5in;
+          min-height: 11in;
+          margin: 0;
+          box-shadow: none;
+        }
+        .screen-note {
+          display: none !important;
+        }
+      }
+      @media screen and (max-width: 900px) {
+        .page {
+          width: calc(100% - 24px);
+          min-height: auto;
+          margin: 12px;
+          padding: 28px;
+        }
+        .page-footer {
+          position: static;
+          margin-top: 24px;
+        }
+        .summary-grid,
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <section class="page"><p class="kicker">Family Radius · Property Brief</p><h1>5832 Kernsville Road<br>Orefield, PA 18069</h1><p class="deck">A spacious Parkland School District home on 1.11 acres, combining strong assigned schools, a quiet North Whitehall setting and practical access to Lehigh Valley errands and activities.</p><div class="rule"></div><div class="summary-grid"><div><span class="label">Family convenience score</span><div class="score"><strong>86</strong><span>/ 100</span></div><p><b>Bottom line:</b> excellent for schools and outdoor family life. Most services are within a practical drive, but the location is almost entirely car-dependent.</p></div><div class="callout"><h3>Important jurisdiction finding</h3><p>The mailing address says Orefield, an unincorporated community that spans township lines. Current property sources place this parcel in <b>North Whitehall Township</b> and <b>Parkland School District</b>, with Kernsville Elementary listed as assigned. Verify enrollment directly.</p></div></div><div class="stat-grid"><div class="stat"><b>3–5 min</b><span>assigned K–5 school</span></div><div class="stat"><b>6–12 min</b><span>dance, parks + grocery orbit</span></div><div class="stat"><b>12–20 min</b><span>major retail + activities</span></div></div><h3>Property snapshot</h3><table><tr><th>Home</th><th>Site</th><th>Notable extras</th></tr><tr><td>5 beds · 3 full baths · 3,720 finished sq ft · built 1984</td><td>1.11 acres · North Whitehall Township · well + septic</td><td>2-car garage · finished lower level · hot tub · fireplace · valley views</td></tr></table><div class="callout" style="margin-top:14pt"><h3>Primary diligence item</h3><p>Budget for well and septic inspections, and confirm the condition of the roof, two-zone HVAC, finished basement, drainage and hot tub.</p></div><footer>1 / 5 · Overview · Researched September 24, 2026</footer></section>
+    <section class="page"><p class="kicker">Schools & early learning</p><h2>Parkland is the headline</h2><table><tr><th>Option</th><th>Grades / rating</th><th>Approx. drive</th><th>Assessment</th></tr><tr><td><b>Kernsville Elementary</b><br>5051 Kernsville Rd</td><td>K–5 · 9/10 GreatSchools</td><td>1.3 mi · 3–5 min</td><td>Current assigned campus; exceptionally convenient.</td></tr><tr><td><b>Orefield Middle School</b></td><td>6–8 · 7/10 GreatSchools</td><td>2.0 mi · 4–6 min</td><td>Current assigned middle school with broad co-curricular offerings.</td></tr><tr><td><b>Parkland School District</b></td><td>A+ Niche · ~10,000 students · 17:1</td><td>District-wide</td><td>#1 in Lehigh Valley area and #18 in Pennsylvania on Niche.</td></tr><tr><td><b>St. Joseph the Worker</b></td><td>Private Catholic · early ed–8</td><td>~3.5 mi · 6–9 min</td><td>Very practical private-school alternative.</td></tr><tr><td><b>Datzyk Montessori</b></td><td>Age 2–Grade 1</td><td>~8 mi · 13–17 min</td><td>Authentic Montessori under age five; manageable commute.</td></tr></table><div class="callout" style="margin-top:16pt"><h3>District context</h3><p>Niche reports 66% math and 71% reading proficiency and gives Parkland A grades for academics and teachers. Kernsville’s Niche profile reports an A overall grade, 512 students and a 15:1 ratio. Ratings are comparison signals, not substitutes for a visit or boundary confirmation.</p></div><h3 style="margin-top:16pt">Public-school score: 97 / 100</h3><p>Strong district reputation plus very short assigned-school travel is the report’s biggest advantage.</p><footer>2 / 5 · Schools</footer></section>
+    <section class="page"><p class="kicker">Shopping, activities & fitness</p><h2>Everyday destinations</h2><table><tr><th>Need</th><th>Best nearby option</th><th>Approx. drive</th><th>Notes</th></tr><tr><td>Proper grocery</td><td><b>Wegmans Allentown</b></td><td>~7 mi · 11–14 min</td><td>Full supermarket, pharmacy, prepared foods, pickup and delivery.</td></tr><tr><td>Target</td><td><b>Allentown</b></td><td>~7 mi · 11–14 min</td><td>CVS, optical, Starbucks, pickup and drive up.</td></tr><tr><td>Walmart</td><td><b>Whitehall Supercenter</b></td><td>~10 mi · 16–20 min</td><td>Full grocery, pharmacy and general merchandise.</td></tr><tr><td>Kids dance</td><td><b>Steps at Faith</b></td><td>~2.5 mi · 5–7 min</td><td>Age three and up; ballet, tap and tumbling.</td></tr><tr><td>Gymnastics</td><td><b>Parkettes</b></td><td>~11 mi · 17–21 min</td><td>Preschool through elite and adaptive pathways.</td></tr><tr><td>Local recreation</td><td><b>Independence Park</b></td><td>~4 mi · 7–10 min</td><td>Playgrounds, fields, volleyball, walking path and pavilions.</td></tr><tr><td>Adult gym</td><td><b>Steel Fitness Premier</b></td><td>~9 mi · 14–18 min</td><td>Weights, cardio, 80+ classes, indoor track, pools and child care.</td></tr><tr><td>BJJ / Muay Thai</td><td><b>Prodigy Jiu-Jitsu</b></td><td>~7 mi · 12–16 min</td><td>Kids and adult BJJ plus dedicated Muay Thai.</td></tr><tr><td>Family outdoors</td><td><b>Trexler Nature Preserve</b></td><td>~4 mi · 7–10 min</td><td>Large preserve with trails, wildlife and zoo access nearby.</td></tr></table><p class="muted" style="margin-top:14pt">All travel figures are approximate planning estimates, not live routing. Traffic and exact entrance choice can change them.</p><footer>3 / 5 · Daily convenience</footer></section>
+    <section class="page"><p class="kicker">Place profile</p><h2>North Whitehall + Orefield</h2><div class="stat-grid"><div class="stat"><b>15,655</b><span>2020 Census population</span></div><div class="stat"><b>16,057</b><span>2024 population estimate</span></div><div class="stat"><b>23.3%</b><span>population under 18</span></div></div><div class="two-col"><div><h3>General vibe</h3><p>North Whitehall is a low-density township of rolling terrain, farmland, older villages and newer homes northwest of Allentown. Orefield is an unincorporated community, so the daily identity feels more township-and-school-district oriented than like a self-contained downtown.</p><h3>Local niche</h3><p>The combination of Parkland schools, large lots, nature access and a workable Route 309 commute is the central appeal. The trade is limited walkability and a thinner immediate retail base.</p></div><div><h3>Events families notice</h3><ul><li><b>Summer Recreation Camp:</b> sports, games, crafts, fitness and nature programming.</li><li><b>Lil Athletics:</b> introductory t-ball for ages three through five.</li><li><b>Junior First Responder Camp:</b> fire-safety and EMS activities for ages ten through fifteen.</li><li><b>Ironton Rail-Trail:</b> historical walks, races and trail celebrations.</li><li><b>Township parks:</b> youth sports, playgrounds and pavilion gatherings.</li></ul></div></div><div class="callout" style="margin-top:18pt"><h3>Daily-life caveat</h3><p>Redfin labels the property “car required” with a 0.1/10 walkability score. The setting is calm and spacious, but there is no realistic walk-to-errands lifestyle.</p></div><footer>4 / 5 · Community</footer></section>
+    <section class="page"><p class="kicker">Decision summary</p><h2>Pros, trade-offs & methodology</h2><div class="two-col"><div><h3>What works well</h3><ul><li>Assigned K–5 school about 1.3 miles away with a current 9/10 rating.</li><li>A+ Parkland district with strong regional and statewide standing.</li><li>Nearby private school and practical Montessori option.</li><li>Dance, parks, nature and middle school all within roughly ten minutes.</li><li>Full grocery, Target, adult fitness and martial arts are manageable drives.</li><li>Large home, large lot, garage, finished lower level and flexible first-floor suite potential.</li></ul></div><div><h3>What to plan around</h3><ul><li>Near-total car dependence and minimal pedestrian infrastructure.</li><li>Walmart and gymnastics may take close to twenty minutes.</li><li>Well and septic ownership responsibilities.</li><li>Current listing price and condition should be independently assessed.</li><li>Verify school assignment and program availability directly.</li></ul></div></div><h3 style="margin-top:14pt">Comparison scorecard</h3><table><tr><th>Category</th><th>Score</th><th>Weight</th><th>Weighted</th></tr><tr><td>Public schools</td><td>97</td><td>30%</td><td>29.1</td></tr><tr><td>Private / early learning</td><td>92</td><td>15%</td><td>13.8</td></tr><tr><td>Shopping & grocery</td><td>88</td><td>20%</td><td>17.6</td></tr><tr><td>Kids activities</td><td>82</td><td>15%</td><td>12.3</td></tr><tr><td>Adult fitness</td><td>80</td><td>10%</td><td>8.0</td></tr><tr><td>Martial arts</td><td>86</td><td>5%</td><td>4.3</td></tr><tr><td>Walkability</td><td>8</td><td>5%</td><td>0.4</td></tr><tr><td><b>Total</b></td><td></td><td>100%</td><td><b>85.5 → 86</b></td></tr></table><h3 style="margin-top:14pt">Principal sources</h3><p class="small">Redfin, Zillow, Coldwell Banker; North Whitehall Township; U.S. Census QuickFacts; Parkland School District; Niche; GreatSchools; St. Joseph the Worker; Datzyk Montessori; Wegmans; Target; Walmart; Steps at Faith; Parkettes; Steel Fitness Premier; Prodigy Jiu-Jitsu; Lehigh County. Distances and drive times are approximate.</p><footer>5 / 5 · Decision summary</footer></section>
+  </body>
+</html>
+
+
+

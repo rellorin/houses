@@ -1,0 +1,1033 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Black-and-white printable family convenience report for 176 Imperial Drive, Mohnton, Pennsylvania"
+    />
+    <title>176 Imperial Dr — Printable Family Convenience Report</title>
+    <style>
+      :root {
+        --black: #000;
+        --gray: #555;
+        --line: #999;
+        --light: #eee;
+        --paper: #fff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        background: #d8d8d8;
+      }
+      body {
+        margin: 0;
+        color: var(--black);
+        font:
+          10.5pt/1.34 Arial,
+          Helvetica,
+          sans-serif;
+        -webkit-print-color-adjust: economy;
+        print-color-adjust: economy;
+      }
+      .page {
+        position: relative;
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0.25in auto;
+        padding: 0.5in 0.55in 0.46in;
+        background: var(--paper);
+        box-shadow: 0 2px 14px #888;
+        break-after: page;
+        page-break-after: always;
+      }
+      .page:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+      .kicker {
+        margin: 0 0 7pt;
+        font-size: 8pt;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      h1 {
+        margin: 0;
+        font:
+          700 29pt/1.02 Georgia,
+          'Times New Roman',
+          serif;
+        letter-spacing: -0.025em;
+      }
+      h2 {
+        margin: 0 0 10pt;
+        padding-bottom: 5pt;
+        border-bottom: 2px solid #000;
+        font:
+          700 19pt/1.05 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      h3 {
+        margin: 0 0 5pt;
+        font-size: 11pt;
+      }
+      p {
+        margin: 0 0 8pt;
+      }
+      a {
+        color: #000;
+        text-decoration: underline;
+        text-decoration-thickness: 0.5px;
+        text-underline-offset: 2px;
+      }
+      .muted {
+        color: var(--gray);
+      }
+      .deck {
+        max-width: 6.8in;
+        margin: 12pt 0 15pt;
+        font:
+          12pt/1.35 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .rule {
+        height: 3px;
+        margin: 16pt 0;
+        background: #000;
+      }
+      .summary-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 18pt;
+        align-items: start;
+      }
+      .score {
+        display: flex;
+        align-items: baseline;
+        gap: 5pt;
+        margin: 2pt 0 8pt;
+        font-weight: 700;
+      }
+      .score strong {
+        font:
+          700 46pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .score span {
+        font-size: 12pt;
+      }
+      .label {
+        display: inline-block;
+        padding: 2pt 5pt;
+        border: 1px solid #000;
+        font-size: 7.5pt;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .callout {
+        padding: 10pt 12pt;
+        border: 2px solid #000;
+      }
+      .callout p:last-child {
+        margin-bottom: 0;
+      }
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8pt;
+        margin: 12pt 0;
+      }
+      .stat {
+        padding: 8pt;
+        border-top: 2px solid #000;
+        border-bottom: 1px solid var(--line);
+      }
+      .stat b {
+        display: block;
+        font-size: 16pt;
+      }
+      .stat span {
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 8.8pt;
+      }
+      th {
+        padding: 5pt 5pt;
+        border-top: 1.5px solid #000;
+        border-bottom: 1.5px solid #000;
+        text-align: left;
+        font-size: 7.3pt;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      td {
+        padding: 5pt;
+        border-bottom: 0.6px solid #bbb;
+        vertical-align: top;
+      }
+      td.num,
+      th.num {
+        text-align: right;
+        white-space: nowrap;
+      }
+      tr {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .section {
+        margin-top: 14pt;
+      }
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14pt;
+      }
+      .item {
+        padding: 9pt 0;
+        border-top: 1px solid #000;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .item:first-child {
+        border-top: 0;
+      }
+      .item-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 8pt;
+        align-items: baseline;
+      }
+      .item h3 {
+        font-size: 10.5pt;
+      }
+      .item .rating {
+        white-space: nowrap;
+        font-size: 8pt;
+        font-weight: 700;
+      }
+      .item .meta {
+        margin: 0 0 4pt;
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      .item p {
+        margin: 0;
+        font-size: 8.8pt;
+      }
+      .rating-box {
+        display: grid;
+        grid-template-columns: 1fr 36pt;
+        gap: 7pt;
+        align-items: center;
+        margin: 6pt 0;
+      }
+      .track {
+        height: 7pt;
+        border: 1px solid #000;
+      }
+      .track i {
+        display: block;
+        height: 100%;
+        background: #000;
+      }
+      .rating-box b {
+        text-align: right;
+        font-size: 9pt;
+      }
+      .list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .list li {
+        position: relative;
+        padding: 5pt 0 5pt 17pt;
+        border-top: 0.6px solid #bbb;
+      }
+      .list li:first-child {
+        border-top: 0;
+      }
+      .list li:before {
+        position: absolute;
+        left: 0;
+        top: 5pt;
+        font-weight: 700;
+      }
+      .pros li:before {
+        content: '+';
+      }
+      .cons li:before {
+        content: '–';
+      }
+      .corridor {
+        display: grid;
+        grid-template-columns: 85pt 1fr;
+        gap: 8pt;
+        margin: 8pt 0;
+        padding: 7pt 0;
+        border-top: 0.6px solid #bbb;
+      }
+      .corridor:first-child {
+        border-top: 0;
+      }
+      .corridor b {
+        font-size: 8.5pt;
+      }
+      .corridor span {
+        font-size: 8.5pt;
+      }
+      .sources {
+        margin: 0;
+        padding-left: 16pt;
+        font-size: 7.8pt;
+      }
+      .sources li {
+        margin: 0 0 5pt;
+      }
+      .fine {
+        font-size: 7.5pt;
+        color: var(--gray);
+      }
+      .profile-score {
+        display: flex;
+        align-items: center;
+        gap: 12pt;
+        margin: 10pt 0;
+      }
+      .profile-grade {
+        display: grid;
+        place-items: center;
+        width: 52pt;
+        height: 52pt;
+        border: 2px solid #000;
+        font:
+          700 26pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .event-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 14pt;
+      }
+      .page-footer {
+        position: absolute;
+        left: 0.55in;
+        right: 0.55in;
+        bottom: 0.24in;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 5pt;
+        border-top: 0.6px solid #777;
+        font-size: 7pt;
+        color: #555;
+      }
+      @page {
+        size: Letter;
+        margin: 0;
+      }
+      @media print {
+        html {
+          background: #fff;
+        }
+        body {
+          font-size: 10.5pt;
+        }
+        .page {
+          width: 8.5in;
+          min-height: 11in;
+          margin: 0;
+          box-shadow: none;
+        }
+        .screen-note {
+          display: none !important;
+        }
+      }
+      @media screen and (max-width: 900px) {
+        .page {
+          width: calc(100% - 24px);
+          min-height: auto;
+          margin: 12px;
+          padding: 28px;
+        }
+        .page-footer {
+          position: static;
+          margin-top: 24px;
+        }
+        .summary-grid,
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="page">
+      <p class="kicker">
+        Family convenience report · Print edition · September 11, 2026
+      </p>
+      <h1>176 Imperial Drive<br />Mohnton, Pennsylvania 19540</h1>
+      <p class="deck">
+        A wooded Cumru Township home in Governor Mifflin School District, with
+        schools, daily services and family activities concentrated toward
+        Mohnton, Shillington and Reading.
+      </p>
+      <div class="rule"></div>
+      <div class="summary-grid">
+        <div>
+          <span class="label">Overall assessment</span>
+          <div class="score"><strong>81</strong><span>/ 100</span></div>
+          <p>
+            <b>Strong activity access, middling errands.</b> School, dance,
+            gymnastics, fitness and martial arts fit within 10–15 routed
+            minutes; full grocery and big-box trips take about 15–19 minutes.
+          </p>
+        </div>
+        <div class="callout">
+          <h3>School boundary: verify</h3>
+          <p>
+            Property-level listing data places this home in
+            <b>Governor Mifflin School District</b>. Mifflin Park Elementary is
+            the closest elementary shown and the likely K–4 assignment.
+          </p>
+          <p class="fine">
+            Confirm the parcel’s legal attendance boundary directly with the
+            district before purchase.
+          </p>
+        </div>
+      </div>
+      <div class="stat-grid">
+        <div class="stat"><b>10 min</b><span>likely assigned K–4</span></div>
+        <div class="stat"><b>12 min</b><span>dance + gymnastics</span></div>
+        <div class="stat"><b>14 min</b><span>BJJ + Muay Thai</span></div>
+      </div>
+      <div class="section">
+        <h3>Quick destination summary</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Need</th>
+              <th>Best nearby option</th>
+              <th class="num">Distance*</th>
+              <th class="num">Drive*</th>
+              <th>Assessment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Likely public K–4</td>
+              <td>Mifflin Park Elementary</td>
+              <td class="num">4.1 mi</td>
+              <td class="num">10 min</td>
+              <td>Very good</td>
+            </tr>
+            <tr>
+              <td>Private elementary</td>
+              <td>La Salle Academy</td>
+              <td class="num">5.2 mi</td>
+              <td class="num">14 min</td>
+              <td>Good</td>
+            </tr>
+            <tr>
+              <td>Montessori under 5</td>
+              <td>Montessori Country Day, ages 2y10m+</td>
+              <td class="num">6.2 mi</td>
+              <td class="num">15 min</td>
+              <td>Good</td>
+            </tr>
+            <tr>
+              <td>Walmart</td>
+              <td>Wyomissing store</td>
+              <td class="num">7.5 mi</td>
+              <td class="num">17 min</td>
+              <td>Practical</td>
+            </tr>
+            <tr>
+              <td>Proper grocery</td>
+              <td>GIANT, Shillington Road</td>
+              <td class="num">6.5 mi</td>
+              <td class="num">15 min</td>
+              <td>Good</td>
+            </tr>
+            <tr>
+              <td>Target</td>
+              <td>Spring Township / Wyomissing</td>
+              <td class="num">9.7 mi</td>
+              <td class="num">19 min</td>
+              <td>Practical</td>
+            </tr>
+            <tr>
+              <td>Kids dance</td>
+              <td>Dance Your Dreams</td>
+              <td class="num">4.6 mi</td>
+              <td class="num">12 min</td>
+              <td>Very good</td>
+            </tr>
+            <tr>
+              <td>Gymnastics / fitness</td>
+              <td>Berks Gymnastics Academy</td>
+              <td class="num">4.6 mi</td>
+              <td class="num">12 min</td>
+              <td>Very good</td>
+            </tr>
+            <tr>
+              <td>Adult gym</td>
+              <td>Planet Fitness / Mifflin YMCA</td>
+              <td class="num">4.7–4.9 mi</td>
+              <td class="num">11–13 min</td>
+              <td>Very good</td>
+            </tr>
+            <tr>
+              <td>BJJ</td>
+              <td>CFS Academy / 10th Planet</td>
+              <td class="num">5.6–6.2 mi</td>
+              <td class="num">14–15 min</td>
+              <td>Very good</td>
+            </tr>
+            <tr>
+              <td>Muay Thai</td>
+              <td>CFS Academy</td>
+              <td class="num">5.6 mi</td>
+              <td class="num">14 min</td>
+              <td>Very good</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="fine" style="margin-top: 6pt">
+          *Verified OSRM road routing on September 11, 2026; rounded and without
+          live traffic. Verify important trips at the time you expect to travel.
+        </p>
+      </div>
+      <div class="page-footer">
+        <span>176 Imperial Dr · Family Radius</span><span>1 / 5</span>
+      </div>
+    </section>
+
+    <section class="page">
+      <p class="kicker">Place profile · Cumru Township & Mohnton</p>
+      <h2>What it’s like here</h2>
+      <p class="deck" style="margin-top: 6pt">
+        Mohnton is the mailing label, but this home sits in wooded Cumru
+        Township rather than inside Mohnton Borough. Shillington, West Reading
+        and Wyomissing provide most shopping and organized activities.
+      </p>
+      <div class="two-col">
+        <div>
+          <span class="label">Niche profile</span>
+          <div class="profile-score">
+            <div class="profile-grade">B+</div>
+            <div>
+              <h3>Overall Niche grade</h3>
+              <p class="fine">
+                Good for Families B+ · Housing B · Outdoor Activities A− · Jobs
+                A− · Commute B
+              </p>
+            </div>
+          </div>
+          <p>
+            Niche describes a homeowner-heavy suburb with parks, restaurants and
+            a mix of young professionals and retirees. Imperial Drive itself is
+            much more wooded and low-density than the township-wide label.
+          </p>
+        </div>
+        <div>
+          <span class="label">Population & household snapshot</span>
+          <div class="stat-grid" style="grid-template-columns: 1fr 1fr">
+            <div class="stat">
+              <b>15,619</b><span>official 2020 Census</span>
+            </div>
+            <div class="stat">
+              <b>15,927</b><span>2025 Census estimate</span>
+            </div>
+            <div class="stat"><b>20.7%</b><span>residents under 18</span></div>
+            <div class="stat">
+              <b>$90.8k</b><span>median household income</span>
+            </div>
+          </div>
+          <p class="fine">
+            Different population figures reflect different source years and
+            methods; the Census number is the official 2020 count.
+          </p>
+        </div>
+      </div>
+      <div class="section callout">
+        <h3>The general vibe</h3>
+        <p>
+          Imperial Drive is a calm, leafy and private residential enclave. The
+          home feels secluded, while Route 10 and the Shillington/Reading
+          service corridor remain close. Errands and classes still begin with a
+          car trip.
+        </p>
+      </div>
+      <div class="section">
+        <h3>Where community life happens</h3>
+        <div class="corridor">
+          <b>Mohnton / Mifflin</b
+          ><span
+            >The borough, YMCA and Governor Mifflin schools supply the strongest
+            local identity and recurring family connections.</span
+          >
+        </div>
+        <div class="corridor">
+          <b>Shillington / Reading</b
+          ><span
+            >The main school, activity and services corridor, with dance,
+            gymnastics, fitness, martial arts and everyday shopping.</span
+          >
+        </div>
+        <div class="corridor">
+          <b>Nolde Forest</b
+          ><span
+            >A 10-minute outdoor anchor for trails, family nature programs,
+            storytime hikes and seasonal environmental education.</span
+          >
+        </div>
+      </div>
+      <div class="section">
+        <h3>Recurring events in the local orbit</h3>
+        <div class="event-list">
+          <div class="item">
+            <div class="item-head">
+              <h3>Governor Mifflin Community Days</h3>
+              <span class="rating">Annual summer</span>
+            </div>
+            <p>
+              Major community fair with rides, 45+ food and game stands, free
+              entertainment and July fireworks.
+            </p>
+          </div>
+          <div class="item">
+            <div class="item-head">
+              <h3>Mohnton Music Fest</h3>
+              <span class="rating">September</span>
+            </div>
+            <p>
+              Live music, food, makers market and cornhole in Memorial Park.
+            </p>
+          </div>
+          <div class="item">
+            <div class="item-head">
+              <h3>Nolde Forest programs</h3>
+              <span class="rating">Year-round</span>
+            </div>
+            <p>
+              Guided hikes, nature programs, mansion open houses, storytime and
+              after-school STEAM sessions.
+            </p>
+          </div>
+          <div class="item">
+            <div class="item-head">
+              <h3>Mifflin YMCA & school events</h3>
+              <span class="rating">Year-round</span>
+            </div>
+            <p>
+              Youth sports, camps, performances, games and school-group events.
+            </p>
+          </div>
+        </div>
+        <p class="fine" style="margin-top: 8pt">
+          Event dates change. Check Community Days, Mohnton Borough and the DCNR
+          Nolde Forest calendar before planning.
+        </p>
+      </div>
+      <div class="page-footer">
+        <span>176 Imperial Dr · Print edition</span><span>2 / 5</span>
+      </div>
+    </section>
+
+    <section class="page">
+      <p class="kicker">Schools & early learning</p>
+      <h2>Education options</h2>
+      <div class="two-col">
+        <div>
+          <span class="label">Assigned public path</span>
+          <div class="item">
+            <div class="item-head">
+              <h3>Mifflin Park Elementary School</h3>
+              <span class="rating">6/10 GreatSchools</span>
+            </div>
+            <p class="meta">
+              598 Governor Dr, Shillington · K–4 · 4.1 mi / 10 min
+            </p>
+            <p>
+              Closest elementary shown by the active property listing and the
+              likely assignment. It is a straightforward routed trip, but the
+              district should confirm the boundary.
+            </p>
+          </div>
+          <div class="callout" style="margin-top: 12pt">
+            <h3>How to interpret ratings</h3>
+            <p class="fine">
+              GreatSchools ratings are comparative indicators, not a complete
+              measure of fit. Visit the schools, review state performance data
+              and ask about programs important to your child.
+            </p>
+          </div>
+        </div>
+        <div>
+          <span class="label">Private & Montessori</span>
+          <div class="item">
+            <div class="item-head">
+              <h3>La Salle Academy</h3>
+              <span class="rating">NR</span>
+            </div>
+            <p class="meta">
+              440 Holland St, Shillington · PK–8 · 5.2 mi / 14 min
+            </p>
+            <p>
+              Coeducational Catholic school serving preschool through grade 8.
+              “NR” means no public comparative 1–10 rating is published.
+            </p>
+          </div>
+          <div class="item">
+            <div class="item-head">
+              <h3>Montessori Country Day School</h3>
+              <span class="rating">NR</span>
+            </div>
+            <p class="meta">
+              53 Vermont Rd, Sinking Spring · Ages 2y10m+ · 6.2 mi / 15 min
+            </p>
+            <p>
+              Preschool, pre-K and kindergarten beginning at age 2 years 10
+              months, plus elementary grades 1–6.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <h3>Travel pattern</h3>
+        <div class="corridor">
+          <b>Near home</b
+          ><span
+            >Mifflin Park is the shortest school trip at about 10 routed
+            minutes; La Salle is about 14 minutes.</span
+          >
+        </div>
+        <div class="corridor">
+          <b>Shillington</b
+          ><span
+            >Mifflin Park, La Salle and several fitness/activity choices can be
+            paired in the same general corridor.</span
+          >
+        </div>
+        <div class="corridor">
+          <b>Sinking Spring</b
+          ><span
+            >Montessori Country Day is west of the main Shillington cluster and
+            is best treated as a separate 15-minute school run.</span
+          >
+        </div>
+      </div>
+      <div class="section callout">
+        <h3>Enrollment check before purchase</h3>
+        <p>
+          Ask Governor Mifflin School District to confirm Mifflin Park
+          Elementary for the parcel at 176 Imperial Drive and the current K–4
+          configuration. Property sites explicitly caution that boundary data is
+          for reference.
+        </p>
+      </div>
+      <div class="page-footer">
+        <span>176 Imperial Dr · Print edition</span><span>3 / 5</span>
+      </div>
+    </section>
+
+    <section class="page">
+      <p class="kicker">Shopping, activities & fitness</p>
+      <h2>Weekly family life</h2>
+      <div class="two-col">
+        <div>
+          <span class="label">Shopping</span>
+          <div class="item">
+            <div class="item-head">
+              <h3>Walmart Wyomissing</h3>
+              <span class="rating">17 min</span>
+            </div>
+            <p class="meta">1135 Berkshire Blvd, Wyomissing · 7.5 mi</p>
+            <p>
+              Closest Walmart; general merchandise, pharmacy and grocery pickup
+              or delivery in one trip.
+            </p>
+          </div>
+          <div class="item">
+            <div class="item-head">
+              <h3>GIANT Food Stores</h3>
+              <span class="rating">15 min</span>
+            </div>
+            <p class="meta">2641 Shillington Rd, Reading · 6.5 mi</p>
+            <p>
+              A proper full-service regional supermarket rather than a
+              convenience or dollar store.
+            </p>
+          </div>
+          <div class="item">
+            <div class="item-head">
+              <h3>Target Spring Township</h3>
+              <span class="rating">19 min</span>
+            </div>
+            <p class="meta">2769 Papermill Rd, Wyomissing · 9.7 mi</p>
+            <p>
+              Closest Target found; still practical, but not a spontaneous quick
+              stop from Imperial Drive.
+            </p>
+          </div>
+          <span class="label" style="margin-top: 12pt">Kids activities</span>
+          <div class="item">
+            <div class="item-head">
+              <h3>Dance Your Dreams</h3>
+              <span class="rating">12 min</span>
+            </div>
+            <p class="meta">340 Morgantown Rd, Reading · 4.6 mi</p>
+            <p>
+              Children’s ballet, tap, jazz, hip-hop, contemporary, acro/tumbling
+              and cheer dance.
+            </p>
+          </div>
+          <div class="item">
+            <div class="item-head">
+              <h3>Berks Gymnastics Academy</h3>
+              <span class="rating">12 min</span>
+            </div>
+            <p class="meta">325 Morgantown Rd, Reading · 4.6 mi</p>
+            <p>
+              Parent-and-tot, preschool, recreational, ninja and team programs.
+            </p>
+          </div>
+        </div>
+        <div>
+          <span class="label">Adult & family fitness</span>
+          <div class="item">
+            <div class="item-head">
+              <h3>Mifflin Area YMCA</h3>
+              <span class="rating">13 min</span>
+            </div>
+            <p class="meta">140 Chestnut St, Mohnton · 4.9 mi</p>
+            <p>
+              Strong family all-rounder: fitness center, gymnasium, Youth
+              Adventure Center, sports, camps and child care.
+            </p>
+          </div>
+          <div class="item">
+            <div class="item-head">
+              <h3>Planet Fitness Shillington</h3>
+              <span class="rating">11 min</span>
+            </div>
+            <p class="meta">510 E Lancaster Ave, Shillington · 4.7 mi</p>
+            <p>
+              Broad cardio and strength floor, functional stations, long hours
+              and included fitness instruction.
+            </p>
+          </div>
+          <span class="label" style="margin-top: 12pt">Martial arts</span>
+          <div class="item">
+            <div class="item-head">
+              <h3>CFS Academy</h3>
+              <span class="rating">14 min</span>
+            </div>
+            <p class="meta">6525 Shillington Plaza · 5.6 mi</p>
+            <p>
+              Best two-for-one martial-arts match: Brazilian jiu-jitsu plus Muay
+              Thai/kickboxing, wrestling and conditioning.
+            </p>
+          </div>
+          <div class="item">
+            <div class="item-head">
+              <h3>10th Planet Reading</h3>
+              <span class="rating">15 min</span>
+            </div>
+            <p class="meta">547 Penn Ave, West Reading · 6.2 mi</p>
+            <p>
+              Dedicated no-gi jiu-jitsu, wrestling and MMA alternative in West
+              Reading.
+            </p>
+          </div>
+          <div class="callout" style="margin-top: 12pt">
+            <h3>Best errand pairing</h3>
+            <p class="fine">
+              <b>Morgantown Road loop:</b> Dance Your Dreams + Berks Gymnastics.
+              <b>Shillington loop:</b> school + La Salle + Planet Fitness + CFS.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="page-footer">
+        <span>176 Imperial Dr · Print edition</span><span>4 / 5</span>
+      </div>
+    </section>
+
+    <section class="page">
+      <p class="kicker">Comparison framework & sources</p>
+      <h2>How this address scores</h2>
+      <div class="two-col">
+        <div>
+          <h3>Weighted category scores</h3>
+          <div class="rating-box">
+            <span>Public schools · 30%</span>
+            <div class="track"><i style="width: 86%"></i></div>
+            <b>86</b>
+          </div>
+          <div class="rating-box">
+            <span>Private / early learning · 15%</span>
+            <div class="track"><i style="width: 84%"></i></div>
+            <b>84</b>
+          </div>
+          <div class="rating-box">
+            <span>Shopping & grocery · 20%</span>
+            <div class="track"><i style="width: 75%"></i></div>
+            <b>75</b>
+          </div>
+          <div class="rating-box">
+            <span>Kids activities · 15%</span>
+            <div class="track"><i style="width: 88%"></i></div>
+            <b>88</b>
+          </div>
+          <div class="rating-box">
+            <span>Adult fitness · 10%</span>
+            <div class="track"><i style="width: 90%"></i></div>
+            <b>90</b>
+          </div>
+          <div class="rating-box">
+            <span>Martial arts · 5%</span>
+            <div class="track"><i style="width: 88%"></i></div>
+            <b>88</b>
+          </div>
+          <div class="rating-box">
+            <span>Walkability · 5%</span>
+            <div class="track"><i style="width: 10%"></i></div>
+            <b>10</b>
+          </div>
+          <p class="fine" style="margin-top: 10pt">
+            Distance bands: ≤10 minutes is strongest; 11–20 practical; 21–30 a
+            planned trip; 30+ weak. Quality indicators and breadth of choice
+            then adjust the category score. Weighted result is rounded.
+          </p>
+        </div>
+        <div>
+          <h3>Decision summary</h3>
+          <div class="two-col" style="gap: 10pt">
+            <div>
+              <b>Pros</b>
+              <ul class="list pros">
+                <li>Likely public K–4 is about 10 minutes.</li>
+                <li>Dance and gymnastics share one corridor.</li>
+                <li>Montessori begins before age 3.</li>
+                <li>BJJ and Muay Thai at one nearby gym.</li>
+                <li>Nolde Forest is about 10 minutes away.</li>
+              </ul>
+            </div>
+            <div>
+              <b>Cons</b>
+              <ul class="list cons">
+                <li>Car required for nearly everything.</li>
+                <li>Weekly grocery is about 15 minutes.</li>
+                <li>Target is roughly 19 minutes.</li>
+                <li>Montessori choice does not serve infants.</li>
+                <li>School assignment still needs confirmation.</li>
+                <li>Times need rush-hour verification.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <h3>Sources</h3>
+        <ol class="sources">
+          <li>
+            <a
+              href="https://www.niche.com/places-to-live/cumru-township-berks-pa/"
+              >Niche: Cumru Township</a
+            >;
+            <a
+              href="https://www.census.gov/quickfacts/fact/table/cumrutownshipberkscountypennsylvania/PST040225"
+              >U.S. Census QuickFacts</a
+            >; <a href="https://www.cumrutownship.org/">Cumru Township</a> —
+            population, profile indicators and local context.
+          </li>
+          <li>
+            <a href="https://www.communitydays.com/"
+              >Governor Mifflin Community Days</a
+            >;
+            <a href="https://www.mohntoncumrulions.com/music-festival.html"
+              >Mohnton Music Fest</a
+            >;
+            <a
+              href="https://events.dcnr.pa.gov/nolde_forest_environmental_education_center/calendar"
+              >Nolde Forest calendar</a
+            >
+            — recurring festivals and family programs.
+          </li>
+          <li>
+            <a
+              href="https://www.zillow.com/homedetails/176-Imperial-Dr-Mohnton-PA-19540/8871750_zpid/"
+              >Zillow / Bright MLS property record</a
+            >
+            — property-level district, home photo and property facts.
+          </li>
+          <li>
+            <a
+              href="https://www.greatschools.org/pennsylvania/reading/11475-Mifflin-Park-El-School/"
+              >GreatSchools: Mifflin Park Elementary</a
+            >
+            — K–4 and current 6/10 rating.
+          </li>
+          <li>
+            <a href="https://www.lsabear.com/">La Salle Academy</a>;
+            <a href="https://mcdsberks.org/">Montessori Country Day School</a>
+            — current programs and addresses.
+          </li>
+          <li>
+            <a href="https://www.walmart.com/store/1670-wyomissing-pa"
+              >Walmart Wyomissing</a
+            >;
+            <a href="https://www.target.com/sl/spring-township/1222"
+              >Target Spring Township</a
+            >;
+            <a
+              href="https://stores.giantfoodstores.com/pa/reading/2641-shillington-rd"
+              >GIANT</a
+            >
+            — store locations.
+          </li>
+          <li>
+            <a href="https://www.danceyourdreams.studio/">Dance Your Dreams</a>;
+            <a href="https://www.berksgymnastics.com/">Berks Gymnastics</a>;
+            <a href="https://www.ymcarbc.org/branch/mifflin/">Mifflin YMCA</a>;
+            <a href="https://www.planetfitness.com/gyms/shillington-pa/"
+              >Planet Fitness</a
+            >
+            — activity and fitness programs.
+          </li>
+          <li>
+            <a href="https://www.cfsacademy.net/">CFS Academy</a>;
+            <a href="https://www.10thplanetreading.com/">10th Planet Reading</a>
+            — martial-arts programs and locations.
+          </li>
+        </ol>
+      </div>
+      <div class="section callout">
+        <h3>Limitations</h3>
+        <p class="fine">
+          School attendance, program availability, business hours, ratings and
+          travel conditions can change. Private schools are not scored by
+          GreatSchools in the same way as public schools. Drive figures are
+          verified OSRM routing estimates without live traffic. This report
+          supports comparison; it does not replace direct verification.
+        </p>
+      </div>
+      <div class="page-footer">
+        <span>176 Imperial Dr · Print edition</span><span>5 / 5</span>
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Black-and-white printable family convenience report for 30 Robin Lea Lane, Fleetwood, Pennsylvania"
+    />
+    <title>82 · 30 Robin Lea Lane — Printable Family Convenience Report</title>
+    <style>
+      :root {
+        --black: #000;
+        --gray: #555;
+        --line: #999;
+        --light: #eee;
+        --paper: #fff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        background: #d8d8d8;
+      }
+      body {
+        margin: 0;
+        color: var(--black);
+        font:
+          10.5pt/1.34 Arial,
+          Helvetica,
+          sans-serif;
+        -webkit-print-color-adjust: economy;
+        print-color-adjust: economy;
+      }
+      .page {
+        position: relative;
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0.25in auto;
+        padding: 0.5in 0.55in 0.46in;
+        background: var(--paper);
+        box-shadow: 0 2px 14px #888;
+        break-after: page;
+        page-break-after: always;
+      }
+      .page:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+      .kicker {
+        margin: 0 0 7pt;
+        font-size: 8pt;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      h1 {
+        margin: 0;
+        font:
+          700 29pt/1.02 Georgia,
+          'Times New Roman',
+          serif;
+        letter-spacing: -0.025em;
+      }
+      h2 {
+        margin: 0 0 10pt;
+        padding-bottom: 5pt;
+        border-bottom: 2px solid #000;
+        font:
+          700 19pt/1.05 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      h3 {
+        margin: 0 0 5pt;
+        font-size: 11pt;
+      }
+      p {
+        margin: 0 0 8pt;
+      }
+      a {
+        color: #000;
+        text-decoration: underline;
+        text-decoration-thickness: 0.5px;
+        text-underline-offset: 2px;
+      }
+      .muted {
+        color: var(--gray);
+      }
+      .deck {
+        max-width: 6.8in;
+        margin: 12pt 0 15pt;
+        font:
+          12pt/1.35 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .rule {
+        height: 3px;
+        margin: 16pt 0;
+        background: #000;
+      }
+      .summary-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 18pt;
+        align-items: start;
+      }
+      .score {
+        display: flex;
+        align-items: baseline;
+        gap: 5pt;
+        margin: 2pt 0 8pt;
+        font-weight: 700;
+      }
+      .score strong {
+        font:
+          700 46pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .score span {
+        font-size: 12pt;
+      }
+      .label {
+        display: inline-block;
+        padding: 2pt 5pt;
+        border: 1px solid #000;
+        font-size: 7.5pt;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .callout {
+        padding: 10pt 12pt;
+        border: 2px solid #000;
+      }
+      .callout p:last-child {
+        margin-bottom: 0;
+      }
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8pt;
+        margin: 12pt 0;
+      }
+      .stat {
+        padding: 8pt;
+        border-top: 2px solid #000;
+        border-bottom: 1px solid var(--line);
+      }
+      .stat b {
+        display: block;
+        font-size: 16pt;
+      }
+      .stat span {
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 8.8pt;
+      }
+      th {
+        padding: 5pt 5pt;
+        border-top: 1.5px solid #000;
+        border-bottom: 1.5px solid #000;
+        text-align: left;
+        font-size: 7.3pt;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      td {
+        padding: 5pt;
+        border-bottom: 0.6px solid #bbb;
+        vertical-align: top;
+      }
+      td.num,
+      th.num {
+        text-align: right;
+        white-space: nowrap;
+      }
+      tr {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .section {
+        margin-top: 14pt;
+      }
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14pt;
+      }
+      .item {
+        padding: 9pt 0;
+        border-top: 1px solid #000;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .item:first-child {
+        border-top: 0;
+      }
+      .item-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 8pt;
+        align-items: baseline;
+      }
+      .item h3 {
+        font-size: 10.5pt;
+      }
+      .item .rating {
+        white-space: nowrap;
+        font-size: 8pt;
+        font-weight: 700;
+      }
+      .item .meta {
+        margin: 0 0 4pt;
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      .item p {
+        margin: 0;
+        font-size: 8.8pt;
+      }
+      .rating-box {
+        display: grid;
+        grid-template-columns: 1fr 36pt;
+        gap: 7pt;
+        align-items: center;
+        margin: 6pt 0;
+      }
+      .track {
+        height: 7pt;
+        border: 1px solid #000;
+      }
+      .track i {
+        display: block;
+        height: 100%;
+        background: #000;
+      }
+      .rating-box b {
+        text-align: right;
+        font-size: 9pt;
+      }
+      .list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .list li {
+        position: relative;
+        padding: 5pt 0 5pt 17pt;
+        border-top: 0.6px solid #bbb;
+      }
+      .list li:first-child {
+        border-top: 0;
+      }
+      .list li:before {
+        position: absolute;
+        left: 0;
+        top: 5pt;
+        font-weight: 700;
+      }
+      .pros li:before {
+        content: '+';
+      }
+      .cons li:before {
+        content: '–';
+      }
+      .corridor {
+        display: grid;
+        grid-template-columns: 85pt 1fr;
+        gap: 8pt;
+        margin: 8pt 0;
+        padding: 7pt 0;
+        border-top: 0.6px solid #bbb;
+      }
+      .corridor:first-child {
+        border-top: 0;
+      }
+      .corridor b {
+        font-size: 8.5pt;
+      }
+      .corridor span {
+        font-size: 8.5pt;
+      }
+      .sources {
+        margin: 0;
+        padding-left: 16pt;
+        font-size: 7.8pt;
+      }
+      .sources li {
+        margin: 0 0 5pt;
+      }
+      .fine {
+        font-size: 7.5pt;
+        color: var(--gray);
+      }
+      .profile-score {
+        display: flex;
+        align-items: center;
+        gap: 12pt;
+        margin: 10pt 0;
+      }
+      .profile-grade {
+        display: grid;
+        place-items: center;
+        width: 52pt;
+        height: 52pt;
+        border: 2px solid #000;
+        font:
+          700 26pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .event-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 14pt;
+      }
+      .page-footer {
+        position: absolute;
+        left: 0.55in;
+        right: 0.55in;
+        bottom: 0.24in;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 5pt;
+        border-top: 0.6px solid #777;
+        font-size: 7pt;
+        color: #555;
+      }
+      @page {
+        size: Letter;
+        margin: 0;
+      }
+      @media print {
+        html {
+          background: #fff;
+        }
+        body {
+          font-size: 10.5pt;
+        }
+        .page {
+          width: 8.5in;
+          min-height: 11in;
+          margin: 0;
+          box-shadow: none;
+        }
+        .screen-note {
+          display: none !important;
+        }
+      }
+      @media screen and (max-width: 900px) {
+        .page {
+          width: calc(100% - 24px);
+          min-height: auto;
+          margin: 12px;
+          padding: 28px;
+        }
+        .page-footer {
+          position: static;
+          margin-top: 24px;
+        }
+        .summary-grid,
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <section class="page"><p class="kicker">Family Radius · Property Brief</p><h1>30 Robin Lea Lane<br>Fleetwood, PA 19522</h1><p class="deck">A large Ruscombmanor Township home on 2.74 acres, with Oley Valley schools and a surprisingly close Fleetwood–Temple amenity network.</p><div class="rule"></div><div class="summary-grid"><div><span class="label">Family convenience score</span><div class="score"><strong>82</strong><span>/ 100</span></div><p><b>Bottom line:</b> rural privacy without punishing errands. Public schools, grocery, big-box shopping, dance, gymnastics and fitness are all practical; Montessori is the standout long drive.</p></div><div class="callout"><h3>Important location finding</h3><p>The postal city is Fleetwood, but the property is in <b>Ruscombmanor Township</b> and Oley Valley School District—not Fleetwood Borough or Fleetwood Area schools.</p></div></div><div class="stat-grid"><div class="stat"><b>3–10 min</b><span>grocery, activities + fitness</span></div><div class="stat"><b>~10 min</b><span>assigned public schools</span></div><div class="stat"><b>23–27 min</b><span>Muay Thai + Montessori</span></div></div><h3>Property snapshot</h3><table><tr><th>Active listing</th><th>Site</th><th>Notable extras</th></tr><tr><td>$549,000 · 4 beds · 3 full baths · 4,455 finished sq ft · built 1996</td><td>2.74 acres · Ruscombmanor Township · Oley Valley SD</td><td>Daylight lower level · heated workshop · oversized 32×22 garage · deck + gazebo</td></tr></table><div class="callout" style="margin-top:14pt"><h3>Data caveat</h3><p>Current portals conflict on bedroom count, taxes and some status details. Verify the signed disclosure, official tax bill, water/septic records and zoning before relying on summaries.</p></div><footer>1 / 5 · Overview · Researched September 29, 2026</footer></section>
+    <section class="page"><p class="kicker">Schools & early learning</p><h2>Oley Valley school path</h2><table><tr><th>Option</th><th>Grades / rating</th><th>Planning estimate</th><th>Assessment</th></tr><tr><td><b>Oley Valley Elementary</b></td><td>K–5 · 6/10 GS · B− Niche</td><td>~6.0 mi · ~10 min</td><td>Current assigned school; 593 students and 12:1 ratio in Niche.</td></tr><tr><td><b>Oley Valley Middle</b></td><td>6–8 · 6/10 GS</td><td>~6.0 mi · ~10 min</td><td>Beside the elementary school.</td></tr><tr><td><b>Oley Valley Senior High</b></td><td>9–12 · 5/10 GS</td><td>~6.2 mi · ~11 min</td><td>About 508 students; athletics and FFA are visible strengths.</td></tr><tr><td><b>Fleetwood Christian Day</b></td><td>Private Christian · grades 1–8</td><td>~4.8 mi · ~12 min</td><td>Verify current operation, admissions and accreditation directly.</td></tr><tr><td><b>Montessori Country Day</b></td><td>Ages 2y10m+ · PK/K</td><td>~16.9 mi · ~27 min</td><td>Authentic independent Montessori; meaningful commute.</td></tr><tr><td><b>YMCA Richmond ELC</b></td><td>STAR 4 · 6 weeks–5 years</td><td>~5–6 mi · 11–13 min</td><td>Nearby practical childcare fallback; not Montessori.</td></tr></table><div class="callout" style="margin-top:16pt"><h3>Interpret ratings carefully</h3><p>GreatSchools and Niche are screening tools, not verdicts. Review Pennsylvania performance data, programs, class offerings and school climate directly—and confirm address eligibility with the district.</p></div><footer>2 / 5 · Schools</footer></section>
+    <section class="page"><p class="kicker">Shopping, activities & fitness</p><h2>Everyday destinations</h2><table><tr><th>Need</th><th>Best nearby option</th><th>Planning estimate</th><th>Notes</th></tr><tr><td>Proper grocery</td><td><b>Boyer’s Fleetwood</b></td><td>~4.2 mi · ~9 min</td><td>Full supermarket for routine groceries.</td></tr><tr><td>Target</td><td><b>Target Muhlenberg Township</b></td><td>~5.8 mi · ~11 min</td><td>General merchandise, grocery, pickup and drive up.</td></tr><tr><td>Walmart</td><td><b>Walmart Temple</b></td><td>~4.4 mi · ~9 min</td><td>Supercenter, pharmacy, vision and auto care.</td></tr><tr><td>Kids dance</td><td><b>Dance Dynamics</b></td><td>~1.6 mi · ~3 min</td><td>Noncompetitive studio from preschool through adult.</td></tr><tr><td>Gymnastics</td><td><b>Stallone Gymnastics</b></td><td>~2.9 mi · ~5 min</td><td>Dedicated recreational and competitive programs.</td></tr><tr><td>Adult / family gym</td><td><b>Tri Valley YMCA</b></td><td>~4.3 mi · ~10 min</td><td>Fitness, studio, gymnasium and youth programs.</td></tr><tr><td>Coached strength</td><td><b>Garage Strength</b></td><td>~3.5 mi · ~8 min</td><td>Adult and youth performance training.</td></tr><tr><td>BJJ</td><td><b>Gracie Jiu-Jitsu Kutztown</b></td><td>~11.5 mi · ~20 min</td><td>Certified center with kids and adults.</td></tr><tr><td>Muay Thai</td><td><b>Next Level Martial Arts</b></td><td>~11.2 mi · ~23 min</td><td>Dedicated adult Muay Thai; verify schedule.</td></tr></table><p class="muted" style="margin-top:14pt">Road mileage and time are off-peak route-planning estimates calculated September 29, 2026, not live traffic.</p><footer>3 / 5 · Daily convenience</footer></section>
+    <section class="page"><p class="kicker">Place profile</p><h2>Ruscombmanor Township + Fleetwood orbit</h2><div class="stat-grid"><div class="stat"><b>~4,000</b><span>township 2020 population</span></div><div class="stat"><b>2 parks</b><span>township recreation sites</span></div><div class="stat"><b>car-based</b><span>daily mobility pattern</span></div></div><div class="two-col"><div><h3>General vibe</h3><p>Quiet, rolling Berks County countryside with an established-neighborhood feel. Fleetwood, Oley, Temple and Reading are close enough to keep ordinary family logistics workable.</p><h3>Local niche</h3><p>Agricultural heritage and community institutions matter here: Oley’s fair and FFA culture pair with Fleetwood’s park events, carnival and hometown traditions.</p></div><div><h3>Events families notice</h3><ul><li><b>Fleetwood Carnival:</b> rides, food, music, bingo and fireworks.</li><li><b>Oley Valley Fair:</b> livestock, exhibits, tractor events and children’s contests.</li><li><b>Fish Rodeo:</b> a long-running spring family tradition.</li><li><b>Sunday concerts:</b> a multi-week Fleetwood Park music series.</li><li><b>Show of Wheels:</b> annual car, truck and motorcycle show.</li><li><b>Berks Fiddle Fest:</b> concerts, workshops, crafts and competition.</li></ul></div></div><div class="callout" style="margin-top:18pt"><h3>Daily-life caveat</h3><p>The short drives are a real strength, but there is no walkable errands pattern. School, groceries and organized activities still require a car.</p></div><footer>4 / 5 · Community</footer></section>
+    <section class="page"><p class="kicker">Decision summary</p><h2>Pros, trade-offs & methodology</h2><div class="two-col"><div><h3>What works well</h3><ul><li>Public K–12 path around ten minutes away.</li><li>Grocery, Target and Walmart around nine to eleven minutes.</li><li>Dance and gymnastics within roughly five minutes.</li><li>Two distinct nearby fitness choices.</li><li>Large home and lot without deep-rural isolation.</li></ul></div><div><h3>What to plan around</h3><ul><li>Near-total car dependence.</li><li>Authentic Montessori is roughly twenty-seven minutes.</li><li>Dedicated Muay Thai is roughly twenty-three minutes.</li><li>Listing and tax portals conflict; verify primary records.</li><li>Confirm enrollment, openings and live schedules.</li></ul></div></div><h3 style="margin-top:14pt">Comparison scorecard</h3><table><tr><th>Category</th><th>Score</th><th>Weight</th><th>Weighted</th></tr><tr><td>Public schools</td><td>82</td><td>30%</td><td>24.6</td></tr><tr><td>Private / early learning</td><td>72</td><td>15%</td><td>10.8</td></tr><tr><td>Shopping & grocery</td><td>94</td><td>20%</td><td>18.8</td></tr><tr><td>Kids activities</td><td>96</td><td>15%</td><td>14.4</td></tr><tr><td>Adult fitness</td><td>95</td><td>10%</td><td>9.5</td></tr><tr><td>Martial arts</td><td>82</td><td>5%</td><td>4.1</td></tr><tr><td>Walkability</td><td>12</td><td>5%</td><td>0.6</td></tr><tr><td><b>Total</b></td><td></td><td>100%</td><td><b>82.8 → 82</b></td></tr></table><h3 style="margin-top:14pt">Principal sources</h3><p class="small">Current MLS/Compass listing; Oley Valley SD; GreatSchools; Niche; PA 211; Montessori Country Day; YMCA; Boyer’s; Target; Walmart; Dance Dynamics; Stallone Gymnastics; Garage Strength; Gracie Jiu-Jitsu; Next Level Muay Thai; Ruscombmanor Township; Fleetwood Parks; Oley Fair. Distances and drive times are planning estimates.</p><footer>5 / 5 · Decision summary</footer></section>  </body>
+</html>
+
+
+
