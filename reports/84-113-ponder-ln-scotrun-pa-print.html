@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Black-and-white printable family convenience report for 113 Ponder Lane, Scotrun, PA 18355">
+    <title>84 · 113 Ponder Lane — Printable Family Convenience Report</title>
+    <style>
+      :root {
+        --black: #000;
+        --gray: #555;
+        --line: #999;
+        --light: #eee;
+        --paper: #fff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        background: #d8d8d8;
+      }
+      body {
+        margin: 0;
+        color: var(--black);
+        font:
+          10.5pt/1.34 Arial,
+          Helvetica,
+          sans-serif;
+        -webkit-print-color-adjust: economy;
+        print-color-adjust: economy;
+      }
+      .page {
+        position: relative;
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0.25in auto;
+        padding: 0.5in 0.55in 0.46in;
+        background: var(--paper);
+        box-shadow: 0 2px 14px #888;
+        break-after: page;
+        page-break-after: always;
+      }
+      .page:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+      .kicker {
+        margin: 0 0 7pt;
+        font-size: 8pt;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      h1 {
+        margin: 0;
+        font:
+          700 29pt/1.02 Georgia,
+          'Times New Roman',
+          serif;
+        letter-spacing: -0.025em;
+      }
+      h2 {
+        margin: 0 0 10pt;
+        padding-bottom: 5pt;
+        border-bottom: 2px solid #000;
+        font:
+          700 19pt/1.05 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      h3 {
+        margin: 0 0 5pt;
+        font-size: 11pt;
+      }
+      p {
+        margin: 0 0 8pt;
+      }
+      a {
+        color: #000;
+        text-decoration: underline;
+        text-decoration-thickness: 0.5px;
+        text-underline-offset: 2px;
+      }
+      .muted {
+        color: var(--gray);
+      }
+      .deck {
+        max-width: 6.8in;
+        margin: 12pt 0 15pt;
+        font:
+          12pt/1.35 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .rule {
+        height: 3px;
+        margin: 16pt 0;
+        background: #000;
+      }
+      .summary-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 18pt;
+        align-items: start;
+      }
+      .score {
+        display: flex;
+        align-items: baseline;
+        gap: 5pt;
+        margin: 2pt 0 8pt;
+        font-weight: 700;
+      }
+      .score strong {
+        font:
+          700 46pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .score span {
+        font-size: 12pt;
+      }
+      .label {
+        display: inline-block;
+        padding: 2pt 5pt;
+        border: 1px solid #000;
+        font-size: 7.5pt;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .callout {
+        padding: 10pt 12pt;
+        border: 2px solid #000;
+      }
+      .callout p:last-child {
+        margin-bottom: 0;
+      }
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8pt;
+        margin: 12pt 0;
+      }
+      .stat {
+        padding: 8pt;
+        border-top: 2px solid #000;
+        border-bottom: 1px solid var(--line);
+      }
+      .stat b {
+        display: block;
+        font-size: 16pt;
+      }
+      .stat span {
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 8.8pt;
+      }
+      th {
+        padding: 5pt 5pt;
+        border-top: 1.5px solid #000;
+        border-bottom: 1.5px solid #000;
+        text-align: left;
+        font-size: 7.3pt;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      td {
+        padding: 5pt;
+        border-bottom: 0.6px solid #bbb;
+        vertical-align: top;
+      }
+      td.num,
+      th.num {
+        text-align: right;
+        white-space: nowrap;
+      }
+      tr {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .section {
+        margin-top: 14pt;
+      }
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14pt;
+      }
+      .item {
+        padding: 9pt 0;
+        border-top: 1px solid #000;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .item:first-child {
+        border-top: 0;
+      }
+      .item-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 8pt;
+        align-items: baseline;
+      }
+      .item h3 {
+        font-size: 10.5pt;
+      }
+      .item .rating {
+        white-space: nowrap;
+        font-size: 8pt;
+        font-weight: 700;
+      }
+      .item .meta {
+        margin: 0 0 4pt;
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      .item p {
+        margin: 0;
+        font-size: 8.8pt;
+      }
+      .rating-box {
+        display: grid;
+        grid-template-columns: 1fr 36pt;
+        gap: 7pt;
+        align-items: center;
+        margin: 6pt 0;
+      }
+      .track {
+        height: 7pt;
+        border: 1px solid #000;
+      }
+      .track i {
+        display: block;
+        height: 100%;
+        background: #000;
+      }
+      .rating-box b {
+        text-align: right;
+        font-size: 9pt;
+      }
+      .list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .list li {
+        position: relative;
+        padding: 5pt 0 5pt 17pt;
+        border-top: 0.6px solid #bbb;
+      }
+      .list li:first-child {
+        border-top: 0;
+      }
+      .list li:before {
+        position: absolute;
+        left: 0;
+        top: 5pt;
+        font-weight: 700;
+      }
+      .pros li:before {
+        content: '+';
+      }
+      .cons li:before {
+        content: '–';
+      }
+      .corridor {
+        display: grid;
+        grid-template-columns: 85pt 1fr;
+        gap: 8pt;
+        margin: 8pt 0;
+        padding: 7pt 0;
+        border-top: 0.6px solid #bbb;
+      }
+      .corridor:first-child {
+        border-top: 0;
+      }
+      .corridor b {
+        font-size: 8.5pt;
+      }
+      .corridor span {
+        font-size: 8.5pt;
+      }
+      .sources {
+        margin: 0;
+        padding-left: 16pt;
+        font-size: 7.8pt;
+      }
+      .sources li {
+        margin: 0 0 5pt;
+      }
+      .fine {
+        font-size: 7.5pt;
+        color: var(--gray);
+      }
+      .profile-score {
+        display: flex;
+        align-items: center;
+        gap: 12pt;
+        margin: 10pt 0;
+      }
+      .profile-grade {
+        display: grid;
+        place-items: center;
+        width: 52pt;
+        height: 52pt;
+        border: 2px solid #000;
+        font:
+          700 26pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .event-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 14pt;
+      }
+      .page-footer {
+        position: absolute;
+        left: 0.55in;
+        right: 0.55in;
+        bottom: 0.24in;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 5pt;
+        border-top: 0.6px solid #777;
+        font-size: 7pt;
+        color: #555;
+      }
+      @page {
+        size: Letter;
+        margin: 0;
+      }
+      @media print {
+        html {
+          background: #fff;
+        }
+        body {
+          font-size: 10.5pt;
+        }
+        .page {
+          width: 8.5in;
+          min-height: 11in;
+          margin: 0;
+          box-shadow: none;
+        }
+        .screen-note {
+          display: none !important;
+        }
+      }
+      @media screen and (max-width: 900px) {
+        .page {
+          width: calc(100% - 24px);
+          min-height: auto;
+          margin: 12px;
+          padding: 28px;
+        }
+        .page-footer {
+          position: static;
+          margin-top: 24px;
+        }
+        .summary-grid,
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="page"><p class="kicker">Family Radius · Property Brief</p><h1>113 Ponder Lane<br>Scotrun, PA 18355</h1><p class="deck">A spacious Sullivan’s Crossing home minutes from the Swiftwater school campus, authentic Montessori care, Tannersville grocery and Mount Pocono fitness. The trade-off is complete car dependence.</p><div class="rule"></div><div class="summary-grid"><div><span class="label">Family convenience score</span><div class="score"><strong>84</strong><span>/ 100</span></div><p><b>Bottom line:</b> Exceptional school-campus proximity and strong Montessori, grocery and fitness access produce a high score; car dependence and mixed lower-grade ratings hold it below the top tier.</p></div><div class="callout"><h3>Important location finding</h3><p> Scotrun mailing address, Pocono Township home  The property is in Pocono Township and Pocono Mountain School District. Current listing and district sources point to the compact Swiftwater East campus; always confirm the exact parcel assignment with district registration. </p></div></div><div class="stat-grid"><div class="stat"><b>~6–7 min</b><span>four public-school campuses</span></div><div class="stat"><b>~9–12 min</b><span>Montessori, grocery + gym</span></div><div class="stat"><b>~17–22 min</b><span>Target, BJJ + Muay Thai</span></div></div><h3>Property snapshot</h3><table><tr><th>Active listing</th><th>Site</th><th>Notable extras</th></tr><tr><td>$574,000 active listing · 5 beds · 3 baths · 5,942 listed sq ft · built 1989</td><td>1.19 acres · Pocono Township · Pocono Mountain SD</td><td>Walk-out basement · deck/hot tub · attached + detached garages · $21/mo HOA</td></tr></table><div class="callout" style="margin-top:14pt"><h3>Due-diligence note</h3><p>Large 1989 homes can carry substantial roof, HVAC, septic, well and basement-maintenance exposure. Confirm whether the nearly 6,000 listed square feet includes unfinished or below-grade space.</p></div><footer>1 / 5 · Overview · Researched October 2, 2026</footer></section>
+    <section class="page"><p class="kicker">Schools & early learning</p><h2>Education options</h2><table><tr><th>Option</th><th>Grades / rating</th><th>Planning estimate</th><th>Assessment</th></tr><tr><td><b>Swiftwater Elementary</b></td><td>5/10 GreatSchools</td><td>~2.0 mi · ~7 min</td><td>K–3 school on the compact Swiftwater campus; confirm parcel assignment with PMSD.</td></tr><tr><td><b>Swiftwater Intermediate</b></td><td>5/10 GreatSchools</td><td>~1.7 mi · ~6 min</td><td>Intermediate school beside the district’s East secondary campuses.</td></tr><tr><td><b>Pocono Mountain East Junior High</b></td><td>5/10 GreatSchools</td><td>~1.6 mi · ~6 min</td><td>Junior high on the same Swiftwater education campus.</td></tr><tr><td><b>Pocono Mountain East High</b></td><td>8/10 GreatSchools</td><td>~1.8 mi · ~7 min</td><td>The strongest current third-party rating in the public-school path.</td></tr><tr><td><b>The Growing Concern School</b></td><td>Preschool · K · elementary</td><td>~3.8 mi · ~10 min</td><td>Nonprofit, licensed Montessori school serving preschool, kindergarten and private elementary students.</td></tr><tr><td><b>Notre Dame Elementary</b></td><td>PK–6 · Montessori pre-K</td><td>~12.2 mi · ~22 min</td><td>Catholic elementary school with a Montessori early-childhood program.</td></tr></table><div class="callout" style="margin-top:16pt"><h3>Assignment check</h3><p>Public-school assignments, transportation and program availability can change. Confirm this exact parcel with district registration before relying on a listing portal.</p></div><footer>2 / 5 · Schools</footer></section>
+    <section class="page"><p class="kicker">Shopping, activities & fitness</p><h2>Everyday destinations</h2><table><tr><th>Need</th><th>Best nearby option</th><th>Planning estimate</th><th>Notes</th></tr><tr><td>Proper grocery</td><td><b>Weis Markets Tannersville</b></td><td>~3.7 mi · ~9 min</td><td>The closest practical full-line grocery for weekly shopping.</td></tr><tr><td>Closest Target</td><td><b>Target Stroudsburg</b></td><td>~9.0 mi · ~17 min</td><td>Full Target with pickup, Drive Up, pharmacy, optical and Starbucks.</td></tr><tr><td>Closest Walmart</td><td><b>Walmart Mount Pocono</b></td><td>~5.1 mi · ~11 min</td><td>Full grocery and general merchandise in the Mount Pocono retail corridor.</td></tr><tr><td>Kids dance</td><td><b>Reach for the Stars Dance Studio</b></td><td>~5.5 mi · ~12 min</td><td>Ballet, tap, jazz, hip-hop, lyrical, contemporary, modern and pointe.</td></tr><tr><td>Gymnastics facility</td><td><b>International Gymnastics</b></td><td>~7.5 mi · ~15 min</td><td>Long-running dedicated gymnastics school and camp; verify current local class enrollment.</td></tr><tr><td>Adult gym</td><td><b>Planet Fitness Mount Pocono</b></td><td>~4.8 mi · ~11 min</td><td>Accessible full gym in the Mount Pocono shopping corridor.</td></tr><tr><td>Family fitness + classes</td><td><b>St. Luke’s Fitness at NCC</b></td><td>~4.0 mi · ~10 min</td><td>Community fitness center with group programs and indoor recreation.</td></tr><tr><td>BJJ + Muay Thai</td><td><b>American Killer Bees PA</b></td><td>~10.3 mi · ~19 min</td><td>Brazilian jiu-jitsu, Muay Thai, boxing, wrestling and age-based children’s programs.</td></tr></table><p class="muted" style="margin-top:14pt">Mileage and time are conservative off-peak planning estimates prepared October 2, 2026, not live traffic.</p><footer>3 / 5 · Daily convenience</footer></section>
+    <section class="page"><p class="kicker">Place profile</p><h2>Pocono Township + regional orbit</h2><div class="stat-grid"><div class="stat"><b>10,884</b><span>2020 Census population</span></div><div class="stat"><b>34.2 sq mi</b><span>land area</span></div><div class="stat"><b>car-based</b><span>daily mobility pattern</span></div></div><div class="two-col"><div><h3>General vibe</h3><p>Wooded, low-density and quiet at home, but far from isolated. Schools and several essentials are unusually close; walking to them is still unrealistic.</p><h3>Local niche</h3><p>A practical Pocono base: Tannersville handles grocery and early learning, Mount Pocono adds retail and fitness, and Stroudsburg supplies the broadest downtown and activity network.</p></div><div><h3>Events families notice</h3><ul><li><b>Fishing Derby:</b> A spring family fishing day built around youth participation and outdoor recreation.</li><li><b>Touch-A-Truck:</b> Children can explore municipal, emergency and working vehicles up close.</li><li><b>Concerts + movies:</b> Seasonal outdoor music and movie nights create an easy local evening out.</li><li><b>Food Truck Festival:</b> A multi-day September gathering with food vendors and community entertainment.</li><li><b>Spooky Walk + Trunk or Treat:</b> Two fall traditions aimed squarely at families with younger children.</li><li><b>Tree Lighting + Mistletoe Market:</b> The township closes the year with lights, vendors and a holiday-market atmosphere.</li></ul></div></div><div class="callout" style="margin-top:18pt"><h3>What to notice</h3><p>The active listing is a large 1989 home with a walk-out lower level, hot tub and two garages. Verify finished square footage, HOA rules, septic/well, older systems and basement moisture.</p></div><footer>4 / 5 · Community</footer></section>
+    <section class="page"><p class="kicker">Decision summary</p><h2>Pros, trade-offs & methodology</h2><div class="two-col"><div><h3>What works well</h3><ul><li>Four public-school stages cluster about six to seven minutes from home.</li><li>The Growing Concern provides a genuine Montessori preschool/kindergarten and private elementary path around ten minutes away.</li><li>Weis, Planet Fitness, dance and a family fitness center fall inside roughly twelve minutes.</li><li>International Gymnastics and Target remain practical around fifteen to seventeen minutes.</li><li>American Killer Bees offers BJJ and Muay Thai—including children’s programming—in one academy.</li></ul></div><div><h3>What to plan around</h3><ul><li>The property is functionally car-only despite several short drives.</li><li>Most Stroudsburg activities and martial arts require a planned 17–22 minute trip.</li><li>Third-party elementary, intermediate and junior-high ratings are midrange.</li><li>Large 1989 homes can carry substantial roof, HVAC, septic, well and basement-maintenance exposure.</li><li>Confirm whether the nearly 6,000 listed square feet includes unfinished or below-grade space.</li></ul></div></div><h3 style="margin-top:14pt">Comparison scorecard</h3><table><tr><th>Category</th><th>Score</th><th>Weight</th><th>Weighted</th></tr><tr><td>Public schools</td><td>82</td><td>30%</td><td>24.6</td></tr><tr><td>Private / early learning</td><td>95</td><td>15%</td><td>14.25</td></tr><tr><td>Shopping & grocery</td><td>88</td><td>20%</td><td>17.6</td></tr><tr><td>Kids activities</td><td>92</td><td>15%</td><td>13.8</td></tr><tr><td>Adult fitness</td><td>94</td><td>10%</td><td>9.4</td></tr><tr><td>Martial arts</td><td>88</td><td>5%</td><td>4.4</td></tr><tr><td>Walkability</td><td>8</td><td>5%</td><td>0.4</td></tr><tr><td><b>Total</b></td><td></td><td>100%</td><td><b>84.0 → 84</b></td></tr></table><h3 style="margin-top:14pt">Principal sources</h3><p class="small">Redfin current listing; Pocono Mountain SD addresses; GreatSchools Swiftwater results; The Growing Concern; Pocono Township events; U.S. Census QuickFacts. Distances and drive times are planning estimates.</p><footer>5 / 5 · Decision summary</footer></section>  </body>
+</html>
