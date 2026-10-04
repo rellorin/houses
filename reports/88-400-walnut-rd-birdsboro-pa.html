@@ -1,0 +1,1224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Family convenience report for 400 Walnut Road, Birdsboro, PA 19508">
+    <title>88 · 400 Walnut Road · Family Convenience Report</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23163f34%27/%3E%3Cpath d=%27M13 32 32 15l19 17v20H38V39H26v13H13z%27 fill=%27%23dff39b%27/%3E%3C/svg%3E">
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      crossorigin=""
+    />
+    <style>
+      :root {
+        --ink: #18211d;
+        --muted: #60706a;
+        --paper: #f4f7f2;
+        --card: #fff;
+        --line: #dce5df;
+        --pine: #163f34;
+        --mint: #d6eee2;
+        --lime: #dff39b;
+        --shadow: 0 16px 40px rgba(22, 63, 52, 0.09);
+        --r: 20px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font:
+          16px/1.5 Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          'Segoe UI',
+          sans-serif;
+      }
+      button,
+      a {
+        font: inherit;
+      }
+      a {
+        color: inherit;
+      }
+      .shell {
+        max-width: 1440px;
+        margin: auto;
+        padding: 18px;
+      }
+      .topbar {
+        position: sticky;
+        top: 12px;
+        z-index: 999;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 12px 16px;
+        background: rgba(244, 247, 242, 0.92);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        backdrop-filter: blur(15px);
+        box-shadow: 0 8px 25px rgba(22, 63, 52, 0.07);
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 850;
+        letter-spacing: -0.02em;
+      }
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 11px;
+        background: var(--pine);
+        color: white;
+      }
+      .nav {
+        display: flex;
+        gap: 6px;
+        overflow: auto;
+      }
+      .nav a {
+        text-decoration: none;
+        color: var(--muted);
+        font-size: 0.86rem;
+        font-weight: 750;
+        padding: 8px 10px;
+        border-radius: 10px;
+        white-space: nowrap;
+      }
+      .nav a:hover {
+        background: white;
+        color: var(--ink);
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: 1.18fr 0.82fr;
+        min-height: 440px;
+        margin-top: 18px;
+        border-radius: 30px;
+        overflow: hidden;
+        background: var(--pine);
+        color: white;
+        box-shadow: var(--shadow);
+      }
+      .hero-copy {
+        padding: clamp(28px, 5vw, 72px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .eyebrow {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        text-transform: uppercase;
+        font-size: 0.74rem;
+        font-weight: 850;
+        letter-spacing: 0.12em;
+        color: #b7d7ca;
+      }
+      .dot {
+        width: 7px;
+        height: 7px;
+        background: var(--lime);
+        border-radius: 50%;
+      }
+      .hero h1 {
+        font-size: clamp(2.35rem, 5vw, 5.6rem);
+        line-height: 0.94;
+        letter-spacing: -0.065em;
+        margin: 14px 0 18px;
+        max-width: 830px;
+      }
+      .hero h1 span {
+        color: var(--lime);
+      }
+      .hero p {
+        font-size: 1.05rem;
+        color: #d5e4de;
+        max-width: 660px;
+        margin: 0;
+      }
+      .hero-media {
+        position: relative;
+        min-height: 340px;
+        background: #2e5f50;
+      }
+      .hero-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .photo-credit {
+        position: absolute;
+        right: 12px;
+        bottom: 12px;
+        padding: 7px 10px;
+        border-radius: 9px;
+        background: rgba(9, 22, 18, 0.78);
+        font-size: 0.7rem;
+        color: #e7efeb;
+      }
+      .scorecard {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 20px;
+        align-items: center;
+        margin-top: 26px;
+      }
+      .score-ring {
+        width: 108px;
+        height: 108px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: conic-gradient(
+          var(--lime) 0 88%,
+          rgba(255, 255, 255, 0.16) 84% 100%
+        );
+        position: relative;
+      }
+      .score-ring:after {
+        content: '';
+        position: absolute;
+        inset: 9px;
+        border-radius: 50%;
+        background: var(--pine);
+      }
+      .score-number {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        font-weight: 900;
+        font-size: 2rem;
+        line-height: 1;
+      }
+      .score-number small {
+        display: block;
+        font-size: 0.66rem;
+        color: #b7d7ca;
+        margin-top: 4px;
+      }
+      .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+      .hero-stat {
+        padding: 13px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 14px;
+      }
+      .hero-stat b {
+        font-size: 1.05rem;
+        display: block;
+      }
+      .hero-stat span {
+        font-size: 0.73rem;
+        color: #b7d7ca;
+      }
+      .section {
+        padding: 64px 0 0;
+      }
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+      .section h2 {
+        font-size: clamp(1.75rem, 3vw, 2.6rem);
+        letter-spacing: -0.045em;
+        line-height: 1.05;
+        margin: 0;
+      }
+      .section-intro {
+        max-width: 660px;
+        color: var(--muted);
+        margin: 8px 0 0;
+      }
+      .notice {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 15px;
+        padding: 18px;
+        background: #fff7dd;
+        border: 1px solid #ead79f;
+        border-radius: 16px;
+        margin-bottom: 20px;
+      }
+      .notice b {
+        display: block;
+      }
+      .notice p {
+        margin: 3px 0 0;
+        color: #645b43;
+        font-size: 0.91rem;
+      }
+      .map-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 310px;
+        gap: 16px;
+      }
+      .map-wrap {
+        height: 600px;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        overflow: hidden;
+        background: #dfe8e3;
+        position: relative;
+        box-shadow: var(--shadow);
+      }
+      #map {
+        height: 100%;
+        width: 100%;
+      }
+      .map-fallback {
+        position: absolute;
+        inset: auto 14px 14px;
+        z-index: 500;
+        background: white;
+        padding: 9px 12px;
+        border-radius: 10px;
+        font-size: 0.78rem;
+        color: var(--muted);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+      .map-side {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .mini-card {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 17px;
+        padding: 16px;
+      }
+      .mini-card h3 {
+        margin: 0 0 7px;
+        font-size: 1rem;
+      }
+      .mini-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.86rem;
+      }
+      .legend {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-top: 12px;
+      }
+      .legend span {
+        font-size: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .legend i {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
+      .filters {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin: 18px 0;
+      }
+      .filter {
+        border: 1px solid var(--line);
+        background: white;
+        padding: 9px 13px;
+        border-radius: 999px;
+        font-weight: 800;
+        font-size: 0.79rem;
+        color: var(--muted);
+        cursor: pointer;
+      }
+      .filter.active,
+      .filter:hover {
+        background: var(--pine);
+        border-color: var(--pine);
+        color: white;
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 15px;
+      }
+      .place-card {
+        display: flex;
+        flex-direction: column;
+        min-height: 275px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: var(--r);
+        overflow: hidden;
+        box-shadow: 0 6px 18px rgba(22, 63, 52, 0.04);
+        transition:
+          0.2s transform,
+          0.2s box-shadow;
+      }
+      .place-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow);
+      }
+      .place-card.hidden {
+        display: none;
+      }
+      .card-photo {
+        height: 156px;
+        background: #e5ebe7;
+        position: relative;
+        overflow: hidden;
+      }
+      .card-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .card-photo .card-icon {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        font-size: 3.2rem;
+        background: linear-gradient(135deg, #e8f3ed, #d4e5dc);
+      }
+      .card-photo.has-image .card-icon {
+        display: none;
+      }
+      .pill {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: white;
+        padding: 6px 9px;
+        border-radius: 999px;
+        font-size: 0.69rem;
+        font-weight: 900;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      .card-body {
+        padding: 17px;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+      }
+      .card-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: start;
+      }
+      .card-body h3 {
+        font-size: 1.1rem;
+        letter-spacing: -0.02em;
+        line-height: 1.15;
+        margin: 0;
+      }
+      .rating {
+        white-space: nowrap;
+        background: #eef5f0;
+        border-radius: 9px;
+        padding: 5px 8px;
+        font-size: 0.75rem;
+        font-weight: 900;
+      }
+      .meta {
+        font-size: 0.79rem;
+        color: var(--muted);
+        margin: 6px 0;
+      }
+      .desc {
+        font-size: 0.88rem;
+        color: #45534e;
+        margin: 8px 0 15px;
+      }
+      .card-actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: auto;
+      }
+      .card-actions a,
+      .map-button {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        text-decoration: none;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 8px 10px;
+        font-size: 0.76rem;
+        font-weight: 850;
+        background: white;
+        cursor: pointer;
+      }
+      .card-actions a.primary {
+        background: var(--pine);
+        border-color: var(--pine);
+        color: white;
+      }
+      .snapshot {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .panel {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: var(--r);
+        padding: 22px;
+      }
+      .panel h3 {
+        margin: 0 0 16px;
+        font-size: 1.2rem;
+      }
+      .bar-row {
+        display: grid;
+        grid-template-columns: 120px 1fr 42px;
+        gap: 10px;
+        align-items: center;
+        margin: 12px 0;
+        font-size: 0.84rem;
+      }
+      .bar {
+        height: 10px;
+        background: #edf1ee;
+        border-radius: 999px;
+        overflow: hidden;
+      }
+      .bar i {
+        height: 100%;
+        display: block;
+        border-radius: 999px;
+        background: var(--pine);
+      }
+      .proscons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .list li {
+        display: grid;
+        grid-template-columns: 25px 1fr;
+        gap: 9px;
+        padding: 10px 0;
+        border-top: 1px solid var(--line);
+        font-size: 0.91rem;
+      }
+      .list li:first-child {
+        border-top: 0;
+      }
+      .check,
+      .minus {
+        display: grid;
+        place-items: center;
+        width: 22px;
+        height: 22px;
+        border-radius: 7px;
+        font-size: 0.75rem;
+        font-weight: 900;
+      }
+      .check {
+        background: var(--mint);
+        color: var(--pine);
+      }
+      .minus {
+        background: #ffe2da;
+        color: #8b3c2a;
+      }
+      .method {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+      .method div {
+        padding: 15px;
+        border-radius: 15px;
+        background: #f4f7f2;
+      }
+      .method b {
+        display: block;
+      }
+      .method span {
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+      .sources {
+        font-size: 0.86rem;
+        color: var(--muted);
+      }
+      .sources a {
+        color: var(--pine);
+        font-weight: 750;
+      }
+      .sources li {
+        margin: 8px 0;
+      }
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 36px 0 20px;
+        margin-top: 54px;
+        border-top: 1px solid var(--line);
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+      .popup-title {
+        font-weight: 900;
+      }
+      .popup-meta {
+        font-size: 0.78rem;
+        color: #5f6d68;
+        margin: 3px 0 8px;
+      }
+      .popup-link {
+        font-size: 0.76rem;
+        font-weight: 850;
+        color: #163f34;
+      }
+      .pin {
+        width: 31px;
+        height: 31px;
+        border-radius: 50% 50% 50% 10%;
+        transform: rotate(-45deg);
+        display: grid;
+        place-items: center;
+        border: 3px solid white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.24);
+      }
+      .pin span {
+        transform: rotate(45deg);
+        font-size: 13px;
+      }
+      .pin-home {
+        background: #163f34;
+      }
+      .pin-school {
+        background: #80b9d5;
+      }
+      .pin-private {
+        background: #8f75b8;
+      }
+      .pin-montessori {
+        background: #dd9e44;
+      }
+      .pin-shopping {
+        background: #ec7962;
+      }
+      .pin-activity {
+        background: #de6aa7;
+      }
+      .pin-fitness {
+        background: #5baa7b;
+      }
+      .pin-martial {
+        background: #536b91;
+      }
+      @media (max-width: 980px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+        .hero-media {
+          height: 330px;
+          order: -1;
+        }
+        .map-layout {
+          grid-template-columns: 1fr;
+        }
+        .map-side {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
+        .cards {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .method {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 650px) {
+        .shell {
+          padding: 10px;
+        }
+        .topbar {
+          top: 6px;
+        }
+        .nav {
+          display: none;
+        }
+        .hero {
+          border-radius: 22px;
+        }
+        .hero-copy {
+          padding: 26px 20px;
+        }
+        .hero h1 {
+          font-size: 2.55rem;
+        }
+        .scorecard {
+          grid-template-columns: 86px 1fr;
+        }
+        .score-ring {
+          width: 84px;
+          height: 84px;
+        }
+        .hero-stats {
+          grid-template-columns: 1fr;
+        }
+        .hero-stat:nth-child(n + 2) {
+          display: none;
+        }
+        .map-wrap {
+          height: 480px;
+        }
+        .map-side,
+        .cards,
+        .snapshot,
+        .proscons {
+          grid-template-columns: 1fr;
+        }
+        .section {
+          padding-top: 48px;
+        }
+        .section-head {
+          align-items: start;
+          flex-direction: column;
+        }
+        .bar-row {
+          grid-template-columns: 100px 1fr 36px;
+        }
+        .method {
+          grid-template-columns: 1fr 1fr;
+        }
+        .footer {
+          flex-direction: column;
+        }
+      }
+      @media print {
+        .topbar,
+        .filters,
+        .card-actions,
+        .map-fallback {
+          display: none !important;
+        }
+        .hero {
+          break-inside: avoid;
+        }
+        .section {
+          padding-top: 30px;
+        }
+        .map-wrap {
+          height: 420px;
+        }
+        .place-card {
+          break-inside: avoid;
+          box-shadow: none;
+        }
+        .shell {
+          max-width: none;
+        }
+        .footer {
+          margin-top: 25px;
+        }
+      }
+      .area-grid {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 16px;
+      }
+      .area-card {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: var(--r);
+        padding: 22px;
+      }
+      .area-card h3 {
+        margin: 0 0 10px;
+        font-size: 1.2rem;
+      }
+      .grade-line {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 14px 0;
+      }
+      .grade {
+        display: grid;
+        place-items: center;
+        width: 76px;
+        height: 76px;
+        border-radius: 22px;
+        background: var(--pine);
+        color: white;
+        font-size: 2.4rem;
+        font-weight: 900;
+      }
+      .grade-copy b {
+        display: block;
+        font-size: 1.05rem;
+      }
+      .grade-copy span,
+      .area-card p {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      .fact-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin: 16px 0;
+      }
+      .fact {
+        padding: 13px;
+        border-radius: 14px;
+        background: #f4f7f2;
+      }
+      .fact b {
+        display: block;
+        font-size: 1.15rem;
+      }
+      .fact span {
+        font-size: 0.74rem;
+        color: var(--muted);
+      }
+      .vibe-grid,
+      .event-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 16px;
+      }
+      .vibe,
+      .event {
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: white;
+      }
+      .vibe h3,
+      .event h3 {
+        margin: 0 0 6px;
+        font-size: 1rem;
+      }
+      .vibe p,
+      .event p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.84rem;
+      }
+      .event a {
+        display: inline-block;
+        margin-top: 10px;
+        color: var(--pine);
+        font-size: 0.78rem;
+        font-weight: 850;
+      }
+      @media (max-width: 980px) {
+        .area-grid {
+          grid-template-columns: 1fr;
+        }
+        .fact-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 650px) {
+        .vibe-grid,
+        .event-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+
+
+
+
+
+
+    <div class="shell">
+      <header class="topbar"><div class="brand"><span class="brand-mark">⌂</span><span>Family Radius</span></div><nav class="nav" aria-label="Report sections"><a href="#map-section">Map</a><a href="#area">Area</a><a href="#places">Places</a><a href="#score">Score</a><a href="#decision">Decision notes</a><a href="#sources">Sources</a></nav></header>
+      <section class="hero"><div class="hero-copy"><div class="eyebrow"><span class="dot"></span>Family convenience report · researched October 4, 2026</div><h1>400 Walnut Road<br><span>Birdsboro, PA 19508</span></h1><p>A spacious multi-generational property with a quiet, rural-hillside feel and unusually easy access to strong elementary schooling, three full-size grocery and big-box anchors, children’s programs, gyms, and both BJJ and Muay Thai.</p><div class="scorecard"><div class="score-ring" aria-label="Family convenience score 88 out of 100"><div class="score-number">88<small>out of 100</small></div></div><div class="hero-stats"><div class="hero-stat"><b>~4–10 min</b><span>schools + daily shopping</span></div><div class="hero-stat"><b>~9–11 min</b><span>fitness, dance + martial arts</span></div><div class="hero-stat"><b>~22 min</b><span>Montessori option</span></div></div></div></div><div class="hero-media"><img src="https://ssl.cdn-redfin.com/photo/235/mbpaddedwide/402/genMid.PABK2078402_3.jpg" alt="400 Walnut Road in Birdsboro, PA 19508"><a class="photo-credit" href="https://www.redfin.com/PA/Birdsboro/400-Walnut-Rd-19508/home/38469626" target="_blank" rel="noreferrer">Property photo · current listing source ↗</a></div></section>
+      <section class="section" id="map-section"><div class="section-head"><div><h2>Everything in one radius</h2><p class="section-intro">Tap a marker for the researched destination and a live route. Google Maps recalculates from the property when opened.</p></div></div><div class="notice"><div>⚑</div><div><b>Birdsboro mailing address, Exeter Township property</b><p>The home is outside Birdsboro Borough in Exeter Township and Exeter Township School District. Current listing data identifies Owatin Creek Elementary; confirm the exact parcel and transportation directly with district registration before enrollment.</p></div></div><div class="map-layout"><div class="map-wrap"><div id="map" role="application" aria-label="Interactive map of the property and nearby family destinations"></div><div class="map-fallback">Map tiles and the listing photo need an internet connection. All addresses and route links remain usable offline.</div></div><aside class="map-side"><div class="mini-card"><h3>Drive-time bands</h3><p><strong>≤10 min:</strong> excellent · <strong>11–20:</strong> practical · <strong>21+:</strong> planned trip</p><div class="legend"><span><i style="background:#80b9d5"></i>Public school</span><span><i style="background:#8f75b8"></i>Private</span><span><i style="background:#dd9e44"></i>Montessori</span><span><i style="background:#ec7962"></i>Shopping</span><span><i style="background:#de6aa7"></i>Kids activity</span><span><i style="background:#5baa7b"></i>Fitness</span><span><i style="background:#536b91"></i>Martial arts</span></div></div><div class="mini-card"><h3>At a glance</h3><p>Strong schools, exceptionally compact shopping and fitness, and unusually good local children’s programs make this one of the collection’s easiest daily-life addresses. Car dependence and a longer Montessori trip keep it from the 90s.</p></div><div class="mini-card"><h3>Estimate standard</h3><p>Times and road miles are conservative off-peak planning estimates prepared October 4, 2026—not live traffic. Open a live route before a real trip.</p></div></aside></div></section>
+      <section class="section" id="area"><div class="section-head"><div><h2>What it’s like here</h2><p class="section-intro">This is the rural southern edge of Exeter Township: country-road privacy and acreage, but only a short drive from the Perkiomen Avenue retail corridor and the small-town institutions of Birdsboro.</p></div></div><div class="area-grid"><article class="area-card"><span class="pill" style="position:static;display:inline-block;box-shadow:none">Public-school profile</span><div class="grade-line"><div class="grade">8</div><div class="grade-copy"><b>elementary rating</b><span>GreatSchools · K–4</span></div></div><p>Owatin Creek Elementary is currently 8/10, Reiffton School 7/10, Exeter Township Junior High 5/10 and the senior high 8/10. The elementary is especially close, and every public-school stage is within roughly ten minutes.</p></article><article class="area-card"><h3>Exeter Township</h3><div class="fact-grid"><div class="fact"><b>25,466</b><span>2020 Census population</span></div><div class="fact"><b>24.23 sq mi</b><span>land area</span></div><div class="fact"><b>2.9 ac</b><span>property acreage</span></div><div class="fact"><b>1992</b><span>year built</span></div></div><p>Exeter Township counted 25,466 residents in the 2020 Census across 24.23 square miles of land. The township combines established subdivisions and a busy US 422 retail corridor with wooded and agricultural edges near Birdsboro.</p></article></div><div class="vibe-grid"><article class="vibe"><h3>Daily feel</h3><p>Quiet and car-based at the house, then suburban-convenient within minutes. The site feels rural, while the Exeter Commons corridor handles most weekly errands without a trip into central Reading.</p></article><article class="vibe"><h3>The local niche</h3><p>A practical Berks County hybrid: Exeter schools and shopping, Birdsboro’s small-town community center and events, and quick access to the Schuylkill River, Daniel Boone Homestead and Hopewell/French Creek recreation.</p></article><article class="vibe"><h3>What to notice</h3><p>The current listing describes 5 bedrooms, 3.5 baths and 3,214 square feet, while summarized public-record fields show 3 bedrooms, 2.5 baths and 2,458 square feet. Verify permitted finished area, the in-law suite, septic capacity, well performance and any subdivision claim.</p></article></div><div class="section-head" style="margin-top:28px"><div><h2 style="font-size:1.65rem">Events in the local orbit</h2><p class="section-intro">The closest recurring traditions mix township-scale festivals, historic-site programming and Birdsboro’s compact Main Street community calendar.</p></div></div><div class="event-grid"><article class="event"><h3>Exeter Fall Festival & Hayride</h3><p>Live entertainment, hayrides, arts and crafts, food trucks and children’s activities at Daniel Boone Homestead.</p><a href="https://exeterpa.myrec.com/info/activities/program_details.aspx?ProgramID=29842" target="_blank">Official information ↗</a></article><article class="event"><h3>The Big 250 Bash</h3><p>Birdsboro’s Main Bird Park celebration features vendors, food, music, family activities and fireworks.</p><a href="https://townlively.com/the-big-250-bash/" target="_blank">Official information ↗</a></article><article class="event"><h3>Birdsboro Street Fair & Duck Derby</h3><p>A spring street fair and fundraising duck derby in the borough’s Main Street orbit.</p><a href="https://berkscountysar.org/upcoming-events" target="_blank">Official information ↗</a></article><article class="event"><h3>National Night Out</h3><p>Birdsboro’s police-community evening brings neighbors, public-safety groups and family activities together.</p><a href="https://birdsboropa.org/" target="_blank">Official information ↗</a></article><article class="event"><h3>Christmas in Birdsboro</h3><p>A December borough tradition with seasonal community activities and a small-town holiday atmosphere.</p><a href="https://birdsboropa.org/" target="_blank">Official information ↗</a></article><article class="event"><h3>Hopewell Furnace programs</h3><p>The nearby national historic site offers living-history demonstrations, seasonal programs and family visits in the historic iron landscape.</p><a href="https://www.nps.gov/hofu/planyourvisit/calendar.htm" target="_blank">Official information ↗</a></article></div></section>
+      <section class="section" id="places"><div class="section-head"><div><h2>Family essentials, compared</h2><p class="section-intro">The same card and scoring structure is used for every house. Each destination includes a live map link.</p></div></div><div class="filters" role="group" aria-label="Filter places"><button class="filter active" data-filter="all">All 15</button><button class="filter" data-filter="school">Public school</button><button class="filter" data-filter="private">Private</button><button class="filter" data-filter="montessori">Montessori</button><button class="filter" data-filter="shopping">Shopping</button><button class="filter" data-filter="activity">Kids activities</button><button class="filter" data-filter="fitness">Fitness</button><button class="filter" data-filter="martial">Martial arts</button></div><div class="cards" id="cards"></div></section>
+      <section class="section" id="score"><div class="section-head"><div><h2>Why the score is 88</h2><p class="section-intro">Weighted for everyday family use: schools and groceries count more than occasional destinations.</p></div></div><div class="snapshot"><div class="panel"><h3>Category scores</h3><div class="bar-row"><span>Public schools</span><div class="bar"><i style="width:90%;"></i></div><b>90</b></div><div class="bar-row"><span>Private / early</span><div class="bar"><i style="width:85%;"></i></div><b>85</b></div><div class="bar-row"><span>Daily shopping</span><div class="bar"><i style="width:97%;"></i></div><b>97</b></div><div class="bar-row"><span>Kids activities</span><div class="bar"><i style="width:95%;"></i></div><b>95</b></div><div class="bar-row"><span>Adult fitness</span><div class="bar"><i style="width:96%;"></i></div><b>96</b></div><div class="bar-row"><span>Martial arts</span><div class="bar"><i style="width:96%;"></i></div><b>96</b></div><div class="bar-row"><span>Walkability</span><div class="bar"><i style="width:4%;background:#f28c72"></i></div><b>4</b></div></div><div class="panel"><h3>Comparison formula</h3><div class="method"><div><b>30%</b><span>public schools</span></div><div><b>15%</b><span>private / early learning</span></div><div><b>20%</b><span>shopping & grocery</span></div><div><b>15%</b><span>kids activities</span></div><div><b>10%</b><span>adult fitness</span></div><div><b>5%</b><span>martial arts</span></div><div><b>5%</b><span>walkability</span></div><div><b>88</b><span>weighted total</span></div></div><p style="color:var(--muted);font-size:.82rem;margin:16px 0 0">Distance bands: ≤10 min is strongest, 11–20 min practical, 21–30 min a planned trip, and 30+ min weak. Quality indicators and breadth of choice then adjust each category.</p></div></div></section>
+      <section class="section" id="decision"><div class="section-head"><div><h2>Decision notes</h2><p class="section-intro">The useful trade-offs, stripped of real-estate gloss.</p></div></div><div class="proscons"><div class="panel"><h3>What works well</h3><ul class="list"><li><span class="check">✓</span><span>Owatin Creek Elementary is about a mile away and currently rates 8/10.</span></li><li><span class="check">✓</span><span>GIANT, Target and Walmart are all clustered roughly seven to eight minutes from the house.</span></li><li><span class="check">✓</span><span>Birdsboro Community Memorial Center supplies dance, gymnastics, after-school programs and 24/7 adult fitness in one local facility.</span></li><li><span class="check">✓</span><span>Next Level offers both Brazilian jiu-jitsu and Muay Thai along the same nearby commercial corridor.</span></li><li><span class="check">✓</span><span>The listing describes a separate grade-level in-law suite with its own kitchen, living area, bedroom and bath.</span></li></ul></div><div class="panel"><h3>What to plan around</h3><ul class="list"><li><span class="minus">–</span><span>The property and nearly every destination require a car; practical walkability is close to zero.</span></li><li><span class="minus">–</span><span>The closest authentic Montessori option is around twenty-two minutes away.</span></li><li><span class="minus">–</span><span>The junior-high rating is 5/10, below the elementary, intermediate and high-school ratings.</span></li><li><span class="minus">–</span><span>Listing and summarized public-record figures disagree materially on bedroom, bathroom and finished-area counts.</span></li><li><span class="minus">–</span><span>Well, septic, oil/heat-pump systems, the in-law suite permits and any claimed subdivision potential need specialist verification.</span></li></ul></div></div></section>
+      <section class="section" id="sources"><div class="section-head"><div><h2>Sources & verification</h2><p class="section-intro">Current as researched October 4, 2026. Programs, ratings, prices, assignments and hours can change.</p></div></div><div class="panel sources"><ol><li><a href="https://www.redfin.com/PA/Birdsboro/400-Walnut-Rd-19508/home/38469626" target="_blank">Redfin current listing</a>.</li><li><a href="https://www.exeter.k12.pa.us/school-directory" target="_blank">Exeter Township School District directory</a>.</li><li><a href="https://www.greatschools.org/pennsylvania/reading/899-Owatin-Creek-Elementary-School/" target="_blank">GreatSchools Owatin Creek</a>.</li><li><a href="https://www.greatschools.org/pennsylvania/reading/exeter-township-school-district/" target="_blank">GreatSchools district overview</a>.</li><li><a href="https://gseville.wixsite.com/website" target="_blank">Berks Christian School</a>.</li><li><a href="https://brookesidemontessori.org/" target="_blank">Brookeside Montessori</a>.</li><li><a href="https://bcmcbirdsboro.com/programs/" target="_blank">Birdsboro Community Memorial Center</a>.</li><li><a href="https://www.census.gov/quickfacts/fact/table/exetertownshipberkscountypennsylvania/PST045225" target="_blank">U.S. Census QuickFacts</a>.</li><li>Locations were address-geocoded October 2, 2026. Mileage and time are approximate off-peak planning estimates; Google Maps links provide live recalculation.</li></ol></div></section>
+      <footer class="footer"><span>Family Radius · comparison-ready neighborhood report</span><span>Not a guarantee of enrollment, availability, ratings, hours or travel time.</span></footer>
+    </div>    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      crossorigin=""
+    ></script>
+    <script>
+      const HOME={"name":"400 Walnut Road","address":"400 Walnut Rd, Birdsboro, PA 19508","lat":40.315638,"lng":-75.81567};
+      const places=[
+        {
+                "id": "elementary",
+                "name": "Owatin Creek Elementary",
+                "cat": "school",
+                "label": "Reported public K–4",
+                "icon": "🏫",
+                "address": "5000 Boyertown Pike, Reading, PA 19606",
+                "miles": "~1.4 mi",
+                "time": "~4 min",
+                "rating": "8/10 GreatSchools",
+                "desc": "Above-average district elementary and the strongest convenience feature of this location; confirm parcel assignment.",
+                "lat": 40.321154,
+                "lng": -75.832544,
+                "url": "https://www.greatschools.org/pennsylvania/reading/899-Owatin-Creek-Elementary-School/"
+        },
+        {
+                "id": "intermediate",
+                "name": "Reiffton School",
+                "cat": "school",
+                "label": "Public grades 5–6",
+                "icon": "🎒",
+                "address": "4355 Dunham Dr, Reading, PA 19606",
+                "miles": "~3.0 mi",
+                "time": "~7 min",
+                "rating": "7/10 GreatSchools",
+                "desc": "District-wide intermediate school for fifth and sixth grade with above-average current rating.",
+                "lat": 40.315143,
+                "lng": -75.861562,
+                "url": "https://www.greatschools.org/pennsylvania/reading/6027-Reiffton-School/"
+        },
+        {
+                "id": "junior",
+                "name": "Exeter Township Junior High",
+                "cat": "school",
+                "label": "Public grades 7–8",
+                "icon": "📚",
+                "address": "151 E 39th St, Reading, PA 19606",
+                "miles": "~3.3 mi",
+                "time": "~8 min",
+                "rating": "5/10 GreatSchools",
+                "desc": "The district’s seventh- and eighth-grade campus; current rating is average rather than standout.",
+                "lat": 40.317595,
+                "lng": -75.866716,
+                "url": "https://www.greatschools.org/pennsylvania/reading/901-Exeter-Twp-Junior-High-School/"
+        },
+        {
+                "id": "high",
+                "name": "Exeter Township Senior High",
+                "cat": "school",
+                "label": "Public grades 9–12",
+                "icon": "🎓",
+                "address": "201 E 37th St, Reading, PA 19606",
+                "miles": "~3.5 mi",
+                "time": "~9 min",
+                "rating": "8/10 GreatSchools",
+                "desc": "District high school with broad academic, arts and athletics offerings.",
+                "lat": 40.320105,
+                "lng": -75.869194,
+                "url": "https://www.greatschools.org/pennsylvania/reading/902-Exeter-Twp-Senior-High-School/"
+        },
+        {
+                "id": "private",
+                "name": "Berks Christian School",
+                "cat": "private",
+                "label": "Private Christian PK–12",
+                "icon": "⛪",
+                "address": "926 Philadelphia Ter, Birdsboro, PA 19508",
+                "miles": "~2.7 mi",
+                "time": "~7 min",
+                "rating": "Preschool from age 3",
+                "desc": "Small Christian school with an early-learning center; preschool children must be age three and potty-trained.",
+                "lat": 40.285696,
+                "lng": -75.816796,
+                "url": "https://gseville.wixsite.com/website/early-learning-center"
+        },
+        {
+                "id": "montessori",
+                "name": "Brookeside Montessori",
+                "cat": "montessori",
+                "label": "Montessori early childhood",
+                "icon": "🧩",
+                "address": "1075 Route 100 N, Bechtelsville, PA 19505",
+                "miles": "~13.5 mi",
+                "time": "~22 min",
+                "rating": "Early childhood + elementary",
+                "desc": "Established authentic Montessori program with early-childhood and elementary classrooms.",
+                "lat": 40.372422,
+                "lng": -75.618683,
+                "url": "https://brookesidemontessori.org/"
+        },
+        {
+                "id": "grocery",
+                "name": "GIANT Food Stores",
+                "cat": "shopping",
+                "label": "Proper grocery",
+                "icon": "🥕",
+                "address": "4655 Perkiomen Ave, Reading, PA 19606",
+                "miles": "~3.2 mi",
+                "time": "~8 min",
+                "rating": "Full supermarket · pharmacy",
+                "desc": "Full weekly supermarket with produce, meat, bakery, pharmacy, gas and beer/wine.",
+                "lat": 40.308219,
+                "lng": -75.858398,
+                "url": "https://stores.giantfoodstores.com/pa/reading/4655-perkiomen-ave"
+        },
+        {
+                "id": "target",
+                "name": "Target Reading",
+                "cat": "shopping",
+                "label": "Closest Target",
+                "icon": "🎯",
+                "address": "4599 Perkiomen Ave, Reading, PA 19606",
+                "miles": "~3.3 mi",
+                "time": "~8 min",
+                "rating": "Drive Up · CVS · Starbucks",
+                "desc": "Full Target with pickup, Drive Up, pharmacy, optical and Starbucks beside the grocery corridor.",
+                "lat": 40.309003,
+                "lng": -75.859692,
+                "url": "https://www.target.com/sl/reading/2529"
+        },
+        {
+                "id": "walmart",
+                "name": "Walmart Reading Supercenter",
+                "cat": "shopping",
+                "label": "Closest Walmart",
+                "icon": "🛒",
+                "address": "5900 Perkiomen Ave, Reading, PA 19606",
+                "miles": "~2.6 mi",
+                "time": "~7 min",
+                "rating": "Supercenter · full grocery",
+                "desc": "Full grocery, pharmacy, auto services and general merchandise.",
+                "lat": 40.294289,
+                "lng": -75.839415,
+                "url": "https://www.walmart.com/store/1777-reading-pa"
+        },
+        {
+                "id": "dance",
+                "name": "Turning Pointe Dance at BCMC",
+                "cat": "activity",
+                "label": "Kids dance",
+                "icon": "💃",
+                "address": "201 E Main St, Birdsboro, PA 19508",
+                "miles": "~4.6 mi",
+                "time": "~10 min",
+                "rating": "Ballet · jazz · tap",
+                "desc": "Community-center dance program with youth classes in multiple styles; verify the current session schedule.",
+                "lat": 40.266647,
+                "lng": -75.806967,
+                "url": "https://bcmcbirdsboro.com/programs/"
+        },
+        {
+                "id": "gymnastics",
+                "name": "GymKix Gymnastics at BCMC",
+                "cat": "activity",
+                "label": "Kids gymnastics",
+                "icon": "🤸",
+                "address": "201 E Main St, Birdsboro, PA 19508",
+                "miles": "~4.6 mi",
+                "time": "~10 min",
+                "rating": "Age-grouped community program",
+                "desc": "Local gymnastics program using mats, bars, beams and horse; confirm current enrollment and session dates.",
+                "lat": 40.266647,
+                "lng": -75.806967,
+                "url": "https://bcmcbirdsboro.com/programs/"
+        },
+        {
+                "id": "gym",
+                "name": "Exeter Fitness",
+                "cat": "fitness",
+                "label": "Adult gym",
+                "icon": "🏋️",
+                "address": "4270 Perkiomen Ave, Reading, PA 19606",
+                "miles": "~3.4 mi",
+                "time": "~9 min",
+                "rating": "Full-service fitness club",
+                "desc": "Nearby strength, cardio and training facility on the same practical errands corridor.",
+                "lat": 40.31021,
+                "lng": -75.867646,
+                "url": "https://wyofitclubs.com/contact-us/"
+        },
+        {
+                "id": "familyfitness",
+                "name": "Birdsboro Community Memorial Center",
+                "cat": "fitness",
+                "label": "Family fitness + programs",
+                "icon": "🏀",
+                "address": "201 E Main St, Birdsboro, PA 19508",
+                "miles": "~4.6 mi",
+                "time": "~10 min",
+                "rating": "24/7 adult access",
+                "desc": "Affordable community fitness, gym and outdoor court access alongside youth dance, gymnastics, camp and after-school programs.",
+                "lat": 40.266647,
+                "lng": -75.806967,
+                "url": "https://bcmcbirdsboro.com/membership-2/"
+        },
+        {
+                "id": "martial",
+                "name": "Next Level Martial Arts",
+                "cat": "martial",
+                "label": "BJJ + Muay Thai",
+                "icon": "🥋",
+                "address": "4205 Perkiomen Ave, Reading, PA 19606",
+                "miles": "~3.5 mi",
+                "time": "~9 min",
+                "rating": "Children + adults",
+                "desc": "Nearby academy offering Brazilian jiu-jitsu and a dedicated Muay Thai program for a broad age range.",
+                "lat": 40.312379,
+                "lng": -75.866629,
+                "url": "https://nextlevelmuaythai.com/"
+        },
+        {
+                "id": "home",
+                "name": "The property",
+                "cat": "home",
+                "label": "Home base",
+                "icon": "⌂",
+                "address": "400 Walnut Rd, Birdsboro, PA 19508",
+                "miles": "0 mi",
+                "time": "Home",
+                "rating": "88/100",
+                "desc": "Active Exeter Township listing on 2.9 acres with a separate grade-level in-law suite.",
+                "lat": 40.315638,
+                "lng": -75.81567,
+                "url": "https://www.redfin.com/PA/Birdsboro/400-Walnut-Rd-19508/home/38469626"
+        }
+];
+      const names = {
+        school: 'Public school',
+        private: 'Private school',
+        montessori: 'Montessori',
+        shopping: 'Shopping',
+        activity: 'Kids activity',
+        fitness: 'Fitness',
+        martial: 'Martial arts',
+        home: 'Home',
+      };
+      const route = (p) =>
+        `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(HOME.address)}&destination=${encodeURIComponent(p.address)}&travelmode=driving`;
+      const cards = document.getElementById('cards');
+      places
+        .filter((p) => p.cat !== 'home')
+        .forEach((p) => {
+          const el = document.createElement('article');
+          el.className = 'place-card';
+          el.dataset.cat = p.cat;
+          const media = p.photo
+            ? `<div class="card-photo has-image"><img loading="lazy" src="${p.photo}" alt="${p.name}"><span class="pill">${p.label}</span><span class="card-icon">${p.icon}</span></div>`
+            : `<div class="card-photo"><span class="pill">${p.label}</span><span class="card-icon">${p.icon}</span></div>`;
+          el.innerHTML = `${media}<div class="card-body"><div class="card-top"><h3>${p.name}</h3><span class="rating">${p.rating}</span></div><div class="meta">${names[p.cat]} · ${p.miles} · ${p.time} estimated</div><p class="desc">${p.desc}</p><div class="card-actions"><a class="primary" href="${route(p)}" target="_blank">Live route ↗</a><button class="map-button" data-id="${p.id}">Show on map</button><a href="${p.url}" target="_blank">Website ↗</a></div></div>`;
+          cards.appendChild(el);
+        });
+      document.querySelectorAll('.filter').forEach((btn) =>
+        btn.addEventListener('click', () => {
+          document
+            .querySelectorAll('.filter')
+            .forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+          const f = btn.dataset.filter;
+          document
+            .querySelectorAll('.place-card')
+            .forEach((c) =>
+              c.classList.toggle('hidden', f !== 'all' && c.dataset.cat !== f),
+            );
+          if (window.mapMarkers)
+            Object.entries(window.mapMarkers).forEach(([id, m]) => {
+              const p = places.find((x) => x.id === id);
+              if (f === 'all' || p.cat === f || p.cat === 'home')
+                m.addTo(window.familyMap);
+              else m.remove();
+            });
+        }),
+      );
+      if (window.L) {
+        const map = L.map('map', { scrollWheelZoom: false }).setView(
+          [40.8913, -75.4064],
+          11,
+        );
+        window.familyMap = map;
+        const streetTiles = L.tileLayer(
+          'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
+          {
+          maxZoom: 19,
+          attribution:
+            'Tiles &copy; Esri; data &copy; OpenStreetMap contributors and the GIS user community',
+          },
+        ).addTo(map);
+        let tileErrors = 0;
+        streetTiles.on('tileerror', () => {
+          tileErrors += 1;
+          if (tileErrors !== 3) return;
+          map.removeLayer(streetTiles);
+          L.tileLayer(
+            'https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}',
+            {
+              maxZoom: 19,
+              attribution: 'Tiles courtesy of the U.S. Geological Survey',
+            },
+          ).addTo(map);
+        });
+        window.mapMarkers = {};
+        const icon = (p) =>
+          L.divIcon({
+            className: '',
+            html: `<div class="pin pin-${p.cat}"><span>${p.icon}</span></div>`,
+            iconSize: [31, 31],
+            iconAnchor: [15, 30],
+            popupAnchor: [0, -28],
+          });
+        places.forEach((p) => {
+          const m = L.marker([p.lat, p.lng], { icon: icon(p) })
+            .addTo(map)
+            .bindPopup(
+              `<div class="popup-title">${p.name}</div><div class="popup-meta">${p.miles} · ${p.time}${p.cat === 'home' ? '' : ' estimated'}</div>${p.cat === 'home' ? '' : `<a class="popup-link" href="${route(p)}" target="_blank">Open live route ↗</a>`}`,
+            );
+          window.mapMarkers[p.id] = m;
+        });
+        map.fitBounds(
+          L.latLngBounds(places.map((p) => [p.lat, p.lng])),
+          { padding: [28, 28] },
+        );
+        L.circle([HOME.lat, HOME.lng], {
+          radius: 8047,
+          color: '#163f34',
+          fillColor: '#d6eee2',
+          fillOpacity: 0.08,
+          weight: 1,
+          dashArray: '6 7',
+        }).addTo(map);
+        document.querySelectorAll('.map-button').forEach((b) =>
+          b.addEventListener('click', () => {
+            const p = places.find((x) => x.id === b.dataset.id);
+            document.getElementById('map-section').scrollIntoView();
+            setTimeout(() => {
+              map.setView([p.lat, p.lng], 13);
+              window.mapMarkers[p.id].addTo(map).openPopup();
+            }, 350);
+          }),
+        );
+      }
+    </script>
+  </body>
+</html>
