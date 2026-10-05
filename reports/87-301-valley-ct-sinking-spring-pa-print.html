@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Black-and-white printable family convenience report for 301 Valley Court, Sinking Spring, PA 19608">
+    <title>87 · 301 Valley Court — Printable Family Convenience Report</title>
+    <style>
+      :root {
+        --black: #000;
+        --gray: #555;
+        --line: #999;
+        --light: #eee;
+        --paper: #fff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        background: #d8d8d8;
+      }
+      body {
+        margin: 0;
+        color: var(--black);
+        font:
+          10.5pt/1.34 Arial,
+          Helvetica,
+          sans-serif;
+        -webkit-print-color-adjust: economy;
+        print-color-adjust: economy;
+      }
+      .page {
+        position: relative;
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0.25in auto;
+        padding: 0.5in 0.55in 0.46in;
+        background: var(--paper);
+        box-shadow: 0 2px 14px #888;
+        break-after: page;
+        page-break-after: always;
+      }
+      .page:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+      .kicker {
+        margin: 0 0 7pt;
+        font-size: 8pt;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      h1 {
+        margin: 0;
+        font:
+          700 29pt/1.02 Georgia,
+          'Times New Roman',
+          serif;
+        letter-spacing: -0.025em;
+      }
+      h2 {
+        margin: 0 0 10pt;
+        padding-bottom: 5pt;
+        border-bottom: 2px solid #000;
+        font:
+          700 19pt/1.05 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      h3 {
+        margin: 0 0 5pt;
+        font-size: 11pt;
+      }
+      p {
+        margin: 0 0 8pt;
+      }
+      a {
+        color: #000;
+        text-decoration: underline;
+        text-decoration-thickness: 0.5px;
+        text-underline-offset: 2px;
+      }
+      .muted {
+        color: var(--gray);
+      }
+      .deck {
+        max-width: 6.8in;
+        margin: 12pt 0 15pt;
+        font:
+          12pt/1.35 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .rule {
+        height: 3px;
+        margin: 16pt 0;
+        background: #000;
+      }
+      .summary-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 18pt;
+        align-items: start;
+      }
+      .score {
+        display: flex;
+        align-items: baseline;
+        gap: 5pt;
+        margin: 2pt 0 8pt;
+        font-weight: 700;
+      }
+      .score strong {
+        font:
+          700 46pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .score span {
+        font-size: 12pt;
+      }
+      .label {
+        display: inline-block;
+        padding: 2pt 5pt;
+        border: 1px solid #000;
+        font-size: 7.5pt;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .callout {
+        padding: 10pt 12pt;
+        border: 2px solid #000;
+      }
+      .callout p:last-child {
+        margin-bottom: 0;
+      }
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8pt;
+        margin: 12pt 0;
+      }
+      .stat {
+        padding: 8pt;
+        border-top: 2px solid #000;
+        border-bottom: 1px solid var(--line);
+      }
+      .stat b {
+        display: block;
+        font-size: 16pt;
+      }
+      .stat span {
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 8.8pt;
+      }
+      th {
+        padding: 5pt 5pt;
+        border-top: 1.5px solid #000;
+        border-bottom: 1.5px solid #000;
+        text-align: left;
+        font-size: 7.3pt;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      td {
+        padding: 5pt;
+        border-bottom: 0.6px solid #bbb;
+        vertical-align: top;
+      }
+      td.num,
+      th.num {
+        text-align: right;
+        white-space: nowrap;
+      }
+      tr {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .section {
+        margin-top: 14pt;
+      }
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14pt;
+      }
+      .item {
+        padding: 9pt 0;
+        border-top: 1px solid #000;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .item:first-child {
+        border-top: 0;
+      }
+      .item-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 8pt;
+        align-items: baseline;
+      }
+      .item h3 {
+        font-size: 10.5pt;
+      }
+      .item .rating {
+        white-space: nowrap;
+        font-size: 8pt;
+        font-weight: 700;
+      }
+      .item .meta {
+        margin: 0 0 4pt;
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      .item p {
+        margin: 0;
+        font-size: 8.8pt;
+      }
+      .rating-box {
+        display: grid;
+        grid-template-columns: 1fr 36pt;
+        gap: 7pt;
+        align-items: center;
+        margin: 6pt 0;
+      }
+      .track {
+        height: 7pt;
+        border: 1px solid #000;
+      }
+      .track i {
+        display: block;
+        height: 100%;
+        background: #000;
+      }
+      .rating-box b {
+        text-align: right;
+        font-size: 9pt;
+      }
+      .list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .list li {
+        position: relative;
+        padding: 5pt 0 5pt 17pt;
+        border-top: 0.6px solid #bbb;
+      }
+      .list li:first-child {
+        border-top: 0;
+      }
+      .list li:before {
+        position: absolute;
+        left: 0;
+        top: 5pt;
+        font-weight: 700;
+      }
+      .pros li:before {
+        content: '+';
+      }
+      .cons li:before {
+        content: '–';
+      }
+      .corridor {
+        display: grid;
+        grid-template-columns: 85pt 1fr;
+        gap: 8pt;
+        margin: 8pt 0;
+        padding: 7pt 0;
+        border-top: 0.6px solid #bbb;
+      }
+      .corridor:first-child {
+        border-top: 0;
+      }
+      .corridor b {
+        font-size: 8.5pt;
+      }
+      .corridor span {
+        font-size: 8.5pt;
+      }
+      .sources {
+        margin: 0;
+        padding-left: 16pt;
+        font-size: 7.8pt;
+      }
+      .sources li {
+        margin: 0 0 5pt;
+      }
+      .fine {
+        font-size: 7.5pt;
+        color: var(--gray);
+      }
+      .profile-score {
+        display: flex;
+        align-items: center;
+        gap: 12pt;
+        margin: 10pt 0;
+      }
+      .profile-grade {
+        display: grid;
+        place-items: center;
+        width: 52pt;
+        height: 52pt;
+        border: 2px solid #000;
+        font:
+          700 26pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .event-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 14pt;
+      }
+      .page-footer {
+        position: absolute;
+        left: 0.55in;
+        right: 0.55in;
+        bottom: 0.24in;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 5pt;
+        border-top: 0.6px solid #777;
+        font-size: 7pt;
+        color: #555;
+      }
+      @page {
+        size: Letter;
+        margin: 0;
+      }
+      @media print {
+        html {
+          background: #fff;
+        }
+        body {
+          font-size: 10.5pt;
+        }
+        .page {
+          width: 8.5in;
+          min-height: 11in;
+          margin: 0;
+          box-shadow: none;
+        }
+        .screen-note {
+          display: none !important;
+        }
+      }
+      @media screen and (max-width: 900px) {
+        .page {
+          width: calc(100% - 24px);
+          min-height: auto;
+          margin: 12px;
+          padding: 28px;
+        }
+        .page-footer {
+          position: static;
+          margin-top: 24px;
+        }
+        .summary-grid,
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="page"><p class="kicker">Family Radius · Property Brief</p><h1>301 Valley Court<br>Sinking Spring, PA 19608</h1><p class="deck">A large, carefully maintained Green Valley Estates home with excellent everyday logistics: assigned schools, a full grocery, the YMCA, private school and adult fitness all fall within roughly ten minutes.</p><div class="rule"></div><div class="summary-grid"><div><span class="label">Family convenience score</span><div class="score"><strong>87</strong><span>/ 100</span></div><p><b>Bottom line:</b> Very short school, grocery, gym and YMCA trips—plus strong middle/high school ratings and practical big-box access—make this one of the easier daily-life addresses in the collection. Car dependence and the elementary rating are the principal deductions.</p></div><div class="callout"><h3>Important location finding</h3><p> Sinking Spring mailing address, Lower Heidelberg Township property  The home is in Wilson School District. Current listing sources report Green Valley Elementary, Wilson West Middle and Wilson High as the assigned public-school path; confirm the exact parcel and transportation directly with district registration. </p></div></div><div class="stat-grid"><div class="stat"><b>~5–6 min</b><span>elementary + middle school</span></div><div class="stat"><b>~6–9 min</b><span>grocery, YMCA + private school</span></div><div class="stat"><b>~11–17 min</b><span>big-box + specialty activities</span></div></div><h3>Property snapshot</h3><table><tr><th>Active listing</th><th>Site</th><th>Notable extras</th></tr><tr><td>$575,000 active listing · 3 beds plus office · 2.5 baths · about 3,913 finished sq ft · built 2012</td><td>0.36-acre corner lot · Green Valley Estates · Lower Heidelberg Township · Wilson SD</td><td>Main-floor primary suite · partially finished basement · paver patio · attached 2-car garage · public utilities</td></tr></table><div class="callout" style="margin-top:14pt"><h3>Due-diligence note</h3><p>Listing and public-record summaries disagree on bedroom count and finished square footage. Verify the partially finished basement, permits/egress, HOA documents and fee, taxes, and major-system ages before relying on listing details.</p></div><footer>1 / 5 · Overview · Researched October 4, 2026</footer></section>
+    <section class="page"><p class="kicker">Schools & early learning</p><h2>Education options</h2><table><tr><th>Option</th><th>Grades / rating</th><th>Planning estimate</th><th>Assessment</th></tr><tr><td><b>Green Valley Elementary</b></td><td>4/10 GreatSchools</td><td>~1.2 mi · ~5 min</td><td>Listing-reported elementary school and a very short school-day trip; confirm exact parcel assignment with Wilson registration.</td></tr><tr><td><b>Wilson West Middle School</b></td><td>8/10 GreatSchools</td><td>~1.3 mi · ~6 min</td><td>Above-average middle school with gifted programming, Project Lead The Way and a modern campus.</td></tr><tr><td><b>Wilson High School</b></td><td>7/10 GreatSchools</td><td>~2.9 mi · ~10 min</td><td>Above-average district high school with AP courses, Project Lead The Way, arts and extensive athletics.</td></tr><tr><td><b>St. Ignatius Loyola Regional School</b></td><td>Preschool through grade 8</td><td>~2.7 mi · ~9 min</td><td>Nearby Catholic preschool, elementary and middle-school option serving the Sinking Spring area.</td></tr><tr><td><b>Montessori Country Day School</b></td><td>12 months through kindergarten</td><td>~6.7 mi · ~15 min</td><td>Licensed Montessori program with toddler and primary classrooms, including children well under age five.</td></tr></table><div class="callout" style="margin-top:16pt"><h3>Assignment check</h3><p>Public-school assignments, transportation and program availability can change. Confirm this exact parcel with district registration before relying on a listing portal.</p></div><footer>2 / 5 · Schools</footer></section>
+    <section class="page"><p class="kicker">Shopping, activities & fitness</p><h2>Everyday destinations</h2><table><tr><th>Need</th><th>Best nearby option</th><th>Planning estimate</th><th>Notes</th></tr><tr><td>Proper grocery</td><td><b>Redner’s Fresh Market</b></td><td>~1.9 mi · ~6 min</td><td>The closest practical full-line grocery for produce, meat, bakery, deli and weekly shopping.</td></tr><tr><td>Closest Walmart</td><td><b>Walmart Wyomissing Supercenter</b></td><td>~4.3 mi · ~11 min</td><td>Full grocery, pharmacy and general merchandise in the Wyomissing retail district.</td></tr><tr><td>Closest Target</td><td><b>Target Spring Township</b></td><td>~5.0 mi · ~13 min</td><td>Full Target with pickup, Drive Up, pharmacy and Starbucks in the Broadcasting Square area.</td></tr><tr><td>Kids dance</td><td><b>LimeLight Dance Studio</b></td><td>~5.8 mi · ~14 min</td><td>Long-running studio with age-appropriate youth ballet, tap, jazz and broader dance training.</td></tr><tr><td>Kids gymnastics</td><td><b>Berks Gymnastics Academy</b></td><td>~7.9 mi · ~17 min</td><td>Dedicated gymnastics academy with toddler, preschool, recreational, competitive and Ninja programs.</td></tr><tr><td>Family fitness + youth</td><td><b>Sinking Spring YMCA</b></td><td>~2.2 mi · ~7 min</td><td>Large family facility with updated fitness equipment, group exercise, child watch, courts, youth programs and sports performance training.</td></tr><tr><td>Adult training gym</td><td><b>Hybrid IX Fitness</b></td><td>~1.9 mi · ~7 min</td><td>Close local coaching gym focused on strength, conditioning, group classes and personal training.</td></tr><tr><td>BJJ + Muay Thai</td><td><b>CFS Academy</b></td><td>~4.1 mi · ~13 min</td><td>Nearby academy offering Brazilian jiu-jitsu, Muay Thai, kickboxing and wrestling programs.</td></tr><tr><td>Seasonal family aquatics</td><td><b>Wilshire Pool</b></td><td>~2.4 mi · ~8 min</td><td>Close neighborhood swim club with seasonal family use, aquatic teams and pavilion events.</td></tr></table><p class="muted" style="margin-top:14pt">Mileage and time are conservative off-peak planning estimates prepared October 4, 2026, not live traffic.</p><footer>3 / 5 · Daily convenience</footer></section>
+    <section class="page"><p class="kicker">Place profile</p><h2>Community profile: Lower Heidelberg Township</h2><div class="stat-grid"><div class="stat"><b>6,230</b><span>2020 Census population</span></div><div class="stat"><b>14.84 sq mi</b><span>land area</span></div><div class="stat"><b>car-based</b><span>daily mobility pattern</span></div></div><div class="two-col"><div><h3>General vibe</h3><p>Polished, quiet suburban living with a car still required. The neighborhood is unusually close to schools and daily services, and the corner lot has sidewalks and street lights even though the broader area is not meaningfully walkable.</p><h3>Local niche</h3><p>A Wilson School District address with Sinking Spring convenience and Lower Heidelberg scenery. The location combines strong middle/high school access, nearby youth and fitness infrastructure, and fast retail trips without feeling urban.</p></div><div><h3>Events families notice</h3><ul><li><b>Wilson school performances + athletics:</b> Concerts, theater, sports and district events create a full school-year calendar across the nearby campuses.</li><li><b>Wilson Summer Learning Camp:</b> The Wilson Education Foundation runs affordable summer enrichment at Sinking Spring and district elementary locations.</li><li><b>Sinking Spring YMCA family events:</b> The local Y hosts family dances, youth programs, sports, pickleball events and seasonal community activities.</li><li><b>Green Valley Swim Club season:</b> The nearby community pool runs a summer social calendar, swim activities and family-oriented events.</li><li><b>Sinking Spring borough calendar:</b> Community meetings, seasonal notices and borough events are posted on the municipal calendar.</li><li><b>Lower Heidelberg recreation:</b> The township recreation board, dog park and open-space programs serve the surrounding rural-suburban community.</li></ul></div></div><div class="callout" style="margin-top:18pt"><h3>What to notice</h3><p>The listing reports 3 bedrooms plus an office that could serve as a fourth, 2.5 baths and 3,913 finished square feet; public records summarize 4 bedrooms and 2,913 square feet above grade. Verify the finished lower level, egress and permits, HOA documents and fee, generator outlet, roof/HVAC ages and the main-floor primary-suite accessibility details.</p></div><footer>4 / 5 · Community</footer></section>
+    <section class="page"><p class="kicker">Decision summary</p><h2>Pros, trade-offs & methodology</h2><div class="two-col"><div><h3>What works well</h3><ul><li>Green Valley Elementary and Wilson West Middle are only about five to six minutes away.</li><li>Redner’s, the Sinking Spring YMCA and Hybrid IX Fitness are all roughly six to seven minutes from home.</li><li>St. Ignatius provides a private Catholic PK–8 path around nine minutes away, while Montessori Country Day serves toddlers through kindergarten.</li><li>Walmart and Target are practical at approximately eleven and thirteen minutes.</li><li>The 2012 home provides public water, public sewer, natural-gas heat and a main-floor primary suite.</li></ul></div><div><h3>What to plan around</h3><ul><li>Redfin’s 0.2/10 walkability score accurately reflects a car-required daily routine.</li><li>Green Valley Elementary currently carries a 4/10 GreatSchools rating, below the middle and high schools.</li><li>Montessori and specialty dance/gymnastics options require planned drives of roughly fourteen to seventeen minutes.</li><li>Listing and public-record summaries disagree on bedroom count and finished square footage.</li><li>Verify the partially finished basement, permits/egress, HOA documents and fee, taxes, and major-system ages before relying on listing details.</li></ul></div></div><h3 style="margin-top:14pt">Comparison scorecard</h3><table><tr><th>Category</th><th>Score</th><th>Weight</th><th>Weighted</th></tr><tr><td>Public schools</td><td>88</td><td>30%</td><td>26.4</td></tr><tr><td>Private / early learning</td><td>92</td><td>15%</td><td>13.8</td></tr><tr><td>Shopping & grocery</td><td>95</td><td>20%</td><td>19.0</td></tr><tr><td>Kids activities</td><td>90</td><td>15%</td><td>13.5</td></tr><tr><td>Adult fitness</td><td>96</td><td>10%</td><td>9.6</td></tr><tr><td>Martial arts</td><td>92</td><td>5%</td><td>4.6</td></tr><tr><td>Walkability</td><td>2</td><td>5%</td><td>0.1</td></tr><tr><td><b>Total</b></td><td></td><td>100%</td><td><b>87.0 → 87</b></td></tr></table><h3 style="margin-top:14pt">Principal sources</h3><p class="small">Redfin current listing; Coldwell Banker listing details; Wilson School District; GreatSchools Green Valley Elementary; GreatSchools Wilson West Middle; GreatSchools Wilson High; Montessori Country Day School; Sinking Spring YMCA; U.S. Census QuickFacts. Distances and drive times are planning estimates.</p><footer>5 / 5 · Decision summary</footer></section>  </body>
+</html>
