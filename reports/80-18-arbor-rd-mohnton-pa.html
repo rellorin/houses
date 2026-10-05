@@ -1,0 +1,1224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Family convenience report for 18 Arbor Road, Mohnton, PA 19540">
+    <title>80 · 18 Arbor Road · Family Convenience Report</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23163f34%27/%3E%3Cpath d=%27M13 32 32 15l19 17v20H38V39H26v13H13z%27 fill=%27%23dff39b%27/%3E%3C/svg%3E">
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      crossorigin=""
+    />
+    <style>
+      :root {
+        --ink: #18211d;
+        --muted: #60706a;
+        --paper: #f4f7f2;
+        --card: #fff;
+        --line: #dce5df;
+        --pine: #163f34;
+        --mint: #d6eee2;
+        --lime: #dff39b;
+        --shadow: 0 16px 40px rgba(22, 63, 52, 0.09);
+        --r: 20px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font:
+          16px/1.5 Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          'Segoe UI',
+          sans-serif;
+      }
+      button,
+      a {
+        font: inherit;
+      }
+      a {
+        color: inherit;
+      }
+      .shell {
+        max-width: 1440px;
+        margin: auto;
+        padding: 18px;
+      }
+      .topbar {
+        position: sticky;
+        top: 12px;
+        z-index: 999;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 12px 16px;
+        background: rgba(244, 247, 242, 0.92);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        backdrop-filter: blur(15px);
+        box-shadow: 0 8px 25px rgba(22, 63, 52, 0.07);
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 850;
+        letter-spacing: -0.02em;
+      }
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 11px;
+        background: var(--pine);
+        color: white;
+      }
+      .nav {
+        display: flex;
+        gap: 6px;
+        overflow: auto;
+      }
+      .nav a {
+        text-decoration: none;
+        color: var(--muted);
+        font-size: 0.86rem;
+        font-weight: 750;
+        padding: 8px 10px;
+        border-radius: 10px;
+        white-space: nowrap;
+      }
+      .nav a:hover {
+        background: white;
+        color: var(--ink);
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: 1.18fr 0.82fr;
+        min-height: 440px;
+        margin-top: 18px;
+        border-radius: 30px;
+        overflow: hidden;
+        background: var(--pine);
+        color: white;
+        box-shadow: var(--shadow);
+      }
+      .hero-copy {
+        padding: clamp(28px, 5vw, 72px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .eyebrow {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        text-transform: uppercase;
+        font-size: 0.74rem;
+        font-weight: 850;
+        letter-spacing: 0.12em;
+        color: #b7d7ca;
+      }
+      .dot {
+        width: 7px;
+        height: 7px;
+        background: var(--lime);
+        border-radius: 50%;
+      }
+      .hero h1 {
+        font-size: clamp(2.35rem, 5vw, 5.6rem);
+        line-height: 0.94;
+        letter-spacing: -0.065em;
+        margin: 14px 0 18px;
+        max-width: 830px;
+      }
+      .hero h1 span {
+        color: var(--lime);
+      }
+      .hero p {
+        font-size: 1.05rem;
+        color: #d5e4de;
+        max-width: 660px;
+        margin: 0;
+      }
+      .hero-media {
+        position: relative;
+        min-height: 340px;
+        background: #2e5f50;
+      }
+      .hero-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .photo-credit {
+        position: absolute;
+        right: 12px;
+        bottom: 12px;
+        padding: 7px 10px;
+        border-radius: 9px;
+        background: rgba(9, 22, 18, 0.78);
+        font-size: 0.7rem;
+        color: #e7efeb;
+      }
+      .scorecard {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 20px;
+        align-items: center;
+        margin-top: 26px;
+      }
+      .score-ring {
+        width: 108px;
+        height: 108px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: conic-gradient(
+          var(--lime) 0 80%,
+          rgba(255, 255, 255, 0.16) 84% 100%
+        );
+        position: relative;
+      }
+      .score-ring:after {
+        content: '';
+        position: absolute;
+        inset: 9px;
+        border-radius: 50%;
+        background: var(--pine);
+      }
+      .score-number {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        font-weight: 900;
+        font-size: 2rem;
+        line-height: 1;
+      }
+      .score-number small {
+        display: block;
+        font-size: 0.66rem;
+        color: #b7d7ca;
+        margin-top: 4px;
+      }
+      .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+      .hero-stat {
+        padding: 13px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 14px;
+      }
+      .hero-stat b {
+        font-size: 1.05rem;
+        display: block;
+      }
+      .hero-stat span {
+        font-size: 0.73rem;
+        color: #b7d7ca;
+      }
+      .section {
+        padding: 64px 0 0;
+      }
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+      .section h2 {
+        font-size: clamp(1.75rem, 3vw, 2.6rem);
+        letter-spacing: -0.045em;
+        line-height: 1.05;
+        margin: 0;
+      }
+      .section-intro {
+        max-width: 660px;
+        color: var(--muted);
+        margin: 8px 0 0;
+      }
+      .notice {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 15px;
+        padding: 18px;
+        background: #fff7dd;
+        border: 1px solid #ead79f;
+        border-radius: 16px;
+        margin-bottom: 20px;
+      }
+      .notice b {
+        display: block;
+      }
+      .notice p {
+        margin: 3px 0 0;
+        color: #645b43;
+        font-size: 0.91rem;
+      }
+      .map-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 310px;
+        gap: 16px;
+      }
+      .map-wrap {
+        height: 600px;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        overflow: hidden;
+        background: #dfe8e3;
+        position: relative;
+        box-shadow: var(--shadow);
+      }
+      #map {
+        height: 100%;
+        width: 100%;
+      }
+      .map-fallback {
+        position: absolute;
+        inset: auto 14px 14px;
+        z-index: 500;
+        background: white;
+        padding: 9px 12px;
+        border-radius: 10px;
+        font-size: 0.78rem;
+        color: var(--muted);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+      .map-side {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .mini-card {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 17px;
+        padding: 16px;
+      }
+      .mini-card h3 {
+        margin: 0 0 7px;
+        font-size: 1rem;
+      }
+      .mini-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.86rem;
+      }
+      .legend {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-top: 12px;
+      }
+      .legend span {
+        font-size: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .legend i {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
+      .filters {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin: 18px 0;
+      }
+      .filter {
+        border: 1px solid var(--line);
+        background: white;
+        padding: 9px 13px;
+        border-radius: 999px;
+        font-weight: 800;
+        font-size: 0.79rem;
+        color: var(--muted);
+        cursor: pointer;
+      }
+      .filter.active,
+      .filter:hover {
+        background: var(--pine);
+        border-color: var(--pine);
+        color: white;
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 15px;
+      }
+      .place-card {
+        display: flex;
+        flex-direction: column;
+        min-height: 275px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: var(--r);
+        overflow: hidden;
+        box-shadow: 0 6px 18px rgba(22, 63, 52, 0.04);
+        transition:
+          0.2s transform,
+          0.2s box-shadow;
+      }
+      .place-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow);
+      }
+      .place-card.hidden {
+        display: none;
+      }
+      .card-photo {
+        height: 156px;
+        background: #e5ebe7;
+        position: relative;
+        overflow: hidden;
+      }
+      .card-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .card-photo .card-icon {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        font-size: 3.2rem;
+        background: linear-gradient(135deg, #e8f3ed, #d4e5dc);
+      }
+      .card-photo.has-image .card-icon {
+        display: none;
+      }
+      .pill {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: white;
+        padding: 6px 9px;
+        border-radius: 999px;
+        font-size: 0.69rem;
+        font-weight: 900;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      .card-body {
+        padding: 17px;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+      }
+      .card-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: start;
+      }
+      .card-body h3 {
+        font-size: 1.1rem;
+        letter-spacing: -0.02em;
+        line-height: 1.15;
+        margin: 0;
+      }
+      .rating {
+        white-space: nowrap;
+        background: #eef5f0;
+        border-radius: 9px;
+        padding: 5px 8px;
+        font-size: 0.75rem;
+        font-weight: 900;
+      }
+      .meta {
+        font-size: 0.79rem;
+        color: var(--muted);
+        margin: 6px 0;
+      }
+      .desc {
+        font-size: 0.88rem;
+        color: #45534e;
+        margin: 8px 0 15px;
+      }
+      .card-actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: auto;
+      }
+      .card-actions a,
+      .map-button {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        text-decoration: none;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 8px 10px;
+        font-size: 0.76rem;
+        font-weight: 850;
+        background: white;
+        cursor: pointer;
+      }
+      .card-actions a.primary {
+        background: var(--pine);
+        border-color: var(--pine);
+        color: white;
+      }
+      .snapshot {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .panel {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: var(--r);
+        padding: 22px;
+      }
+      .panel h3 {
+        margin: 0 0 16px;
+        font-size: 1.2rem;
+      }
+      .bar-row {
+        display: grid;
+        grid-template-columns: 120px 1fr 42px;
+        gap: 10px;
+        align-items: center;
+        margin: 12px 0;
+        font-size: 0.84rem;
+      }
+      .bar {
+        height: 10px;
+        background: #edf1ee;
+        border-radius: 999px;
+        overflow: hidden;
+      }
+      .bar i {
+        height: 100%;
+        display: block;
+        border-radius: 999px;
+        background: var(--pine);
+      }
+      .proscons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .list li {
+        display: grid;
+        grid-template-columns: 25px 1fr;
+        gap: 9px;
+        padding: 10px 0;
+        border-top: 1px solid var(--line);
+        font-size: 0.91rem;
+      }
+      .list li:first-child {
+        border-top: 0;
+      }
+      .check,
+      .minus {
+        display: grid;
+        place-items: center;
+        width: 22px;
+        height: 22px;
+        border-radius: 7px;
+        font-size: 0.75rem;
+        font-weight: 900;
+      }
+      .check {
+        background: var(--mint);
+        color: var(--pine);
+      }
+      .minus {
+        background: #ffe2da;
+        color: #8b3c2a;
+      }
+      .method {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+      .method div {
+        padding: 15px;
+        border-radius: 15px;
+        background: #f4f7f2;
+      }
+      .method b {
+        display: block;
+      }
+      .method span {
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+      .sources {
+        font-size: 0.86rem;
+        color: var(--muted);
+      }
+      .sources a {
+        color: var(--pine);
+        font-weight: 750;
+      }
+      .sources li {
+        margin: 8px 0;
+      }
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 36px 0 20px;
+        margin-top: 54px;
+        border-top: 1px solid var(--line);
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+      .popup-title {
+        font-weight: 900;
+      }
+      .popup-meta {
+        font-size: 0.78rem;
+        color: #5f6d68;
+        margin: 3px 0 8px;
+      }
+      .popup-link {
+        font-size: 0.76rem;
+        font-weight: 850;
+        color: #163f34;
+      }
+      .pin {
+        width: 31px;
+        height: 31px;
+        border-radius: 50% 50% 50% 10%;
+        transform: rotate(-45deg);
+        display: grid;
+        place-items: center;
+        border: 3px solid white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.24);
+      }
+      .pin span {
+        transform: rotate(45deg);
+        font-size: 13px;
+      }
+      .pin-home {
+        background: #163f34;
+      }
+      .pin-school {
+        background: #80b9d5;
+      }
+      .pin-private {
+        background: #8f75b8;
+      }
+      .pin-montessori {
+        background: #dd9e44;
+      }
+      .pin-shopping {
+        background: #ec7962;
+      }
+      .pin-activity {
+        background: #de6aa7;
+      }
+      .pin-fitness {
+        background: #5baa7b;
+      }
+      .pin-martial {
+        background: #536b91;
+      }
+      @media (max-width: 980px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+        .hero-media {
+          height: 330px;
+          order: -1;
+        }
+        .map-layout {
+          grid-template-columns: 1fr;
+        }
+        .map-side {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
+        .cards {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .method {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 650px) {
+        .shell {
+          padding: 10px;
+        }
+        .topbar {
+          top: 6px;
+        }
+        .nav {
+          display: none;
+        }
+        .hero {
+          border-radius: 22px;
+        }
+        .hero-copy {
+          padding: 26px 20px;
+        }
+        .hero h1 {
+          font-size: 2.55rem;
+        }
+        .scorecard {
+          grid-template-columns: 86px 1fr;
+        }
+        .score-ring {
+          width: 84px;
+          height: 84px;
+        }
+        .hero-stats {
+          grid-template-columns: 1fr;
+        }
+        .hero-stat:nth-child(n + 2) {
+          display: none;
+        }
+        .map-wrap {
+          height: 480px;
+        }
+        .map-side,
+        .cards,
+        .snapshot,
+        .proscons {
+          grid-template-columns: 1fr;
+        }
+        .section {
+          padding-top: 48px;
+        }
+        .section-head {
+          align-items: start;
+          flex-direction: column;
+        }
+        .bar-row {
+          grid-template-columns: 100px 1fr 36px;
+        }
+        .method {
+          grid-template-columns: 1fr 1fr;
+        }
+        .footer {
+          flex-direction: column;
+        }
+      }
+      @media print {
+        .topbar,
+        .filters,
+        .card-actions,
+        .map-fallback {
+          display: none !important;
+        }
+        .hero {
+          break-inside: avoid;
+        }
+        .section {
+          padding-top: 30px;
+        }
+        .map-wrap {
+          height: 420px;
+        }
+        .place-card {
+          break-inside: avoid;
+          box-shadow: none;
+        }
+        .shell {
+          max-width: none;
+        }
+        .footer {
+          margin-top: 25px;
+        }
+      }
+      .area-grid {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 16px;
+      }
+      .area-card {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: var(--r);
+        padding: 22px;
+      }
+      .area-card h3 {
+        margin: 0 0 10px;
+        font-size: 1.2rem;
+      }
+      .grade-line {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 14px 0;
+      }
+      .grade {
+        display: grid;
+        place-items: center;
+        width: 76px;
+        height: 76px;
+        border-radius: 22px;
+        background: var(--pine);
+        color: white;
+        font-size: 2.4rem;
+        font-weight: 900;
+      }
+      .grade-copy b {
+        display: block;
+        font-size: 1.05rem;
+      }
+      .grade-copy span,
+      .area-card p {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      .fact-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin: 16px 0;
+      }
+      .fact {
+        padding: 13px;
+        border-radius: 14px;
+        background: #f4f7f2;
+      }
+      .fact b {
+        display: block;
+        font-size: 1.15rem;
+      }
+      .fact span {
+        font-size: 0.74rem;
+        color: var(--muted);
+      }
+      .vibe-grid,
+      .event-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 16px;
+      }
+      .vibe,
+      .event {
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: white;
+      }
+      .vibe h3,
+      .event h3 {
+        margin: 0 0 6px;
+        font-size: 1rem;
+      }
+      .vibe p,
+      .event p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.84rem;
+      }
+      .event a {
+        display: inline-block;
+        margin-top: 10px;
+        color: var(--pine);
+        font-size: 0.78rem;
+        font-weight: 850;
+      }
+      @media (max-width: 980px) {
+        .area-grid {
+          grid-template-columns: 1fr;
+        }
+        .fact-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 650px) {
+        .vibe-grid,
+        .event-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+
+
+
+
+
+
+    <div class="shell">
+      <header class="topbar"><div class="brand"><span class="brand-mark">⌂</span><span>Family Radius</span></div><nav class="nav" aria-label="Report sections"><a href="#map-section">Map</a><a href="#area">Area</a><a href="#places">Places</a><a href="#score">Score</a><a href="#decision">Decision notes</a><a href="#sources">Sources</a></nav></header>
+      <section class="hero"><div class="hero-copy"><div class="eyebrow"><span class="dot"></span>Family convenience report · researched October 4, 2026</div><h1>18 Arbor Road<br><span>Mohnton, PA 19540</span></h1><p>A well-kept 1.33-acre cul-de-sac home with an exceptionally short elementary-school trip, authentic Montessori care about ten minutes away, and the full Governor Mifflin / Reading-area family network within a manageable drive.</p><div class="scorecard"><div class="score-ring" aria-label="Family convenience score 80 out of 100"><div class="score-number">80<small>out of 100</small></div></div><div class="hero-stats"><div class="hero-stat"><b>~4 min</b><span>assigned elementary</span></div><div class="hero-stat"><b>~10–18 min</b><span>Montessori, schools + activities</span></div><div class="hero-stat"><b>~16–24 min</b><span>grocery, Walmart + Target</span></div></div></div></div><div class="hero-media"><img src="https://m.cbhomes.com/p/339/PABK2078580/8BE844356E8148B/original.webp" alt="18 Arbor Road in Mohnton, PA 19540"><a class="photo-credit" href="https://www.coldwellbankerhomes.com/pa/mohnton/18-arbor-rd/pid_73864896/" target="_blank" rel="noreferrer">Property photo · current listing source ↗</a></div></section>
+      <section class="section" id="map-section"><div class="section-head"><div><h2>Everything in one radius</h2><p class="section-intro">Tap a marker for the researched destination and a live route. Google Maps recalculates from the property when opened.</p></div></div><div class="notice"><div>⚑</div><div><b>Mohnton mailing address, Brecknock Township property</b><p>The home is in Governor Mifflin School District. The current listing reports Brecknock Elementary, while the district sends grades 5–6 to its Intermediate School, 7–8 to the Middle School and 9–12 to the High School. Confirm the parcel and transportation directly with district registration.</p></div></div><div class="map-layout"><div class="map-wrap"><div id="map" role="application" aria-label="Interactive map of the property and nearby family destinations"></div><div class="map-fallback">Map tiles and the listing photo need an internet connection. All addresses and route links remain usable offline.</div></div><aside class="map-side"><div class="mini-card"><h3>Drive-time bands</h3><p><strong>≤10 min:</strong> excellent · <strong>11–20:</strong> practical · <strong>21+:</strong> planned trip</p><div class="legend"><span><i style="background:#80b9d5"></i>Public school</span><span><i style="background:#8f75b8"></i>Private</span><span><i style="background:#dd9e44"></i>Montessori</span><span><i style="background:#ec7962"></i>Shopping</span><span><i style="background:#de6aa7"></i>Kids activity</span><span><i style="background:#5baa7b"></i>Fitness</span><span><i style="background:#536b91"></i>Martial arts</span></div></div><div class="mini-card"><h3>At a glance</h3><p>Excellent elementary and Montessori proximity, solid activity and fitness access, and a peaceful acreage setting earn a strong score. Mixed school ratings, longer big-box trips and complete car dependence keep it out of the top tier.</p></div><div class="mini-card"><h3>Estimate standard</h3><p>Times and road miles are conservative off-peak planning estimates prepared October 4, 2026—not live traffic. Open a live route before a real trip.</p></div></aside></div></section>
+      <section class="section" id="area"><div class="section-head"><div><h2>What it’s like here</h2><p class="section-intro">This is the rural southern edge of the Governor Mifflin area: wooded country roads, larger lots and a quiet residential feel, with Mohnton and Shillington supplying the closest community institutions and the Reading/Wyomissing corridor handling larger errands.</p></div></div><div class="area-grid"><article class="area-card"><span class="pill" style="position:static;display:inline-block;box-shadow:none">Public-school profile</span><div class="grade-line"><div class="grade">3</div><div class="grade-copy"><b>elementary rating</b><span>GreatSchools · K–4</span></div></div><p>Brecknock Elementary is currently reported at 3/10, the Intermediate School at 5/10, Governor Mifflin Middle at 4/10 and the senior high at 6/10. The ratings are mixed, but elementary-school logistics are excellent at roughly four minutes.</p></article><article class="area-card"><h3>Brecknock Township</h3><div class="fact-grid"><div class="fact"><b>4,602</b><span>2020 Census population</span></div><div class="fact"><b>17.66 sq mi</b><span>land area</span></div><div class="fact"><b>1.33 ac</b><span>property acreage</span></div><div class="fact"><b>1988</b><span>year built</span></div></div><p>Brecknock Township counted 4,602 residents in the 2020 Census across about 17.66 square miles of land. The township is low-density and rural-suburban, while its school, shopping and event life connects strongly to the broader Governor Mifflin community.</p></article></div><div class="vibe-grid"><article class="vibe"><h3>Daily feel</h3><p>Quiet, leafy and car-based. The cul-de-sac and 1.33-acre lot create privacy, while the elementary school and Montessori option are close enough to make early-childhood routines unusually practical for a rural setting.</p></article><article class="vibe"><h3>The local niche</h3><p>Country living inside the Governor Mifflin orbit. Mohnton and Shillington provide the Y, schools and community traditions; Reading and Wyomissing add major retail, specialized children’s activities and broader entertainment.</p></article><article class="vibe"><h3>What to notice</h3><p>The listing describes a four-bedroom, 2.5-bath traditional home with 2,930 square feet, a full basement, attached two-car garage, oil heat, central air, a private well and on-site septic. Verify the roof and mechanical ages, water quality and yield, septic condition, radon, drainage and any finished-basement work.</p></article></div><div class="section-head" style="margin-top:28px"><div><h2 style="font-size:1.65rem">Events in the local orbit</h2><p class="section-intro">The local calendar combines Governor Mifflin’s large annual traditions with school programs and nature activities at nearby Nolde Forest.</p></div></div><div class="event-grid"><article class="event"><h3>Governor Mifflin Community Days</h3><p>A week-long summer fair with more than forty-five food and game stands, amusement rides, live entertainment and fireworks.</p><a href="https://www.communitydays.com/" target="_blank">Official information ↗</a></article><article class="event"><h3>Community Days parade</h3><p>The anniversary parade welcomes families, community groups, decorated bicycles, tractors and local organizations along the Shillington route.</p><a href="https://www.communitydays.com/50thanniversary" target="_blank">Official information ↗</a></article><article class="event"><h3>Governor Mifflin Homecoming</h3><p>School spirit week, athletics and family literacy activities bring the five-district community together each fall.</p><a href="https://www.gmsd.org/community-initiatives-and-events/homecoming" target="_blank">Official information ↗</a></article><article class="event"><h3>Nolde Forest family programs</h3><p>Story walks, children’s STEAM sessions, guided hikes, nature journaling and mansion open houses run throughout the year.</p><a href="https://events.dcnr.pa.gov/nolde_forest_environmental_education_center/calendar" target="_blank">Official information ↗</a></article><article class="event"><h3>Mustang arts + athletics</h3><p>District concerts, performances, games and youth sports create a steady school-year calendar for families.</p><a href="https://www.gmsd.org/" target="_blank">Official information ↗</a></article><article class="event"><h3>Brecknock community life</h3><p>Township, fire-company and local civic notices reflect a small, volunteer-oriented rural community.</p><a href="https://www.brecknockberks.com/news" target="_blank">Official information ↗</a></article></div></section>
+      <section class="section" id="places"><div class="section-head"><div><h2>Family essentials, compared</h2><p class="section-intro">The same card and scoring structure is used for every house. Each destination includes a live map link.</p></div></div><div class="filters" role="group" aria-label="Filter places"><button class="filter active" data-filter="all">All 15</button><button class="filter" data-filter="school">Public school</button><button class="filter" data-filter="private">Private</button><button class="filter" data-filter="montessori">Montessori</button><button class="filter" data-filter="shopping">Shopping</button><button class="filter" data-filter="activity">Kids activities</button><button class="filter" data-filter="fitness">Fitness</button><button class="filter" data-filter="martial">Martial arts</button></div><div class="cards" id="cards"></div></section>
+      <section class="section" id="score"><div class="section-head"><div><h2>Why the score is 80</h2><p class="section-intro">Weighted for everyday family use: schools and groceries count more than occasional destinations.</p></div></div><div class="snapshot"><div class="panel"><h3>Category scores</h3><div class="bar-row"><span>Public schools</span><div class="bar"><i style="width:72%;"></i></div><b>72</b></div><div class="bar-row"><span>Private / early</span><div class="bar"><i style="width:94%;"></i></div><b>94</b></div><div class="bar-row"><span>Daily shopping</span><div class="bar"><i style="width:82%;"></i></div><b>82</b></div><div class="bar-row"><span>Kids activities</span><div class="bar"><i style="width:88%;"></i></div><b>88</b></div><div class="bar-row"><span>Adult fitness</span><div class="bar"><i style="width:90%;"></i></div><b>90</b></div><div class="bar-row"><span>Martial arts</span><div class="bar"><i style="width:86%;"></i></div><b>86</b></div><div class="bar-row"><span>Walkability</span><div class="bar"><i style="width:28%;background:#f28c72"></i></div><b>28</b></div></div><div class="panel"><h3>Comparison formula</h3><div class="method"><div><b>30%</b><span>public schools</span></div><div><b>15%</b><span>private / early learning</span></div><div><b>20%</b><span>shopping & grocery</span></div><div><b>15%</b><span>kids activities</span></div><div><b>10%</b><span>adult fitness</span></div><div><b>5%</b><span>martial arts</span></div><div><b>5%</b><span>walkability</span></div><div><b>80</b><span>weighted total</span></div></div><p style="color:var(--muted);font-size:.82rem;margin:16px 0 0">Distance bands: ≤10 min is strongest, 11–20 min practical, 21–30 min a planned trip, and 30+ min weak. Quality indicators and breadth of choice then adjust each category.</p></div></div></section>
+      <section class="section" id="decision"><div class="section-head"><div><h2>Decision notes</h2><p class="section-intro">The useful trade-offs, stripped of real-estate gloss.</p></div></div><div class="proscons"><div class="panel"><h3>What works well</h3><ul class="list"><li><span class="check">✓</span><span>Brecknock Elementary is roughly four minutes from the property.</span></li><li><span class="check">✓</span><span>Montessori Country Day School offers toddler and primary programs about ten minutes away.</span></li><li><span class="check">✓</span><span>The Mifflin Area YMCA, Planet Fitness, dance and gymnastics options fall within roughly fourteen to sixteen minutes.</span></li><li><span class="check">✓</span><span>CFS Academy offers both Brazilian jiu-jitsu and Muay Thai in one location.</span></li><li><span class="check">✓</span><span>The 1.33-acre cul-de-sac lot combines privacy with a manageable drive to Shillington and Reading-area services.</span></li></ul></div><div class="panel"><h3>What to plan around</h3><ul class="list"><li><span class="minus">–</span><span>The address is functionally car-dependent; none of the daily destinations is a practical walk.</span></li><li><span class="minus">–</span><span>Current third-party public-school ratings are mixed, especially at the elementary and middle-school levels.</span></li><li><span class="minus">–</span><span>Target is roughly twenty-four minutes away and Walmart about twenty-one minutes away.</span></li><li><span class="minus">–</span><span>Private well, on-site septic and oil heat add inspection and maintenance responsibilities.</span></li><li><span class="minus">–</span><span>The listing’s tax display contains inconsistent current and historical figures, so the full annual tax bill should be verified with Berks County and the township.</span></li></ul></div></div></section>
+      <section class="section" id="sources"><div class="section-head"><div><h2>Sources & verification</h2><p class="section-intro">Current as researched October 4, 2026. Programs, ratings, prices, assignments and hours can change.</p></div></div><div class="panel sources"><ol><li><a href="https://www.coldwellbankerhomes.com/pa/mohnton/18-arbor-rd/pid_73864896/" target="_blank">Coldwell Banker current listing</a>.</li><li><a href="https://www.gmsd.org/schools" target="_blank">Governor Mifflin school directory</a>.</li><li><a href="https://www.greatschools.org/pennsylvania/shillington/governor-mifflin-school-district/" target="_blank">GreatSchools district overview</a>.</li><li><a href="https://mcdsberks.org/programs/preschool/" target="_blank">Montessori Country Day School</a>.</li><li><a href="https://www.communitydays.com/" target="_blank">Governor Mifflin Community Days</a>.</li><li><a href="https://events.dcnr.pa.gov/nolde_forest_environmental_education_center/calendar" target="_blank">Nolde Forest calendar</a>.</li><li><a href="https://www.berkspa.gov/getmedia/836a1fcf-0a9e-495f-8a8d-721e6e28e44b/muni_pop_00_10_20.pdf" target="_blank">Berks County 2020 municipal population</a>.</li><li>Locations were address-geocoded October 2, 2026. Mileage and time are approximate off-peak planning estimates; Google Maps links provide live recalculation.</li></ol></div></section>
+      <footer class="footer"><span>Family Radius · comparison-ready neighborhood report</span><span>Not a guarantee of enrollment, availability, ratings, hours or travel time.</span></footer>
+    </div>    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      crossorigin=""
+    ></script>
+    <script>
+      const HOME={"name":"18 Arbor Road","address":"18 Arbor Rd, Mohnton, PA 19540","lat":40.238164,"lng":-75.981473};
+      const places=[
+        {
+                "id": "elementary",
+                "name": "Brecknock Elementary",
+                "cat": "school",
+                "label": "Reported public K–4",
+                "icon": "🏫",
+                "address": "1332 Alleghenyville Rd, Mohnton, PA 19540",
+                "miles": "~1.7 mi",
+                "time": "~4 min",
+                "rating": "3/10 GreatSchools",
+                "desc": "The listing-reported elementary school and the standout daily convenience; verify assignment with district registration.",
+                "lat": 40.243374,
+                "lng": -75.998142,
+                "url": "https://be.gmsd.org/"
+        },
+        {
+                "id": "intermediate",
+                "name": "Governor Mifflin Intermediate",
+                "cat": "school",
+                "label": "Public grades 5–6",
+                "icon": "🎒",
+                "address": "600 Governor Dr, Shillington, PA 19607",
+                "miles": "~5.7 mi",
+                "time": "~14 min",
+                "rating": "5/10 GreatSchools",
+                "desc": "District-wide fifth- and sixth-grade campus where students from the three elementary schools come together.",
+                "lat": 40.301122,
+                "lng": -75.953674,
+                "url": "https://is.gmsd.org/"
+        },
+        {
+                "id": "middle",
+                "name": "Governor Mifflin Middle School",
+                "cat": "school",
+                "label": "Public grades 7–8",
+                "icon": "📚",
+                "address": "130 E Lancaster Ave, Shillington, PA 19607",
+                "miles": "~6.4 mi",
+                "time": "~15 min",
+                "rating": "4/10 GreatSchools",
+                "desc": "District middle school with gifted programming and Project Lead The Way.",
+                "lat": 40.304681,
+                "lng": -75.963688,
+                "url": "https://ms.gmsd.org/"
+        },
+        {
+                "id": "high",
+                "name": "Governor Mifflin High School",
+                "cat": "school",
+                "label": "Public grades 9–12",
+                "icon": "🎓",
+                "address": "101 S Waverly St, Shillington, PA 19607",
+                "miles": "~6.3 mi",
+                "time": "~14 min",
+                "rating": "6/10 GreatSchools",
+                "desc": "District high school with AP courses, Project Lead The Way, arts and a broad athletics program.",
+                "lat": 40.303678,
+                "lng": -75.96011,
+                "url": "https://hs.gmsd.org/"
+        },
+        {
+                "id": "private",
+                "name": "La Salle Academy",
+                "cat": "private",
+                "label": "Private Catholic PK–8",
+                "icon": "⛪",
+                "address": "440 Holland St, Shillington, PA 19607",
+                "miles": "~7.1 mi",
+                "time": "~18 min",
+                "rating": "Preschool through grade 8",
+                "desc": "Nearby Catholic elementary and middle-school alternative serving preschool through eighth grade.",
+                "lat": 40.295894,
+                "lng": -75.974982,
+                "url": "https://www.lsabear.com/"
+        },
+        {
+                "id": "montessori",
+                "name": "Montessori Country Day School",
+                "cat": "montessori",
+                "label": "Montessori toddler through K",
+                "icon": "🧩",
+                "address": "53 Vermont Rd, Sinking Spring, PA 19608",
+                "miles": "~4.3 mi",
+                "time": "~10 min",
+                "rating": "12 months through kindergarten",
+                "desc": "Licensed Montessori program with toddler and primary classrooms, including children well under age five.",
+                "lat": 40.273256,
+                "lng": -76.017654,
+                "url": "https://mcdsberks.org/programs/preschool/"
+        },
+        {
+                "id": "grocery",
+                "name": "GIANT Food Stores",
+                "cat": "shopping",
+                "label": "Proper grocery",
+                "icon": "🥕",
+                "address": "2641 Shillington Rd, Reading, PA 19609",
+                "miles": "~7.9 mi",
+                "time": "~16 min",
+                "rating": "Full supermarket · pharmacy",
+                "desc": "Full weekly supermarket with produce, meat, bakery, pharmacy, fuel and pickup.",
+                "lat": 40.315681,
+                "lng": -76.000299,
+                "url": "https://stores.giantfoodstores.com/pa/reading/2641-shillington-rd"
+        },
+        {
+                "id": "walmart",
+                "name": "Walmart Wyomissing Supercenter",
+                "cat": "shopping",
+                "label": "Closest Walmart",
+                "icon": "🛒",
+                "address": "1135 Berkshire Blvd, Wyomissing, PA 19610",
+                "miles": "~9.4 mi",
+                "time": "~21 min",
+                "rating": "Supercenter · full grocery",
+                "desc": "Full grocery, pharmacy and general merchandise in the Wyomissing retail district.",
+                "lat": 40.342223,
+                "lng": -75.978339,
+                "url": "https://www.walmart.com/store/1777-wyomissing-pa"
+        },
+        {
+                "id": "target",
+                "name": "Target Spring Township",
+                "cat": "shopping",
+                "label": "Closest Target",
+                "icon": "🎯",
+                "address": "2769 Papermill Rd, Wyomissing, PA 19610",
+                "miles": "~11.7 mi",
+                "time": "~24 min",
+                "rating": "Drive Up · CVS · Starbucks",
+                "desc": "Full Target with pickup, Drive Up, pharmacy and Starbucks in the Broadcasting Square area.",
+                "lat": 40.360068,
+                "lng": -75.983477,
+                "url": "https://www.target.com/sl/spring-township/1222"
+        },
+        {
+                "id": "dance",
+                "name": "Dance Your Dreams",
+                "cat": "activity",
+                "label": "Kids dance",
+                "icon": "💃",
+                "address": "340 Morgantown Rd, Reading, PA 19611",
+                "miles": "~7.2 mi",
+                "time": "~16 min",
+                "rating": "Youth dance studio",
+                "desc": "Established children’s dance studio with recreational and performance programs.",
+                "lat": 40.318747,
+                "lng": -75.926258,
+                "url": "https://www.danceyourdreams.net/"
+        },
+        {
+                "id": "gymnastics",
+                "name": "Berks Gymnastics Academy",
+                "cat": "activity",
+                "label": "Kids gymnastics",
+                "icon": "🤸",
+                "address": "325 Morgantown Rd, Reading, PA 19611",
+                "miles": "~7.3 mi",
+                "time": "~16 min",
+                "rating": "Gymnastics + Ninja classes",
+                "desc": "Dedicated gymnastics academy with children’s instruction and separate Ninja classes.",
+                "lat": 40.319709,
+                "lng": -75.925811,
+                "url": "https://www.berksgymnastics.com/home"
+        },
+        {
+                "id": "gym",
+                "name": "Mifflin Area YMCA",
+                "cat": "fitness",
+                "label": "Family fitness + aquatics",
+                "icon": "🏊",
+                "address": "140 Chestnut St, Mohnton, PA 19540",
+                "miles": "~5.9 mi",
+                "time": "~14 min",
+                "rating": "Fitness · pool · youth programs",
+                "desc": "The most family-oriented nearby fitness option, with aquatics, wellness and youth programming.",
+                "lat": 40.287436,
+                "lng": -75.986999,
+                "url": "https://www.ymcarbc.org/branch/mifflin/"
+        },
+        {
+                "id": "familyfitness",
+                "name": "Planet Fitness Shillington",
+                "cat": "fitness",
+                "label": "Adult gym",
+                "icon": "🏋️",
+                "address": "510 E Lancaster Ave, Shillington, PA 19607",
+                "miles": "~6.4 mi",
+                "time": "~15 min",
+                "rating": "Cardio · strength · long hours",
+                "desc": "Straightforward adult gym access on the Shillington errands corridor.",
+                "lat": 40.306847,
+                "lng": -75.957429,
+                "url": "https://www.planetfitness.com/gyms/shillington-pa/"
+        },
+        {
+                "id": "martial",
+                "name": "CFS Academy",
+                "cat": "martial",
+                "label": "BJJ + Muay Thai",
+                "icon": "🥋",
+                "address": "6525 Shillington Plaza, Shillington, PA 19607",
+                "miles": "~7.7 mi",
+                "time": "~17 min",
+                "rating": "Children + adults",
+                "desc": "One nearby academy offering Brazilian jiu-jitsu, Muay Thai, kickboxing and wrestling programs.",
+                "lat": 40.307512,
+                "lng": -75.981354,
+                "url": "https://cfsacademy.com/"
+        },
+        {
+                "id": "home",
+                "name": "The property",
+                "cat": "home",
+                "label": "Home base",
+                "icon": "⌂",
+                "address": "18 Arbor Rd, Mohnton, PA 19540",
+                "miles": "0 mi",
+                "time": "Home",
+                "rating": "80/100",
+                "desc": "Coming-soon Brecknock Township listing on a landscaped 1.33-acre cul-de-sac lot.",
+                "lat": 40.238164,
+                "lng": -75.981473,
+                "url": "https://www.coldwellbankerhomes.com/pa/mohnton/18-arbor-rd/pid_73864896/"
+        }
+];
+      const names = {
+        school: 'Public school',
+        private: 'Private school',
+        montessori: 'Montessori',
+        shopping: 'Shopping',
+        activity: 'Kids activity',
+        fitness: 'Fitness',
+        martial: 'Martial arts',
+        home: 'Home',
+      };
+      const route = (p) =>
+        `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(HOME.address)}&destination=${encodeURIComponent(p.address)}&travelmode=driving`;
+      const cards = document.getElementById('cards');
+      places
+        .filter((p) => p.cat !== 'home')
+        .forEach((p) => {
+          const el = document.createElement('article');
+          el.className = 'place-card';
+          el.dataset.cat = p.cat;
+          const media = p.photo
+            ? `<div class="card-photo has-image"><img loading="lazy" src="${p.photo}" alt="${p.name}"><span class="pill">${p.label}</span><span class="card-icon">${p.icon}</span></div>`
+            : `<div class="card-photo"><span class="pill">${p.label}</span><span class="card-icon">${p.icon}</span></div>`;
+          el.innerHTML = `${media}<div class="card-body"><div class="card-top"><h3>${p.name}</h3><span class="rating">${p.rating}</span></div><div class="meta">${names[p.cat]} · ${p.miles} · ${p.time} estimated</div><p class="desc">${p.desc}</p><div class="card-actions"><a class="primary" href="${route(p)}" target="_blank">Live route ↗</a><button class="map-button" data-id="${p.id}">Show on map</button><a href="${p.url}" target="_blank">Website ↗</a></div></div>`;
+          cards.appendChild(el);
+        });
+      document.querySelectorAll('.filter').forEach((btn) =>
+        btn.addEventListener('click', () => {
+          document
+            .querySelectorAll('.filter')
+            .forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+          const f = btn.dataset.filter;
+          document
+            .querySelectorAll('.place-card')
+            .forEach((c) =>
+              c.classList.toggle('hidden', f !== 'all' && c.dataset.cat !== f),
+            );
+          if (window.mapMarkers)
+            Object.entries(window.mapMarkers).forEach(([id, m]) => {
+              const p = places.find((x) => x.id === id);
+              if (f === 'all' || p.cat === f || p.cat === 'home')
+                m.addTo(window.familyMap);
+              else m.remove();
+            });
+        }),
+      );
+      if (window.L) {
+        const map = L.map('map', { scrollWheelZoom: false }).setView(
+          [40.8913, -75.4064],
+          11,
+        );
+        window.familyMap = map;
+        const streetTiles = L.tileLayer(
+          'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
+          {
+          maxZoom: 19,
+          attribution:
+            'Tiles &copy; Esri; data &copy; OpenStreetMap contributors and the GIS user community',
+          },
+        ).addTo(map);
+        let tileErrors = 0;
+        streetTiles.on('tileerror', () => {
+          tileErrors += 1;
+          if (tileErrors !== 3) return;
+          map.removeLayer(streetTiles);
+          L.tileLayer(
+            'https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}',
+            {
+              maxZoom: 19,
+              attribution: 'Tiles courtesy of the U.S. Geological Survey',
+            },
+          ).addTo(map);
+        });
+        window.mapMarkers = {};
+        const icon = (p) =>
+          L.divIcon({
+            className: '',
+            html: `<div class="pin pin-${p.cat}"><span>${p.icon}</span></div>`,
+            iconSize: [31, 31],
+            iconAnchor: [15, 30],
+            popupAnchor: [0, -28],
+          });
+        places.forEach((p) => {
+          const m = L.marker([p.lat, p.lng], { icon: icon(p) })
+            .addTo(map)
+            .bindPopup(
+              `<div class="popup-title">${p.name}</div><div class="popup-meta">${p.miles} · ${p.time}${p.cat === 'home' ? '' : ' estimated'}</div>${p.cat === 'home' ? '' : `<a class="popup-link" href="${route(p)}" target="_blank">Open live route ↗</a>`}`,
+            );
+          window.mapMarkers[p.id] = m;
+        });
+        map.fitBounds(
+          L.latLngBounds(places.map((p) => [p.lat, p.lng])),
+          { padding: [28, 28] },
+        );
+        L.circle([HOME.lat, HOME.lng], {
+          radius: 8047,
+          color: '#163f34',
+          fillColor: '#d6eee2',
+          fillOpacity: 0.08,
+          weight: 1,
+          dashArray: '6 7',
+        }).addTo(map);
+        document.querySelectorAll('.map-button').forEach((b) =>
+          b.addEventListener('click', () => {
+            const p = places.find((x) => x.id === b.dataset.id);
+            document.getElementById('map-section').scrollIntoView();
+            setTimeout(() => {
+              map.setView([p.lat, p.lng], 13);
+              window.mapMarkers[p.id].addTo(map).openPopup();
+            }, 350);
+          }),
+        );
+      }
+    </script>
+  </body>
+</html>
