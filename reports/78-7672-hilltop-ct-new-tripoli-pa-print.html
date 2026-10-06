@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Black-and-white printable family convenience report for 7672 Hilltop Court, New Tripoli, PA 18066">
+    <title>78 · 7672 Hilltop Court — Printable Family Convenience Report</title>
+    <style>
+      :root {
+        --black: #000;
+        --gray: #555;
+        --line: #999;
+        --light: #eee;
+        --paper: #fff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        background: #d8d8d8;
+      }
+      body {
+        margin: 0;
+        color: var(--black);
+        font:
+          10.5pt/1.34 Arial,
+          Helvetica,
+          sans-serif;
+        -webkit-print-color-adjust: economy;
+        print-color-adjust: economy;
+      }
+      .page {
+        position: relative;
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0.25in auto;
+        padding: 0.5in 0.55in 0.46in;
+        background: var(--paper);
+        box-shadow: 0 2px 14px #888;
+        break-after: page;
+        page-break-after: always;
+      }
+      .page:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+      .kicker {
+        margin: 0 0 7pt;
+        font-size: 8pt;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      h1 {
+        margin: 0;
+        font:
+          700 29pt/1.02 Georgia,
+          'Times New Roman',
+          serif;
+        letter-spacing: -0.025em;
+      }
+      h2 {
+        margin: 0 0 10pt;
+        padding-bottom: 5pt;
+        border-bottom: 2px solid #000;
+        font:
+          700 19pt/1.05 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      h3 {
+        margin: 0 0 5pt;
+        font-size: 11pt;
+      }
+      p {
+        margin: 0 0 8pt;
+      }
+      a {
+        color: #000;
+        text-decoration: underline;
+        text-decoration-thickness: 0.5px;
+        text-underline-offset: 2px;
+      }
+      .muted {
+        color: var(--gray);
+      }
+      .deck {
+        max-width: 6.8in;
+        margin: 12pt 0 15pt;
+        font:
+          12pt/1.35 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .rule {
+        height: 3px;
+        margin: 16pt 0;
+        background: #000;
+      }
+      .summary-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 18pt;
+        align-items: start;
+      }
+      .score {
+        display: flex;
+        align-items: baseline;
+        gap: 5pt;
+        margin: 2pt 0 8pt;
+        font-weight: 700;
+      }
+      .score strong {
+        font:
+          700 46pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .score span {
+        font-size: 12pt;
+      }
+      .label {
+        display: inline-block;
+        padding: 2pt 5pt;
+        border: 1px solid #000;
+        font-size: 7.5pt;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .callout {
+        padding: 10pt 12pt;
+        border: 2px solid #000;
+      }
+      .callout p:last-child {
+        margin-bottom: 0;
+      }
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8pt;
+        margin: 12pt 0;
+      }
+      .stat {
+        padding: 8pt;
+        border-top: 2px solid #000;
+        border-bottom: 1px solid var(--line);
+      }
+      .stat b {
+        display: block;
+        font-size: 16pt;
+      }
+      .stat span {
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 8.8pt;
+      }
+      th {
+        padding: 5pt 5pt;
+        border-top: 1.5px solid #000;
+        border-bottom: 1.5px solid #000;
+        text-align: left;
+        font-size: 7.3pt;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      td {
+        padding: 5pt;
+        border-bottom: 0.6px solid #bbb;
+        vertical-align: top;
+      }
+      td.num,
+      th.num {
+        text-align: right;
+        white-space: nowrap;
+      }
+      tr {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .section {
+        margin-top: 14pt;
+      }
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14pt;
+      }
+      .item {
+        padding: 9pt 0;
+        border-top: 1px solid #000;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .item:first-child {
+        border-top: 0;
+      }
+      .item-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 8pt;
+        align-items: baseline;
+      }
+      .item h3 {
+        font-size: 10.5pt;
+      }
+      .item .rating {
+        white-space: nowrap;
+        font-size: 8pt;
+        font-weight: 700;
+      }
+      .item .meta {
+        margin: 0 0 4pt;
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      .item p {
+        margin: 0;
+        font-size: 8.8pt;
+      }
+      .rating-box {
+        display: grid;
+        grid-template-columns: 1fr 36pt;
+        gap: 7pt;
+        align-items: center;
+        margin: 6pt 0;
+      }
+      .track {
+        height: 7pt;
+        border: 1px solid #000;
+      }
+      .track i {
+        display: block;
+        height: 100%;
+        background: #000;
+      }
+      .rating-box b {
+        text-align: right;
+        font-size: 9pt;
+      }
+      .list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .list li {
+        position: relative;
+        padding: 5pt 0 5pt 17pt;
+        border-top: 0.6px solid #bbb;
+      }
+      .list li:first-child {
+        border-top: 0;
+      }
+      .list li:before {
+        position: absolute;
+        left: 0;
+        top: 5pt;
+        font-weight: 700;
+      }
+      .pros li:before {
+        content: '+';
+      }
+      .cons li:before {
+        content: '–';
+      }
+      .corridor {
+        display: grid;
+        grid-template-columns: 85pt 1fr;
+        gap: 8pt;
+        margin: 8pt 0;
+        padding: 7pt 0;
+        border-top: 0.6px solid #bbb;
+      }
+      .corridor:first-child {
+        border-top: 0;
+      }
+      .corridor b {
+        font-size: 8.5pt;
+      }
+      .corridor span {
+        font-size: 8.5pt;
+      }
+      .sources {
+        margin: 0;
+        padding-left: 16pt;
+        font-size: 7.8pt;
+      }
+      .sources li {
+        margin: 0 0 5pt;
+      }
+      .fine {
+        font-size: 7.5pt;
+        color: var(--gray);
+      }
+      .profile-score {
+        display: flex;
+        align-items: center;
+        gap: 12pt;
+        margin: 10pt 0;
+      }
+      .profile-grade {
+        display: grid;
+        place-items: center;
+        width: 52pt;
+        height: 52pt;
+        border: 2px solid #000;
+        font:
+          700 26pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .event-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 14pt;
+      }
+      .page-footer {
+        position: absolute;
+        left: 0.55in;
+        right: 0.55in;
+        bottom: 0.24in;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 5pt;
+        border-top: 0.6px solid #777;
+        font-size: 7pt;
+        color: #555;
+      }
+      @page {
+        size: Letter;
+        margin: 0;
+      }
+      @media print {
+        html {
+          background: #fff;
+        }
+        body {
+          font-size: 10.5pt;
+        }
+        .page {
+          width: 8.5in;
+          min-height: 11in;
+          margin: 0;
+          box-shadow: none;
+        }
+        .screen-note {
+          display: none !important;
+        }
+      }
+      @media screen and (max-width: 900px) {
+        .page {
+          width: calc(100% - 24px);
+          min-height: auto;
+          margin: 12px;
+          padding: 28px;
+        }
+        .page-footer {
+          position: static;
+          margin-top: 24px;
+        }
+        .summary-grid,
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="page"><p class="kicker">Family Radius · Property Brief</p><h1>7672 Hilltop Court<br>New Tripoli, PA 18066</h1><p class="deck">A spacious acre property with exceptionally convenient Northwestern Lehigh schools, local dance and a 24-hour gym. The rural setting is peaceful and scenic, but full-line shopping and several specialty activities require planned drives.</p><div class="rule"></div><div class="summary-grid"><div><span class="label">Family convenience score</span><div class="score"><strong>78</strong><span>/ 100</span></div><p><b>Bottom line:</b> Excellent school proximity, strong middle/high ratings, local dance and a close 24-hour gym make the rural setting more practical than it first appears. Longer trips for full grocery, big-box retail, Montessori, gymnastics and BJJ/Muay Thai keep the score below the collection’s most convenient addresses.</p></div><div class="callout"><h3>Important location finding</h3><p> New Tripoli mailing address, Lynn Township property  The listing and public records place the home in Lynn Township and Northwestern Lehigh School District. Northwestern Elementary, the middle school and the high school are reported as the public-school path; confirm this exact parcel and transportation directly with district registration. </p></div></div><div class="stat-grid"><div class="stat"><b>~5–7 min</b><span>public schools + private school</span></div><div class="stat"><b>~7 min</b><span>dance + 24-hour gym</span></div><div class="stat"><b>~14–30 min</b><span>grocery, big-box + specialty activities</span></div></div><h3>Property snapshot</h3><table><tr><th>Active listing</th><th>Site</th><th>Notable extras</th></tr><tr><td>$539,900 active listing · 6 beds · 2 baths · about 2,967 finished sq ft · built 1977</td><td>1.04 acres · cul-de-sac · Lynn Township · Northwestern Lehigh SD · well and septic</td><td>Hill and valley views · fireplace · detached oversized 2-car garage/workshop · balcony · covered outdoor spaces</td></tr></table><div class="callout" style="margin-top:14pt"><h3>Due-diligence note</h3><p>The property is effectively non-walkable for everyday errands. Listing and public-record figures differ on bedroom count and finished area; well, septic, heating/cooling, lower-level egress and alteration permits require careful inspection.</p></div><footer>1 / 5 · Overview · Researched October 6, 2026</footer></section>
+    <section class="page"><p class="kicker">Schools & early learning</p><h2>Education options</h2><table><tr><th>Option</th><th>Grades / rating</th><th>Planning estimate</th><th>Assessment</th></tr><tr><td><b>Northwestern Elementary School</b></td><td>5/10 GreatSchools</td><td>~2.0 mi · ~5 min</td><td>Listing-reported elementary and a very short school-day trip; current rating is average. Confirm the exact parcel assignment.</td></tr><tr><td><b>Northwestern Lehigh Middle School</b></td><td>7/10 GreatSchools</td><td>~2.3 mi · ~7 min</td><td>Above-average district middle school with small-class-size and special-education highlights.</td></tr><tr><td><b>Northwestern Lehigh High School</b></td><td>8/10 GreatSchools</td><td>~2.0 mi · ~5 min</td><td>Above-average district high school with AP courses, gifted programming, athletics and performing arts.</td></tr><tr><td><b>Blue Mountain Christian Day School</b></td><td>Small private elementary/middle</td><td>~1.6 mi · ~5 min</td><td>Active local Mennonite-oriented private school; contact the school directly for current enrollment, tuition and grade availability.</td></tr><tr><td><b>Bright Beginnings Montessori Academy</b></td><td>Authentic Montessori preschool</td><td>~14.5 mi · ~23 min</td><td>Small Montessori program specifically designed for children ages three through six; confirm openings and schedule.</td></tr></table><div class="callout" style="margin-top:16pt"><h3>Assignment check</h3><p>Public-school assignments, transportation and program availability can change. Confirm this exact parcel with district registration before relying on a listing portal.</p></div><footer>2 / 5 · Schools</footer></section>
+    <section class="page"><p class="kicker">Shopping, activities & fitness</p><h2>Everyday destinations</h2><table><tr><th>Need</th><th>Best nearby option</th><th>Planning estimate</th><th>Notes</th></tr><tr><td>Proper grocery</td><td><b>Weis Markets Schnecksville</b></td><td>~9.0 mi · ~14 min</td><td>The closest practical full-line weekly supermarket with produce, meat, bakery, deli and pharmacy.</td></tr><tr><td>Closest Walmart</td><td><b>Walmart Allentown Supercenter</b></td><td>~15.0 mi · ~23 min</td><td>Full grocery, pharmacy, auto care and general merchandise near Trexlertown.</td></tr><tr><td>Closest Target</td><td><b>Target Allentown</b></td><td>~14.5 mi · ~22 min</td><td>Full Target with pickup, Drive Up, pharmacy, optical, Starbucks and fresh grocery.</td></tr><tr><td>Kids dance</td><td><b>Next Level Dance Academy</b></td><td>~3.7 mi · ~7 min</td><td>Local studio offering ballet, modern, tap, jazz, contemporary, lyrical and hip-hop, including preschool classes ages three to five.</td></tr><tr><td>Kids gymnastics</td><td><b>Parkettes National Gymnastics</b></td><td>~19 mi · ~28 min</td><td>Dedicated USA Gymnastics training center with preschool, recreational, competitive and adaptive programs.</td></tr><tr><td>Adult gym</td><td><b>Ambition Gym</b></td><td>~3.7 mi · ~7 min</td><td>Close full-equipment adult gym with 24-hour access and personal-training options.</td></tr><tr><td>BJJ + Muay Thai</td><td><b>Zombie Brazilian Jiu-Jitsu</b></td><td>~21 mi · ~30 min</td><td>Verified academy offering both Brazilian jiu-jitsu and Muay Thai, with adult, teen, children and women’s programs.</td></tr><tr><td>Outdoor family recreation</td><td><b>Leaser Lake Park</b></td><td>~6.5 mi · ~12 min</td><td>Nearby fishing, paddling, walking and picnic destination shared by Lehigh County and the Pennsylvania Fish and Boat Commission.</td></tr><tr><td>Township park + events</td><td><b>Ontelaunee Park</b></td><td>~3.0 mi · ~6 min</td><td>Lynn Township’s community park and historical gathering place, home to Pioneer Apple Fest and reservable facilities.</td></tr></table><p class="muted" style="margin-top:14pt">Mileage and time are conservative off-peak planning estimates prepared October 6, 2026, not live traffic.</p><footer>3 / 5 · Daily convenience</footer></section>
+    <section class="page"><p class="kicker">Place profile</p><h2>Community profile: Lynn Township + New Tripoli</h2><div class="stat-grid"><div class="stat"><b>4,232</b><span>2020 Census population</span></div><div class="stat"><b>41.3 sq mi</b><span>land area</span></div><div class="stat"><b>car-based</b><span>daily mobility pattern</span></div></div><div class="two-col"><div><h3>General vibe</h3><p>Quiet country-suburban living on a low-traffic cul-de-sac. The home has broad hill and valley views, while the school campus and New Tripoli services remain close enough for short drives. Walking for errands is not realistic.</p><h3>Local niche</h3><p>Northwestern Lehigh school access with a rural Lehigh Valley lifestyle. The area suits families who prioritize space, calm roads, local schools and outdoor recreation over immediate big-box retail and dense activity choices.</p></div><div><h3>Events families notice</h3><ul><li><b>Pioneer Apple Fest:</b> The Lynn-Heidelberg Historical Society fills Ontelaunee Park with pioneer demonstrations, traditional crafts, food and local history.</li><li><b>New Tripoli Fire Company events:</b> The volunteer fire company hosts fundraisers, open houses, seasonal activities and community meetings.</li><li><b>Northwestern Lehigh school calendar:</b> Athletics, concerts, theater, family nights and district programs provide the area’s most consistent school-year calendar.</li><li><b>Ontelaunee Park gatherings:</b> The township park’s pavilions, historic buildings and open grounds host reunions, civic events and community programs.</li><li><b>Leaser Lake recreation:</b> The 540-acre county and state recreation area supports fishing, paddling, trails, picnics and nature outings close to home.</li><li><b>Allemaengel regional celebrations:</b> Historical societies in Lynn-Heidelberg, Albany and Weisenberg organize Pennsylvania German heritage events in the surrounding rural communities.</li></ul></div></div><div class="callout" style="margin-top:18pt"><h3>What to notice</h3><p>The active listing reports 6 bedrooms, 2 baths and 2,967 finished square feet, while summarized public records report 5 bedrooms and 2,890 square feet. Verify the measured living area, bedroom egress, lower-level finish, well and septic condition, heat-pump capacity, window-unit cooling, detached garage/workshop, fireplace and any permits for later alterations.</p></div><footer>4 / 5 · Community</footer></section>
+    <section class="page"><p class="kicker">Decision summary</p><h2>Pros, trade-offs & methodology</h2><div class="two-col"><div><h3>What works well</h3><ul><li>All three Northwestern Lehigh public-school campuses are approximately five to seven minutes away.</li><li>The middle school currently rates 7/10 and the high school 8/10.</li><li>Next Level Dance Academy and 24-hour Ambition Gym share a convenient local Route 309 location around seven minutes from home.</li><li>Blue Mountain Christian Day School offers a nearby small Mennonite elementary/middle option.</li><li>The acre lot, cul-de-sac setting, detached garage/workshop and hill-and-valley views provide uncommon space and quiet.</li></ul></div><div><h3>What to plan around</h3><ul><li>A proper full-line supermarket is about fourteen minutes away; Target and Walmart are roughly twenty-two to twenty-four minutes.</li><li>Authentic Montessori for children under five requires a planned trip to Breinigsville.</li><li>Dedicated gymnastics and a verified academy combining BJJ and Muay Thai are approximately twenty-eight to thirty minutes away in Allentown.</li><li>The property is effectively non-walkable for everyday errands.</li><li>Listing and public-record figures differ on bedroom count and finished area; well, septic, heating/cooling, lower-level egress and alteration permits require careful inspection.</li></ul></div></div><h3 style="margin-top:14pt">Comparison scorecard</h3><table><tr><th>Category</th><th>Score</th><th>Weight</th><th>Weighted</th></tr><tr><td>Public schools</td><td>90</td><td>30%</td><td>27.0</td></tr><tr><td>Private / early learning</td><td>78</td><td>15%</td><td>11.7</td></tr><tr><td>Shopping & grocery</td><td>74</td><td>20%</td><td>14.8</td></tr><tr><td>Kids activities</td><td>75</td><td>15%</td><td>11.25</td></tr><tr><td>Adult fitness</td><td>96</td><td>10%</td><td>9.6</td></tr><tr><td>Martial arts</td><td>66</td><td>5%</td><td>3.3</td></tr><tr><td>Walkability</td><td>1</td><td>5%</td><td>0.05</td></tr><tr><td><b>Total</b></td><td></td><td>100%</td><td><b>78.0 → 78</b></td></tr></table><h3 style="margin-top:14pt">Principal sources</h3><p class="small">Redfin current listing; Northwestern Lehigh School District; GreatSchools Northwestern Elementary; GreatSchools Northwestern Lehigh Middle; GreatSchools Northwestern Lehigh High; Bright Beginnings Montessori Academy; Next Level Dance Academy; Ambition Gym; Lynn Township. Distances and drive times are planning estimates.</p><footer>5 / 5 · Decision summary</footer></section>  </body>
+</html>
