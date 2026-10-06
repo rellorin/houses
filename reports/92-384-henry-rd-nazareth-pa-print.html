@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Black-and-white printable family convenience report for 384 Henry Road, Nazareth, PA 18064">
+    <title>92 · 384 Henry Road — Printable Family Convenience Report</title>
+    <style>
+      :root {
+        --black: #000;
+        --gray: #555;
+        --line: #999;
+        --light: #eee;
+        --paper: #fff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        background: #d8d8d8;
+      }
+      body {
+        margin: 0;
+        color: var(--black);
+        font:
+          10.5pt/1.34 Arial,
+          Helvetica,
+          sans-serif;
+        -webkit-print-color-adjust: economy;
+        print-color-adjust: economy;
+      }
+      .page {
+        position: relative;
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0.25in auto;
+        padding: 0.5in 0.55in 0.46in;
+        background: var(--paper);
+        box-shadow: 0 2px 14px #888;
+        break-after: page;
+        page-break-after: always;
+      }
+      .page:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+      .kicker {
+        margin: 0 0 7pt;
+        font-size: 8pt;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      h1 {
+        margin: 0;
+        font:
+          700 29pt/1.02 Georgia,
+          'Times New Roman',
+          serif;
+        letter-spacing: -0.025em;
+      }
+      h2 {
+        margin: 0 0 10pt;
+        padding-bottom: 5pt;
+        border-bottom: 2px solid #000;
+        font:
+          700 19pt/1.05 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      h3 {
+        margin: 0 0 5pt;
+        font-size: 11pt;
+      }
+      p {
+        margin: 0 0 8pt;
+      }
+      a {
+        color: #000;
+        text-decoration: underline;
+        text-decoration-thickness: 0.5px;
+        text-underline-offset: 2px;
+      }
+      .muted {
+        color: var(--gray);
+      }
+      .deck {
+        max-width: 6.8in;
+        margin: 12pt 0 15pt;
+        font:
+          12pt/1.35 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .rule {
+        height: 3px;
+        margin: 16pt 0;
+        background: #000;
+      }
+      .summary-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 18pt;
+        align-items: start;
+      }
+      .score {
+        display: flex;
+        align-items: baseline;
+        gap: 5pt;
+        margin: 2pt 0 8pt;
+        font-weight: 700;
+      }
+      .score strong {
+        font:
+          700 46pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .score span {
+        font-size: 12pt;
+      }
+      .label {
+        display: inline-block;
+        padding: 2pt 5pt;
+        border: 1px solid #000;
+        font-size: 7.5pt;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .callout {
+        padding: 10pt 12pt;
+        border: 2px solid #000;
+      }
+      .callout p:last-child {
+        margin-bottom: 0;
+      }
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8pt;
+        margin: 12pt 0;
+      }
+      .stat {
+        padding: 8pt;
+        border-top: 2px solid #000;
+        border-bottom: 1px solid var(--line);
+      }
+      .stat b {
+        display: block;
+        font-size: 16pt;
+      }
+      .stat span {
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 8.8pt;
+      }
+      th {
+        padding: 5pt 5pt;
+        border-top: 1.5px solid #000;
+        border-bottom: 1.5px solid #000;
+        text-align: left;
+        font-size: 7.3pt;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      td {
+        padding: 5pt;
+        border-bottom: 0.6px solid #bbb;
+        vertical-align: top;
+      }
+      td.num,
+      th.num {
+        text-align: right;
+        white-space: nowrap;
+      }
+      tr {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .section {
+        margin-top: 14pt;
+      }
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14pt;
+      }
+      .item {
+        padding: 9pt 0;
+        border-top: 1px solid #000;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .item:first-child {
+        border-top: 0;
+      }
+      .item-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 8pt;
+        align-items: baseline;
+      }
+      .item h3 {
+        font-size: 10.5pt;
+      }
+      .item .rating {
+        white-space: nowrap;
+        font-size: 8pt;
+        font-weight: 700;
+      }
+      .item .meta {
+        margin: 0 0 4pt;
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      .item p {
+        margin: 0;
+        font-size: 8.8pt;
+      }
+      .rating-box {
+        display: grid;
+        grid-template-columns: 1fr 36pt;
+        gap: 7pt;
+        align-items: center;
+        margin: 6pt 0;
+      }
+      .track {
+        height: 7pt;
+        border: 1px solid #000;
+      }
+      .track i {
+        display: block;
+        height: 100%;
+        background: #000;
+      }
+      .rating-box b {
+        text-align: right;
+        font-size: 9pt;
+      }
+      .list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .list li {
+        position: relative;
+        padding: 5pt 0 5pt 17pt;
+        border-top: 0.6px solid #bbb;
+      }
+      .list li:first-child {
+        border-top: 0;
+      }
+      .list li:before {
+        position: absolute;
+        left: 0;
+        top: 5pt;
+        font-weight: 700;
+      }
+      .pros li:before {
+        content: '+';
+      }
+      .cons li:before {
+        content: '–';
+      }
+      .corridor {
+        display: grid;
+        grid-template-columns: 85pt 1fr;
+        gap: 8pt;
+        margin: 8pt 0;
+        padding: 7pt 0;
+        border-top: 0.6px solid #bbb;
+      }
+      .corridor:first-child {
+        border-top: 0;
+      }
+      .corridor b {
+        font-size: 8.5pt;
+      }
+      .corridor span {
+        font-size: 8.5pt;
+      }
+      .sources {
+        margin: 0;
+        padding-left: 16pt;
+        font-size: 7.8pt;
+      }
+      .sources li {
+        margin: 0 0 5pt;
+      }
+      .fine {
+        font-size: 7.5pt;
+        color: var(--gray);
+      }
+      .profile-score {
+        display: flex;
+        align-items: center;
+        gap: 12pt;
+        margin: 10pt 0;
+      }
+      .profile-grade {
+        display: grid;
+        place-items: center;
+        width: 52pt;
+        height: 52pt;
+        border: 2px solid #000;
+        font:
+          700 26pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .event-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 14pt;
+      }
+      .page-footer {
+        position: absolute;
+        left: 0.55in;
+        right: 0.55in;
+        bottom: 0.24in;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 5pt;
+        border-top: 0.6px solid #777;
+        font-size: 7pt;
+        color: #555;
+      }
+      @page {
+        size: Letter;
+        margin: 0;
+      }
+      @media print {
+        html {
+          background: #fff;
+        }
+        body {
+          font-size: 10.5pt;
+        }
+        .page {
+          width: 8.5in;
+          min-height: 11in;
+          margin: 0;
+          box-shadow: none;
+        }
+        .screen-note {
+          display: none !important;
+        }
+      }
+      @media screen and (max-width: 900px) {
+        .page {
+          width: calc(100% - 24px);
+          min-height: auto;
+          margin: 12px;
+          padding: 28px;
+        }
+        .page-footer {
+          position: static;
+          margin-top: 24px;
+        }
+        .summary-grid,
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="page"><p class="kicker">Family Radius · Property Brief</p><h1>384 Henry Road<br>Nazareth, PA 18064</h1><p class="deck">A rare five-acre historic property opposite Jacobsburg parkland with strong Nazareth-area schools and an unusually complete family-services network—all close enough for practical daily routines despite the rural setting.</p><div class="rule"></div><div class="summary-grid"><div><span class="label">Family convenience score</span><div class="score"><strong>92</strong><span>/ 100</span></div><p><b>Bottom line:</b> Strong public schools, authentic Montessori, full shopping, kids activities and fitness all within roughly fourteen minutes make this one of the collection’s best rural locations. The trade-off is substantial: an unfinished historic-house renovation that demands unusually careful due diligence.</p></div><div class="callout"><h3>Important location finding</h3><p> Nazareth mailing address, Bushkill Township property  The listing and municipal records place the home in Bushkill Township, in the Village of Bolton, and within Nazareth Area School District. Kenneth N. Butz Jr. Elementary is the listing-reported K–4 school; confirm the exact parcel, transportation and any future boundary changes directly with district registration. </p></div></div><div class="stat-grid"><div class="stat"><b>~5–10 min</b><span>park + public schools</span></div><div class="stat"><b>~8–10 min</b><span>Montessori, activities + grocery</span></div><div class="stat"><b>~11–14 min</b><span>Target, Walmart + BJJ/Muay Thai</span></div></div><h3>Property snapshot</h3><table><tr><th>Active listing</th><th>Site</th><th>Notable extras</th></tr><tr><td>$589,900 current listing · 4 beds · 3 baths · about 2,945 sq ft · built 1890 per MLS</td><td>5.17 acres · Village of Bolton · Bushkill Township · Nazareth Area SD</td><td>Wraparound porch · updated septic reported · oil heat · oversized detached 2-car garage started</td></tr></table><div class="callout" style="margin-top:14pt"><h3>Due-diligence note</h3><p>Incomplete work and the detached-garage start require permit, code, engineering, contractor-cost and occupancy verification. Private well, septic and oil heat add inspection and maintenance responsibilities; older materials and systems warrant specialized review.</p></div><footer>1 / 5 · Overview · Researched October 6, 2026</footer></section>
+    <section class="page"><p class="kicker">Schools & early learning</p><h2>Education options</h2><table><tr><th>Option</th><th>Grades / rating</th><th>Planning estimate</th><th>Assessment</th></tr><tr><td><b>Kenneth N. Butz Jr. Elementary</b></td><td>8/10 GreatSchools</td><td>~3.6 mi · ~10 min</td><td>Listing-reported elementary school with an above-average current rating; confirm assignment and transportation directly with the district.</td></tr><tr><td><b>Nazareth Area Intermediate School</b></td><td>7/10 GreatSchools</td><td>~4.5 mi · ~8 min</td><td>District-wide fifth- and sixth-grade campus with an above-average current rating.</td></tr><tr><td><b>Nazareth Area Middle School</b></td><td>7/10 GreatSchools</td><td>~2.5 mi · ~7 min</td><td>District middle school and a former National Blue Ribbon School with a short daily trip.</td></tr><tr><td><b>Nazareth Area High School</b></td><td>8/10 GreatSchools</td><td>~3.1 mi · ~9 min</td><td>Above-average district high school offering AP courses, gifted programming, arts and extensive athletics.</td></tr><tr><td><b>Holy Family School</b></td><td>Preschool through grade 8</td><td>~3.8 mi · ~10 min</td><td>Local Catholic alternative with preschool beginning at age three through eighth grade; tour and confirm current enrollment and fit.</td></tr><tr><td><b>Dragonfly Montessori School</b></td><td>Ages 1–2 and 3–6</td><td>~3.1 mi · ~8 min</td><td>Full-day mixed-age Montessori classrooms for toddlers and preschoolers, directly satisfying the under-five requirement.</td></tr></table><div class="callout" style="margin-top:16pt"><h3>Assignment check</h3><p>Public-school assignments, transportation and program availability can change. Confirm this exact parcel with district registration before relying on a listing portal.</p></div><footer>2 / 5 · Schools</footer></section>
+    <section class="page"><p class="kicker">Shopping, activities & fitness</p><h2>Everyday destinations</h2><table><tr><th>Need</th><th>Best nearby option</th><th>Planning estimate</th><th>Notes</th></tr><tr><td>Proper grocery</td><td><b>GIANT Food Stores</b></td><td>~4.0 mi · ~10 min</td><td>Full weekly supermarket with produce, meat, bakery, pharmacy, fuel and online ordering.</td></tr><tr><td>Closest Target</td><td><b>Target Lower Nazareth</b></td><td>~6.2 mi · ~11 min</td><td>Full Target with pickup, Drive Up, CVS pharmacy, Apple and Starbucks in the Route 248 retail corridor.</td></tr><tr><td>Closest Walmart</td><td><b>Walmart Easton Supercenter</b></td><td>~6.4 mi · ~11 min</td><td>Full grocery, pharmacy, general merchandise and services beside the Lower Nazareth retail cluster.</td></tr><tr><td>Kids dance</td><td><b>Jeannie Cardinal’s School of Dance</b></td><td>~3.3 mi · ~8 min</td><td>Family-oriented studio with ballet, tap, jazz, hip hop, tumbling and preschool classes beginning at age two.</td></tr><tr><td>Kids gymnastics</td><td><b>Force Gymnastics</b></td><td>~3.8 mi · ~9 min</td><td>Dedicated 21,500-square-foot gymnastics facility with scaled preschool equipment, recreation, tumbling and competitive programs.</td></tr><tr><td>Adult gym</td><td><b>Planet Fitness Nazareth</b></td><td>~4.0 mi · ~10 min</td><td>Strength and cardio equipment, app-supported workouts and extensive weekday hours in the same center as GIANT.</td></tr><tr><td>BJJ + Muay Thai</td><td><b>Spartan Warrior Combat MMA</b></td><td>~6.9 mi · ~14 min</td><td>Verified academy with separate Brazilian jiu-jitsu and Muay Thai classes plus boxing, MMA and children’s participation.</td></tr><tr><td>Outdoor family recreation</td><td><b>Jacobsburg Environmental Education Center</b></td><td>~1.6 mi · ~5 min</td><td>Trails, wildlife, fishing, history and year-round environmental programs; parkland lies directly opposite the property.</td></tr></table><p class="muted" style="margin-top:14pt">Mileage and time are conservative off-peak planning estimates prepared October 6, 2026, not live traffic.</p><footer>3 / 5 · Daily convenience</footer></section>
+    <section class="page"><p class="kicker">Place profile</p><h2>Community profile: Bushkill Township + Nazareth</h2><div class="stat-grid"><div class="stat"><b>8,482</b><span>2020 Census population</span></div><div class="stat"><b>24.95 sq mi</b><span>land area</span></div><div class="stat"><b>car-based</b><span>daily mobility pattern</span></div></div><div class="two-col"><div><h3>General vibe</h3><p>Quiet, green and car-based, with a particularly strong outdoors orientation. The home overlooks the historic Henry homestead and sits opposite Jacobsburg parkland, while schools and core errands remain only a short drive away.</p><h3>Local niche</h3><p>Historic countryside with a music-and-nature identity. Jacobsburg preserves the Henry rifle-making landscape and offers year-round education and trails; nearby Nazareth is closely identified with Martin Guitar, a traditional downtown and strong school-community events.</p></div><div><h3>Events families notice</h3><ul><li><b>Jacobsburg family programs:</b> Guided hikes, nature study, outdoor skills, preschool-through-college environmental education and special events run throughout the year.</li><li><b>Martin on Main:</b> The downtown street festival celebrates Nazareth’s guitar-making identity with live music, vendors and visiting Martin enthusiasts.</li><li><b>Nazareth Farmers Market:</b> Saturday markets in the Circle combine local food, community vendors, music and seasonal activities.</li><li><b>Food Truck Festival + Fireman’s Carnival:</b> Nazareth’s summer calendar includes downtown food trucks and a multi-day carnival in Borough Park.</li><li><b>Halloween Parade + Octoberfest:</b> A traditional downtown parade and fall street celebration anchor the October community calendar.</li><li><b>Jacobsburg living-history weekends:</b> The historical society hosts encampments, market-fair activities and programs connected to the region’s colonial gun-making history.</li></ul></div></div><div class="callout" style="margin-top:18pt"><h3>What to notice</h3><p>The MLS describes a four-bedroom, three-bath, 2,945-square-foot home built in 1890, but summarized public records show three bedrooms, two baths, 2,401 square feet and a 1920 build date. Renovations and a detached garage were started but not completed. Verify permits, plans, occupancy status, structure, roof, wiring, plumbing, heating, lead/asbestos, well quality and yield, septic documentation, drainage and the full cost to finish the project.</p></div><footer>4 / 5 · Community</footer></section>
+    <section class="page"><p class="kicker">Decision summary</p><h2>Pros, trade-offs & methodology</h2><div class="two-col"><div><h3>What works well</h3><ul><li>All four public-school stages are estimated at roughly seven to ten minutes, with current ratings from 7/10 to 8/10.</li><li>Dragonfly Montessori offers authentic toddler and preschool classrooms about eight minutes away.</li><li>GIANT and Planet Fitness are approximately ten minutes away; Target and Walmart are around eleven minutes.</li><li>Dance and dedicated gymnastics facilities are both within roughly nine minutes.</li><li>Jacobsburg’s 1,168 acres of trails, wildlife and educational programming are effectively across the road, with the visitor center about five minutes away.</li></ul></div><div><h3>What to plan around</h3><ul><li>The location remains car-dependent despite excellent drive-time convenience.</li><li>The 1890 house is an active renovation project rather than a turnkey home.</li><li>MLS and summarized public records disagree on year built, bedroom/bath count and finished square footage.</li><li>Incomplete work and the detached-garage start require permit, code, engineering, contractor-cost and occupancy verification.</li><li>Private well, septic and oil heat add inspection and maintenance responsibilities; older materials and systems warrant specialized review.</li></ul></div></div><h3 style="margin-top:14pt">Comparison scorecard</h3><table><tr><th>Category</th><th>Score</th><th>Weight</th><th>Weighted</th></tr><tr><td>Public schools</td><td>96</td><td>30%</td><td>28.8</td></tr><tr><td>Private / early learning</td><td>98</td><td>15%</td><td>14.7</td></tr><tr><td>Shopping & grocery</td><td>97</td><td>20%</td><td>19.4</td></tr><tr><td>Kids activities</td><td>97</td><td>15%</td><td>14.55</td></tr><tr><td>Adult fitness</td><td>95</td><td>10%</td><td>9.5</td></tr><tr><td>Martial arts</td><td>90</td><td>5%</td><td>4.5</td></tr><tr><td>Walkability</td><td>5</td><td>5%</td><td>0.25</td></tr><tr><td><b>Total</b></td><td></td><td>100%</td><td><b>92.0 → 92</b></td></tr></table><h3 style="margin-top:14pt">Principal sources</h3><p class="small">Redfin current listing; Realtor.com current listing and price history; Nazareth Area School District; GreatSchools Kenneth N. Butz Jr. Elementary; GreatSchools Nazareth Area Middle; GreatSchools Nazareth Area High; Dragonfly Montessori School; Bushkill Township demographics; U.S. Census QuickFacts; Jacobsburg Environmental Education Center. Distances and drive times are planning estimates.</p><footer>5 / 5 · Decision summary</footer></section>  </body>
+</html>
