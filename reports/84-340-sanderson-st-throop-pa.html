@@ -1,0 +1,1017 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Family convenience report for 340 Sanderson Street, Throop, Pennsylvania"
+    />
+    <title>84 · 340 Sanderson Street · Family Convenience Report</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23163f34%27/%3E%3Cpath d=%27M13 32 32 15l19 17v20H38V39H26v13H13z%27 fill=%27%23dff39b%27/%3E%3C/svg%3E">
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      crossorigin=""
+    />
+    <style>
+      :root {
+        --ink: #18211d;
+        --muted: #60706a;
+        --paper: #f4f7f2;
+        --card: #fff;
+        --line: #dce5df;
+        --pine: #163f34;
+        --mint: #d6eee2;
+        --lime: #dff39b;
+        --shadow: 0 16px 40px rgba(22, 63, 52, 0.09);
+        --r: 20px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font:
+          16px/1.5 Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          'Segoe UI',
+          sans-serif;
+      }
+      button,
+      a {
+        font: inherit;
+      }
+      a {
+        color: inherit;
+      }
+      .shell {
+        max-width: 1440px;
+        margin: auto;
+        padding: 18px;
+      }
+      .topbar {
+        position: sticky;
+        top: 12px;
+        z-index: 999;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 12px 16px;
+        background: rgba(244, 247, 242, 0.92);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        backdrop-filter: blur(15px);
+        box-shadow: 0 8px 25px rgba(22, 63, 52, 0.07);
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 850;
+        letter-spacing: -0.02em;
+      }
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 11px;
+        background: var(--pine);
+        color: white;
+      }
+      .nav {
+        display: flex;
+        gap: 6px;
+        overflow: auto;
+      }
+      .nav a {
+        text-decoration: none;
+        color: var(--muted);
+        font-size: 0.86rem;
+        font-weight: 750;
+        padding: 8px 10px;
+        border-radius: 10px;
+        white-space: nowrap;
+      }
+      .nav a:hover {
+        background: white;
+        color: var(--ink);
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: 1.18fr 0.82fr;
+        min-height: 440px;
+        margin-top: 18px;
+        border-radius: 30px;
+        overflow: hidden;
+        background: var(--pine);
+        color: white;
+        box-shadow: var(--shadow);
+      }
+      .hero-copy {
+        padding: clamp(28px, 5vw, 72px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .eyebrow {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        text-transform: uppercase;
+        font-size: 0.74rem;
+        font-weight: 850;
+        letter-spacing: 0.12em;
+        color: #b7d7ca;
+      }
+      .dot {
+        width: 7px;
+        height: 7px;
+        background: var(--lime);
+        border-radius: 50%;
+      }
+      .hero h1 {
+        font-size: clamp(2.35rem, 5vw, 5.6rem);
+        line-height: 0.94;
+        letter-spacing: -0.065em;
+        margin: 14px 0 18px;
+        max-width: 830px;
+      }
+      .hero h1 span {
+        color: var(--lime);
+      }
+      .hero p {
+        font-size: 1.05rem;
+        color: #d5e4de;
+        max-width: 660px;
+        margin: 0;
+      }
+      .hero-media {
+        position: relative;
+        min-height: 340px;
+        background: #2e5f50;
+      }
+      .hero-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .photo-credit {
+        position: absolute;
+        right: 12px;
+        bottom: 12px;
+        padding: 7px 10px;
+        border-radius: 9px;
+        background: rgba(9, 22, 18, 0.78);
+        font-size: 0.7rem;
+        color: #e7efeb;
+      }
+      .scorecard {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 20px;
+        align-items: center;
+        margin-top: 26px;
+      }
+      .score-ring {
+        width: 108px;
+        height: 108px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: conic-gradient(
+          var(--lime) 0 84%,
+          rgba(255, 255, 255, 0.16) 84% 100%
+        );
+        position: relative;
+      }
+      .score-ring:after {
+        content: '';
+        position: absolute;
+        inset: 9px;
+        border-radius: 50%;
+        background: var(--pine);
+      }
+      .score-number {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        font-weight: 900;
+        font-size: 2rem;
+        line-height: 1;
+      }
+      .score-number small {
+        display: block;
+        font-size: 0.66rem;
+        color: #b7d7ca;
+        margin-top: 4px;
+      }
+      .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+      .hero-stat {
+        padding: 13px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 14px;
+      }
+      .hero-stat b {
+        font-size: 1.05rem;
+        display: block;
+      }
+      .hero-stat span {
+        font-size: 0.73rem;
+        color: #b7d7ca;
+      }
+      .section {
+        padding: 64px 0 0;
+      }
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+      .section h2 {
+        font-size: clamp(1.75rem, 3vw, 2.6rem);
+        letter-spacing: -0.045em;
+        line-height: 1.05;
+        margin: 0;
+      }
+      .section-intro {
+        max-width: 660px;
+        color: var(--muted);
+        margin: 8px 0 0;
+      }
+      .notice {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 15px;
+        padding: 18px;
+        background: #fff7dd;
+        border: 1px solid #ead79f;
+        border-radius: 16px;
+        margin-bottom: 20px;
+      }
+      .notice b {
+        display: block;
+      }
+      .notice p {
+        margin: 3px 0 0;
+        color: #645b43;
+        font-size: 0.91rem;
+      }
+      .map-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 310px;
+        gap: 16px;
+      }
+      .map-wrap {
+        height: 600px;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        overflow: hidden;
+        background: #dfe8e3;
+        position: relative;
+        box-shadow: var(--shadow);
+      }
+      #map {
+        height: 100%;
+        width: 100%;
+      }
+      .map-fallback {
+        position: absolute;
+        inset: auto 14px 14px;
+        z-index: 500;
+        background: white;
+        padding: 9px 12px;
+        border-radius: 10px;
+        font-size: 0.78rem;
+        color: var(--muted);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+      .map-side {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .mini-card {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 17px;
+        padding: 16px;
+      }
+      .mini-card h3 {
+        margin: 0 0 7px;
+        font-size: 1rem;
+      }
+      .mini-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.86rem;
+      }
+      .legend {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-top: 12px;
+      }
+      .legend span {
+        font-size: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .legend i {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
+      .filters {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin: 18px 0;
+      }
+      .filter {
+        border: 1px solid var(--line);
+        background: white;
+        padding: 9px 13px;
+        border-radius: 999px;
+        font-weight: 800;
+        font-size: 0.79rem;
+        color: var(--muted);
+        cursor: pointer;
+      }
+      .filter.active,
+      .filter:hover {
+        background: var(--pine);
+        border-color: var(--pine);
+        color: white;
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 15px;
+      }
+      .place-card {
+        display: flex;
+        flex-direction: column;
+        min-height: 275px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: var(--r);
+        overflow: hidden;
+        box-shadow: 0 6px 18px rgba(22, 63, 52, 0.04);
+        transition:
+          0.2s transform,
+          0.2s box-shadow;
+      }
+      .place-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow);
+      }
+      .place-card.hidden {
+        display: none;
+      }
+      .card-photo {
+        height: 156px;
+        background: #e5ebe7;
+        position: relative;
+        overflow: hidden;
+      }
+      .card-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .card-photo .card-icon {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        font-size: 3.2rem;
+        background: linear-gradient(135deg, #e8f3ed, #d4e5dc);
+      }
+      .card-photo.has-image .card-icon {
+        display: none;
+      }
+      .pill {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: white;
+        padding: 6px 9px;
+        border-radius: 999px;
+        font-size: 0.69rem;
+        font-weight: 900;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      .card-body {
+        padding: 17px;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+      }
+      .card-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: start;
+      }
+      .card-body h3 {
+        font-size: 1.1rem;
+        letter-spacing: -0.02em;
+        line-height: 1.15;
+        margin: 0;
+      }
+      .rating {
+        white-space: nowrap;
+        background: #eef5f0;
+        border-radius: 9px;
+        padding: 5px 8px;
+        font-size: 0.75rem;
+        font-weight: 900;
+      }
+      .meta {
+        font-size: 0.79rem;
+        color: var(--muted);
+        margin: 6px 0;
+      }
+      .desc {
+        font-size: 0.88rem;
+        color: #45534e;
+        margin: 8px 0 15px;
+      }
+      .card-actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: auto;
+      }
+      .card-actions a,
+      .map-button {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        text-decoration: none;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 8px 10px;
+        font-size: 0.76rem;
+        font-weight: 850;
+        background: white;
+        cursor: pointer;
+      }
+      .card-actions a.primary {
+        background: var(--pine);
+        border-color: var(--pine);
+        color: white;
+      }
+      .snapshot {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .panel {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: var(--r);
+        padding: 22px;
+      }
+      .panel h3 {
+        margin: 0 0 16px;
+        font-size: 1.2rem;
+      }
+      .bar-row {
+        display: grid;
+        grid-template-columns: 120px 1fr 42px;
+        gap: 10px;
+        align-items: center;
+        margin: 12px 0;
+        font-size: 0.84rem;
+      }
+      .bar {
+        height: 10px;
+        background: #edf1ee;
+        border-radius: 999px;
+        overflow: hidden;
+      }
+      .bar i {
+        height: 100%;
+        display: block;
+        border-radius: 999px;
+        background: var(--pine);
+      }
+      .proscons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .list li {
+        display: grid;
+        grid-template-columns: 25px 1fr;
+        gap: 9px;
+        padding: 10px 0;
+        border-top: 1px solid var(--line);
+        font-size: 0.91rem;
+      }
+      .list li:first-child {
+        border-top: 0;
+      }
+      .check,
+      .minus {
+        display: grid;
+        place-items: center;
+        width: 22px;
+        height: 22px;
+        border-radius: 7px;
+        font-size: 0.75rem;
+        font-weight: 900;
+      }
+      .check {
+        background: var(--mint);
+        color: var(--pine);
+      }
+      .minus {
+        background: #ffe2da;
+        color: #8b3c2a;
+      }
+      .method {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+      .method div {
+        padding: 15px;
+        border-radius: 15px;
+        background: #f4f7f2;
+      }
+      .method b {
+        display: block;
+      }
+      .method span {
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+      .sources {
+        font-size: 0.86rem;
+        color: var(--muted);
+      }
+      .sources a {
+        color: var(--pine);
+        font-weight: 750;
+      }
+      .sources li {
+        margin: 8px 0;
+      }
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 36px 0 20px;
+        margin-top: 54px;
+        border-top: 1px solid var(--line);
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+      .popup-title {
+        font-weight: 900;
+      }
+      .popup-meta {
+        font-size: 0.78rem;
+        color: #5f6d68;
+        margin: 3px 0 8px;
+      }
+      .popup-link {
+        font-size: 0.76rem;
+        font-weight: 850;
+        color: #163f34;
+      }
+      .pin {
+        width: 31px;
+        height: 31px;
+        border-radius: 50% 50% 50% 10%;
+        transform: rotate(-45deg);
+        display: grid;
+        place-items: center;
+        border: 3px solid white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.24);
+      }
+      .pin span {
+        transform: rotate(45deg);
+        font-size: 13px;
+      }
+      .pin-home {
+        background: #163f34;
+      }
+      .pin-school {
+        background: #80b9d5;
+      }
+      .pin-private {
+        background: #8f75b8;
+      }
+      .pin-montessori {
+        background: #dd9e44;
+      }
+      .pin-shopping {
+        background: #ec7962;
+      }
+      .pin-activity {
+        background: #de6aa7;
+      }
+      .pin-fitness {
+        background: #5baa7b;
+      }
+      .pin-martial {
+        background: #536b91;
+      }
+      @media (max-width: 980px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+        .hero-media {
+          height: 330px;
+          order: -1;
+        }
+        .map-layout {
+          grid-template-columns: 1fr;
+        }
+        .map-side {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
+        .cards {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .method {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 650px) {
+        .shell {
+          padding: 10px;
+        }
+        .topbar {
+          top: 6px;
+        }
+        .nav {
+          display: none;
+        }
+        .hero {
+          border-radius: 22px;
+        }
+        .hero-copy {
+          padding: 26px 20px;
+        }
+        .hero h1 {
+          font-size: 2.55rem;
+        }
+        .scorecard {
+          grid-template-columns: 86px 1fr;
+        }
+        .score-ring {
+          width: 84px;
+          height: 84px;
+        }
+        .hero-stats {
+          grid-template-columns: 1fr;
+        }
+        .hero-stat:nth-child(n + 2) {
+          display: none;
+        }
+        .map-wrap {
+          height: 480px;
+        }
+        .map-side,
+        .cards,
+        .snapshot,
+        .proscons {
+          grid-template-columns: 1fr;
+        }
+        .section {
+          padding-top: 48px;
+        }
+        .section-head {
+          align-items: start;
+          flex-direction: column;
+        }
+        .bar-row {
+          grid-template-columns: 100px 1fr 36px;
+        }
+        .method {
+          grid-template-columns: 1fr 1fr;
+        }
+        .footer {
+          flex-direction: column;
+        }
+      }
+      @media print {
+        .topbar,
+        .filters,
+        .card-actions,
+        .map-fallback {
+          display: none !important;
+        }
+        .hero {
+          break-inside: avoid;
+        }
+        .section {
+          padding-top: 30px;
+        }
+        .map-wrap {
+          height: 420px;
+        }
+        .place-card {
+          break-inside: avoid;
+          box-shadow: none;
+        }
+        .shell {
+          max-width: none;
+        }
+        .footer {
+          margin-top: 25px;
+        }
+      }
+      .area-grid {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 16px;
+      }
+      .area-card {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: var(--r);
+        padding: 22px;
+      }
+      .area-card h3 {
+        margin: 0 0 10px;
+        font-size: 1.2rem;
+      }
+      .grade-line {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 14px 0;
+      }
+      .grade {
+        display: grid;
+        place-items: center;
+        width: 76px;
+        height: 76px;
+        border-radius: 22px;
+        background: var(--pine);
+        color: white;
+        font-size: 2.4rem;
+        font-weight: 900;
+      }
+      .grade-copy b {
+        display: block;
+        font-size: 1.05rem;
+      }
+      .grade-copy span,
+      .area-card p {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      .fact-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin: 16px 0;
+      }
+      .fact {
+        padding: 13px;
+        border-radius: 14px;
+        background: #f4f7f2;
+      }
+      .fact b {
+        display: block;
+        font-size: 1.15rem;
+      }
+      .fact span {
+        font-size: 0.74rem;
+        color: var(--muted);
+      }
+      .vibe-grid,
+      .event-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 16px;
+      }
+      .vibe,
+      .event {
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: white;
+      }
+      .vibe h3,
+      .event h3 {
+        margin: 0 0 6px;
+        font-size: 1rem;
+      }
+      .vibe p,
+      .event p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.84rem;
+      }
+      .event a {
+        display: inline-block;
+        margin-top: 10px;
+        color: var(--pine);
+        font-size: 0.78rem;
+        font-weight: 850;
+      }
+      @media (max-width: 980px) {
+        .area-grid {
+          grid-template-columns: 1fr;
+        }
+        .fact-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 650px) {
+        .vibe-grid,
+        .event-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+
+
+
+    <div class="shell">
+      <header class="topbar"><div class="brand"><span class="brand-mark">⌂</span><span>Family Radius</span></div><nav class="nav" aria-label="Report sections"><a href="#map-section">Map</a><a href="#area">Area</a><a href="#places">Places</a><a href="#score">Score</a><a href="#decision">Decision notes</a><a href="#sources">Sources</a></nav></header>
+      <section class="hero"><div class="hero-copy"><div class="eyebrow"><span class="dot"></span>Family convenience report · researched Oct 8, 2026</div><h1>340 Sanderson Street<br><span>Throop, PA 18512</span></h1><p>A distinctive Tudor home on 0.78 acre with an extraordinary detached garage, positioned in a compact borough where school, dance, gymnastics, fitness and BJJ are unusually close.</p><div class="scorecard"><div class="score-ring" aria-label="Family convenience score 84 out of 100"><div class="score-number">84<small>out of 100</small></div></div><div class="hero-stats"><div class="hero-stat"><b>2–6 min</b><span>school, dance, gymnastics + BJJ</span></div><div class="hero-stat"><b>7–9 min</b><span>adult gym + private school</span></div><div class="hero-stat"><b>11–13 min</b><span>Montessori, grocery + major retail</span></div></div></div></div><div class="hero-media"><img src="https://ssl.cdn-redfin.com/photo/290/bigphoto/049/SC265049_0.jpg" alt="340 Sanderson Street in Throop, Pennsylvania"><a class="photo-credit" href="https://www.homes.com/property/340-sanderson-st-throop-pa/4cy2003bd352g/" target="_blank" rel="noreferrer">Property photo · listing source ↗</a></div></section>
+      <section class="section" id="map-section"><div class="section-head"><div><h2>Everything in one radius</h2><p class="section-intro">Tap a marker for the researched destination and a live route. Google Maps recalculates from the property when opened.</p></div></div><div class="notice"><div>⚑</div><div><b>School and listing finding</b><p>Current listing sources identify <strong>Mid Valley School District</strong>, with Mid Valley Elementary Center serving K–6 about one road mile away. The home was newly listed at <strong>$520,000</strong> on October 8, 2026. Verify enrollment, disclosures, taxes and listing status directly.</p></div></div><div class="map-layout"><div class="map-wrap"><div id="map" role="application" aria-label="Interactive map of the property and nearby family destinations"></div><div class="map-fallback">Map tiles and the listing photo need an internet connection. All addresses and route links remain usable offline.</div></div><aside class="map-side"><div class="mini-card"><h3>Drive-time bands</h3><p><strong>≤10 min:</strong> excellent · <strong>11–20:</strong> practical · <strong>21+:</strong> planned trip</p><div class="legend"><span><i style="background:#80b9d5"></i>Public school</span><span><i style="background:#8f75b8"></i>Private</span><span><i style="background:#dd9e44"></i>Montessori</span><span><i style="background:#ec7962"></i>Shopping</span><span><i style="background:#de6aa7"></i>Kids activity</span><span><i style="background:#5baa7b"></i>Fitness</span><span><i style="background:#536b91"></i>Martial arts</span></div></div><div class="mini-card"><h3>At a glance</h3><p>Access is the standout: school and multiple weekly activities sit within minutes. Target, Walmart, a full supermarket and authentic Montessori remain practical. The public-school rating is average, so school quality deserves separate diligence.</p></div><div class="mini-card"><h3>Estimate standard</h3><p>Distances and drive times are off-peak route-planning estimates researched October 8, 2026—not live traffic. Open a live route before a real trip.</p></div></aside></div></section>
+      <section class="section" id="area"><div class="section-head"><div><h2>What Throop is like</h2><p class="section-intro">A small Lackawanna County borough adjoining Scranton, with strong coal-region roots, a practical residential feel and fast access to the larger Scranton–Dickson City retail and employment corridor.</p></div></div><div class="area-grid"><article class="area-card"><span class="pill" style="position:static;display:inline-block;box-shadow:none">Mid Valley profile</span><div class="grade-line"><div class="grade">5</div><div class="grade-copy"><b>GreatSchools rating</b><span>Mid Valley Elementary Center · public K–6</span></div></div><p>Mid Valley Elementary is the district’s only elementary school. GreatSchools reports average overall performance, 6/10 student progress, and recent math and English proficiency below Pennsylvania averages.</p></article><article class="area-card"><h3>Throop borough</h3><div class="fact-grid"><div class="fact"><b>4,065</b><span>2020 Census population</span></div><div class="fact"><b>1 borough</b><span>compact community identity</span></div><div class="fact"><b>33/100</b><span>nearby Walk Score signal</span></div><div class="fact"><b>2 schools</b><span>Mid Valley K–12 campus pair</span></div></div><p>Throop is more neighborhood borough than polished suburb: older homes, civic institutions, school pride and local events, with Scranton next door and Dickson City’s shopping corridor about ten to fifteen minutes away.</p></article></div><div class="vibe-grid"><article class="vibe"><h3>Daily feel</h3><p>Residential streets, older housing and municipal institutions dominate the immediate setting. The address is close to the borough hall and civic center, yet the landscaped lot and gated yard create a more private feel.</p></article><article class="vibe"><h3>The local niche</h3><p>Throop’s advantage is compact convenience inside the larger Scranton orbit. This is a place for families who value short drives, local school identity and access to the region more than a walkable downtown.</p></article><article class="vibe"><h3>What to notice</h3><p>The 1900-era house and massive 40-by-80-foot garage are unusual assets but also major diligence items. Confirm taxes after reassessment, garage use rules, utilities, heating systems and maintenance needs.</p></article></div><div class="section-head" style="margin-top:28px"><div><h2 style="font-size:1.65rem">Events in the local orbit</h2><p class="section-intro">Throop’s calendar leans local, family-oriented and community-run.</p></div></div><div class="event-grid"><article class="event"><h3>Throop Cow Flop</h3><p>The borough’s signature summer fundraiser combines the famously quirky cow-grid drawing with food, live entertainment and family activities.</p><a href="https://www.homes.com/local-guide/throop-pa/" target="_blank">Community overview ↗</a></article><article class="event"><h3>National Night Out</h3><p>Throop joins neighboring Lackawanna County communities for a police-and-neighbors gathering focused on safety, demonstrations and family activities.</p><a href="https://lackawannacounty.com/event/2025/08/national-night-out-throop-pa" target="_blank">Event background ↗</a></article><article class="event"><h3>Civic Center programs</h3><p>The nearby civic center hosts summer programming, fitness, municipal events and a monthly county-library bookmobile stop.</p><a href="https://www.throopboro.com/" target="_blank">Borough calendar ↗</a></article></div></section>
+      <section class="section" id="places"><div class="section-head"><div><h2>Nearby essentials & activities</h2><p class="section-intro">Filters below match the map. Distances and times are approximate off-peak planning figures.</p></div><div class="filters" id="filters"></div></div><div class="place-grid" id="place-grid"></div></section>
+      <section class="section" id="score"><div class="section-head"><div><h2>Why the score is 84</h2><p class="section-intro">Weighted for everyday family use: schools and groceries count more than occasional destinations.</p></div></div><div class="snapshot"><div class="panel"><h3>Category scores</h3><div class="bar-row"><span>Public schools</span><div class="bar"><i style="width:74%"></i></div><b>74</b></div><div class="bar-row"><span>Private / early</span><div class="bar"><i style="width:90%"></i></div><b>90</b></div><div class="bar-row"><span>Daily shopping</span><div class="bar"><i style="width:88%"></i></div><b>88</b></div><div class="bar-row"><span>Kids activities</span><div class="bar"><i style="width:97%"></i></div><b>97</b></div><div class="bar-row"><span>Adult fitness</span><div class="bar"><i style="width:94%"></i></div><b>94</b></div><div class="bar-row"><span>Martial arts</span><div class="bar"><i style="width:96%"></i></div><b>96</b></div><div class="bar-row"><span>Walkability</span><div class="bar"><i style="width:40%;background:#f28c72"></i></div><b>40</b></div></div><div class="panel"><h3>Comparison formula</h3><div class="method"><div><b>30%</b><span>public schools</span></div><div><b>15%</b><span>private / early learning</span></div><div><b>20%</b><span>shopping & grocery</span></div><div><b>15%</b><span>kids activities</span></div><div><b>10%</b><span>adult fitness</span></div><div><b>5%</b><span>martial arts</span></div><div><b>5%</b><span>walkability</span></div><div><b>84</b><span>weighted total</span></div></div><p style="color:var(--muted);font-size:.82rem;margin:16px 0 0">Distance bands: ≤10 minutes is strongest, 11–20 practical, 21–30 a planned trip, and 30+ weak. Quality indicators and breadth of choice then adjust each category.</p></div></div></section>
+      <section class="section" id="decision"><div class="section-head"><div><h2>Decision notes</h2><p class="section-intro">The useful trade-offs, stripped of real-estate gloss.</p></div></div><div class="proscons"><div class="panel"><h3>What works well</h3><ul class="list"><li><span class="check">✓</span><span>Assigned K–6 and 7–12 schools are about one mile away.</span></li><li><span class="check">✓</span><span>Dance, gymnastics, adult fitness and BJJ are all within roughly seven minutes.</span></li><li><span class="check">✓</span><span>Target, Walmart, grocery and Montessori cluster within an eleven-to-thirteen-minute band.</span></li><li><span class="check">✓</span><span>The gated landscaped lot, koi pond and 3,200-square-foot detached garage are unusual features.</span></li><li><span class="check">✓</span><span>Throop’s civic center and community programming are close enough to feel genuinely local.</span></li></ul></div><div class="panel"><h3>What to plan around</h3><ul class="list"><li><span class="minus">–</span><span>Mid Valley Elementary’s 5/10 GreatSchools rating and below-state proficiency figures merit a school visit.</span></li><li><span class="minus">–</span><span>The location remains car-dependent for most errands despite short driving distances.</span></li><li><span class="minus">–</span><span>A 1900-era house and enormous garage can mean substantial structural, roof, utility and maintenance exposure.</span></li><li><span class="minus">–</span><span>Confirm the striking program at Pride Lands if dedicated Muay Thai—not general MMA striking—is essential.</span></li><li><span class="minus">–</span><span>Verify the abrupt 2026 assessment/tax figures shown by portals directly with Lackawanna County.</span></li></ul></div></div></section>
+      <section class="section" id="sources"><div class="section-head"><div><h2>Sources & verification</h2><p class="section-intro">Current as researched October 8, 2026. Programs, ratings, prices and assignments can change.</p></div></div><div class="panel sources"><ol><li><a href="https://www.homes.com/property/340-sanderson-st-throop-pa/4cy2003bd352g/" target="_blank">Homes.com active listing</a> and <a href="https://www.redfin.com/PA/Throop/340-Sanderson-St-18512/home/128680933" target="_blank">Redfin property record</a> — property details, listing status and school assignment.</li><li><a href="https://www.throopboro.com/" target="_blank">Throop Borough</a> and <a href="https://www.census.gov/quickfacts/fact/table/throopboroughpennsylvania" target="_blank">U.S. Census</a>.</li><li><a href="https://ec.mvsd.us/" target="_blank">Mid Valley Elementary Center</a>, <a href="https://nces.ed.gov/ccd/schoolsearch/school_detail.asp?ID=421517007518" target="_blank">NCES</a> and <a href="https://www.greatschools.org/pennsylvania/throop/1458-Mid-Valley-El-Center/" target="_blank">GreatSchools</a>.</li><li><a href="https://www.lsaelementary.org/" target="_blank">La Salle Academy</a>, <a href="https://discoverypa.org/" target="_blank">Discovery Montessori</a> and <a href="https://amshq.org/schools/discovery-montessori-east-mountain-1128553/" target="_blank">American Montessori Society</a>.</li><li><a href="https://www.gerritys.com/store-locations/" target="_blank">Gerrity’s</a>, <a href="https://www.target.com/sl/location/1474" target="_blank">Target Dickson City</a> and <a href="https://www.walmart.com/store/1884-dickson-city-pa" target="_blank">Walmart Dickson City</a>.</li><li><a href="https://www.jeannesdancestudio.com/" target="_blank">Jeanne’s Dance Studio</a>, <a href="https://unitedsportsacademygym.com/dunmore-location/" target="_blank">United Sports Academy</a>, <a href="https://www.planetfitness.com/gyms/" target="_blank">Planet Fitness</a>, <a href="https://www.gracienepa.com/" target="_blank">Gracie NEPA</a> and <a href="https://www.pridelandsmma.com/" target="_blank">Pride Lands MMA</a>.</li><li><a href="https://www.homes.com/local-guide/throop-pa/" target="_blank">Throop community guide</a>, borough calendar and Lackawanna County event listings.</li><li>Addresses were geocoded from published locations. Route figures use an open road-network router and are labeled approximate; live Google Maps links can vary with traffic and entrance choice.</li></ol></div></section>
+      <footer class="footer"><span>Family Radius · comparison-ready neighborhood report</span><span>Not a guarantee of enrollment, availability, ratings, hours or travel time.</span></footer>
+    </div>    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      crossorigin=""
+    ></script>
+    <script>
+      const HOME={name:'340 Sanderson Street',address:'340 Sanderson St, Throop, PA 18512',lat:41.4491271,lng:-75.6221846};
+      const places=[
+        {id:'mid-valley-el',name:'Mid Valley Elementary Center',cat:'school',label:'Assigned public K–6',icon:'🏫',address:'50 Underwood Rd, Throop, PA 18512',miles:'~0.9 mi',time:'~2 min',rating:'5/10 GreatSchools',desc:'The district’s only elementary school. Very close, with average overall rating and 6/10 student progress; verify enrollment directly.',lat:41.4433076,lng:-75.6104073,url:'https://www.greatschools.org/pennsylvania/throop/1458-Mid-Valley-El-Center/'},
+        {id:'mid-valley-secondary',name:'Mid Valley Secondary Center',cat:'school',label:'Assigned public 7–12',icon:'🎓',address:'52 Underwood Rd, Throop, PA 18512',miles:'~1 mi',time:'~2 min',rating:'Grades 7–12',desc:'The district’s combined secondary campus sits beside the elementary center, creating a compact K–12 school path.',lat:41.4429,lng:-75.6098,url:'https://nces.ed.gov/ccd/schoolsearch/school_detail.asp?ID=421517007518'},
+        {id:'lasalle',name:'La Salle Academy',cat:'private',label:'Private Catholic Pre-K–8',icon:'⛪',address:'309 1st Ave, Jessup, PA 18434',miles:'~4.7 mi',time:'~9 min',rating:'Pre-K–8',desc:'Nearby Catholic elementary option with classes from pre-kindergarten through eighth grade. Confirm admissions and transportation.',lat:41.4740053,lng:-75.5670175,url:'https://www.lsaelementary.org/'},
+        {id:'montessori',name:'Discovery Montessori East Mountain',cat:'montessori',label:'Authentic Montessori under 5',icon:'🧩',address:'1301 Beech St, Scranton, PA 18505',miles:'~5.5 mi',time:'~12 min',rating:'AMS accredited · ages 3–6',desc:'American Montessori Society-listed campus offering preschool and kindergarten for ages three through six.',lat:41.3879667,lng:-75.6538505,url:'https://discoverypa.org/'},
+        {id:'gerritys',name:"Gerrity's Supermarket",cat:'shopping',label:'Proper grocery',icon:'🥕',address:'320 Meadow Ave, Scranton, PA 18505',miles:'~4.9 mi',time:'~11 min',rating:'Full supermarket',desc:'Local full-service supermarket with produce, meat, deli and normal weekly-grocery depth.',lat:41.3953570,lng:-75.6528768,url:'https://www.gerritys.com/store-locations/'},
+        {id:'target',name:'Target Dickson City',cat:'shopping',label:'Closest Target',icon:'🎯',address:'1140 Commerce Blvd, Dickson City, PA 18519',miles:'~3.7 mi',time:'~11 min',rating:'Full Target',desc:'Full store with CVS Pharmacy, optical, Starbucks, pickup and drive up.',lat:41.4678188,lng:-75.6385764,url:'https://www.target.com/sl/location/1474'},
+        {id:'walmart',name:'Walmart Dickson City',cat:'shopping',label:'Closest Walmart',icon:'🛒',address:'900 Commerce Blvd, Dickson City, PA 18519',miles:'~4.1 mi',time:'~13 min',rating:'Supercenter',desc:'Full Supercenter with grocery, pharmacy, vision, auto care and general merchandise.',lat:41.4656385,lng:-75.6423789,url:'https://www.walmart.com/store/1884-dickson-city-pa'},
+        {id:'dance',name:"Jeanne's Dance Studio",cat:'activity',label:'Kids dance',icon:'💃',address:'1 Line St, Throop, PA 18512',miles:'~0.9 mi',time:'~2 min',rating:'Local dance studio',desc:'Very close local studio associated with ballet, tap, jazz, hip hop and acrobatics; confirm the current class schedule.',lat:41.4397680,lng:-75.6160060,url:'https://www.jeannesdancestudio.com/'},
+        {id:'gymnastics',name:'United Sports Academy',cat:'activity',label:'Gymnastics + ninja',icon:'🤸',address:'1035 Reeves St, Dunmore, PA 18512',miles:'~1.9 mi',time:'~6 min',rating:'Toddler–teen programs',desc:'Gymnastics, tumbling, trampoline and ninja classes, including preschool pathways for young children.',lat:41.4290034,lng:-75.6130232,url:'https://unitedsportsacademygym.com/dunmore-location/'},
+        {id:'planet-fitness',name:'Planet Fitness Scranton',cat:'fitness',label:'Adult gym',icon:'🏋️',address:'1624 Nay Aug Ave, Scranton, PA 18509',miles:'~2.9 mi',time:'~7 min',rating:'Full fitness club',desc:'A practical nearby adult-gym option with cardio and strength equipment; compare current membership tiers directly.',lat:41.4333539,lng:-75.6592384,url:'https://www.planetfitness.com/gyms/'},
+        {id:'gracie-nepa',name:'Gracie NEPA',cat:'martial',label:'BJJ + kids BJJ',icon:'🥋',address:'943 Underwood Rd, Olyphant, PA 18447',miles:'~1.9 mi',time:'~5 min',rating:'Family-focused academy',desc:'Authentic Gracie Brazilian Jiu-Jitsu with adult, kids and women-only programs plus kickboxing.',lat:41.4507849,lng:-75.5924741,url:'https://www.gracienepa.com/'},
+        {id:'pride-lands',name:'Pride Lands MMA Academy',cat:'martial',label:'BJJ + striking / MMA',icon:'🥊',address:'731 Cedar Ave, Scranton, PA 18505',miles:'~5.5 mi',time:'~11 min',rating:'Kids + adults',desc:'Renzo Gracie/John Danaher-lineage academy offering Jiu-Jitsu, striking, kids and adult classes. Confirm whether its striking curriculum meets a dedicated Muay Thai need.',lat:41.3991523,lng:-75.6680404,url:'https://www.pridelandsmma.com/'},
+        {id:'civic',name:'Throop Civic Center',cat:'activity',label:'Community programs',icon:'🎨',address:'500 Sanderson St, Throop, PA 18512',miles:'~0.5 mi',time:'~2 min',rating:'Local civic hub',desc:'Nearby home for summer programming, fitness, community events and a recurring county-library bookmobile stop.',lat:41.4445978,lng:-75.6174330,url:'https://www.throopboro.com/'},
+        {id:'borough',name:'Throop Borough Hall',cat:'activity',label:'Borough services',icon:'🏛️',address:'436 Sanderson St, Throop, PA 18512',miles:'~0.3 mi',time:'~1 min',rating:'Municipal center',desc:'Borough offices and council chambers are on the same street, reinforcing the address’s central position in local civic life.',lat:41.4462969,lng:-75.6210625,url:'https://www.throopboro.com/'},
+        {id:'home',name:'The property',cat:'home',label:'Home base',icon:'⌂',address:HOME.address,miles:'0 mi',time:'Home',rating:'84/100',desc:'Newly listed three-bedroom, two-bath Tudor with 3,174 listed sq ft, 0.78 acre, gated landscaped grounds, koi pond and approximately 3,200-square-foot detached garage.',lat:HOME.lat,lng:HOME.lng,url:'https://www.homes.com/property/340-sanderson-st-throop-pa/4cy2003bd352g/'}
+      ];
+      const names = {
+        school: 'Public school',
+        private: 'Private school',
+        montessori: 'Montessori',
+        shopping: 'Shopping',
+        activity: 'Kids activity',
+        fitness: 'Fitness',
+        martial: 'Martial arts',
+        home: 'Home',
+      };
+      const route = (p) =>
+        `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(HOME.address)}&destination=${encodeURIComponent(p.address)}&travelmode=driving`;
+      const cards = document.getElementById('cards');
+      places
+        .filter((p) => p.cat !== 'home')
+        .forEach((p) => {
+          const el = document.createElement('article');
+          el.className = 'place-card';
+          el.dataset.cat = p.cat;
+          const media = p.photo
+            ? `<div class="card-photo has-image"><img loading="lazy" src="${p.photo}" alt="${p.name}"><span class="pill">${p.label}</span><span class="card-icon">${p.icon}</span></div>`
+            : `<div class="card-photo"><span class="pill">${p.label}</span><span class="card-icon">${p.icon}</span></div>`;
+          el.innerHTML = `${media}<div class="card-body"><div class="card-top"><h3>${p.name}</h3><span class="rating">${p.rating}</span></div><div class="meta">${names[p.cat]} · ${p.miles} · ${p.time} estimated</div><p class="desc">${p.desc}</p><div class="card-actions"><a class="primary" href="${route(p)}" target="_blank">Live route ↗</a><button class="map-button" data-id="${p.id}">Show on map</button><a href="${p.url}" target="_blank">Website ↗</a></div></div>`;
+          cards.appendChild(el);
+        });
+      document.querySelectorAll('.filter').forEach((btn) =>
+        btn.addEventListener('click', () => {
+          document
+            .querySelectorAll('.filter')
+            .forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+          const f = btn.dataset.filter;
+          document
+            .querySelectorAll('.place-card')
+            .forEach((c) =>
+              c.classList.toggle('hidden', f !== 'all' && c.dataset.cat !== f),
+            );
+          if (window.mapMarkers)
+            Object.entries(window.mapMarkers).forEach(([id, m]) => {
+              const p = places.find((x) => x.id === id);
+              if (f === 'all' || p.cat === f || p.cat === 'home')
+                m.addTo(window.familyMap);
+              else m.remove();
+            });
+        }),
+      );
+      if (window.L) {
+        const map = L.map('map', { scrollWheelZoom: false }).setView(
+          [40.8913, -75.4064],
+          11,
+        );
+        window.familyMap = map;
+        const streetTiles = L.tileLayer(
+          'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
+          {
+          maxZoom: 19,
+          attribution:
+            'Tiles &copy; Esri; data &copy; OpenStreetMap contributors and the GIS user community',
+          },
+        ).addTo(map);
+        let tileErrors = 0;
+        streetTiles.on('tileerror', () => {
+          tileErrors += 1;
+          if (tileErrors !== 3) return;
+          map.removeLayer(streetTiles);
+          L.tileLayer(
+            'https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}',
+            {
+              maxZoom: 19,
+              attribution: 'Tiles courtesy of the U.S. Geological Survey',
+            },
+          ).addTo(map);
+        });
+        window.mapMarkers = {};
+        const icon = (p) =>
+          L.divIcon({
+            className: '',
+            html: `<div class="pin pin-${p.cat}"><span>${p.icon}</span></div>`,
+            iconSize: [31, 31],
+            iconAnchor: [15, 30],
+            popupAnchor: [0, -28],
+          });
+        places.forEach((p) => {
+          const m = L.marker([p.lat, p.lng], { icon: icon(p) })
+            .addTo(map)
+            .bindPopup(
+              `<div class="popup-title">${p.name}</div><div class="popup-meta">${p.miles} · ${p.time}${p.cat === 'home' ? '' : ' estimated'}</div>${p.cat === 'home' ? '' : `<a class="popup-link" href="${route(p)}" target="_blank">Open live route ↗</a>`}`,
+            );
+          window.mapMarkers[p.id] = m;
+        });
+        map.fitBounds(
+          L.latLngBounds(places.map((p) => [p.lat, p.lng])),
+          { padding: [28, 28] },
+        );
+        L.circle([HOME.lat, HOME.lng], {
+          radius: 8047,
+          color: '#163f34',
+          fillColor: '#d6eee2',
+          fillOpacity: 0.08,
+          weight: 1,
+          dashArray: '6 7',
+        }).addTo(map);
+        document.querySelectorAll('.map-button').forEach((b) =>
+          b.addEventListener('click', () => {
+            const p = places.find((x) => x.id === b.dataset.id);
+            document.getElementById('map-section').scrollIntoView();
+            setTimeout(() => {
+              map.setView([p.lat, p.lng], 13);
+              window.mapMarkers[p.id].addTo(map).openPopup();
+            }, 350);
+          }),
+        );
+      }
+    </script>
+  </body>
+</html>
+
+
+

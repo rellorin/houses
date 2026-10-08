@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Black-and-white printable family convenience report for 340 Sanderson Street, Throop, Pennsylvania"
+    />
+    <title>84 · 340 Sanderson Street — Printable Family Convenience Report</title>
+    <style>
+      :root {
+        --black: #000;
+        --gray: #555;
+        --line: #999;
+        --light: #eee;
+        --paper: #fff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        background: #d8d8d8;
+      }
+      body {
+        margin: 0;
+        color: var(--black);
+        font:
+          10.5pt/1.34 Arial,
+          Helvetica,
+          sans-serif;
+        -webkit-print-color-adjust: economy;
+        print-color-adjust: economy;
+      }
+      .page {
+        position: relative;
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0.25in auto;
+        padding: 0.5in 0.55in 0.46in;
+        background: var(--paper);
+        box-shadow: 0 2px 14px #888;
+        break-after: page;
+        page-break-after: always;
+      }
+      .page:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+      .kicker {
+        margin: 0 0 7pt;
+        font-size: 8pt;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      h1 {
+        margin: 0;
+        font:
+          700 29pt/1.02 Georgia,
+          'Times New Roman',
+          serif;
+        letter-spacing: -0.025em;
+      }
+      h2 {
+        margin: 0 0 10pt;
+        padding-bottom: 5pt;
+        border-bottom: 2px solid #000;
+        font:
+          700 19pt/1.05 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      h3 {
+        margin: 0 0 5pt;
+        font-size: 11pt;
+      }
+      p {
+        margin: 0 0 8pt;
+      }
+      a {
+        color: #000;
+        text-decoration: underline;
+        text-decoration-thickness: 0.5px;
+        text-underline-offset: 2px;
+      }
+      .muted {
+        color: var(--gray);
+      }
+      .deck {
+        max-width: 6.8in;
+        margin: 12pt 0 15pt;
+        font:
+          12pt/1.35 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .rule {
+        height: 3px;
+        margin: 16pt 0;
+        background: #000;
+      }
+      .summary-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 18pt;
+        align-items: start;
+      }
+      .score {
+        display: flex;
+        align-items: baseline;
+        gap: 5pt;
+        margin: 2pt 0 8pt;
+        font-weight: 700;
+      }
+      .score strong {
+        font:
+          700 46pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .score span {
+        font-size: 12pt;
+      }
+      .label {
+        display: inline-block;
+        padding: 2pt 5pt;
+        border: 1px solid #000;
+        font-size: 7.5pt;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .callout {
+        padding: 10pt 12pt;
+        border: 2px solid #000;
+      }
+      .callout p:last-child {
+        margin-bottom: 0;
+      }
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8pt;
+        margin: 12pt 0;
+      }
+      .stat {
+        padding: 8pt;
+        border-top: 2px solid #000;
+        border-bottom: 1px solid var(--line);
+      }
+      .stat b {
+        display: block;
+        font-size: 16pt;
+      }
+      .stat span {
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 8.8pt;
+      }
+      th {
+        padding: 5pt 5pt;
+        border-top: 1.5px solid #000;
+        border-bottom: 1.5px solid #000;
+        text-align: left;
+        font-size: 7.3pt;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      td {
+        padding: 5pt;
+        border-bottom: 0.6px solid #bbb;
+        vertical-align: top;
+      }
+      td.num,
+      th.num {
+        text-align: right;
+        white-space: nowrap;
+      }
+      tr {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .section {
+        margin-top: 14pt;
+      }
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14pt;
+      }
+      .item {
+        padding: 9pt 0;
+        border-top: 1px solid #000;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .item:first-child {
+        border-top: 0;
+      }
+      .item-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 8pt;
+        align-items: baseline;
+      }
+      .item h3 {
+        font-size: 10.5pt;
+      }
+      .item .rating {
+        white-space: nowrap;
+        font-size: 8pt;
+        font-weight: 700;
+      }
+      .item .meta {
+        margin: 0 0 4pt;
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      .item p {
+        margin: 0;
+        font-size: 8.8pt;
+      }
+      .rating-box {
+        display: grid;
+        grid-template-columns: 1fr 36pt;
+        gap: 7pt;
+        align-items: center;
+        margin: 6pt 0;
+      }
+      .track {
+        height: 7pt;
+        border: 1px solid #000;
+      }
+      .track i {
+        display: block;
+        height: 100%;
+        background: #000;
+      }
+      .rating-box b {
+        text-align: right;
+        font-size: 9pt;
+      }
+      .list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .list li {
+        position: relative;
+        padding: 5pt 0 5pt 17pt;
+        border-top: 0.6px solid #bbb;
+      }
+      .list li:first-child {
+        border-top: 0;
+      }
+      .list li:before {
+        position: absolute;
+        left: 0;
+        top: 5pt;
+        font-weight: 700;
+      }
+      .pros li:before {
+        content: '+';
+      }
+      .cons li:before {
+        content: '–';
+      }
+      .corridor {
+        display: grid;
+        grid-template-columns: 85pt 1fr;
+        gap: 8pt;
+        margin: 8pt 0;
+        padding: 7pt 0;
+        border-top: 0.6px solid #bbb;
+      }
+      .corridor:first-child {
+        border-top: 0;
+      }
+      .corridor b {
+        font-size: 8.5pt;
+      }
+      .corridor span {
+        font-size: 8.5pt;
+      }
+      .sources {
+        margin: 0;
+        padding-left: 16pt;
+        font-size: 7.8pt;
+      }
+      .sources li {
+        margin: 0 0 5pt;
+      }
+      .fine {
+        font-size: 7.5pt;
+        color: var(--gray);
+      }
+      .profile-score {
+        display: flex;
+        align-items: center;
+        gap: 12pt;
+        margin: 10pt 0;
+      }
+      .profile-grade {
+        display: grid;
+        place-items: center;
+        width: 52pt;
+        height: 52pt;
+        border: 2px solid #000;
+        font:
+          700 26pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .event-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 14pt;
+      }
+      .page-footer {
+        position: absolute;
+        left: 0.55in;
+        right: 0.55in;
+        bottom: 0.24in;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 5pt;
+        border-top: 0.6px solid #777;
+        font-size: 7pt;
+        color: #555;
+      }
+      @page {
+        size: Letter;
+        margin: 0;
+      }
+      @media print {
+        html {
+          background: #fff;
+        }
+        body {
+          font-size: 10.5pt;
+        }
+        .page {
+          width: 8.5in;
+          min-height: 11in;
+          margin: 0;
+          box-shadow: none;
+        }
+        .screen-note {
+          display: none !important;
+        }
+      }
+      @media screen and (max-width: 900px) {
+        .page {
+          width: calc(100% - 24px);
+          min-height: auto;
+          margin: 12px;
+          padding: 28px;
+        }
+        .page-footer {
+          position: static;
+          margin-top: 24px;
+        }
+        .summary-grid,
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <section class="page"><p class="kicker">Family Radius · Property Brief</p><h1>340 Sanderson Street<br>Throop, PA 18512</h1><p class="deck">A distinctive Tudor home with an extraordinary detached garage, pairing very short drives to school and activities with practical access to the wider Scranton retail corridor.</p><div class="rule"></div><div class="summary-grid"><div><span class="label">Family convenience score</span><div class="score"><strong>84</strong><span>/ 100</span></div><p><b>Bottom line:</b> unusually convenient for recurring family activities. The assigned school is exceptionally close, but its current rating is average, so access and quality should be evaluated separately.</p></div><div class="callout"><h3>Current listing snapshot</h3><p>Newly listed October 8, 2026 at <b>$520,000</b>: 3 bedrooms, 2 full baths, 3,174 listed sq ft, 0.78 acre, gated landscaping, pond and an approximately 3,200-square-foot detached garage.</p></div></div><div class="stat-grid"><div class="stat"><b>2–6 min</b><span>school + kids activities + BJJ</span></div><div class="stat"><b>7–9 min</b><span>adult gym + private school</span></div><div class="stat"><b>11–13 min</b><span>Montessori + shopping</span></div></div><h3>Primary diligence items</h3><table><tr><th>House</th><th>Garage</th><th>Financial</th></tr><tr><td>1900-era structure, roof, wiring, plumbing, heating, insulation and drainage</td><td>Permitted use, 200-amp service, condition, insurance and operating costs</td><td>Confirm 2026 reassessment and taxes directly; portal figures conflict sharply</td></tr></table><footer>1 / 5 · Overview · Researched October 8, 2026</footer></section>
+    <section class="page"><p class="kicker">Schools & early learning</p><h2>Very close schools; mixed quality signal</h2><table><tr><th>Option</th><th>Grades / rating</th><th>Approx. route</th><th>Assessment</th></tr><tr><td><b>Mid Valley Elementary</b></td><td>K–6 · 5/10 GS</td><td>~0.9 mi · ~2 min</td><td>Assigned and exceptionally close; average rating and below-state recent proficiency.</td></tr><tr><td><b>Mid Valley Secondary</b></td><td>7–12</td><td>~1 mi · ~2 min</td><td>Adjacent campus creates a compact public K–12 path.</td></tr><tr><td><b>La Salle Academy</b></td><td>Private Catholic Pre-K–8</td><td>~4.7 mi · ~9 min</td><td>Close private alternative in Jessup.</td></tr><tr><td><b>Discovery Montessori</b></td><td>AMS listed · ages 3–6</td><td>~5.5 mi · ~12 min</td><td>Authentic Montessori option under age five.</td></tr></table><div class="callout" style="margin-top:16pt"><h3>Public-school context</h3><p>GreatSchools reports 5/10 overall and 6/10 student progress for Mid Valley Elementary. Current 2024–25 figures show 37% English and 32% math proficiency versus state averages of 49% and 42%. Visit the school and verify assignment directly.</p></div><footer>2 / 5 · Schools</footer></section>
+    <section class="page"><p class="kicker">Shopping, activities & fitness</p><h2>Everyday destinations</h2><table><tr><th>Need</th><th>Best nearby option</th><th>Approx. route</th><th>Notes</th></tr><tr><td>Proper grocery</td><td><b>Gerrity’s Meadow Ave</b></td><td>~4.9 mi · ~11 min</td><td>Full supermarket for normal weekly shopping.</td></tr><tr><td>Target</td><td><b>Dickson City</b></td><td>~3.7 mi · ~11 min</td><td>CVS, optical, Starbucks, pickup and drive up.</td></tr><tr><td>Walmart</td><td><b>Dickson City Supercenter</b></td><td>~4.1 mi · ~13 min</td><td>Full grocery, pharmacy, vision and general merchandise.</td></tr><tr><td>Kids dance</td><td><b>Jeanne’s Dance Studio</b></td><td>~0.9 mi · ~2 min</td><td>Exceptionally close; confirm current ages and schedule.</td></tr><tr><td>Gymnastics</td><td><b>United Sports Academy</b></td><td>~1.9 mi · ~6 min</td><td>Preschool gymnastics, tumbling, trampoline and ninja programs.</td></tr><tr><td>Adult gym</td><td><b>Planet Fitness</b></td><td>~2.9 mi · ~7 min</td><td>Practical mainstream fitness option.</td></tr><tr><td>BJJ</td><td><b>Gracie NEPA</b></td><td>~1.9 mi · ~5 min</td><td>Adult, kids and women-only Brazilian Jiu-Jitsu.</td></tr><tr><td>Striking / MMA</td><td><b>Pride Lands MMA</b></td><td>~5.5 mi · ~11 min</td><td>BJJ and striking; verify dedicated Muay Thai fit.</td></tr></table><p class="muted" style="margin-top:14pt">All figures are approximate off-peak route-planning estimates, not live traffic.</p><footer>3 / 5 · Daily convenience</footer></section>
+    <section class="page"><p class="kicker">Place profile</p><h2>Small-borough life in the Scranton orbit</h2><div class="stat-grid"><div class="stat"><b>4,065</b><span>2020 borough population</span></div><div class="stat"><b>33/100</b><span>nearby Walk Score signal</span></div><div class="stat"><b>~0.5 mi</b><span>to the civic center</span></div></div><div class="two-col"><div><h3>General vibe</h3><p>Throop feels practical, residential and rooted in Lackawanna County’s coal-region history. It is neither rural nor a polished downtown suburb: older homes and local institutions sit beside quick access to Scranton, I-81 and Dickson City retail.</p><h3>Local niche</h3><p>The borough’s appeal is compact convenience and community identity. From this address, school and weekly activities are genuinely close even though most errands still call for a car.</p></div><div><h3>Events families notice</h3><ul><li><b>Throop Cow Flop:</b> the quirky signature summer fundraiser with food and family entertainment.</li><li><b>National Night Out:</b> police-and-community gathering with demonstrations and activities.</li><li><b>Civic Center programming:</b> summer programs, exercise, municipal events and bookmobile visits.</li><li><b>Spooktacular 5K / trunk-or-treat:</b> a family-oriented fall event in the local school orbit.</li></ul></div></div><div class="callout" style="margin-top:18pt"><h3>Daily-life caveat</h3><p>Short drives do not equal walkability. Sidewalk continuity, crossings and winter conditions should be checked personally before assuming children can walk or bike to nearby destinations.</p></div><footer>4 / 5 · Community</footer></section>
+    <section class="page"><p class="kicker">Decision summary</p><h2>Pros, trade-offs & methodology</h2><div class="two-col"><div><h3>What works well</h3><ul><li>Assigned K–6 and 7–12 campuses roughly two minutes away.</li><li>Dance, gymnastics, gym and BJJ all within about seven minutes.</li><li>Private school, Montessori and major retail remain practical.</li><li>Local civic center and real borough-scale community identity.</li><li>Unusual garage, gated landscaping and pond.</li></ul></div><div><h3>What to plan around</h3><ul><li>Average 5/10 assigned-elementary rating.</li><li>Car dependence for most errands.</li><li>Old-house and massive-garage inspection exposure.</li><li>Portal tax data conflict after reassessment.</li><li>Verify school assignment and program availability.</li></ul></div></div><h3 style="margin-top:14pt">Comparison scorecard</h3><table><tr><th>Category</th><th>Score</th><th>Weight</th><th>Weighted</th></tr><tr><td>Public schools</td><td>74</td><td>30%</td><td>22.2</td></tr><tr><td>Private / early learning</td><td>90</td><td>15%</td><td>13.5</td></tr><tr><td>Shopping & grocery</td><td>88</td><td>20%</td><td>17.6</td></tr><tr><td>Kids activities</td><td>97</td><td>15%</td><td>14.6</td></tr><tr><td>Adult fitness</td><td>94</td><td>10%</td><td>9.4</td></tr><tr><td>Martial arts</td><td>96</td><td>5%</td><td>4.8</td></tr><tr><td>Walkability</td><td>40</td><td>5%</td><td>2.0</td></tr><tr><td><b>Total</b></td><td></td><td>100%</td><td><b>84.0 → 84</b></td></tr></table><h3 style="margin-top:14pt">Principal sources</h3><p class="small">Homes.com, Redfin, Throop Borough, U.S. Census, Mid Valley School District, NCES, GreatSchools, La Salle Academy, Discovery Montessori, American Montessori Society, Gerrity’s, Target, Walmart, Jeanne’s Dance Studio, United Sports Academy, Planet Fitness, Gracie NEPA and Pride Lands MMA. Routes are approximate.</p><footer>5 / 5 · Decision summary</footer></section>  </body>
+</html>
+
+
+
