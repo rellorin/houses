@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Black-and-white printable family convenience report for 385 Albright Road, Kutztown, PA 19530">
+    <title>88 · 385 Albright Road — Printable Family Convenience Report</title>
+    <style>
+      :root {
+        --black: #000;
+        --gray: #555;
+        --line: #999;
+        --light: #eee;
+        --paper: #fff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        background: #d8d8d8;
+      }
+      body {
+        margin: 0;
+        color: var(--black);
+        font:
+          10.5pt/1.34 Arial,
+          Helvetica,
+          sans-serif;
+        -webkit-print-color-adjust: economy;
+        print-color-adjust: economy;
+      }
+      .page {
+        position: relative;
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0.25in auto;
+        padding: 0.5in 0.55in 0.46in;
+        background: var(--paper);
+        box-shadow: 0 2px 14px #888;
+        break-after: page;
+        page-break-after: always;
+      }
+      .page:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+      .kicker {
+        margin: 0 0 7pt;
+        font-size: 8pt;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      h1 {
+        margin: 0;
+        font:
+          700 29pt/1.02 Georgia,
+          'Times New Roman',
+          serif;
+        letter-spacing: -0.025em;
+      }
+      h2 {
+        margin: 0 0 10pt;
+        padding-bottom: 5pt;
+        border-bottom: 2px solid #000;
+        font:
+          700 19pt/1.05 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      h3 {
+        margin: 0 0 5pt;
+        font-size: 11pt;
+      }
+      p {
+        margin: 0 0 8pt;
+      }
+      a {
+        color: #000;
+        text-decoration: underline;
+        text-decoration-thickness: 0.5px;
+        text-underline-offset: 2px;
+      }
+      .muted {
+        color: var(--gray);
+      }
+      .deck {
+        max-width: 6.8in;
+        margin: 12pt 0 15pt;
+        font:
+          12pt/1.35 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .rule {
+        height: 3px;
+        margin: 16pt 0;
+        background: #000;
+      }
+      .summary-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 18pt;
+        align-items: start;
+      }
+      .score {
+        display: flex;
+        align-items: baseline;
+        gap: 5pt;
+        margin: 2pt 0 8pt;
+        font-weight: 700;
+      }
+      .score strong {
+        font:
+          700 46pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .score span {
+        font-size: 12pt;
+      }
+      .label {
+        display: inline-block;
+        padding: 2pt 5pt;
+        border: 1px solid #000;
+        font-size: 7.5pt;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .callout {
+        padding: 10pt 12pt;
+        border: 2px solid #000;
+      }
+      .callout p:last-child {
+        margin-bottom: 0;
+      }
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8pt;
+        margin: 12pt 0;
+      }
+      .stat {
+        padding: 8pt;
+        border-top: 2px solid #000;
+        border-bottom: 1px solid var(--line);
+      }
+      .stat b {
+        display: block;
+        font-size: 16pt;
+      }
+      .stat span {
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 8.8pt;
+      }
+      th {
+        padding: 5pt 5pt;
+        border-top: 1.5px solid #000;
+        border-bottom: 1.5px solid #000;
+        text-align: left;
+        font-size: 7.3pt;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      td {
+        padding: 5pt;
+        border-bottom: 0.6px solid #bbb;
+        vertical-align: top;
+      }
+      td.num,
+      th.num {
+        text-align: right;
+        white-space: nowrap;
+      }
+      tr {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .section {
+        margin-top: 14pt;
+      }
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14pt;
+      }
+      .item {
+        padding: 9pt 0;
+        border-top: 1px solid #000;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .item:first-child {
+        border-top: 0;
+      }
+      .item-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 8pt;
+        align-items: baseline;
+      }
+      .item h3 {
+        font-size: 10.5pt;
+      }
+      .item .rating {
+        white-space: nowrap;
+        font-size: 8pt;
+        font-weight: 700;
+      }
+      .item .meta {
+        margin: 0 0 4pt;
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      .item p {
+        margin: 0;
+        font-size: 8.8pt;
+      }
+      .rating-box {
+        display: grid;
+        grid-template-columns: 1fr 36pt;
+        gap: 7pt;
+        align-items: center;
+        margin: 6pt 0;
+      }
+      .track {
+        height: 7pt;
+        border: 1px solid #000;
+      }
+      .track i {
+        display: block;
+        height: 100%;
+        background: #000;
+      }
+      .rating-box b {
+        text-align: right;
+        font-size: 9pt;
+      }
+      .list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .list li {
+        position: relative;
+        padding: 5pt 0 5pt 17pt;
+        border-top: 0.6px solid #bbb;
+      }
+      .list li:first-child {
+        border-top: 0;
+      }
+      .list li:before {
+        position: absolute;
+        left: 0;
+        top: 5pt;
+        font-weight: 700;
+      }
+      .pros li:before {
+        content: '+';
+      }
+      .cons li:before {
+        content: '–';
+      }
+      .corridor {
+        display: grid;
+        grid-template-columns: 85pt 1fr;
+        gap: 8pt;
+        margin: 8pt 0;
+        padding: 7pt 0;
+        border-top: 0.6px solid #bbb;
+      }
+      .corridor:first-child {
+        border-top: 0;
+      }
+      .corridor b {
+        font-size: 8.5pt;
+      }
+      .corridor span {
+        font-size: 8.5pt;
+      }
+      .sources {
+        margin: 0;
+        padding-left: 16pt;
+        font-size: 7.8pt;
+      }
+      .sources li {
+        margin: 0 0 5pt;
+      }
+      .fine {
+        font-size: 7.5pt;
+        color: var(--gray);
+      }
+      .profile-score {
+        display: flex;
+        align-items: center;
+        gap: 12pt;
+        margin: 10pt 0;
+      }
+      .profile-grade {
+        display: grid;
+        place-items: center;
+        width: 52pt;
+        height: 52pt;
+        border: 2px solid #000;
+        font:
+          700 26pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .event-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 14pt;
+      }
+      .page-footer {
+        position: absolute;
+        left: 0.55in;
+        right: 0.55in;
+        bottom: 0.24in;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 5pt;
+        border-top: 0.6px solid #777;
+        font-size: 7pt;
+        color: #555;
+      }
+      @page {
+        size: Letter;
+        margin: 0;
+      }
+      @media print {
+        html {
+          background: #fff;
+        }
+        body {
+          font-size: 10.5pt;
+        }
+        .page {
+          width: 8.5in;
+          min-height: 11in;
+          margin: 0;
+          box-shadow: none;
+        }
+        .screen-note {
+          display: none !important;
+        }
+      }
+      @media screen and (max-width: 900px) {
+        .page {
+          width: calc(100% - 24px);
+          min-height: auto;
+          margin: 12px;
+          padding: 28px;
+        }
+        .page-footer {
+          position: static;
+          margin-top: 24px;
+        }
+        .summary-grid,
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="page"><p class="kicker">Family Radius · Property Brief</p><h1>385 Albright Road<br>Kutztown, PA 19530</h1><p class="deck">A historic Maxatawny Township farmhouse with a genuinely convenient Kutztown/Trexlertown family radius: strong public-school ratings, Montessori, grocery, fitness, dance, BJJ and Muay Thai are all roughly six to fourteen minutes away. Dedicated gymnastics is the clear specialty-trip exception, and the 1800 house deserves intensive old-home, well and septic diligence.</p><div class="rule"></div><div class="summary-grid"><div><span class="label">Family convenience score</span><div class="score"><strong>88</strong><span>/ 100</span></div><p><b>Bottom line:</b> Strong schools and an unusually complete six-to-fourteen-minute radius for education, shopping, fitness, dance and martial arts make daily family logistics excellent. Dedicated gymnastics is farther away, and the historic house plus listing-status conflict require more diligence than the score alone suggests.</p></div><div class="callout"><h3>Important location finding</h3><p> Maxatawny Township property with a Kutztown mailing address  The home is in Kutztown Area School District. Current listing sources identify Kutztown Elementary, Kutztown Area Middle and Kutztown Area Senior High as the public-school path; confirm this exact parcel, transportation and future boundary changes directly with district registration. </p></div></div><div class="stat-grid"><div class="stat"><b>~6-12 min</b><span>schools, Montessori, grocery + activities</span></div><div class="stat"><b>~13-14 min</b><span>Target + Walmart</span></div><div class="stat"><b>~25 min</b><span>dedicated gymnastics</span></div></div><h3>Property snapshot</h3><table><tr><th>Listing / status</th><th>Site</th><th>Notable extras</th></tr><tr><td>Status/price conflict: expired $525,000 vs active $600,000 · 3 beds · 1.5 baths · about 3,529 sq ft</td><td>1.52 acres · Maxatawny Township · Kutztown Area SD · private well + septic</td><td>Built 1800 · stone/stucco farmhouse · automatic generator · deck, balcony + covered porch</td></tr></table><div class="callout" style="margin-top:14pt"><h3>Due-diligence note</h3><p>Private well, septic, oil heat, a generator, basement, deck, balcony and outbuildings add inspection and maintenance responsibilities. Listing portals conflict on active/expired status and $525,000 versus $600,000 pricing; bedroom/bath and parking descriptions should also be reconciled against the MLS and permits.</p></div><footer>1 / 5 · Overview · Researched October 7, 2026</footer></section>
+    <section class="page"><p class="kicker">Schools & early learning</p><h2>Education options</h2><table><tr><th>Option</th><th>Grades / rating</th><th>Planning estimate</th><th>Assessment</th></tr><tr><td><b>Kutztown Elementary School</b></td><td>7/10 GreatSchools</td><td>6.0 mi · 10 min verified</td><td>Listing-reported elementary school with an above-average current rating; confirm assignment and transportation directly with the district.</td></tr><tr><td><b>Kutztown Area Middle School</b></td><td>7/10 GreatSchools</td><td>6.4 mi · 12 min verified</td><td>Small district middle school with an above-average current rating, Project Lead The Way and gifted programming.</td></tr><tr><td><b>Kutztown Area Senior High School</b></td><td>8/10 GreatSchools</td><td>6.3 mi · 12 min verified</td><td>The strongest-rated school in the reported path, with AP courses, Project Lead The Way, gifted programming and a 97% four-year graduation rate.</td></tr><tr><td><b>Hidden Valley Mennonite School</b></td><td>22 students · 11:1 reported</td><td>3.3 mi · 6 min verified</td><td>Very small rural Mennonite school serving grades one through eight; call to verify current enrollment, curriculum, transportation and family fit.</td></tr><tr><td><b>Bright Beginnings Montessori Academy</b></td><td>Ages 3-6</td><td>6.1 mi · 10 min verified</td><td>Small, home-like Montessori program designed specifically for children ages three to six, directly satisfying the under-five requirement.</td></tr></table><div class="callout" style="margin-top:16pt"><h3>Assignment check</h3><p>Public-school assignments, transportation and program availability can change. Confirm this exact parcel with district registration before relying on a listing portal.</p></div><footer>2 / 5 · Schools</footer></section>
+    <section class="page"><p class="kicker">Shopping, activities & fitness</p><h2>Everyday destinations</h2><table><tr><th>Need</th><th>Best nearby option</th><th>Planning estimate</th><th>Notes</th></tr><tr><td>Proper grocery</td><td><b>Weis Markets Kutztown</b></td><td>4.8 mi · 9 min verified</td><td>Full weekly supermarket with produce, meat, bakery, deli and household staples on the US-222 corridor.</td></tr><tr><td>Closest Target</td><td><b>Target Lower Macungie Township</b></td><td>9.1 mi · 14 min verified</td><td>Full Target with pickup, Drive Up, CVS pharmacy and Starbucks in the Hamilton Crossings retail district.</td></tr><tr><td>Closest Walmart</td><td><b>Walmart Allentown Supercenter</b></td><td>7.3 mi · 13 min verified</td><td>Full grocery, pharmacy, general merchandise and services just east of Trexlertown.</td></tr><tr><td>Kids dance + acrobatics</td><td><b>Kutztown Dance Center</b></td><td>6.4 mi · 10 min verified</td><td>Community-oriented studio offering ballet, tap, jazz, hip hop, contemporary, creative movement and a substantial acrobatics program.</td></tr><tr><td>Dedicated kids gymnastics</td><td><b>Parkettes National Gymnastics Training Center</b></td><td>16.9 mi · 25 min verified</td><td>Full apparatus gym with preschool, KinderGym, recreational, adaptive and competitive pathways; excellent breadth, but it is a planned trip.</td></tr><tr><td>Adult gym</td><td><b>Planet Fitness Kutztown</b></td><td>4.7 mi · 8 min verified</td><td>Large-format club with cardio, strength, functional equipment and trainer-led small-group sessions.</td></tr><tr><td>Seasonal family fitness</td><td><b>Kutztown Swimming Pool</b></td><td>6.0 mi · 11 min verified</td><td>Seasonal borough pool with daily summer operation, day admission and resident/nonresident family passes.</td></tr><tr><td>Brazilian jiu-jitsu</td><td><b>Gracie Jiu-Jitsu Kutztown</b></td><td>6.5 mi · 11 min verified</td><td>Local Gracie academy offering structured Brazilian jiu-jitsu in a family-oriented environment for different experience and fitness levels.</td></tr><tr><td>Muay Thai + kickboxing</td><td><b>Althouse Training Center</b></td><td>6.0 mi · 9 min verified</td><td>Local striking gym with adult kickboxing/Muay Thai drills, bag work, partner work and light sparring plus a women’s kickboxing class.</td></tr></table><p class="muted" style="margin-top:14pt">Mileage and time are conservative off-peak planning estimates prepared October 7, 2026, not live traffic.</p><footer>3 / 5 · Daily convenience</footer></section>
+    <section class="page"><p class="kicker">Place profile</p><h2>Community profile: Maxatawny Township + Kutztown</h2><div class="stat-grid"><div class="stat"><b>7,181</b><span>2020 Census population</span></div><div class="stat"><b>26.06 sq mi</b><span>land area</span></div><div class="stat"><b>car-based</b><span>daily mobility pattern</span></div></div><div class="two-col"><div><h3>General vibe</h3><p>Quiet, pastoral and fully car-based. The house is surrounded by an agricultural landscape, but grocery, fitness and the closest private school are only a few minutes away; Kutztown’s schools and Main Street are generally around ten to twelve minutes.</p><h3>Local niche</h3><p>Pennsylvania Dutch farm country meeting a small university town. Kutztown supplies cafés, arts, sports and year-round campus energy, while Maxatawny retains the open-land, historic-building and roadside-farm character families often seek outside the Lehigh Valley suburbs.</p></div><div><h3>Events families notice</h3><ul><li><b>Eastern Pennsylvania Homestead Festival:</b> The new fairgrounds festival pays homage to the former Kutztown Folk Festival with traditional food, crafts, demonstrations and family programming.</li><li><b>Kutztown Fair:</b> The long-running agricultural fair brings livestock, farm and craft exhibits, music, midway entertainment and community competitions to the fairgrounds.</li><li><b>Kutztown Day:</b> A full community day in Kutztown Park combines music, youth activities, demonstrations, community groups and an evening fireworks finale.</li><li><b>Heritage Center farm festivals:</b> Easter on the Farm, Heemet Fescht and Christmas on the Farm feature animals, music, folk arts, demonstrations, hayrides and children’s activities.</li><li><b>Fall Fest on Main:</b> The Kutztown Community Partnership closes Main Street for a walkable fall festival with vendors, food, entertainment and family activities.</li><li><b>Historical Society traditions:</b> The annual ice-cream social and Holiday Festival mix local history, live music, model trains and seasonal community gathering.</li></ul></div></div><div class="callout" style="margin-top:18pt"><h3>What to notice</h3><p>The listing describes a 3-bedroom, 1.5-bath, 3,529-square-foot farmhouse built in 1800, with stone and stucco construction, an attic, full unfinished basement, covered porch, balcony, deck and automatic generator. Portal status and price conflict: some current mirrors still show an active $600,000 listing, while a newer aggregator result shows an expired $525,000 listing. Verify MLS status and price before relying on either.</p></div><footer>4 / 5 · Community</footer></section>
+    <section class="page"><p class="kicker">Decision summary</p><h2>Pros, trade-offs & methodology</h2><div class="two-col"><div><h3>What works well</h3><ul><li>All three reported public schools are estimated at roughly ten to twelve minutes, with current GreatSchools ratings from 7/10 to 8/10.</li><li>Hidden Valley Mennonite is about six minutes away, and Bright Beginnings Montessori serves ages three to six about ten minutes away.</li><li>Weis and Planet Fitness are approximately eight to nine minutes away; Walmart and Target are around thirteen to fourteen minutes.</li><li>Kutztown Dance Center, Gracie Jiu-Jitsu and Althouse Muay Thai are all within roughly nine to eleven minutes.</li><li>The Kutztown borough/university event calendar adds unusual cultural depth to an otherwise quiet rural setting.</li></ul></div><div><h3>What to plan around</h3><ul><li>The property is fully car-dependent, with a 7/100 Walk Score.</li><li>Dedicated gymnastics is a planned trip of about twenty-five minutes; the much closer dance studio offers acrobatics but is not a full apparatus gym.</li><li>The home dates to 1800 and has stone, stucco and multiple roof materials, making specialist structural, moisture, electrical, plumbing, environmental and envelope inspections important.</li><li>Private well, septic, oil heat, a generator, basement, deck, balcony and outbuildings add inspection and maintenance responsibilities.</li><li>Listing portals conflict on active/expired status and $525,000 versus $600,000 pricing; bedroom/bath and parking descriptions should also be reconciled against the MLS and permits.</li></ul></div></div><h3 style="margin-top:14pt">Comparison scorecard</h3><table><tr><th>Category</th><th>Score</th><th>Weight</th><th>Weighted</th></tr><tr><td>Public schools</td><td>91</td><td>30%</td><td>27.3</td></tr><tr><td>Private / early learning</td><td>97</td><td>15%</td><td>14.55</td></tr><tr><td>Shopping & grocery</td><td>92</td><td>20%</td><td>18.4</td></tr><tr><td>Kids activities</td><td>83</td><td>15%</td><td>12.45</td></tr><tr><td>Adult fitness</td><td>98</td><td>10%</td><td>9.8</td></tr><tr><td>Martial arts</td><td>96</td><td>5%</td><td>4.8</td></tr><tr><td>Walkability</td><td>7</td><td>5%</td><td>0.35</td></tr><tr><td><b>Total</b></td><td></td><td>100%</td><td><b>88.0 → 88</b></td></tr></table><h3 style="margin-top:14pt">Principal sources</h3><p class="small">Zillow listing details, schools and walkability; Realtor.com listing and price history; Realty.com current status search; Kutztown Area School District; GreatSchools Kutztown school ratings; Bright Beginnings Montessori Academy; Maxatawny Township; U.S. Census QuickFacts; Pennsylvania German Cultural Heritage Center events; Google Maps route checks performed October 7, 2026. Distances and drive times are planning estimates.</p><footer>5 / 5 · Decision summary</footer></section>  </body>
+</html>
