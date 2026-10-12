@@ -1,0 +1,1228 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Family convenience report for 802 McConnell Parkway, Hughesville, PA 17737">
+    <title>80 · 802 McConnell Parkway · Family Convenience Report</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23163f34%27/%3E%3Cpath d=%27M13 32 32 15l19 17v20H38V39H26v13H13z%27 fill=%27%23dff39b%27/%3E%3C/svg%3E">
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      crossorigin=""
+    />
+    <style>
+      :root {
+        --ink: #18211d;
+        --muted: #60706a;
+        --paper: #f4f7f2;
+        --card: #fff;
+        --line: #dce5df;
+        --pine: #163f34;
+        --mint: #d6eee2;
+        --lime: #dff39b;
+        --shadow: 0 16px 40px rgba(22, 63, 52, 0.09);
+        --r: 20px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font:
+          16px/1.5 Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          'Segoe UI',
+          sans-serif;
+      }
+      button,
+      a {
+        font: inherit;
+      }
+      a {
+        color: inherit;
+      }
+      .shell {
+        max-width: 1440px;
+        margin: auto;
+        padding: 18px;
+      }
+      .topbar {
+        position: sticky;
+        top: 12px;
+        z-index: 999;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 12px 16px;
+        background: rgba(244, 247, 242, 0.92);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        backdrop-filter: blur(15px);
+        box-shadow: 0 8px 25px rgba(22, 63, 52, 0.07);
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 850;
+        letter-spacing: -0.02em;
+      }
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 11px;
+        background: var(--pine);
+        color: white;
+      }
+      .nav {
+        display: flex;
+        gap: 6px;
+        overflow: auto;
+      }
+      .nav a {
+        text-decoration: none;
+        color: var(--muted);
+        font-size: 0.86rem;
+        font-weight: 750;
+        padding: 8px 10px;
+        border-radius: 10px;
+        white-space: nowrap;
+      }
+      .nav a:hover {
+        background: white;
+        color: var(--ink);
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: 1.18fr 0.82fr;
+        min-height: 440px;
+        margin-top: 18px;
+        border-radius: 30px;
+        overflow: hidden;
+        background: var(--pine);
+        color: white;
+        box-shadow: var(--shadow);
+      }
+      .hero-copy {
+        padding: clamp(28px, 5vw, 72px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .eyebrow {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        text-transform: uppercase;
+        font-size: 0.74rem;
+        font-weight: 850;
+        letter-spacing: 0.12em;
+        color: #b7d7ca;
+      }
+      .dot {
+        width: 7px;
+        height: 7px;
+        background: var(--lime);
+        border-radius: 50%;
+      }
+      .hero h1 {
+        font-size: clamp(2.35rem, 5vw, 5.6rem);
+        line-height: 0.94;
+        letter-spacing: -0.065em;
+        margin: 14px 0 18px;
+        max-width: 830px;
+      }
+      .hero h1 span {
+        color: var(--lime);
+      }
+      .hero p {
+        font-size: 1.05rem;
+        color: #d5e4de;
+        max-width: 660px;
+        margin: 0;
+      }
+      .hero-media {
+        position: relative;
+        min-height: 340px;
+        background: #2e5f50;
+      }
+      .hero-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .photo-credit {
+        position: absolute;
+        right: 12px;
+        bottom: 12px;
+        padding: 7px 10px;
+        border-radius: 9px;
+        background: rgba(9, 22, 18, 0.78);
+        font-size: 0.7rem;
+        color: #e7efeb;
+      }
+      .scorecard {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 20px;
+        align-items: center;
+        margin-top: 26px;
+      }
+      .score-ring {
+        width: 108px;
+        height: 108px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: conic-gradient(
+          var(--lime) 0 80%,
+          rgba(255, 255, 255, 0.16) 84% 100%
+        );
+        position: relative;
+      }
+      .score-ring:after {
+        content: '';
+        position: absolute;
+        inset: 9px;
+        border-radius: 50%;
+        background: var(--pine);
+      }
+      .score-number {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        font-weight: 900;
+        font-size: 2rem;
+        line-height: 1;
+      }
+      .score-number small {
+        display: block;
+        font-size: 0.66rem;
+        color: #b7d7ca;
+        margin-top: 4px;
+      }
+      .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+      .hero-stat {
+        padding: 13px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 14px;
+      }
+      .hero-stat b {
+        font-size: 1.05rem;
+        display: block;
+      }
+      .hero-stat span {
+        font-size: 0.73rem;
+        color: #b7d7ca;
+      }
+      .section {
+        padding: 64px 0 0;
+      }
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+      .section h2 {
+        font-size: clamp(1.75rem, 3vw, 2.6rem);
+        letter-spacing: -0.045em;
+        line-height: 1.05;
+        margin: 0;
+      }
+      .section-intro {
+        max-width: 660px;
+        color: var(--muted);
+        margin: 8px 0 0;
+      }
+      .notice {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 15px;
+        padding: 18px;
+        background: #fff7dd;
+        border: 1px solid #ead79f;
+        border-radius: 16px;
+        margin-bottom: 20px;
+      }
+      .notice b {
+        display: block;
+      }
+      .notice p {
+        margin: 3px 0 0;
+        color: #645b43;
+        font-size: 0.91rem;
+      }
+      .map-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 310px;
+        gap: 16px;
+      }
+      .map-wrap {
+        height: 600px;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        overflow: hidden;
+        background: #dfe8e3;
+        position: relative;
+        box-shadow: var(--shadow);
+      }
+      #map {
+        height: 100%;
+        width: 100%;
+      }
+      .map-fallback {
+        position: absolute;
+        inset: auto 14px 14px;
+        z-index: 500;
+        background: white;
+        padding: 9px 12px;
+        border-radius: 10px;
+        font-size: 0.78rem;
+        color: var(--muted);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+      .map-side {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .mini-card {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 17px;
+        padding: 16px;
+      }
+      .mini-card h3 {
+        margin: 0 0 7px;
+        font-size: 1rem;
+      }
+      .mini-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.86rem;
+      }
+      .legend {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-top: 12px;
+      }
+      .legend span {
+        font-size: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .legend i {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
+      .filters {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin: 18px 0;
+      }
+      .filter {
+        border: 1px solid var(--line);
+        background: white;
+        padding: 9px 13px;
+        border-radius: 999px;
+        font-weight: 800;
+        font-size: 0.79rem;
+        color: var(--muted);
+        cursor: pointer;
+      }
+      .filter.active,
+      .filter:hover {
+        background: var(--pine);
+        border-color: var(--pine);
+        color: white;
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 15px;
+      }
+      .place-card {
+        display: flex;
+        flex-direction: column;
+        min-height: 275px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: var(--r);
+        overflow: hidden;
+        box-shadow: 0 6px 18px rgba(22, 63, 52, 0.04);
+        transition:
+          0.2s transform,
+          0.2s box-shadow;
+      }
+      .place-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow);
+      }
+      .place-card.hidden {
+        display: none;
+      }
+      .card-photo {
+        height: 156px;
+        background: #e5ebe7;
+        position: relative;
+        overflow: hidden;
+      }
+      .card-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .card-photo .card-icon {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        font-size: 3.2rem;
+        background: linear-gradient(135deg, #e8f3ed, #d4e5dc);
+      }
+      .card-photo.has-image .card-icon {
+        display: none;
+      }
+      .pill {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: white;
+        padding: 6px 9px;
+        border-radius: 999px;
+        font-size: 0.69rem;
+        font-weight: 900;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      .card-body {
+        padding: 17px;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+      }
+      .card-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: start;
+      }
+      .card-body h3 {
+        font-size: 1.1rem;
+        letter-spacing: -0.02em;
+        line-height: 1.15;
+        margin: 0;
+      }
+      .rating {
+        white-space: nowrap;
+        background: #eef5f0;
+        border-radius: 9px;
+        padding: 5px 8px;
+        font-size: 0.75rem;
+        font-weight: 900;
+      }
+      .meta {
+        font-size: 0.79rem;
+        color: var(--muted);
+        margin: 6px 0;
+      }
+      .desc {
+        font-size: 0.88rem;
+        color: #45534e;
+        margin: 8px 0 15px;
+      }
+      .card-actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: auto;
+      }
+      .card-actions a,
+      .map-button {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        text-decoration: none;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 8px 10px;
+        font-size: 0.76rem;
+        font-weight: 850;
+        background: white;
+        cursor: pointer;
+      }
+      .card-actions a.primary {
+        background: var(--pine);
+        border-color: var(--pine);
+        color: white;
+      }
+      .snapshot {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .panel {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: var(--r);
+        padding: 22px;
+      }
+      .panel h3 {
+        margin: 0 0 16px;
+        font-size: 1.2rem;
+      }
+      .bar-row {
+        display: grid;
+        grid-template-columns: 120px 1fr 42px;
+        gap: 10px;
+        align-items: center;
+        margin: 12px 0;
+        font-size: 0.84rem;
+      }
+      .bar {
+        height: 10px;
+        background: #edf1ee;
+        border-radius: 999px;
+        overflow: hidden;
+      }
+      .bar i {
+        height: 100%;
+        display: block;
+        border-radius: 999px;
+        background: var(--pine);
+      }
+      .proscons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .list li {
+        display: grid;
+        grid-template-columns: 25px 1fr;
+        gap: 9px;
+        padding: 10px 0;
+        border-top: 1px solid var(--line);
+        font-size: 0.91rem;
+      }
+      .list li:first-child {
+        border-top: 0;
+      }
+      .check,
+      .minus {
+        display: grid;
+        place-items: center;
+        width: 22px;
+        height: 22px;
+        border-radius: 7px;
+        font-size: 0.75rem;
+        font-weight: 900;
+      }
+      .check {
+        background: var(--mint);
+        color: var(--pine);
+      }
+      .minus {
+        background: #ffe2da;
+        color: #8b3c2a;
+      }
+      .method {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+      .method div {
+        padding: 15px;
+        border-radius: 15px;
+        background: #f4f7f2;
+      }
+      .method b {
+        display: block;
+      }
+      .method span {
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+      .sources {
+        font-size: 0.86rem;
+        color: var(--muted);
+      }
+      .sources a {
+        color: var(--pine);
+        font-weight: 750;
+      }
+      .sources li {
+        margin: 8px 0;
+      }
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 36px 0 20px;
+        margin-top: 54px;
+        border-top: 1px solid var(--line);
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+      .popup-title {
+        font-weight: 900;
+      }
+      .popup-meta {
+        font-size: 0.78rem;
+        color: #5f6d68;
+        margin: 3px 0 8px;
+      }
+      .popup-link {
+        font-size: 0.76rem;
+        font-weight: 850;
+        color: #163f34;
+      }
+      .pin {
+        width: 31px;
+        height: 31px;
+        border-radius: 50% 50% 50% 10%;
+        transform: rotate(-45deg);
+        display: grid;
+        place-items: center;
+        border: 3px solid white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.24);
+      }
+      .pin span {
+        transform: rotate(45deg);
+        font-size: 13px;
+      }
+      .pin-home {
+        background: #163f34;
+      }
+      .pin-school {
+        background: #80b9d5;
+      }
+      .pin-private {
+        background: #8f75b8;
+      }
+      .pin-montessori {
+        background: #dd9e44;
+      }
+      .pin-shopping {
+        background: #ec7962;
+      }
+      .pin-activity {
+        background: #de6aa7;
+      }
+      .pin-fitness {
+        background: #5baa7b;
+      }
+      .pin-martial {
+        background: #536b91;
+      }
+      @media (max-width: 980px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+        .hero-media {
+          height: 330px;
+          order: -1;
+        }
+        .map-layout {
+          grid-template-columns: 1fr;
+        }
+        .map-side {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
+        .cards {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .method {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 650px) {
+        .shell {
+          padding: 10px;
+        }
+        .topbar {
+          top: 6px;
+        }
+        .nav {
+          display: none;
+        }
+        .hero {
+          border-radius: 22px;
+        }
+        .hero-copy {
+          padding: 26px 20px;
+        }
+        .hero h1 {
+          font-size: 2.55rem;
+        }
+        .scorecard {
+          grid-template-columns: 86px 1fr;
+        }
+        .score-ring {
+          width: 84px;
+          height: 84px;
+        }
+        .hero-stats {
+          grid-template-columns: 1fr;
+        }
+        .hero-stat:nth-child(n + 2) {
+          display: none;
+        }
+        .map-wrap {
+          height: 480px;
+        }
+        .map-side,
+        .cards,
+        .snapshot,
+        .proscons {
+          grid-template-columns: 1fr;
+        }
+        .section {
+          padding-top: 48px;
+        }
+        .section-head {
+          align-items: start;
+          flex-direction: column;
+        }
+        .bar-row {
+          grid-template-columns: 100px 1fr 36px;
+        }
+        .method {
+          grid-template-columns: 1fr 1fr;
+        }
+        .footer {
+          flex-direction: column;
+        }
+      }
+      @media print {
+        .topbar,
+        .filters,
+        .card-actions,
+        .map-fallback {
+          display: none !important;
+        }
+        .hero {
+          break-inside: avoid;
+        }
+        .section {
+          padding-top: 30px;
+        }
+        .map-wrap {
+          height: 420px;
+        }
+        .place-card {
+          break-inside: avoid;
+          box-shadow: none;
+        }
+        .shell {
+          max-width: none;
+        }
+        .footer {
+          margin-top: 25px;
+        }
+      }
+      .area-grid {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 16px;
+      }
+      .area-card {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: var(--r);
+        padding: 22px;
+      }
+      .area-card h3 {
+        margin: 0 0 10px;
+        font-size: 1.2rem;
+      }
+      .grade-line {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 14px 0;
+      }
+      .grade {
+        display: grid;
+        place-items: center;
+        width: 76px;
+        height: 76px;
+        border-radius: 22px;
+        background: var(--pine);
+        color: white;
+        font-size: 2.4rem;
+        font-weight: 900;
+      }
+      .grade-copy b {
+        display: block;
+        font-size: 1.05rem;
+      }
+      .grade-copy span,
+      .area-card p {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      .fact-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin: 16px 0;
+      }
+      .fact {
+        padding: 13px;
+        border-radius: 14px;
+        background: #f4f7f2;
+      }
+      .fact b {
+        display: block;
+        font-size: 1.15rem;
+      }
+      .fact span {
+        font-size: 0.74rem;
+        color: var(--muted);
+      }
+      .vibe-grid,
+      .event-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 16px;
+      }
+      .vibe,
+      .event {
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: white;
+      }
+      .vibe h3,
+      .event h3 {
+        margin: 0 0 6px;
+        font-size: 1rem;
+      }
+      .vibe p,
+      .event p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.84rem;
+      }
+      .event a {
+        display: inline-block;
+        margin-top: 10px;
+        color: var(--pine);
+        font-size: 0.78rem;
+        font-weight: 850;
+      }
+      @media (max-width: 980px) {
+        .area-grid {
+          grid-template-columns: 1fr;
+        }
+        .fact-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 650px) {
+        .vibe-grid,
+        .event-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  <style id="family-radius-priority-style">
+.fr-priority{width:min(1120px,calc(100% - 30px));margin:16px auto 0;padding:18px 20px;border:2px solid #10251f;border-radius:18px;background:#fff;color:#10251f;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;box-shadow:0 10px 28px rgba(16,37,31,.10)}.fr-priority-main{display:grid;grid-template-columns:1fr 1fr;gap:10px}.fr-priority-stat{background:#10251f;color:#fff;border-radius:14px;padding:14px 16px}.fr-priority-stat b{display:block;color:#cce95a;font:700 clamp(1.65rem,4vw,2.4rem)/1 Georgia,serif}.fr-priority-stat span{display:block;margin-top:5px;font-size:.75rem;color:#d7e0dc}.fr-dc-brief{border-left:1px solid #d8ded8;padding-left:18px}.fr-dc-brief h2{font:700 1.2rem Georgia,serif;margin:0 0 7px}.fr-dc-brief p{margin:3px 0;font-size:.82rem;line-height:1.4}.fr-dc-brief a{font-weight:800;color:#296d62}.fr-dc-detail{width:min(1120px,calc(100% - 30px));margin:14px auto 28px;padding:20px;border:1px solid #d8ded8;border-radius:18px;background:#fff;color:#10251f;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}.fr-dc-detail h2{font:700 1.55rem Georgia,serif;margin:0 0 6px}.fr-dc-detail>p{margin:0 0 14px;color:#63716a;font-size:.85rem}.fr-dc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.fr-dc-card{border:1px solid #d8ded8;border-radius:14px;padding:14px}.fr-dc-card .fr-label{text-transform:uppercase;letter-spacing:.08em;font-size:.65rem;font-weight:850;color:#296d62}.fr-dc-card h3{font:700 1.08rem Georgia,serif;margin:5px 0}.fr-dc-card p{margin:4px 0;font-size:.82rem}.fr-dc-card a{display:inline-block;margin-top:6px;font-weight:800;color:#296d62}.fr-dc-caveat{margin-top:13px!important;font-size:.75rem!important}.fr-dc-counts{font-weight:800}.fr-priority-source{grid-column:1/-1;margin:-8px 0 0;font-size:.68rem;color:#63716a}.fr-report-tools{grid-column:1/-1;display:grid;grid-template-columns:auto minmax(220px,1fr) auto;gap:12px;align-items:end;padding-bottom:14px;border-bottom:1px solid #d8ded8}.fr-back-list,.fr-note-save{display:inline-flex;align-items:center;justify-content:center;min-height:42px;border-radius:999px;padding:9px 14px;font-weight:850;text-decoration:none}.fr-back-list{background:#10251f;color:#fff}.fr-note-field{display:grid;gap:5px}.fr-note-field span{font-size:.72rem;font-weight:850}.fr-note-field textarea{width:100%;min-height:46px;resize:vertical;border:1px solid #c8d0cb;border-radius:11px;padding:9px 11px;font:inherit;color:#10251f;background:#fbfcfa}.fr-note-save{border:0;background:#296d62;color:#fff;cursor:pointer;font:inherit;font-weight:850}.fr-note-state{grid-column:2/-1;min-height:1em;margin-top:-8px;font-size:.72rem;color:#63716a}@media(max-width:720px){.fr-priority,.fr-dc-grid{grid-template-columns:1fr}.fr-dc-brief{border-left:0;border-top:1px solid #d8ded8;padding:13px 0 0}.fr-priority-main{grid-template-columns:1fr 1fr}.fr-report-tools{grid-template-columns:1fr}.fr-note-state{grid-column:1}}@media print{.fr-priority,.fr-dc-detail{box-shadow:none;break-inside:avoid}.fr-priority-stat{background:#fff!important;color:#000!important;border:2px solid #000}.fr-priority-stat b,.fr-dc-brief a,.fr-dc-card a{color:#000!important}.fr-dc-detail{border:2px solid #000}.fr-dc-card{border:1px solid #000}.fr-back-list,.fr-note-save,.fr-note-state{display:none!important}.fr-report-tools{grid-template-columns:1fr}}
+</style></head>
+  <body><section class="fr-priority" aria-label="Top property facts"><div class="fr-report-tools" data-house-id="80-802-mcconnell-pkwy-hughesville-pa"><a class="fr-back-list" href="https://rellorin.github.io/houses/">← Back to house list</a><label class="fr-note-field"><span>Shared notes</span><textarea maxlength="2000" rows="2" placeholder="Add a note that both of you can see…"></textarea></label><button class="fr-note-save" type="button">Save notes</button><span class="fr-note-state" aria-live="polite">Loading shared notes…</span></div><div class="fr-priority-main"><div class="fr-priority-stat"><b>3,259 sq ft</b><span>reported finished living area</span></div><div class="fr-priority-stat"><b>2.73 acres</b><span>reported property acreage</span></div></div><div class="fr-dc-brief"><h2>Data-center proximity</h2><p><b>Operating:</b> 0 tracked within 10 mi · 0 within 25 mi</p><p><b>Proposed / building:</b> 1 tracked within 10 mi · 4 within 25 mi</p><p><a href="#data-center-proximity">See nearest tracked projects ↓</a></p></div><p class="fr-priority-source">House facts: Current West Branch Valley AOR listing; 2,628 above grade plus 631 finished below grade. Public record reports 2,966. Verify dimensions, finished-area treatment and lot boundaries before purchase.</p></section>
+
+
+
+
+
+
+
+    <div class="shell">
+      <header class="topbar"><div class="brand"><span class="brand-mark">⌂</span><span>Family Radius</span></div><nav class="nav" aria-label="Report sections"><a href="#map-section">Map</a><a href="#area">Area</a><a href="#places">Places</a><a href="#score">Score</a><a href="#decision">Decision notes</a><a href="#sources">Sources</a></nav></header>
+      <section class="hero"><div class="hero-copy"><div class="eyebrow"><span class="dot"></span>Family convenience report · researched October 11, 2026</div><h1>802 McConnell Parkway<br><span>Hughesville, PA 17737</span></h1><p>A large Wolf Township home with 3,259 listing-reported finished square feet, 2.73 level acres, a salt-water pool and unusually short trips to both public-school campuses. Muncy shopping and children’s activities are practical, while authentic Montessori requires a much longer search radius.</p><div class="scorecard"><div class="score-ring" aria-label="Family convenience score 80 out of 100"><div class="score-number">80<small>out of 100</small></div></div><div class="hero-stats"><div class="hero-stat"><b>~3 min</b><span>assigned public schools + dance</span></div><div class="hero-stat"><b>~8–12 min</b><span>grocery, Target, gymnastics, gym + BJJ</span></div><div class="hero-stat"><b>~24–28 min</b><span>private school, early learning + Muay Thai</span></div></div></div></div><div class="hero-media"><img src="https://ssl.cdn-redfin.com/photo/407/bigphoto/946/WB-104946_4.jpg" alt="802 McConnell Parkway in Hughesville, PA 17737"><a class="photo-credit" href="https://www.zillow.com/homedetails/802-McConnell-Pkwy-Hughesville-PA-17737/78682260_zpid/" target="_blank" rel="noreferrer">Property photo · current listing source ↗</a></div></section>
+      <section class="section" id="map-section"><div class="section-head"><div><h2>Everything in one radius</h2><p class="section-intro">Tap a marker for the researched destination and a live route. Google Maps recalculates from the property when opened.</p></div></div><div class="notice"><div>⚑</div><div><b>Hughesville mailing address, Wolf Township property</b><p>The Census geocoder places the parcel in Wolf Township. Current listing portals report Joseph C. Ashkar Elementary and Hughesville Junior/Senior High as the public-school path in East Lycoming School District. Confirm the exact parcel assignment, transportation and enrollment directly with district registration.</p></div></div><div class="map-layout"><div class="map-wrap"><div id="map" role="application" aria-label="Interactive map of the property and nearby family destinations"></div><div class="map-fallback">Map tiles and the listing photo need an internet connection. All addresses and route links remain usable offline.</div></div><aside class="map-side"><div class="mini-card"><h3>Drive-time bands</h3><p><strong>≤10 min:</strong> excellent · <strong>11–20:</strong> practical · <strong>21+:</strong> planned trip</p><div class="legend"><span><i style="background:#80b9d5"></i>Public school</span><span><i style="background:#8f75b8"></i>Private</span><span><i style="background:#dd9e44"></i>Montessori</span><span><i style="background:#ec7962"></i>Shopping</span><span><i style="background:#de6aa7"></i>Kids activity</span><span><i style="background:#5baa7b"></i>Fitness</span><span><i style="background:#536b91"></i>Martial arts</span></div></div><div class="mini-card"><h3>At a glance</h3><p>Exceptional school proximity, a level 2.73-acre lot and practical Muncy shopping make this one of the more usable rural-family locations. The most important diligence items are the conflicting finished-area figures, sewer/septic type, parcel-specific FEMA status and the lack of a verified nearby Montessori program.</p></div><div class="mini-card"><h3>Estimate standard</h3><p>Times and road miles are conservative off-peak planning estimates prepared October 11, 2026—not live traffic. Open a live route before a real trip.</p></div></aside></div></section>
+      <section class="section" id="area"><div class="section-head"><div><h2>What it’s like here</h2><p class="section-intro">McConnell Parkway is a quiet, low-density residential pocket just outside Hughesville Borough. The setting feels suburban-rural rather than remote: schools, the fairgrounds and town services are close, while Muncy and the former Lycoming Mall corridor supply most full-service shopping and organized activities.</p></div></div><div class="area-grid"><article class="area-card"><span class="pill" style="position:static;display:inline-block;box-shadow:none">Public-school profile</span><div class="grade-line"><div class="grade">7</div><div class="grade-copy"><b>elementary rating</b><span>GreatSchools · PK–6</span></div></div><p>Joseph C. Ashkar Elementary is currently shown at 7/10 and Hughesville Junior/Senior High at 6/10. Both reported campuses are about a mile from the property, making the school-day logistics a standout strength. Verify assignment and transportation with East Lycoming School District.</p></article><article class="area-card"><h3>Wolf Township</h3><div class="fact-grid"><div class="fact"><b>3,109</b><span>2020 Census population</span></div><div class="fact"><b>19.6 sq mi</b><span>land area</span></div><div class="fact"><b>2.73 ac</b><span>property acreage</span></div><div class="fact"><b>1990</b><span>year built</span></div></div><p>Wolf Township had 3,109 residents at the 2020 Census across about 19.6 square miles of land. It surrounds Hughesville Borough and sits roughly fifteen miles east of Williamsport, blending farm country, established neighborhoods and easy access to the Muncy commercial corridor.</p></article></div><div class="vibe-grid"><article class="vibe"><h3>Daily feel</h3><p>Quiet and residential with a large private yard, mature trees and mountain-valley surroundings. The house is close to Hughesville schools and town events, but almost every errand still requires a car.</p></article><article class="vibe"><h3>The local niche</h3><p>A practical small-town base for families who want acreage without being far from schools. Hughesville’s identity is tied to East Lycoming schools, agriculture and the long-running Lycoming County Fair, with bigger shopping and employment centered around Muncy, Montoursville and Williamsport.</p></article><article class="vibe"><h3>What to notice</h3><p>The current MLS reports 3,259 finished square feet—2,628 above grade plus 631 below grade—while public-record summaries report 2,966. Confirm permits and what is included. Public water is reported; sewer/septic and official FEMA flood-zone status were not verified and need direct diligence.</p></article></div><div class="section-head" style="margin-top:28px"><div><h2 style="font-size:1.65rem">Events in the local orbit</h2><p class="section-intro">Community life is small-town and school-centered, with the Lycoming County Fair as the signature annual event plus library programs, athletics, seasonal borough activities and regional recreation.</p></div></div><div class="event-grid"><article class="event"><h3>Lycoming County Fair</h3><p>Hughesville hosts the county’s historic mid-July agricultural fair with livestock, rides, food, demonstrations, tractor pulls and grandstand entertainment.</p><a href="https://lycomingfair.net/" target="_blank">Official information ↗</a></article><article class="event"><h3>Hughesville Area Public Library</h3><p>The library maintains an active calendar with children’s programs, clubs, homeschool activities and community learning events.</p><a href="https://haplpa.org/events-calendar/" target="_blank">Official information ↗</a></article><article class="event"><h3>Spartan athletics and arts</h3><p>East Lycoming’s school calendar brings sports, concerts, theater and family activities throughout the academic year.</p><a href="https://www.elsdathletics.org/" target="_blank">Official information ↗</a></article><article class="event"><h3>Borough calendar</h3><p>Municipal meetings, seasonal notices and local events are collected on Hughesville Borough’s public calendar.</p><a href="https://www.hughesvillepa.org/government/borough-calendar" target="_blank">Official information ↗</a></article><article class="event"><h3>Fairgrounds off-season events</h3><p>The fairgrounds also hosts horse shows, flea markets, vehicle events and other gatherings outside the July fair window.</p><a href="https://lycomingfair.net/" target="_blank">Official information ↗</a></article><article class="event"><h3>Lycoming County events</h3><p>Williamsport and the broader county add festivals, museums, holiday markets, outdoor programs and family entertainment.</p><a href="https://visitlycomingcounty.com/all-events/" target="_blank">Official information ↗</a></article></div></section>
+      <section class="section" id="places"><div class="section-head"><div><h2>Family essentials, compared</h2><p class="section-intro">The same card and scoring structure is used for every house. Each destination includes a live map link.</p></div></div><div class="filters" role="group" aria-label="Filter places"><button class="filter active" data-filter="all">All 15</button><button class="filter" data-filter="school">Public school</button><button class="filter" data-filter="private">Private</button><button class="filter" data-filter="montessori">Montessori</button><button class="filter" data-filter="shopping">Shopping</button><button class="filter" data-filter="activity">Kids activities</button><button class="filter" data-filter="fitness">Fitness</button><button class="filter" data-filter="martial">Martial arts</button></div><div class="cards" id="cards"></div></section>
+      <section class="section" id="score"><div class="section-head"><div><h2>Why the score is 80</h2><p class="section-intro">Weighted for everyday family use: schools and groceries count more than occasional destinations.</p></div></div><div class="snapshot"><div class="panel"><h3>Category scores</h3><div class="bar-row"><span>Public schools</span><div class="bar"><i style="width:90%;"></i></div><b>90</b></div><div class="bar-row"><span>Private / early</span><div class="bar"><i style="width:55%;"></i></div><b>55</b></div><div class="bar-row"><span>Daily shopping</span><div class="bar"><i style="width:88%;"></i></div><b>88</b></div><div class="bar-row"><span>Kids activities</span><div class="bar"><i style="width:95%;"></i></div><b>95</b></div><div class="bar-row"><span>Adult fitness</span><div class="bar"><i style="width:92%;"></i></div><b>92</b></div><div class="bar-row"><span>Martial arts</span><div class="bar"><i style="width:65%;"></i></div><b>65</b></div><div class="bar-row"><span>Walkability</span><div class="bar"><i style="width:16%;background:#f28c72"></i></div><b>16</b></div></div><div class="panel"><h3>Comparison formula</h3><div class="method"><div><b>30%</b><span>public schools</span></div><div><b>15%</b><span>private / early learning</span></div><div><b>20%</b><span>shopping & grocery</span></div><div><b>15%</b><span>kids activities</span></div><div><b>10%</b><span>adult fitness</span></div><div><b>5%</b><span>martial arts</span></div><div><b>5%</b><span>walkability</span></div><div><b>80</b><span>weighted total</span></div></div><p style="color:var(--muted);font-size:.82rem;margin:16px 0 0">Distance bands: ≤10 min is strongest, 11–20 min practical, 21–30 min a planned trip, and 30+ min weak. Quality indicators and breadth of choice then adjust each category.</p></div></div></section>
+      <section class="section" id="decision"><div class="section-head"><div><h2>Decision notes</h2><p class="section-intro">The useful trade-offs, stripped of real-estate gloss.</p></div></div><div class="proscons"><div class="panel"><h3>What works well</h3><ul class="list"><li><span class="check">✓</span><span>The reported elementary and junior/senior high campuses are each about a mile away, with current 7/10 and 6/10 ratings.</span></li><li><span class="check">✓</span><span>D&K dance is roughly three minutes away; Dynamats gymnastics, the Eastern Lycoming YMCA and Muncy BJJ are approximately eight to twelve minutes away.</span></li><li><span class="check">✓</span><span>A proper Weis supermarket is roughly eight minutes away, and Target is around eleven minutes away.</span></li><li><span class="check">✓</span><span>The current listing reports 2.73 level acres, 3,259 finished square feet, a two-car garage, salt-water pool, pavilion, deck, fenced garden and mature trees.</span></li><li><span class="check">✓</span><span>The signature Lycoming County Fair and its fairgrounds are very close.</span></li></ul></div><div class="panel"><h3>What to plan around</h3><ul class="list"><li><span class="minus">–</span><span>No authentic Montessori program for children under five was verified in the immediate Hughesville–Muncy area; New Growth in Williamsport is a non-Montessori alternative.</span></li><li><span class="minus">–</span><span>The nearest verified private elementary and combined BJJ/Muay Thai options require planned trips to Williamsport.</span></li><li><span class="minus">–</span><span>The location is car-dependent despite the unusually close schools.</span></li><li><span class="minus">–</span><span>Current-listing and public-record living-area figures differ; verify the finished basement, permits and appraisal basis.</span></li><li><span class="minus">–</span><span>The listing confirms public water but does not clearly disclose sewer/septic in the surfaced facts; verify the system, maintenance history and costs.</span></li><li><span class="minus">–</span><span>Official FEMA flood-zone status was not verified; portal flood-factor summaries are not a substitute for a parcel-specific FEMA determination.</span></li></ul></div></div></section>
+      <section class="section" id="sources"><div class="section-head"><div><h2>Sources & verification</h2><p class="section-intro">Current as researched October 11, 2026. Programs, ratings, prices, assignments and hours can change.</p></div></div><div class="panel sources"><ol><li><a href="https://www.zillow.com/homedetails/802-McConnell-Pkwy-Hughesville-PA-17737/78682260_zpid/" target="_blank">Zillow current West Branch Valley AOR listing</a>.</li><li><a href="https://www.redfin.com/PA/Hughesville/802-McConnell-Pkwy-17737/home/136885506" target="_blank">Redfin listing, public-record comparison and school proximity</a>.</li><li><a href="https://www.elsd.org/" target="_blank">East Lycoming School District</a>.</li><li><a href="https://www.elsd.org/ashkar-elementary/" target="_blank">Joseph C. Ashkar Elementary official page</a>.</li><li><a href="https://www.dioceseofscranton.org/find-a-school/st-john-neumann-elementary-school-williamsport/" target="_blank">St. John Neumann Elementary official diocesan page</a>.</li><li><a href="https://newgrowthlc.org/" target="_blank">New Growth Learning Company</a>.</li><li><a href="https://wolftownship.org/" target="_blank">Wolf Township official site</a>.</li><li><a href="https://lycomingfair.net/" target="_blank">Lycoming County Fair</a>.</li><li><a href="https://www.google.com/maps" target="_blank">Business and program official sites linked in each card</a>.</li><li>Locations were address-geocoded October 11, 2026. Mileage and time are approximate off-peak planning estimates; Google Maps links provide live recalculation.</li></ol></div></section>
+      <footer class="footer"><span>Family Radius · comparison-ready neighborhood report</span><span>Not a guarantee of enrollment, availability, ratings, hours or travel time.</span></footer>
+    </div>    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      crossorigin=""
+    ></script>
+    <script>
+      const HOME={"name":"802 McConnell Parkway","address":"802 McConnell Pkwy, Hughesville, PA 17737","lat":41.238474069642,"lng":-76.712745144455};
+      const places=[
+        {
+                "id": "elementary",
+                "name": "Joseph C. Ashkar Elementary School",
+                "cat": "school",
+                "label": "Reported public PK–6",
+                "icon": "🏫",
+                "address": "350 S Broad St, Hughesville, PA 17737",
+                "miles": "~1.2 mi",
+                "time": "~3 min",
+                "rating": "7/10 GreatSchools",
+                "desc": "Current listing-reported elementary path and a very short school-day trip. Confirm the parcel assignment and transportation directly with East Lycoming.",
+                "lat": 41.2373507,
+                "lng": -76.7321806,
+                "url": "https://www.elsd.org/ashkar-elementary/"
+        },
+        {
+                "id": "middle",
+                "name": "Hughesville Junior High School",
+                "cat": "school",
+                "label": "Reported public grades 7–8",
+                "icon": "📚",
+                "address": "349 Cemetery St, Hughesville, PA 17737",
+                "miles": "~1.1 mi",
+                "time": "~3 min",
+                "rating": "6/10 combined campus",
+                "desc": "Junior grades share the district’s junior/senior high campus. Confirm programming, bus route and current rating directly.",
+                "lat": 41.2406841,
+                "lng": -76.7320781,
+                "url": "https://www.elsd.org/"
+        },
+        {
+                "id": "high",
+                "name": "Hughesville Senior High School",
+                "cat": "school",
+                "label": "Reported public grades 9–12",
+                "icon": "🎓",
+                "address": "349 Cemetery St, Hughesville, PA 17737",
+                "miles": "~1.1 mi",
+                "time": "~3 min",
+                "rating": "6/10 GreatSchools",
+                "desc": "The reported secondary campus is exceptionally close and offers district athletics, arts and extracurricular programs.",
+                "lat": 41.2406841,
+                "lng": -76.7320781,
+                "url": "https://www.elsdathletics.org/"
+        },
+        {
+                "id": "private",
+                "name": "St. John Neumann Elementary School",
+                "cat": "private",
+                "label": "Private Catholic PK–5",
+                "icon": "⛪",
+                "address": "710 Franklin St, Williamsport, PA 17701",
+                "miles": "~17 mi",
+                "time": "~24 min",
+                "rating": "Private elementary option",
+                "desc": "Diocese of Scranton private elementary serving pre-K through grade five. Confirm tuition, openings, transportation and admissions.",
+                "lat": 41.2468103,
+                "lng": -76.9974966,
+                "url": "https://www.dioceseofscranton.org/find-a-school/st-john-neumann-elementary-school-williamsport/"
+        },
+        {
+                "id": "montessori",
+                "name": "New Growth Learning Company",
+                "cat": "montessori",
+                "label": "Early learning alternative · not Montessori",
+                "icon": "🧩",
+                "address": "2100 W 3rd St, Williamsport, PA 17701",
+                "miles": "~20 mi",
+                "time": "~28 min",
+                "rating": "Ages 1–5 · non-Montessori",
+                "desc": "The closest well-documented whole-child early-learning alternative found in this search. It is not presented as Montessori; no authentic nearby Montessori program was verified.",
+                "lat": 41.235218,
+                "lng": -77.051908,
+                "url": "https://newgrowthlc.org/"
+        },
+        {
+                "id": "grocery",
+                "name": "Weis Markets Muncy",
+                "cat": "shopping",
+                "label": "Proper grocery",
+                "icon": "🥕",
+                "address": "1272 E Penn St, Muncy, PA 17756",
+                "miles": "~5.5 mi",
+                "time": "~8 min",
+                "rating": "Full supermarket · pharmacy",
+                "desc": "The closest practical full-line supermarket for produce, meat, bakery, deli, pharmacy and routine weekly shopping.",
+                "lat": 41.2024996,
+                "lng": -76.7814114,
+                "url": "https://www.weismarkets.com/stores/"
+        },
+        {
+                "id": "walmart",
+                "name": "Walmart Montoursville Supercenter",
+                "cat": "shopping",
+                "label": "Closest Walmart",
+                "icon": "🛒",
+                "address": "1015 N Loyalsock Ave, Montoursville, PA 17754",
+                "miles": "~13 mi",
+                "time": "~18 min",
+                "rating": "Supercenter · full grocery",
+                "desc": "Full grocery, pharmacy, pickup and general merchandise in Montoursville.",
+                "lat": 41.2622659,
+                "lng": -76.9191033,
+                "url": "https://www.walmart.com/store/1887-montoursville-pa"
+        },
+        {
+                "id": "target",
+                "name": "Target Williamsport",
+                "cat": "shopping",
+                "label": "Closest Target",
+                "icon": "🎯",
+                "address": "170 S Lycoming Mall Rd, Muncy, PA 17756",
+                "miles": "~8 mi",
+                "time": "~11 min",
+                "rating": "Drive Up · pickup · grocery",
+                "desc": "Full Target in the Lycoming Mall corridor with pickup, Drive Up and grocery basics.",
+                "lat": 41.2442607,
+                "lng": -76.8357926,
+                "url": "https://www.target.com/sl/williamsport/2437"
+        },
+        {
+                "id": "dance",
+                "name": "D&K’s Studio of Dance",
+                "cat": "activity",
+                "label": "Kids dance",
+                "icon": "💃",
+                "address": "301 Cemetery St, Hughesville, PA 17737",
+                "miles": "~1.1 mi",
+                "time": "~3 min",
+                "rating": "Ages 3–adult",
+                "desc": "Long-running local studio offering ballet, tap, jazz, contemporary, lyrical, musical theater, pointe, acro and hip-hop.",
+                "lat": 41.2403212,
+                "lng": -76.7312801,
+                "url": "https://www.dkstudioofdance.org/"
+        },
+        {
+                "id": "gymnastics",
+                "name": "Dynamats Gymnastics Center",
+                "cat": "activity",
+                "label": "Kids gymnastics",
+                "icon": "🤸",
+                "address": "221 Alexander Dr, Muncy, PA 17756",
+                "miles": "~8 mi",
+                "time": "~12 min",
+                "rating": "Preschool + recreational + competitive",
+                "desc": "Dedicated 14,000-square-foot gymnastics facility with recreational classes and competitive programs.",
+                "lat": 41.2464,
+                "lng": -76.839,
+                "url": "https://www.dynamats.com/"
+        },
+        {
+                "id": "gym",
+                "name": "Eastern Lycoming YMCA",
+                "cat": "fitness",
+                "label": "Adult gym + family aquatics",
+                "icon": "🏋️",
+                "address": "50 Fitness Dr, Muncy, PA 17756",
+                "miles": "~8 mi",
+                "time": "~12 min",
+                "rating": "Fitness · pool · programs",
+                "desc": "Full YMCA branch with wellness equipment, personal training, aquatics, youth programs, childcare and camps.",
+                "lat": 41.243098,
+                "lng": -76.8412943,
+                "url": "https://www.rvrymca.org/eastern-lycoming"
+        },
+        {
+                "id": "martial",
+                "name": "570 Jiu Jitsu",
+                "cat": "martial",
+                "label": "BJJ + kickboxing/Muay Thai fundamentals",
+                "icon": "🥋",
+                "address": "1307 Park Ave, Suite 210, Williamsport, PA 17701",
+                "miles": "~19 mi",
+                "time": "~27 min",
+                "rating": "Adults + kids · BJJ + striking",
+                "desc": "Verified academy with adult and kids BJJ plus kickboxing that incorporates boxing and Muay Thai fundamentals; MMA is also offered.",
+                "lat": 41.2424074,
+                "lng": -77.033122,
+                "url": "https://www.570jiujitsu.com/"
+        },
+        {
+                "id": "lake",
+                "name": "Tried and True Jiu Jitsu",
+                "cat": "martial",
+                "label": "Closest dedicated BJJ",
+                "icon": "🥋",
+                "address": "15 E Water St, Muncy, PA 17756",
+                "miles": "~5.5 mi",
+                "time": "~8 min",
+                "rating": "Brazilian jiu-jitsu",
+                "desc": "The closest dedicated Brazilian jiu-jitsu option found; verify the current children’s schedule, trial policy and exact class location.",
+                "lat": 41.205599,
+                "lng": -76.785618,
+                "url": "https://www.triedandtruejiujitsu.com/locations/muncy"
+        },
+        {
+                "id": "park",
+                "name": "Lycoming County Fairgrounds",
+                "cat": "activity",
+                "label": "Signature local events",
+                "icon": "🌳",
+                "address": "500 Broadway St, Hughesville, PA 17737",
+                "miles": "~0.8 mi",
+                "time": "~2 min",
+                "rating": "Fair · shows · community events",
+                "desc": "Home of the annual Lycoming County Fair plus off-season horse shows, flea markets and other regional gatherings.",
+                "lat": 41.2352457,
+                "lng": -76.7228187,
+                "url": "https://lycomingfair.net/"
+        },
+        {
+                "id": "home",
+                "name": "The property",
+                "cat": "home",
+                "label": "Home base",
+                "icon": "⌂",
+                "address": "802 McConnell Pkwy, Hughesville, PA 17737",
+                "miles": "0 mi",
+                "time": "Home",
+                "rating": "80/100",
+                "desc": "Current Wolf Township listing with 2.73 level acres and 3,259 listing-reported finished square feet.",
+                "lat": 41.238474069642,
+                "lng": -76.712745144455,
+                "url": "https://www.zillow.com/homedetails/802-McConnell-Pkwy-Hughesville-PA-17737/78682260_zpid/"
+        }
+];
+      const names = {
+        school: 'Public school',
+        private: 'Private school',
+        montessori: 'Montessori',
+        shopping: 'Shopping',
+        activity: 'Kids activity',
+        fitness: 'Fitness',
+        martial: 'Martial arts',
+        home: 'Home',
+      };
+      const route = (p) =>
+        `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(HOME.address)}&destination=${encodeURIComponent(p.address)}&travelmode=driving`;
+      const cards = document.getElementById('cards');
+      places
+        .filter((p) => p.cat !== 'home')
+        .forEach((p) => {
+          const el = document.createElement('article');
+          el.className = 'place-card';
+          el.dataset.cat = p.cat;
+          const media = p.photo
+            ? `<div class="card-photo has-image"><img loading="lazy" src="${p.photo}" alt="${p.name}"><span class="pill">${p.label}</span><span class="card-icon">${p.icon}</span></div>`
+            : `<div class="card-photo"><span class="pill">${p.label}</span><span class="card-icon">${p.icon}</span></div>`;
+          el.innerHTML = `${media}<div class="card-body"><div class="card-top"><h3>${p.name}</h3><span class="rating">${p.rating}</span></div><div class="meta">${names[p.cat]} · ${p.miles} · ${p.time} estimated</div><p class="desc">${p.desc}</p><div class="card-actions"><a class="primary" href="${route(p)}" target="_blank">Live route ↗</a><button class="map-button" data-id="${p.id}">Show on map</button><a href="${p.url}" target="_blank">Website ↗</a></div></div>`;
+          cards.appendChild(el);
+        });
+      document.querySelectorAll('.filter').forEach((btn) =>
+        btn.addEventListener('click', () => {
+          document
+            .querySelectorAll('.filter')
+            .forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+          const f = btn.dataset.filter;
+          document
+            .querySelectorAll('.place-card')
+            .forEach((c) =>
+              c.classList.toggle('hidden', f !== 'all' && c.dataset.cat !== f),
+            );
+          if (window.mapMarkers)
+            Object.entries(window.mapMarkers).forEach(([id, m]) => {
+              const p = places.find((x) => x.id === id);
+              if (f === 'all' || p.cat === f || p.cat === 'home')
+                m.addTo(window.familyMap);
+              else m.remove();
+            });
+        }),
+      );
+      if (window.L) {
+        const map = L.map('map', { scrollWheelZoom: false }).setView(
+          [40.8913, -75.4064],
+          11,
+        );
+        window.familyMap = map;
+        const streetTiles = L.tileLayer(
+          'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
+          {
+          maxZoom: 19,
+          attribution:
+            'Tiles &copy; Esri; data &copy; OpenStreetMap contributors and the GIS user community',
+          },
+        ).addTo(map);
+        let tileErrors = 0;
+        streetTiles.on('tileerror', () => {
+          tileErrors += 1;
+          if (tileErrors !== 3) return;
+          map.removeLayer(streetTiles);
+          L.tileLayer(
+            'https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}',
+            {
+              maxZoom: 19,
+              attribution: 'Tiles courtesy of the U.S. Geological Survey',
+            },
+          ).addTo(map);
+        });
+        window.mapMarkers = {};
+        const icon = (p) =>
+          L.divIcon({
+            className: '',
+            html: `<div class="pin pin-${p.cat}"><span>${p.icon}</span></div>`,
+            iconSize: [31, 31],
+            iconAnchor: [15, 30],
+            popupAnchor: [0, -28],
+          });
+        places.forEach((p) => {
+          const m = L.marker([p.lat, p.lng], { icon: icon(p) })
+            .addTo(map)
+            .bindPopup(
+              `<div class="popup-title">${p.name}</div><div class="popup-meta">${p.miles} · ${p.time}${p.cat === 'home' ? '' : ' estimated'}</div>${p.cat === 'home' ? '' : `<a class="popup-link" href="${route(p)}" target="_blank">Open live route ↗</a>`}`,
+            );
+          window.mapMarkers[p.id] = m;
+        });
+        map.fitBounds(
+          L.latLngBounds(places.map((p) => [p.lat, p.lng])),
+          { padding: [28, 28] },
+        );
+        L.circle([HOME.lat, HOME.lng], {
+          radius: 8047,
+          color: '#163f34',
+          fillColor: '#d6eee2',
+          fillOpacity: 0.08,
+          weight: 1,
+          dashArray: '6 7',
+        }).addTo(map);
+        document.querySelectorAll('.map-button').forEach((b) =>
+          b.addEventListener('click', () => {
+            const p = places.find((x) => x.id === b.dataset.id);
+            document.getElementById('map-section').scrollIntoView();
+            setTimeout(() => {
+              map.setView([p.lat, p.lng], 13);
+              window.mapMarkers[p.id].addTo(map).openPopup();
+            }, 350);
+          }),
+        );
+      }
+    </script>
+  <section class="fr-dc-detail" id="data-center-proximity"><h2>Data Center Proximity</h2><p>Track Data Centers snapshot checked October 11, 2026. Distances are straight-line planning measurements from the mapped house location, not road miles.</p><div class="fr-dc-grid"><article class="fr-dc-card"><div class="fr-label">Nearest tracked operating center</div><h3>Nautilus Cryptomine</h3><p><b>31 mi straight-line</b> · operational</p><p>1375 Electron Avenue · Berwick · Pennsylvania</p><a href="https://trackdatacenters.com/usa/pennsylvania/data-centers/nautilus-cryptomine" target="_blank" rel="noreferrer">Open tracker record ↗</a></article><article class="fr-dc-card"><div class="fr-label">Nearest tracked proposed / construction project</div><h3>Muncy Data Center</h3><p><b>5.2 mi straight-line</b> · proposed</p><p>Between John Brady Drive and Susquehanna River · Muncy Township · Pennsylvania</p><a href="https://trackdatacenters.com/usa/pennsylvania/data-centers/muncy-data-center" target="_blank" rel="noreferrer">Open tracker record ↗</a></article></div><p class="fr-dc-caveat"><span class="fr-dc-counts">Within 25 miles:</span> 0 operating and 4 proposed/construction entries in this tracker snapshot. “None tracked” is not proof that no project exists or is being discussed. Also check the municipality and county planning commission, zoning hearing board, utility-interconnection filings and local news before making an offer. Track Data Centers uses an undocumented site feed, so records and classifications may change.</p></section><script id="family-radius-report-actions">
+(()=>{const tools=document.querySelector('.fr-report-tools'),field=tools?.querySelector('textarea'),button=tools?.querySelector('.fr-note-save'),state=tools?.querySelector('.fr-note-state');if(!tools||!field||!button||!state)return;const houseId=tools.dataset.houseId,base='https://whjqnkhndxytomujhpat.supabase.co/rest/v1/house_tracking',headers={apikey:'sb_publishable_Xkd3jWDdW1Nljts2B0_ZjQ_OoFFsAAi','Content-Type':'application/json'};let status='unmarked';async function load(){try{const response=await fetch(base+'?select=status,notes&house_id=eq.'+encodeURIComponent(houseId)+'&limit=1',{headers});if(!response.ok)throw new Error();const rows=await response.json(),row=rows[0];if(row){status=row.status||'unmarked';field.value=row.notes||''}state.textContent='Shared notes are up to date.'}catch(error){state.textContent='Shared notes could not be loaded.'}}async function save(){button.disabled=true;state.textContent='Saving…';try{const payload={house_id:houseId,status,notes:field.value,updated_at:new Date().toISOString()},response=await fetch(base+'?on_conflict=house_id',{method:'POST',headers:{...headers,Prefer:'resolution=merge-duplicates,return=minimal'},body:JSON.stringify(payload)});if(!response.ok)throw new Error();state.textContent='Saved';setTimeout(()=>{if(state.textContent==='Saved')state.textContent='Shared notes are up to date.'},1800)}catch(error){state.textContent='Not saved. Check your connection and try again.'}finally{button.disabled=false}}button.addEventListener('click',save);field.addEventListener('keydown',event=>{if((event.ctrlKey||event.metaKey)&&event.key==='Enter'){event.preventDefault();save()}});load()})();
+</script></body>
+</html>
