@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Black-and-white printable family convenience report for 9257 Lyon Valley Road, New Tripoli, PA 18066">
+    <title>83 · 9257 Lyon Valley Road — Printable Family Convenience Report</title>
+    <style>
+      :root {
+        --black: #000;
+        --gray: #555;
+        --line: #999;
+        --light: #eee;
+        --paper: #fff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        background: #d8d8d8;
+      }
+      body {
+        margin: 0;
+        color: var(--black);
+        font:
+          10.5pt/1.34 Arial,
+          Helvetica,
+          sans-serif;
+        -webkit-print-color-adjust: economy;
+        print-color-adjust: economy;
+      }
+      .page {
+        position: relative;
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0.25in auto;
+        padding: 0.5in 0.55in 0.46in;
+        background: var(--paper);
+        box-shadow: 0 2px 14px #888;
+        break-after: page;
+        page-break-after: always;
+      }
+      .page:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+      .kicker {
+        margin: 0 0 7pt;
+        font-size: 8pt;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      h1 {
+        margin: 0;
+        font:
+          700 29pt/1.02 Georgia,
+          'Times New Roman',
+          serif;
+        letter-spacing: -0.025em;
+      }
+      h2 {
+        margin: 0 0 10pt;
+        padding-bottom: 5pt;
+        border-bottom: 2px solid #000;
+        font:
+          700 19pt/1.05 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      h3 {
+        margin: 0 0 5pt;
+        font-size: 11pt;
+      }
+      p {
+        margin: 0 0 8pt;
+      }
+      a {
+        color: #000;
+        text-decoration: underline;
+        text-decoration-thickness: 0.5px;
+        text-underline-offset: 2px;
+      }
+      .muted {
+        color: var(--gray);
+      }
+      .deck {
+        max-width: 6.8in;
+        margin: 12pt 0 15pt;
+        font:
+          12pt/1.35 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .rule {
+        height: 3px;
+        margin: 16pt 0;
+        background: #000;
+      }
+      .summary-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 18pt;
+        align-items: start;
+      }
+      .score {
+        display: flex;
+        align-items: baseline;
+        gap: 5pt;
+        margin: 2pt 0 8pt;
+        font-weight: 700;
+      }
+      .score strong {
+        font:
+          700 46pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .score span {
+        font-size: 12pt;
+      }
+      .label {
+        display: inline-block;
+        padding: 2pt 5pt;
+        border: 1px solid #000;
+        font-size: 7.5pt;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .callout {
+        padding: 10pt 12pt;
+        border: 2px solid #000;
+      }
+      .callout p:last-child {
+        margin-bottom: 0;
+      }
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8pt;
+        margin: 12pt 0;
+      }
+      .stat {
+        padding: 8pt;
+        border-top: 2px solid #000;
+        border-bottom: 1px solid var(--line);
+      }
+      .stat b {
+        display: block;
+        font-size: 16pt;
+      }
+      .stat span {
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 8.8pt;
+      }
+      th {
+        padding: 5pt 5pt;
+        border-top: 1.5px solid #000;
+        border-bottom: 1.5px solid #000;
+        text-align: left;
+        font-size: 7.3pt;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      td {
+        padding: 5pt;
+        border-bottom: 0.6px solid #bbb;
+        vertical-align: top;
+      }
+      td.num,
+      th.num {
+        text-align: right;
+        white-space: nowrap;
+      }
+      tr {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .section {
+        margin-top: 14pt;
+      }
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14pt;
+      }
+      .item {
+        padding: 9pt 0;
+        border-top: 1px solid #000;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .item:first-child {
+        border-top: 0;
+      }
+      .item-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 8pt;
+        align-items: baseline;
+      }
+      .item h3 {
+        font-size: 10.5pt;
+      }
+      .item .rating {
+        white-space: nowrap;
+        font-size: 8pt;
+        font-weight: 700;
+      }
+      .item .meta {
+        margin: 0 0 4pt;
+        font-size: 8pt;
+        color: var(--gray);
+      }
+      .item p {
+        margin: 0;
+        font-size: 8.8pt;
+      }
+      .rating-box {
+        display: grid;
+        grid-template-columns: 1fr 36pt;
+        gap: 7pt;
+        align-items: center;
+        margin: 6pt 0;
+      }
+      .track {
+        height: 7pt;
+        border: 1px solid #000;
+      }
+      .track i {
+        display: block;
+        height: 100%;
+        background: #000;
+      }
+      .rating-box b {
+        text-align: right;
+        font-size: 9pt;
+      }
+      .list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .list li {
+        position: relative;
+        padding: 5pt 0 5pt 17pt;
+        border-top: 0.6px solid #bbb;
+      }
+      .list li:first-child {
+        border-top: 0;
+      }
+      .list li:before {
+        position: absolute;
+        left: 0;
+        top: 5pt;
+        font-weight: 700;
+      }
+      .pros li:before {
+        content: '+';
+      }
+      .cons li:before {
+        content: '–';
+      }
+      .corridor {
+        display: grid;
+        grid-template-columns: 85pt 1fr;
+        gap: 8pt;
+        margin: 8pt 0;
+        padding: 7pt 0;
+        border-top: 0.6px solid #bbb;
+      }
+      .corridor:first-child {
+        border-top: 0;
+      }
+      .corridor b {
+        font-size: 8.5pt;
+      }
+      .corridor span {
+        font-size: 8.5pt;
+      }
+      .sources {
+        margin: 0;
+        padding-left: 16pt;
+        font-size: 7.8pt;
+      }
+      .sources li {
+        margin: 0 0 5pt;
+      }
+      .fine {
+        font-size: 7.5pt;
+        color: var(--gray);
+      }
+      .profile-score {
+        display: flex;
+        align-items: center;
+        gap: 12pt;
+        margin: 10pt 0;
+      }
+      .profile-grade {
+        display: grid;
+        place-items: center;
+        width: 52pt;
+        height: 52pt;
+        border: 2px solid #000;
+        font:
+          700 26pt/1 Georgia,
+          'Times New Roman',
+          serif;
+      }
+      .event-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 14pt;
+      }
+      .page-footer {
+        position: absolute;
+        left: 0.55in;
+        right: 0.55in;
+        bottom: 0.24in;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 5pt;
+        border-top: 0.6px solid #777;
+        font-size: 7pt;
+        color: #555;
+      }
+      @page {
+        size: Letter;
+        margin: 0;
+      }
+      @media print {
+        html {
+          background: #fff;
+        }
+        body {
+          font-size: 10.5pt;
+        }
+        .page {
+          width: 8.5in;
+          min-height: 11in;
+          margin: 0;
+          box-shadow: none;
+        }
+        .screen-note {
+          display: none !important;
+        }
+      }
+      @media screen and (max-width: 900px) {
+        .page {
+          width: calc(100% - 24px);
+          min-height: auto;
+          margin: 12px;
+          padding: 28px;
+        }
+        .page-footer {
+          position: static;
+          margin-top: 24px;
+        }
+        .summary-grid,
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  <style id="family-radius-priority-style">
+.fr-priority{width:min(1120px,calc(100% - 30px));margin:16px auto 0;padding:18px 20px;border:2px solid #10251f;border-radius:18px;background:#fff;color:#10251f;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;box-shadow:0 10px 28px rgba(16,37,31,.10)}.fr-priority-main{display:grid;grid-template-columns:1fr 1fr;gap:10px}.fr-priority-stat{background:#10251f;color:#fff;border-radius:14px;padding:14px 16px}.fr-priority-stat b{display:block;color:#cce95a;font:700 clamp(1.65rem,4vw,2.4rem)/1 Georgia,serif}.fr-priority-stat span{display:block;margin-top:5px;font-size:.75rem;color:#d7e0dc}.fr-dc-brief{border-left:1px solid #d8ded8;padding-left:18px}.fr-dc-brief h2{font:700 1.2rem Georgia,serif;margin:0 0 7px}.fr-dc-brief p{margin:3px 0;font-size:.82rem;line-height:1.4}.fr-dc-brief a{font-weight:800;color:#296d62}.fr-dc-detail{width:min(1120px,calc(100% - 30px));margin:14px auto 28px;padding:20px;border:1px solid #d8ded8;border-radius:18px;background:#fff;color:#10251f;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}.fr-dc-detail h2{font:700 1.55rem Georgia,serif;margin:0 0 6px}.fr-dc-detail>p{margin:0 0 14px;color:#63716a;font-size:.85rem}.fr-dc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.fr-dc-card{border:1px solid #d8ded8;border-radius:14px;padding:14px}.fr-dc-card .fr-label{text-transform:uppercase;letter-spacing:.08em;font-size:.65rem;font-weight:850;color:#296d62}.fr-dc-card h3{font:700 1.08rem Georgia,serif;margin:5px 0}.fr-dc-card p{margin:4px 0;font-size:.82rem}.fr-dc-card a{display:inline-block;margin-top:6px;font-weight:800;color:#296d62}.fr-dc-caveat{margin-top:13px!important;font-size:.75rem!important}.fr-dc-counts{font-weight:800}.fr-priority-source{grid-column:1/-1;margin:-8px 0 0;font-size:.68rem;color:#63716a}.fr-report-tools{grid-column:1/-1;display:grid;grid-template-columns:auto minmax(220px,1fr) auto;gap:12px;align-items:end;padding-bottom:14px;border-bottom:1px solid #d8ded8}.fr-back-list,.fr-note-save{display:inline-flex;align-items:center;justify-content:center;min-height:42px;border-radius:999px;padding:9px 14px;font-weight:850;text-decoration:none}.fr-back-list{background:#10251f;color:#fff}.fr-note-field{display:grid;gap:5px}.fr-note-field span{font-size:.72rem;font-weight:850}.fr-note-field textarea{width:100%;min-height:46px;resize:vertical;border:1px solid #c8d0cb;border-radius:11px;padding:9px 11px;font:inherit;color:#10251f;background:#fbfcfa}.fr-note-save{border:0;background:#296d62;color:#fff;cursor:pointer;font:inherit;font-weight:850}.fr-note-state{grid-column:2/-1;min-height:1em;margin-top:-8px;font-size:.72rem;color:#63716a}@media(max-width:720px){.fr-priority,.fr-dc-grid{grid-template-columns:1fr}.fr-dc-brief{border-left:0;border-top:1px solid #d8ded8;padding:13px 0 0}.fr-priority-main{grid-template-columns:1fr 1fr}.fr-report-tools{grid-template-columns:1fr}.fr-note-state{grid-column:1}}@media print{.fr-priority,.fr-dc-detail{box-shadow:none;break-inside:avoid}.fr-priority-stat{background:#fff!important;color:#000!important;border:2px solid #000}.fr-priority-stat b,.fr-dc-brief a,.fr-dc-card a{color:#000!important}.fr-dc-detail{border:2px solid #000}.fr-dc-card{border:1px solid #000}.fr-back-list,.fr-note-save,.fr-note-state{display:none!important}.fr-report-tools{grid-template-columns:1fr}}
+</style></head>
+  <body><section class="fr-priority" aria-label="Top property facts"><div class="fr-report-tools" data-house-id="83-9257-lyon-valley-rd-new-tripoli-pa"><a class="fr-back-list" href="https://rellorin.github.io/houses/">← Back to house list</a><label class="fr-note-field"><span>Shared notes</span><textarea maxlength="2000" rows="2" placeholder="Add a note that both of you can see…"></textarea></label><button class="fr-note-save" type="button">Save notes</button><span class="fr-note-state" aria-live="polite">Loading shared notes…</span></div><div class="fr-priority-main"><div class="fr-priority-stat"><b>3,257 sq ft</b><span>reported finished living area</span></div><div class="fr-priority-stat"><b>1.13 acres</b><span>reported property acreage</span></div></div><div class="fr-dc-brief"><h2>Data-center proximity</h2><p><b>Operating:</b> 2 tracked within 10 mi · 8 within 25 mi</p><p><b>Proposed / building:</b> 2 tracked within 10 mi · 11 within 25 mi</p><p><a href="#data-center-proximity">See nearest tracked projects ↓</a></p></div><p class="fr-priority-source">House facts: Current GLVR listing-reported finished area; public record reports 2,630 above grade. Verify dimensions, finished-area treatment and lot boundaries before purchase.</p></section>
+    <section class="page"><p class="kicker">Family Radius · Property Brief</p><h1>9257 Lyon Valley Road<br>New Tripoli, PA 18066</h1><p class="deck">A spacious Weisenberg Township home with 3,257 listing-reported finished square feet, 1.13 acres, four garage bays and an unusually short elementary-school trip. Strong school ratings and practical Fogelsville access help offset the fully car-dependent setting.</p><div class="rule"></div><div class="summary-grid"><div><span class="label">Family convenience score</span><div class="score"><strong>83</strong><span>/ 100</span></div><p><b>Bottom line:</b> Excellent elementary-school access, strong district ratings, four garage bays and a useful 1.13-acre lot make this a compelling rural-family option. The key diligence items are the solar lease, well and septic, the lower-level area included in the reported square footage and the longer secondary-school commute.</p></div><div class="callout"><h3>Important location finding</h3><p> New Tripoli mailing address, Weisenberg Township property  The current GLVR listing places the home in Northwestern Lehigh School District, and listing portals report Weisenberg Elementary, Northwestern Lehigh Middle and Northwestern Lehigh High as the assigned path. Confirm the parcel, bus route and enrollment directly with district registration. </p></div></div><div class="stat-grid"><div class="stat"><b>~3 min</b><span>assigned elementary</span></div><div class="stat"><b>~12–14 min</b><span>private school, Montessori + grocery</span></div><div class="stat"><b>~13–20 min</b><span>gym, martial arts + big-box shopping</span></div></div><h3>Property snapshot</h3><table><tr><th>Listing / status</th><th>Site</th><th>Notable extras</th></tr><tr><td>$599,900 current listing · 5 beds · 3.5 baths · 3,257 listing-reported finished sq ft</td><td>1.13 acres · Weisenberg Township · Northwestern Lehigh SD · private well + septic</td><td>Built 2006 · 4 garage bays · updated HVAC · leased solar · lower-level guest/multigenerational potential</td></tr></table><div class="callout" style="margin-top:14pt"><h3>Due-diligence note</h3><p>The current listing reports private well and septic; inspection, pumping history, water quality and reserve-area details matter. The solar panels are leased, so transfer terms, monthly cost, escalators, production history and roof obligations need careful review. Listing and public-record living-area figures differ; confirm lower-level finish, bedroom egress and permits.</p></div><footer>1 / 5 · Overview · Researched October 11, 2026</footer></section>
+    <section class="page"><p class="kicker">Schools & early learning</p><h2>Education options</h2><table><tr><th>Option</th><th>Grades / rating</th><th>Planning estimate</th><th>Assessment</th></tr><tr><td><b>Weisenberg Elementary School</b></td><td>7/10 GreatSchools</td><td>~0.9 mi · ~3 min</td><td>Current listing-reported assignment and an exceptionally short school-day trip. Confirm this parcel and transportation directly with district registration.</td></tr><tr><td><b>Northwestern Lehigh Middle School</b></td><td>8/10 GreatSchools</td><td>~9.2 mi · ~19 min</td><td>Strong current rating, though the campus trip is a planned school commute rather than a quick local run.</td></tr><tr><td><b>Northwestern Lehigh High School</b></td><td>8/10 GreatSchools</td><td>~8.8 mi · ~17 min</td><td>Above-average district high school with AP courses, gifted programming, athletics and performing arts.</td></tr><tr><td><b>Blue Mountain Christian Day School</b></td><td>Small private elementary/middle</td><td>~4.9 mi · ~12 min</td><td>Active local Mennonite-oriented private school; contact the school directly for current enrollment, tuition and grade availability.</td></tr><tr><td><b>Bright Beginnings Montessori Academy</b></td><td>Authentic Montessori preschool</td><td>~8.1 mi · ~14 min</td><td>Small Montessori program specifically designed for children ages three through six; confirm openings and schedule.</td></tr></table><div class="callout" style="margin-top:16pt"><h3>Assignment check</h3><p>Public-school assignments, transportation and program availability can change. Confirm this exact parcel with district registration before relying on a listing portal.</p></div><footer>2 / 5 · Schools</footer></section>
+    <section class="page"><p class="kicker">Shopping, activities & fitness</p><h2>Everyday destinations</h2><table><tr><th>Need</th><th>Best nearby option</th><th>Planning estimate</th><th>Notes</th></tr><tr><td>Proper grocery</td><td><b>Weis Markets Fogelsville</b></td><td>~7.2 mi · ~13 min</td><td>The closest practical full-line weekly supermarket with produce, meat, bakery, deli, pharmacy, pickup and delivery.</td></tr><tr><td>Closest Walmart</td><td><b>Walmart Allentown Supercenter</b></td><td>~9.9 mi · ~18 min</td><td>Full grocery, pharmacy, auto care and general merchandise near Trexlertown.</td></tr><tr><td>Closest Target</td><td><b>Target Allentown</b></td><td>~12.0 mi · ~20 min</td><td>Full Target with pickup, Drive Up, pharmacy, optical, Starbucks and fresh grocery.</td></tr><tr><td>Kids dance</td><td><b>Next Level Dance Academy</b></td><td>~7.3 mi · ~14 min</td><td>Local studio offering ballet, modern, tap, jazz, contemporary, lyrical and hip-hop, including preschool classes ages three to five.</td></tr><tr><td>Kids gymnastics</td><td><b>Parkettes National Gymnastics</b></td><td>~15.6 mi · ~26 min</td><td>Dedicated USA Gymnastics training center with preschool, recreational, competitive and adaptive programs.</td></tr><tr><td>Adult gym</td><td><b>Ambition Gym</b></td><td>~7.3 mi · ~14 min</td><td>Close full-equipment adult gym with 24-hour access and personal-training options.</td></tr><tr><td>BJJ + Muay Thai</td><td><b>Prodigy Jiu-Jitsu Academy</b></td><td>~6.9 mi · ~13 min</td><td>Close, well-established academy offering adult gi/no-gi BJJ, kids BJJ and dedicated Muay Thai training.</td></tr><tr><td>Outdoor family recreation</td><td><b>Leaser Lake Park</b></td><td>~11.1 mi · ~24 min</td><td>Nearby fishing, paddling, walking and picnic destination shared by Lehigh County and the Pennsylvania Fish and Boat Commission.</td></tr><tr><td>Community center + township park</td><td><b>Weisenberg Township Community Center</b></td><td>~0.2 mi · ~1 min</td><td>The newly opened township community center and park sit almost next door, creating an unusually convenient local gathering place.</td></tr></table><p class="muted" style="margin-top:14pt">Mileage and time are conservative off-peak planning estimates prepared October 11, 2026, not live traffic.</p><footer>3 / 5 · Daily convenience</footer></section>
+    <section class="page"><p class="kicker">Place profile</p><h2>Community profile: Weisenberg Township + New Tripoli</h2><div class="stat-grid"><div class="stat"><b>4,976</b><span>2020 Census population</span></div><div class="stat"><b>26.8 sq mi</b><span>land area</span></div><div class="stat"><b>car-based</b><span>daily mobility pattern</span></div></div><div class="two-col"><div><h3>General vibe</h3><p>Quiet, open and rural, with farmland views, low road noise and quick access to I-78 via Fogelsville. Everyday errands still require a car, but the school and community-center proximity is unusually convenient for a country setting.</p><h3>Local niche</h3><p>Northwestern Lehigh schools, scenic acreage and practical Lehigh Valley access. The area suits a family that wants breathing room and strong schools without giving up a manageable route to Trexlertown, Allentown and regional highways.</p></div><div><h3>Events families notice</h3><ul><li><b>Weisenberg Community Day:</b> The township combines family activities, vendors and food trucks around its community center, park and volunteer fire company.</li><li><b>New community center programs:</b> The township’s 2026 community center hosts recreation, education, meals and civic gatherings under the “Where Neighbors Gather” theme.</li><li><b>Northwestern Lehigh school calendar:</b> Athletics, concerts, theater, family nights and district programs provide the most consistent school-year calendar.</li><li><b>Weisenberg Volunteer Fire events:</b> Fundraisers, open houses and seasonal community activities support the local volunteer fire company.</li><li><b>Leaser Lake recreation:</b> The 540-acre county and state recreation area supports fishing, paddling, trails, picnics and nature outings.</li><li><b>Regional heritage events:</b> Historical groups around Weisenberg, Lynn and Heidelberg organize Pennsylvania German heritage programs and seasonal gatherings.</li></ul></div></div><div class="callout" style="margin-top:18pt"><h3>What to notice</h3><p>The 3,257-square-foot figure is the current listing-reported finished area; public-record summaries report 2,630 above grade, so confirm exactly what lower-level area is included. Also verify the solar lease transfer, well and septic condition, basement bedroom egress, permits and the detached garage upper level.</p></div><footer>4 / 5 · Community</footer></section>
+    <section class="page"><p class="kicker">Decision summary</p><h2>Pros, trade-offs & methodology</h2><div class="two-col"><div><h3>What works well</h3><ul><li>Weisenberg Elementary is under a mile away and currently rates 7/10; the middle and high schools both rate 8/10.</li><li>The new Weisenberg Township Community Center and park are almost next door.</li><li>A proper Weis supermarket, Bright Beginnings Montessori, Ambition Gym and Prodigy Jiu-Jitsu are all approximately thirteen to fourteen minutes away.</li><li>Prodigy offers both Brazilian jiu-jitsu and Muay Thai, including a children’s BJJ program.</li><li>The listing reports 1.13 acres, 3,257 finished square feet, updated HVAC and four garage bays across attached and detached garages.</li></ul></div><div><h3>What to plan around</h3><ul><li>The middle and high school campuses are roughly seventeen to nineteen minutes away despite the very close elementary school.</li><li>Dedicated gymnastics is approximately twenty-six minutes away in Allentown.</li><li>The location is effectively non-walkable for daily errands.</li><li>The current listing reports private well and septic; inspection, pumping history, water quality and reserve-area details matter.</li><li>The solar panels are leased, so transfer terms, monthly cost, escalators, production history and roof obligations need careful review.</li><li>Listing and public-record living-area figures differ; confirm lower-level finish, bedroom egress and permits.</li></ul></div></div><h3 style="margin-top:14pt">Comparison scorecard</h3><table><tr><th>Category</th><th>Score</th><th>Weight</th><th>Weighted</th></tr><tr><td>Public schools</td><td>92</td><td>30%</td><td>27.6</td></tr><tr><td>Private / early learning</td><td>86</td><td>15%</td><td>12.9</td></tr><tr><td>Shopping & grocery</td><td>88</td><td>20%</td><td>17.6</td></tr><tr><td>Kids activities</td><td>76</td><td>15%</td><td>11.4</td></tr><tr><td>Adult fitness</td><td>88</td><td>10%</td><td>8.8</td></tr><tr><td>Martial arts</td><td>92</td><td>5%</td><td>4.6</td></tr><tr><td>Walkability</td><td>1</td><td>5%</td><td>0.05</td></tr><tr><td><b>Total</b></td><td></td><td>100%</td><td><b>83.0 → 83</b></td></tr></table><h3 style="margin-top:14pt">Principal sources</h3><p class="small">Redfin current GLVR listing and property details; Zillow public-record summary; Northwestern Lehigh School District; Weisenberg Elementary official page; GreatSchools Northwestern Lehigh Middle; GreatSchools Northwestern Lehigh High; Bright Beginnings Montessori Academy; Prodigy Jiu-Jitsu Academy; Weisenberg Township; Business and program official sites linked in each card. Distances and drive times are planning estimates.</p><footer>5 / 5 · Decision summary</footer></section>  <section class="fr-dc-detail" id="data-center-proximity"><h2>Data Center Proximity</h2><p>Track Data Centers snapshot checked October 11, 2026. Distances are straight-line planning measurements from the mapped house location, not road miles.</p><div class="fr-dc-grid"><article class="fr-dc-card"><div class="fr-label">Nearest tracked operating center</div><h3>Colocation America PA DC1</h3><p><b>4.7 mi straight-line</b> · operational</p><p>9999 Hamilton Boulevard · Breinigsville · Pennsylvania</p><a href="https://trackdatacenters.com/usa/pennsylvania/data-centers/colocation-america-pa-dc1" target="_blank" rel="noreferrer">Open tracker record ↗</a></article><article class="fr-dc-card"><div class="fr-label">Nearest tracked proposed / construction project</div><h3>Former Air Products Headquarters Data Center</h3><p><b>6.6 mi straight-line</b> · withdrawn</p><p>7300 Centronia Rd · Upper Macungie Township · Pennsylvania</p><a href="https://trackdatacenters.com/usa/pennsylvania/data-centers/former-air-products-headquarters-data-center" target="_blank" rel="noreferrer">Open tracker record ↗</a></article></div><p class="fr-dc-caveat"><span class="fr-dc-counts">Within 25 miles:</span> 8 operating and 11 proposed/construction entries in this tracker snapshot. “None tracked” is not proof that no project exists or is being discussed. Also check the municipality and county planning commission, zoning hearing board, utility-interconnection filings and local news before making an offer. Track Data Centers uses an undocumented site feed, so records and classifications may change.</p></section><script id="family-radius-report-actions">
+(()=>{const tools=document.querySelector('.fr-report-tools'),field=tools?.querySelector('textarea'),button=tools?.querySelector('.fr-note-save'),state=tools?.querySelector('.fr-note-state');if(!tools||!field||!button||!state)return;const houseId=tools.dataset.houseId,base='https://whjqnkhndxytomujhpat.supabase.co/rest/v1/house_tracking',headers={apikey:'sb_publishable_Xkd3jWDdW1Nljts2B0_ZjQ_OoFFsAAi','Content-Type':'application/json'};let status='unmarked';async function load(){try{const response=await fetch(base+'?select=status,notes&house_id=eq.'+encodeURIComponent(houseId)+'&limit=1',{headers});if(!response.ok)throw new Error();const rows=await response.json(),row=rows[0];if(row){status=row.status||'unmarked';field.value=row.notes||''}state.textContent='Shared notes are up to date.'}catch(error){state.textContent='Shared notes could not be loaded.'}}async function save(){button.disabled=true;state.textContent='Saving…';try{const payload={house_id:houseId,status,notes:field.value,updated_at:new Date().toISOString()},response=await fetch(base+'?on_conflict=house_id',{method:'POST',headers:{...headers,Prefer:'resolution=merge-duplicates,return=minimal'},body:JSON.stringify(payload)});if(!response.ok)throw new Error();state.textContent='Saved';setTimeout(()=>{if(state.textContent==='Saved')state.textContent='Shared notes are up to date.'},1800)}catch(error){state.textContent='Not saved. Check your connection and try again.'}finally{button.disabled=false}}button.addEventListener('click',save);field.addEventListener('keydown',event=>{if((event.ctrlKey||event.metaKey)&&event.key==='Enter'){event.preventDefault();save()}});load()})();
+</script></body>
+</html>
