@@ -9,9 +9,9 @@
   <style>
     :root{--ink:#10251f;--paper:#f6f4ec;--card:#fff;--muted:#66736d;--line:#d8ddd7;--lime:#cce95a;--sea:#296d62;--warm:#ea7a59;--blue:#dae9f6;--shadow:0 16px 40px rgba(16,37,31,.1)}
     *{box-sizing:border-box}html{scroll-behavior:smooth;max-width:100%;overflow-x:hidden}body{margin:0;max-width:100%;overflow-x:hidden;background:var(--paper);color:var(--ink);font:16px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}a{color:inherit}.shell{width:min(1180px,calc(100% - 32px));margin:auto}.hero{padding:72px 0 44px}.eyebrow{display:flex;gap:9px;align-items:center;text-transform:uppercase;letter-spacing:.13em;font-size:.72rem;font-weight:800;color:var(--sea)}.eyebrow:before{content:"";width:10px;height:10px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 5px rgba(204,233,90,.22)}h1{font-family:Georgia,serif;font-size:clamp(3rem,8vw,6.6rem);line-height:.88;letter-spacing:-.055em;margin:22px 0 24px;max-width:900px}h1 em{font-style:normal;color:var(--sea)}.intro{display:grid;grid-template-columns:1.4fr .6fr;gap:40px;align-items:end}.intro p{font-size:1.08rem;color:var(--muted);max-width:670px;margin:0}.updated{text-align:right;font-size:.82rem;color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden;margin:26px 0 48px;box-shadow:var(--shadow)}.stat{background:var(--card);padding:22px}.stat strong{font:700 2rem Georgia,serif;display:block}.stat span{font-weight:800;display:block}.stat small{color:var(--muted)}.toolbar{position:sticky;top:0;z-index:10;background:rgba(246,244,236,.94);backdrop-filter:blur(14px);padding:12px 0;border-bottom:1px solid rgba(16,37,31,.08)}.toolbar-inner{width:min(1180px,calc(100% - 32px));margin:auto;display:grid;grid-template-columns:minmax(260px,.8fr) 2.2fr;gap:12px;align-items:center}.search{position:relative;min-width:0}.search input{width:100%;border:1px solid var(--line);background:#fff;border-radius:999px;padding:13px 18px 13px 42px;font:inherit;outline:none}.search:before{content:"⌕";position:absolute;left:16px;top:7px;font-size:1.4rem;color:var(--muted)}.filter-groups{display:flex;justify-content:flex-end;gap:14px;min-width:0}.filter-group{display:flex;gap:7px;min-width:0;max-width:100%;overflow:auto;scrollbar-width:none}.filter-group::-webkit-scrollbar{display:none}.filter,.date-filter{white-space:nowrap;border:1px solid var(--line);border-radius:999px;background:#fff;padding:9px 12px;font:750 .82rem inherit;color:var(--ink);cursor:pointer}.date-filter{max-width:175px}.filter.active{background:var(--ink);color:#fff;border-color:var(--ink)}.status-filter.active{background:var(--sea);border-color:var(--sea)}.content{padding:42px 0 72px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin:0 0 18px}.section-head h2{font:700 clamp(2rem,5vw,3.3rem)/1 Georgia,serif;letter-spacing:-.035em;margin:0}.section-head p{color:var(--muted);max-width:560px;margin:0}.cards{display:grid;gap:14px}.card{display:grid;grid-template-columns:42px 82px minmax(0,1fr) auto;gap:18px;align-items:center;background:var(--card);border:1px solid rgba(16,37,31,.09);border-radius:20px;padding:16px 18px;box-shadow:0 7px 24px rgba(16,37,31,.055);transition:.2s ease}.card:hover{box-shadow:var(--shadow)}.rank{color:#a2ada7;font:700 .74rem ui-monospace,monospace}.score{width:70px;height:70px;border-radius:50%;display:grid;place-content:center;text-align:center;background:#eaf1ed;border:1px solid #d6e0db}.score strong{font:700 1.65rem/1 Georgia,serif}.score span{font-size:.65rem;color:var(--muted)}.score-high{background:#eaf6c7}.score-mid{background:#f6edcf}.score-low{background:#f6dcd4}.card-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.region-tag{font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;color:var(--sea);font-weight:850}.date-added{font-size:.68rem;color:var(--muted);font-weight:750}.status-badge{display:inline-block;border-radius:999px;background:#eef1ef;color:var(--muted);padding:2px 8px;font-size:.68rem;font-weight:800}.card[data-status="want_to_view"] .status-badge{background:var(--blue);color:#245374}.card[data-status="viewed"] .status-badge{background:#eaf6c7;color:#3c5d10}.card[data-status="off_market"] .status-badge{background:#f6dcd4;color:#8f3524}.card[data-status="not_interested"] .status-badge{background:#ece7f2;color:#62516f}.card h3{font:700 1.28rem/1.15 Georgia,serif;margin:4px 0}.card p{margin:0;color:var(--muted);font-size:.88rem}.card .property-priority{margin-top:5px;color:var(--ink);font-weight:850;font-size:.91rem}.property-priority span{color:var(--sea);padding:0 4px}.actions{display:flex;align-items:center;gap:8px}.actions a{text-decoration:none;font-weight:750;font-size:.82rem;padding:10px 13px;border-radius:999px;border:1px solid var(--line);white-space:nowrap}.actions .primary{background:var(--ink);color:#fff;border-color:var(--ink)}.actions .primary span{color:var(--lime)}.tracker{grid-column:3/-1;border-top:1px solid var(--line);padding-top:12px;display:grid;grid-template-columns:auto minmax(240px,1fr) auto;gap:12px;align-items:end}.status-controls{display:flex;gap:6px;flex-wrap:wrap}.status-controls button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 11px;font:750 .78rem inherit;cursor:pointer}.status-controls button.active{background:var(--sea);border-color:var(--sea);color:#fff}.status-controls button[data-set-status="viewed"].active{background:#4f711a;border-color:#4f711a}.status-controls button[data-set-status="off_market"].active{background:#a94e3a;border-color:#a94e3a}.status-controls button[data-set-status="not_interested"].active{background:#6b5a75;border-color:#6b5a75}.status-controls button[data-set-status="unmarked"]{color:var(--muted)}.notes-label{display:grid;gap:4px}.notes-label span{font-size:.7rem;color:var(--muted);font-weight:800}.notes-label textarea{width:100%;resize:vertical;min-height:46px;max-height:140px;border:1px solid var(--line);border-radius:11px;padding:9px 11px;font:inherit;background:#fbfcfa;color:var(--ink)}.notes-label textarea:focus{outline:2px solid rgba(41,109,98,.25);border-color:var(--sea)}.save-state{width:70px;min-height:22px;text-align:right;color:var(--muted);font-size:.72rem}.sync-message{margin:0 0 16px;color:var(--muted);font-size:.85rem}.sync-message.error{color:#9f3b27}.region-note{margin:46px 0 16px;padding:20px 24px;background:#e9efe9;border-radius:16px;display:flex;justify-content:space-between;gap:20px}.region-note b{font-family:Georgia,serif;font-size:1.25rem}.region-note span{color:var(--muted);max-width:760px}.empty{display:none;text-align:center;color:var(--muted);padding:60px 0}.footer{border-top:1px solid var(--line);padding:28px 0 50px;color:var(--muted);font-size:.82rem;display:flex;justify-content:space-between;gap:20px}.privacy{background:var(--ink);color:#fff;padding:30px;border-radius:20px;margin-top:48px}.privacy h2{font:700 1.8rem Georgia,serif;margin:0 0 8px}.privacy p{margin:0;color:#c9d4ce}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.hidden{display:none!important}
-    .stats.shell{margin-left:auto;margin-right:auto}
+    .stats.shell{margin-left:auto;margin-right:auto}.comparison-section{margin:6px 0 42px}.comparison-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:14px}.comparison-head h2{font:700 clamp(1.8rem,4vw,2.7rem)/1 Georgia,serif;letter-spacing:-.035em;margin:0}.comparison-head p{max-width:650px;margin:5px 0 0;color:var(--muted);font-size:.88rem}.comparison-wrap{overflow:auto;max-height:72vh;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:var(--shadow)}.comparison-table{width:max-content;min-width:100%;border-collapse:separate;border-spacing:0;font-size:.78rem}.comparison-table th,.comparison-table td{padding:9px 10px;border-right:1px solid #e7eae7;border-bottom:1px solid #e7eae7;text-align:left;vertical-align:top;background:#fff;min-width:82px}.comparison-table thead th{position:sticky;top:0;z-index:3;background:var(--ink);color:#fff;font-size:.68rem;text-transform:uppercase;letter-spacing:.055em;white-space:nowrap}.comparison-table tbody th{position:sticky;left:0;z-index:2;min-width:220px;max-width:220px;background:#fbfcfa}.comparison-table thead th:first-child{left:0;z-index:4}.comparison-table tbody tr:hover td,.comparison-table tbody tr:hover th{background:#f4f8eb}.comparison-table tbody th a{font:700 .92rem Georgia,serif;text-decoration:none}.comparison-table tbody th small,.comparison-table td small{display:block;color:var(--muted);font-size:.66rem;margin-top:2px;white-space:nowrap}.distance-value{font-weight:850;white-space:nowrap}.distance-missing{color:#a3aaa6}.number-cell{text-align:right!important;font-variant-numeric:tabular-nums}.inlaw-cell{min-width:235px!important}.inlaw-select,.inlaw-detail{display:block;width:100%;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);font:inherit;padding:6px 7px}.inlaw-detail{margin-top:5px}.inlaw-select:focus,.inlaw-detail:focus{outline:2px solid rgba(41,109,98,.25);border-color:var(--sea)}.table-save-state{display:block;min-height:1em;margin-top:3px;color:var(--muted);font-size:.63rem}.comparison-status{white-space:nowrap;font-weight:750}.comparison-note{color:var(--muted);font-size:.74rem;margin:8px 2px 0}
     @media(max-width:1000px){.toolbar-inner{grid-template-columns:1fr}.filter-groups{justify-content:flex-start}}
-    @media(max-width:800px){.shell{width:calc(100% - 32px)}.hero{padding-top:45px}.intro{grid-template-columns:minmax(0,1fr)}.intro>*{min-width:0}.intro p,.section-head p,.region-note span{overflow-wrap:anywhere}.updated{text-align:left}.stats{grid-template-columns:minmax(0,1fr);margin:26px auto 48px}.filter-groups{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}.cards{min-width:0}.card{width:100%;min-width:0;overflow:hidden;grid-template-columns:62px minmax(0,1fr);gap:12px}.card-copy{min-width:0}.rank{display:none}.score{width:58px;height:58px}.actions{grid-column:1/-1;min-width:0;max-width:100%;flex-wrap:wrap}.actions a{flex:1 1 130px;min-width:0;text-align:center;padding:9px 8px}.tracker{grid-column:1/-1;min-width:0;grid-template-columns:minmax(0,1fr)}.notes-label{min-width:0}.save-state{width:auto;text-align:left}.region-note{display:block}.region-note span{display:block;margin-top:5px}.footer{display:block}.footer span{display:block;margin-bottom:8px}}
+    @media(max-width:800px){.shell{width:calc(100% - 32px)}.hero{padding-top:45px}.intro{grid-template-columns:minmax(0,1fr)}.intro>*{min-width:0}.intro p,.section-head p,.region-note span{overflow-wrap:anywhere}.updated{text-align:left}.stats{grid-template-columns:minmax(0,1fr);margin:26px auto 48px}.filter-groups{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}.comparison-head{display:block}.comparison-wrap{max-height:68vh}.comparison-table tbody th{min-width:175px;max-width:175px}.cards{min-width:0}.card{width:100%;min-width:0;overflow:hidden;grid-template-columns:62px minmax(0,1fr);gap:12px}.card-copy{min-width:0}.rank{display:none}.score{width:58px;height:58px}.actions{grid-column:1/-1;min-width:0;max-width:100%;flex-wrap:wrap}.actions a{flex:1 1 130px;min-width:0;text-align:center;padding:9px 8px}.tracker{grid-column:1/-1;min-width:0;grid-template-columns:minmax(0,1fr)}.notes-label{min-width:0}.save-state{width:auto;text-align:left}.region-note{display:block}.region-note span{display:block;margin-top:5px}.footer{display:block}.footer span{display:block;margin-bottom:8px}}
   </style>
 </head>
 <body>
@@ -21,6 +21,1086 @@
   <main class="content shell"><div class="section-head"><div><h2>Property reports</h2><p>Newest additions appear first. Scores are designed for comparison within this collection.</p></div></div>
     <div class="region-note"><b>Regional grouping</b><span>Anything south of Mount Pocono—including Stroudsburg and East Stroudsburg—is grouped with Allentown. Locations north of that divide are grouped with Scranton; everything farther west is in West.</span></div>
     <p class="sync-message" id="sync-message">Loading shared statuses and notes…</p>
+    <section class="comparison-section" aria-labelledby="comparison-title"><div class="comparison-head"><div><h2 id="comparison-title">At-a-glance comparison</h2><p>Property-to-destination distances come from each Family Radius report and remain planning estimates. Use the in-law fields to record your own assessment of where your mother-in-law could live.</p></div></div><div class="comparison-wrap"><table class="comparison-table"><thead><tr><th scope="col">Address</th><th scope="col">Score</th><th scope="col">Sq ft</th><th scope="col">Acres</th><th scope="col">Target</th><th scope="col">Walmart</th><th scope="col">Grocery</th><th scope="col">Private school</th><th scope="col">Montessori</th><th scope="col">Dance</th><th scope="col">Gymnastics</th><th scope="col">Adult gym</th><th scope="col">BJJ</th><th scope="col">Muay Thai</th><th scope="col">In-law capability / plan</th><th scope="col">Status</th></tr></thead><tbody id="comparison-body"><tr data-house-id="93-365-arnolds-rd-jermyn-pa" data-region="Scranton Area" data-status="unmarked" data-date-added="2026-10-24" data-search="365 arnolds road jermyn, pa 18433 scranton area">
+  <th scope="row"><a href="reports/93-365-arnolds-rd-jermyn-pa.html">365 Arnolds Road</a><small>Jermyn, PA 18433</small></th>
+  <td class="number-cell"><b>93</b></td>
+  <td class="number-cell">3,598</td>
+  <td class="number-cell">2.70</td>
+  <td><span class="distance-value" title="Target Dickson City · 1140 Commerce Blvd, Dickson City, PA 18519">13 mi</span><small>20–28 min</small></td>
+  <td><span class="distance-value" title="Walmart Dickson City · 900 Commerce Blvd, Dickson City, PA 18519">13 mi</span><small>20–28 min</small></td>
+  <td><span class="distance-value" title="Quinn’s Market Peckville · 1437 Main St, Peckville, PA 18452">9 mi</span><small>14–21 min</small></td>
+  <td><span class="distance-value" title="La Salle Academy · 309 1st Ave, Jessup, PA 18434">13 mi</span><small>20–28 min</small></td>
+  <td><span class="distance-value" title="Discovery Montessori Providence · 1733 N Main Ave, Scranton, PA 18508">16 mi</span><small>24–34 min</small></td>
+  <td><span class="distance-value" title="Jeanne’s Dance Studio · 1 Line St, Throop, PA 18512">14 mi</span><small>22–30 min</small></td>
+  <td><span class="distance-value" title="Summit Gymnastics Academy · 31 Green Grove Rd, Scott Township, PA 18447">11 mi</span><small>17–25 min</small></td>
+  <td><span class="distance-value" title="Greater Carbondale YMCA · 82 N Main St, Carbondale, PA 18407">8 mi</span><small>13–20 min</small></td>
+  <td><span class="distance-value" title="Gracie NEPA · 943 Underwood Rd, Olyphant, PA 18447">12 mi</span><small>18–26 min</small></td>
+  <td><span class="distance-value" title="Scranton MMA · 1000 Dunham Dr, Dunmore, PA 18512">19 mi</span><small>28–38 min</small></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 365 Arnolds Road"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 365 Arnolds Road" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="91-128-frantz-rd-kunkletown-pa" data-region="Allentown Area" data-status="unmarked" data-date-added="2026-10-24" data-search="128 frantz road kunkletown, pa 18058 allentown area">
+  <th scope="row"><a href="reports/91-128-frantz-rd-kunkletown-pa.html">128 Frantz Road</a><small>Kunkletown, PA 18058</small></th>
+  <td class="number-cell"><b>91</b></td>
+  <td class="number-cell">3,808</td>
+  <td class="number-cell">2.38</td>
+  <td><span class="distance-value" title="Target Stroudsburg · 155 Mountaineer Dr, Stroudsburg, PA 18360">21 mi</span><small>30–40 min</small></td>
+  <td><span class="distance-value" title="Walmart Lehighton · 1731 Blakeslee Boulevard Dr E, Lehighton, PA 18235">14 mi</span><small>22–30 min</small></td>
+  <td><span class="distance-value" title="Weis Markets Brodheadsville · 924 Weir Lake Rd, Brodheadsville, PA 18322">7 mi</span><small>12–18 min</small></td>
+  <td><span class="distance-value" title="St. John Neumann Regional School · 641 W Washington St, Slatington, PA 18080">12 mi</span><small>18–26 min</small></td>
+  <td><span class="distance-value" title="The Growing Concern School · 539 Railroad Dr, Tannersville, PA 18372">20 mi</span><small>30–40 min</small></td>
+  <td><span class="distance-value" title="West End Academy of Dance · Brodheadsville, PA 18322">8 mi</span><small>13–20 min</small></td>
+  <td><span class="distance-value" title="International Gymnastics · 100 Gymnastics Way, Stroudsburg, PA 18360">17 mi</span><small>26–36 min</small></td>
+  <td><span class="distance-value" title="West End YMCA · Brodheadsville, PA 18322">8 mi</span><small>13–20 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 128 Frantz Road"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 128 Frantz Road" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="75-1612-landisville-rd-manheim-pa" data-region="West" data-status="unmarked" data-date-added="2026-10-21" data-search="1612 landisville road manheim, pa 17545 west">
+  <th scope="row"><a href="reports/75-1612-landisville-rd-manheim-pa.html">1612 Landisville Road</a><small>Manheim, PA 17545</small></th>
+  <td class="number-cell"><b>75</b></td>
+  <td class="number-cell">3,332</td>
+  <td class="number-cell">0.70</td>
+  <td><span class="distance-value" title="Target Lancaster Central · 1589 Fruitville Pike, Lancaster, PA 17601">7 mi</span><small>12–18 min</small></td>
+  <td><span class="distance-value" title="Walmart Lancaster · 2030 Fruitville Pike, Lancaster, PA 17601">6 mi</span><small>10–15 min</small></td>
+  <td><span class="distance-value" title="GIANT Food Stores · 1360 Columbia Ave, Lancaster, PA 17603">7 mi</span><small>12–18 min</small></td>
+  <td><span class="distance-value" title="Dayspring Christian Academy · 120 College Ave, Mountville, PA 17554">7 mi</span><small>12–18 min</small></td>
+  <td><span class="distance-value" title="Montessori Academy of Lancaster · 2750 Weaver Rd, Lancaster, PA 17601">5 mi</span><small>9–14 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-value" title="Fusion Gymnastics Center · 2040 Bennett Ave, Lancaster, PA 17601">5 mi</span><small>8–13 min</small></td>
+  <td><span class="distance-value" title="Hempfield recCenter · 1251 Stony Battery Rd, Landisville, PA 17538">4 mi</span><small>7–11 min</small></td>
+  <td><span class="distance-value" title="Gracie 717 · 3515 Columbia Ave, Lancaster, PA 17603">7 mi</span><small>11–17 min</small></td>
+  <td><span class="distance-value" title="The Clinic Muay Thai Gym · 115 W Main St, Landisville, PA 17538">4 mi</span><small>7–11 min</small></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 1612 Landisville Road"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 1612 Landisville Road" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="84-480-pittston-blvd-wilkes-barre-pa" data-region="Scranton Area" data-status="unmarked" data-date-added="2026-10-21" data-search="480 pittston boulevard wilkes-barre, pa 18702 scranton area">
+  <th scope="row"><a href="reports/84-480-pittston-blvd-wilkes-barre-pa.html">480 Pittston Boulevard</a><small>Wilkes-Barre, PA 18702</small></th>
+  <td class="number-cell"><b>84</b></td>
+  <td class="number-cell">3,217</td>
+  <td class="number-cell">2.33</td>
+  <td><span class="distance-value" title="Target Wilkes-Barre · 3400 Wilkes-Barre Township Commons, Wilkes-Barre, PA 18702">7 mi</span><small>13–19 min</small></td>
+  <td><span class="distance-value" title="Walmart Wilkes-Barre Supercenter · 2150 Wilkes Barre Township Marketplace, Wilkes-Barre, PA 18702">8 mi</span><small>14–21 min</small></td>
+  <td><span class="distance-value" title="Wegmans Wilkes-Barre · 220 Highland Park Blvd, Wilkes-Barre, PA 18702">7 mi</span><small>13–19 min</small></td>
+  <td><span class="distance-value" title="Bear Creek Community Charter School · Bear Creek Community Charter School, Bear Creek Township, PA">6 mi</span><small>11–17 min</small></td>
+  <td><span class="distance-value" title="Building Blocks Learning Center · 1082 PA-315, Wilkes-Barre, PA 18702">5 mi</span><small>10–15 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-value" title="Shooting Starz Gymnastics · 250 Johnson St, Wilkes-Barre Township, PA 18702">9 mi</span><small>16–23 min</small></td>
+  <td><span class="distance-value" title="Wilkes-Barre Family YMCA · 40 W Northampton St, Wilkes-Barre, PA 18701">10 mi</span><small>17–25 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-value" title="Scranton MMA · 1000 Dunham Dr, Dunmore, PA 18512">24 mi</span><small>28–38 min</small></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 480 Pittston Boulevard"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 480 Pittston Boulevard" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="87-90-kerr-rd-reading-pa" data-region="West" data-status="unmarked" data-date-added="2026-10-21" data-search="90 kerr road reading, pa 19606 west">
+  <th scope="row"><a href="reports/87-90-kerr-rd-reading-pa.html">90 Kerr Road</a><small>Reading, PA 19606</small></th>
+  <td class="number-cell"><b>87</b></td>
+  <td class="number-cell">2,636</td>
+  <td class="number-cell">3</td>
+  <td><span class="distance-value" title="Target Exeter Township · 4599 Perkiomen Ave, Reading, PA 19606">3 mi</span><small>7–10 min</small></td>
+  <td><span class="distance-value" title="Walmart Reading Supercenter · 5900 Perkiomen Ave, Reading, PA 19606">3 mi</span><small>7–11 min</small></td>
+  <td><span class="distance-value" title="GIANT Food Stores · 4655 Perkiomen Ave, Reading, PA 19606">3 mi</span><small>7–10 min</small></td>
+  <td><span class="distance-value" title="St. Catharine of Siena School · 2330 Perkiomen Ave, Reading, PA 19606">4 mi</span><small>9–13 min</small></td>
+  <td><span class="distance-value" title="Montessori Country Day School · 53 Vermont Rd, Sinking Spring, PA 19608">13 mi</span><small>22–29 min</small></td>
+  <td><span class="distance-value" title="Aftershock Dance Studio · 2800A Perkiomen Ave, Reading, PA 19606">5 mi</span><small>10–14 min</small></td>
+  <td><span class="distance-value" title="Berks Gymnastics Academy · 325 Morgantown Rd, Reading, PA 19611">8 mi</span><small>15–21 min</small></td>
+  <td><span class="distance-value" title="Exeter Fitness · 4270 Perkiomen Ave, Reading, PA 19606">4 mi</span><small>9–13 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 90 Kerr Road"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 90 Kerr Road" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="88-109-trout-lily-rd-stroudsburg-pa" data-region="Allentown Area" data-status="unmarked" data-date-added="2026-10-21" data-search="109 trout lily road stroudsburg, pa 18360 allentown area">
+  <th scope="row"><a href="reports/88-109-trout-lily-rd-stroudsburg-pa.html">109 Trout Lily Road</a><small>Stroudsburg, PA 18360</small></th>
+  <td class="number-cell"><b>88</b></td>
+  <td class="number-cell">4,270</td>
+  <td class="number-cell">2.02</td>
+  <td><span class="distance-value" title="Target · 155 Mountaineer Dr, Stroudsburg, PA 18360">1.5 mi</span><small>4–7 min</small></td>
+  <td><span class="distance-value" title="Walmart Supercenter · 355 Lincoln Ave, East Stroudsburg, PA 18301">5 mi</span><small>10–14 min</small></td>
+  <td><span class="distance-value" title="ShopRite + American Killer Bees · 344 Stroud Mall Rd, Stroudsburg, PA 18360">2 mi</span><small>5–8 min</small></td>
+  <td><span class="distance-value" title="Notre Dame Elementary · 60 Spangenburg Ave, East Stroudsburg, PA 18301">5 mi</span><small>12–16 min</small></td>
+  <td><span class="distance-value" title="PocoNoski Montessori · 2591 Milford Rd, East Stroudsburg, PA 18301">8 mi</span><small>16–22 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-value" title="International Gymnastics School · 100 Gymnastics Way, Stroudsburg, PA 18360">5 mi</span><small>10–15 min</small></td>
+  <td><span class="distance-value" title="Pocono Family YMCA · 809 Main St, Stroudsburg, PA 18360">4 mi</span><small>9–13 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 109 Trout Lily Road"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 109 Trout Lily Road" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="78-244-s-4th-st-quakertown-pa" data-region="Allentown Area" data-status="unmarked" data-date-added="2026-10-20" data-search="244 s 4th street quakertown, pa 18951 allentown area">
+  <th scope="row"><a href="reports/78-244-s-4th-st-quakertown-pa.html">244 S 4th Street</a><small>Quakertown, PA 18951</small></th>
+  <td class="number-cell"><b>78</b></td>
+  <td class="number-cell">3,332</td>
+  <td class="number-cell">0.44</td>
+  <td><span class="distance-value" title="Target · 610 N West End Blvd, Quakertown, PA 18951">3 mi</span><small>7–12 min</small></td>
+  <td><span class="distance-value" title="Walmart Supercenter · 195 N West End Blvd, Quakertown, PA 18951">2 mi</span><small>6–10 min</small></td>
+  <td><span class="distance-value" title="GIANT Food Stores · 1465 W Broad St, Quakertown, PA 18951">2 mi</span><small>6–10 min</small></td>
+  <td><span class="distance-value" title="United Friends School · 1018 W Broad St, Quakertown, PA 18951">1 mi</span><small>4–7 min</small></td>
+  <td><span class="distance-value" title="Maria’s House Montessori · 601 New Britain Rd, Doylestown, PA 18901">18 mi</span><small>25–35 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-value" title="Power &amp; Grace Gymnastics and Dance · 122 Pacific Dr, Quakertown, PA 18951">1.5 mi</span><small>5–9 min</small></td>
+  <td><span class="distance-value" title="River Crossing YMCA · 401 Fairview Ave, Quakertown, PA 18951">0.5 mi</span><small>2–5 min</small></td>
+  <td><span class="distance-value" title="Revelation Jiu-Jitsu · 315 W Broad St, Quakertown, PA 18951">0.5 mi</span><small>2–5 min</small></td>
+  <td><span class="distance-value" title="Quakertown Academy of MMA &amp; Fitness · Quakertown Academy of MMA and Fitness, Quakertown, PA">0.5 mi</span><small>2–5 min</small></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 244 S 4th Street"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 244 S 4th Street" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="68-320-carpenters-ln-muncy-pa" data-region="West" data-status="unmarked" data-date-added="2026-10-20" data-search="320 carpenters lane muncy, pa 17756 west">
+  <th scope="row"><a href="reports/68-320-carpenters-ln-muncy-pa.html">320 Carpenters Lane</a><small>Muncy, PA 17756</small></th>
+  <td class="number-cell"><b>68</b></td>
+  <td class="number-cell">3,053</td>
+  <td class="number-cell">13.27</td>
+  <td><span class="distance-value" title="Target Williamsport · 170 S Lycoming Mall Rd, Muncy, PA 17756">3 mi</span><small>6–9 min</small></td>
+  <td><span class="distance-value" title="Walmart Montoursville · 1015 N Loyalsock Ave, Montoursville, PA 17754">9 mi</span><small>13–18 min</small></td>
+  <td><span class="distance-value" title="Weis Markets Muncy · 1272 E Penn St, Muncy, PA 17756">3 mi</span><small>6–9 min</small></td>
+  <td><span class="distance-value" title="St. John Neumann Regional Academy · 901 Penn St, Williamsport, PA 17701">16 mi</span><small>22–28 min</small></td>
+  <td><span class="distance-value" title="New Growth Learning Company · 2100 W 3rd St, Williamsport, PA 17701">17 mi</span><small>24–30 min</small></td>
+  <td><span class="distance-value" title="D&amp;K’s Studio of Dance · 301 Cemetery St, Hughesville, PA 17737">9 mi</span><small>13–18 min</small></td>
+  <td><span class="distance-value" title="Dynamats Gymnastics Center · 221 Alexander Dr, Muncy, PA 17756">3 mi</span><small>6–9 min</small></td>
+  <td><span class="distance-value" title="Eastern Lycoming YMCA · 50 Fitness Dr, Muncy, PA 17756">3 mi</span><small>6–9 min</small></td>
+  <td><span class="distance-value" title="Tried and True Jiu Jitsu · 15 E Water St, Muncy, PA 17756">3.5 mi</span><small>7–10 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 320 Carpenters Lane"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 320 Carpenters Lane" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="71-5719-wildflower-cir-stroudsburg-pa" data-region="Allentown Area" data-status="unmarked" data-date-added="2026-10-19" data-search="5719 wildflower circle stroudsburg, pa 18360 allentown area">
+  <th scope="row"><a href="reports/71-5719-wildflower-cir-stroudsburg-pa.html">5719 Wildflower Circle</a><small>Stroudsburg, PA 18360</small></th>
+  <td class="number-cell"><b>71</b></td>
+  <td class="number-cell">2,936</td>
+  <td class="number-cell">1.15</td>
+  <td><span class="distance-value" title="Target · 155 Mountaineer Dr, Stroudsburg, PA 18360">0.7 mi</span><small>3 min</small></td>
+  <td><span class="distance-value" title="Walmart Supercenter · 355 Lincoln Ave, East Stroudsburg, PA 18301">4 mi</span><small>8–10 min</small></td>
+  <td><span class="distance-value" title="ShopRite + American Killer Bees · 344 Stroud Mall Rd, Stroudsburg, PA 18360">1.5 mi</span><small>4–6 min</small></td>
+  <td><span class="distance-value" title="Notre Dame Elementary · 60 Spangenburg Ave, East Stroudsburg, PA 18301">4.5 mi</span><small>9–12 min</small></td>
+  <td><span class="distance-value" title="PocoNoski Montessori · 2591 Milford Rd, East Stroudsburg, PA 18301">7 mi</span><small>12–16 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-value" title="International Gymnastics School · 100 Gymnastics Way, Stroudsburg, PA 18360">6 mi</span><small>10–13 min</small></td>
+  <td><span class="distance-value" title="Pocono Family YMCA · 809 Main St, Stroudsburg, PA 18360">3 mi</span><small>6–8 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 5719 Wildflower Circle"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 5719 Wildflower Circle" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="90-1025-bloom-rd-danville-pa" data-region="West" data-status="unmarked" data-date-added="2026-10-19" data-search="1025 bloom road danville, pa 17821 west">
+  <th scope="row"><a href="reports/90-1025-bloom-rd-danville-pa.html">1025 Bloom Road</a><small>Danville, PA 17821</small></th>
+  <td class="number-cell"><b>90</b></td>
+  <td class="number-cell">3,036</td>
+  <td class="number-cell">2.02</td>
+  <td><span class="distance-value" title="Target Selinsgrove · 501 Marketplace Blvd, Selinsgrove, PA 17870">18 mi</span><small>25–35 min</small></td>
+  <td><span class="distance-value" title="Walmart Bloomsburg · 100 Lunger Dr, Bloomsburg, PA 17815">12 mi</span><small>18–25 min</small></td>
+  <td><span class="distance-value" title="Weis Markets Danville · 140 Continental Blvd, Danville, PA 17821">1.5 mi</span><small>4–7 min</small></td>
+  <td><span class="distance-value" title="St. Joseph School · 1027 Ferry St, Danville, PA 17821">1.5 mi</span><small>5–8 min</small></td>
+  <td><span class="distance-value" title="Susquehanna Valley Preschool · Northumberland, PA 17857">17 mi</span><small>25–35 min</small></td>
+  <td><span class="distance-value" title="Karen Gronsky School of Dance · 43 Third St, Riverside, PA 17821">2 mi</span><small>5–9 min</small></td>
+  <td><span class="distance-value" title="Gym Starz Gymnastics · 206 Armory Rd, Sunbury, PA 17801">14 mi</span><small>20–30 min</small></td>
+  <td><span class="distance-value" title="Danville Area Community Center · 1041 Liberty St, Danville, PA 17821">2 mi</span><small>5–9 min</small></td>
+  <td><span class="distance-value" title="Philo-Sophia Brazilian Jiu-Jitsu · 608 Mill St, Danville, PA 17821">1.5 mi</span><small>4–8 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 1025 Bloom Road"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 1025 Bloom Road" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="75-4683-steven-ln-walnutport-pa" data-region="Allentown Area" data-status="unmarked" data-date-added="2026-10-18" data-search="4683 steven lane walnutport, pa 18088 allentown area">
+  <th scope="row"><a href="reports/75-4683-steven-ln-walnutport-pa.html">4683 Steven Lane</a><small>Walnutport, PA 18088</small></th>
+  <td class="number-cell"><b>75</b></td>
+  <td class="number-cell">2,647</td>
+  <td class="number-cell">1.01</td>
+  <td><span class="distance-value" title="Target Allentown · 1600 N Cedar Crest Blvd, Allentown, PA 18104">14 mi</span><small>22–30 min</small></td>
+  <td><span class="distance-value" title="Walmart Whitehall · 2601 MacArthur Rd, Whitehall, PA 18052">10 mi</span><small>16–23 min</small></td>
+  <td><span class="distance-value" title="Redner’s Warehouse Market · 200 S Best Ave, Walnutport, PA 18088">4 mi</span><small>7–11 min</small></td>
+  <td><span class="distance-value" title="St. John Neumann Regional School · 641 W Washington St, Slatington, PA 18080">5 mi</span><small>9–13 min</small></td>
+  <td><span class="distance-value" title="Grace Montessori School · 814 W Linden St, Allentown, PA 18101">14 mi</span><small>22–30 min</small></td>
+  <td><span class="distance-value" title="3D Dance Studio · 3850 Lehigh Dr, Northampton, PA 18067">9 mi</span><small>15–22 min</small></td>
+  <td><span class="distance-value" title="Parkettes National Gymnastics Center · 401 Martin Luther King Jr Dr, Allentown, PA 18102">14 mi</span><small>22–30 min</small></td>
+  <td><span class="distance-value" title="Slatington YMCA · 601 W Main St, Slatington, PA 18080">5 mi</span><small>8–13 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-value" title="Finishers MMA / 10th Planet Bethlehem · 3713 Linden St, Bethlehem, PA 18020">15 mi</span><small>23–32 min</small></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 4683 Steven Lane"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 4683 Steven Lane" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="77-199-kutz-rd-fleetwood-pa" data-region="West" data-status="unmarked" data-date-added="2026-10-17" data-search="199 kutz road fleetwood, pa 19522 west">
+  <th scope="row"><a href="reports/77-199-kutz-rd-fleetwood-pa.html">199 Kutz Road</a><small>Fleetwood, PA 19522</small></th>
+  <td class="number-cell"><b>77</b></td>
+  <td class="number-cell">3,573</td>
+  <td class="number-cell">1.80</td>
+  <td><span class="distance-value" title="Target Trexlertown · 749 N Krocks Rd, Allentown, PA 18106">17 mi</span><small>24–31 min</small></td>
+  <td><span class="distance-value" title="Walmart Hamburg · 1800 Tilden Ridge Dr, Hamburg, PA 19526">15 mi</span><small>22–29 min</small></td>
+  <td><span class="distance-value" title="Weis Markets Kutztown · 15260 Kutztown Rd, Kutztown, PA 19530">6 mi</span><small>11–15 min</small></td>
+  <td><span class="distance-value" title="Fleetwood Christian Day School · 1038 Richmond Rd, Fleetwood, PA 19522">7 mi</span><small>13–17 min</small></td>
+  <td><span class="distance-value" title="Brookeside Montessori School · 1075 PA-100, Bechtelsville, PA 19505">13 mi</span><small>20–27 min</small></td>
+  <td><span class="distance-value" title="Dance Dynamics · 562 Blandon Rd, Fleetwood, PA 19522">7 mi</span><small>13–18 min</small></td>
+  <td><span class="distance-value" title="Stallone Gymnastics · 3135 Pricetown Rd, Fleetwood, PA 19522">8 mi</span><small>14–19 min</small></td>
+  <td><span class="distance-value" title="Tri Valley YMCA · 607 Crisscross Rd, Fleetwood, PA 19522">6 mi</span><small>12–16 min</small></td>
+  <td><span class="distance-value" title="Gracie Jiu-Jitsu Kutztown · 240 W Walnut St, Kutztown, PA 19530">6 mi</span><small>11–15 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 199 Kutz Road"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 199 Kutz Road" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="80-425-spring-st-easton-pa" data-region="Allentown Area" data-status="unmarked" data-date-added="2026-10-16" data-search="425 spring street easton, pa 18042 allentown area">
+  <th scope="row"><a href="reports/80-425-spring-st-easton-pa.html">425 Spring Street</a><small>Easton, PA 18042</small></th>
+  <td class="number-cell"><b>80</b></td>
+  <td class="number-cell">3,542</td>
+  <td class="number-cell">0.71</td>
+  <td><span class="distance-value" title="Target Lower Nazareth · 3835 Dryland Way, Easton, PA 18045">5 mi</span><small>11–17 min</small></td>
+  <td><span class="distance-value" title="Walmart Easton Supercenter · 3722 Easton Nazareth Hwy, Easton, PA 18045">4 mi</span><small>10–15 min</small></td>
+  <td><span class="distance-value" title="Wegmans Nazareth · 3791 Easton Nazareth Hwy, Easton, PA 18045">5 mi</span><small>11–16 min</small></td>
+  <td><span class="distance-value" title="St. Jane Frances de Chantal School · 1900 Washington Blvd, Easton, PA 18042">0.5 mi</span><small>3–6 min</small></td>
+  <td><span class="distance-value" title="Ready Set Go Preschool · 845 Howe St, Easton, PA 18040">4 mi</span><small>10–16 min</small></td>
+  <td><span class="distance-value" title="Dream Believe Dance · 4100 Green Pond Rd, Easton, PA 18045">2 mi</span><small>6–10 min</small></td>
+  <td><span class="distance-value" title="Co-Op Gymnastics · 3320 Fox Hill Rd, Easton, PA 18045">4 mi</span><small>10–15 min</small></td>
+  <td><span class="distance-value" title="Fitness Club at Easton · 318 Town Center Blvd, Easton, PA 18040">4 mi</span><small>10–15 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-value" title="Nak Muay Gym · 270 E Kleinhans St, Easton, PA 18042">2 mi</span><small>7–12 min</small></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 425 Spring Street"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 425 Spring Street" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="78-2920-green-pond-rd-easton-pa" data-region="Allentown Area" data-status="unmarked" data-date-added="2026-10-16" data-search="2920 green pond road easton, pa 18045 allentown area">
+  <th scope="row"><a href="reports/78-2920-green-pond-rd-easton-pa.html">2920 Green Pond Road</a><small>Easton, PA 18045</small></th>
+  <td class="number-cell"><b>78</b></td>
+  <td class="number-cell">2,638</td>
+  <td class="number-cell">0.77</td>
+  <td><span class="distance-value" title="Target Lower Nazareth · 3835 Dryland Way, Easton, PA 18045">3 mi</span><small>7–10 min</small></td>
+  <td><span class="distance-value" title="Walmart Easton Supercenter · 3722 Easton Nazareth Hwy, Easton, PA 18045">3 mi</span><small>7–10 min</small></td>
+  <td><span class="distance-value" title="Wegmans Nazareth · 3791 Easton Nazareth Hwy, Easton, PA 18045">3 mi</span><small>7–10 min</small></td>
+  <td><span class="distance-value" title="St. Jane Frances de Chantal School · 1900 Washington Blvd, Easton, PA 18042">2 mi</span><small>5–8 min</small></td>
+  <td><span class="distance-value" title="Ready Set Go Preschool · 845 Howe St, Easton, PA 18040">6 mi</span><small>12–18 min</small></td>
+  <td><span class="distance-value" title="Dream Believe Dance · 4100 Green Pond Rd, Easton, PA 18045">1 mi</span><small>3–5 min</small></td>
+  <td><span class="distance-value" title="Co-Op Gymnastics · 3320 Fox Hill Rd, Easton, PA 18045">2 mi</span><small>5–8 min</small></td>
+  <td><span class="distance-value" title="Fitness Club at Easton · 318 Town Center Blvd, Easton, PA 18040">4 mi</span><small>9–13 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-value" title="Nak Muay Gym · 270 E Kleinhans St, Easton, PA 18042">4 mi</span><small>9–14 min</small></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 2920 Green Pond Road"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 2920 Green Pond Road" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="84-49-fawn-dr-reading-pa" data-region="West" data-status="unmarked" data-date-added="2026-10-16" data-search="49 fawn drive reading, pa 19607 west">
+  <th scope="row"><a href="reports/84-49-fawn-dr-reading-pa.html">49 Fawn Drive</a><small>Reading, PA 19607</small></th>
+  <td class="number-cell"><b>84</b></td>
+  <td class="number-cell">3,472</td>
+  <td class="number-cell">1.82</td>
+  <td><span class="distance-value" title="Target Spring Township · 2769 Papermill Rd, Wyomissing, PA 19610">10 mi</span><small>18–24 min</small></td>
+  <td><span class="distance-value" title="Walmart Wyomissing · 1135 Berkshire Blvd, Wyomissing, PA 19610">9 mi</span><small>18–23 min</small></td>
+  <td><span class="distance-value" title="GIANT Food Stores · 2641 Shillington Rd, Reading, PA 19609">6 mi</span><small>13–17 min</small></td>
+  <td><span class="distance-value" title="La Salle Academy · 440 Holland St, Shillington, PA 19607">5 mi</span><small>12–16 min</small></td>
+  <td><span class="distance-value" title="Montessori Country Day School · 53 Vermont Rd, Sinking Spring, PA 19608">8 mi</span><small>15–20 min</small></td>
+  <td><span class="distance-value" title="Dance Your Dreams · 340 Morgantown Rd, Reading, PA 19611">5 mi</span><small>11–15 min</small></td>
+  <td><span class="distance-value" title="Berks Gymnastics Academy · 325 Morgantown Rd, Reading, PA 19611">5 mi</span><small>11–15 min</small></td>
+  <td><span class="distance-value" title="Mifflin Area YMCA · 140 Chestnut St, Mohnton, PA 19540">5 mi</span><small>12–16 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 49 Fawn Drive"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 49 Fawn Drive" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="76-5110-oak-ln-canadensis-pa" data-region="Scranton Area" data-status="unmarked" data-date-added="2026-10-15" data-search="5110 oak lane canadensis, pa 18325 scranton area">
+  <th scope="row"><a href="reports/76-5110-oak-ln-canadensis-pa.html">5110 Oak Lane</a><small>Canadensis, PA 18325</small></th>
+  <td class="number-cell"><b>76</b></td>
+  <td class="number-cell">2,547</td>
+  <td class="number-cell">2.01</td>
+  <td><span class="distance-value" title="Target Stroudsburg · 155 Mountaineer Dr, Stroudsburg, PA 18360">16 mi</span><small>28–35 min</small></td>
+  <td><span class="distance-value" title="Walmart Mount Pocono · 3271 Route 940, Mount Pocono, PA 18344">10 mi</span><small>18–23 min</small></td>
+  <td><span class="distance-value" title="Lewis’ Supermarket · 109 Oak Ln, Mountainhome, PA 18342">4 mi</span><small>7–10 min</small></td>
+  <td><span class="distance-value" title="Notre Dame Elementary · 60 Spangenburg Ave, East Stroudsburg, PA 18301">12 mi</span><small>24–30 min</small></td>
+  <td><span class="distance-value" title="The Growing Concern · 539 Railroad Dr, Tannersville, PA 18372">12 mi</span><small>22–28 min</small></td>
+  <td><span class="distance-value" title="Reach for the Stars Dance · 1150 Pocono Blvd, Mount Pocono, PA 18344">10 mi</span><small>19–24 min</small></td>
+  <td><span class="distance-value" title="International Gymnastics · 100 Gymnastics Way, Stroudsburg, PA 18360">18 mi</span><small>28–35 min</small></td>
+  <td><span class="distance-value" title="The Hamlet fitness center · The Hamlet, Canadensis, PA 18325">inside community</span><small>short local trip</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 5110 Oak Lane"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 5110 Oak Lane" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="83-1526-slope-rd-east-stroudsburg-pa" data-region="Allentown Area" data-status="unmarked" data-date-added="2026-10-15" data-search="1526 slope road east stroudsburg, pa 18302 allentown area">
+  <th scope="row"><a href="reports/83-1526-slope-rd-east-stroudsburg-pa.html">1526 Slope Road</a><small>East Stroudsburg, PA 18302</small></th>
+  <td class="number-cell"><b>83</b></td>
+  <td class="number-cell">3,286</td>
+  <td class="number-cell">0.96</td>
+  <td><span class="distance-value" title="Target · 155 Mountaineer Dr, Stroudsburg, PA 18360">9 mi</span><small>15–20 min</small></td>
+  <td><span class="distance-value" title="Walmart Supercenter · 355 Lincoln Ave, East Stroudsburg, PA 18301">6.5 mi</span><small>12–16 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-value" title="Notre Dame Elementary · 60 Spangenburg Ave, East Stroudsburg, PA 18301">5.5 mi</span><small>10–14 min</small></td>
+  <td><span class="distance-value" title="PocoNoski Montessori · 2591 Milford Rd, East Stroudsburg, PA 18301">2.2 mi</span><small>5–7 min</small></td>
+  <td><span class="distance-value" title="Gigi &amp; Company Dance · 564 Main St, Stroudsburg, PA 18360">7 mi</span><small>13–17 min</small></td>
+  <td><span class="distance-value" title="International Gymnastics School · 100 Gymnastics Way, Stroudsburg, PA 18360">14 mi</span><small>20–25 min</small></td>
+  <td><span class="distance-value" title="Pocono Family YMCA · 809 Main St, Stroudsburg, PA 18360">7 mi</span><small>13–17 min</small></td>
+  <td><span class="distance-value" title="Crucible Jiu Jitsu · 2610 Milford Rd Unit 215, East Stroudsburg, PA 18301">2.2 mi</span><small>5–7 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 1526 Slope Road"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 1526 Slope Road" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="74-433-eagleview-dr-mohrsville-pa" data-region="West" data-status="unmarked" data-date-added="2026-10-15" data-search="433 eagleview drive mohrsville, pa 19541 west">
+  <th scope="row"><a href="reports/74-433-eagleview-dr-mohrsville-pa.html">433 Eagleview Drive</a><small>Mohrsville, PA 19541</small></th>
+  <td class="number-cell"><b>74</b></td>
+  <td class="number-cell">2,994</td>
+  <td class="number-cell">1.01</td>
+  <td><span class="distance-value" title="Target Temple · 4220 N 5th Street Hwy, Temple, PA 19560">9 mi</span><small>14–18 min</small></td>
+  <td><span class="distance-value" title="Walmart Temple · 5370 Allentown Pike, Temple, PA 19560">10 mi</span><small>15–19 min</small></td>
+  <td><span class="distance-value" title="Redner’s Warehouse Market · 5471 Pottsville Pike, Leesport, PA 19533">4 mi</span><small>7–9 min</small></td>
+  <td><span class="distance-value" title="St. Margaret School · 235 Spring St, Reading, PA 19601">14 mi</span><small>22–28 min</small></td>
+  <td><span class="distance-value" title="Montessori Country Day School · 53 Vermont Rd, Sinking Spring, PA 19608">22 mi</span><small>30–35 min</small></td>
+  <td><span class="distance-value" title="Horizons Dance Conservatory · 2735 Bernville Rd, Leesport, PA 19533">4.5 mi</span><small>8–11 min</small></td>
+  <td><span class="distance-value" title="Berks Gymnastic Academy · 325 Morgantown Rd, Reading, PA 19611">18 mi</span><small>25–30 min</small></td>
+  <td><span class="distance-value" title="Anytime Fitness Leesport · 5479 Pottsville Pike, Leesport, PA 19533">4 mi</span><small>7–9 min</small></td>
+  <td><span class="distance-value" title="Berks County BJJ · 4700 N 5th Street Hwy, Temple, PA 19560">9 mi</span><small>14–18 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 433 Eagleview Drive"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 433 Eagleview Drive" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="91-5580-olde-mill-run-stroudsburg-pa" data-region="Allentown Area" data-status="unmarked" data-date-added="2026-10-14" data-search="5580 olde mill run stroudsburg, pa 18360 allentown area">
+  <th scope="row"><a href="reports/91-5580-olde-mill-run-stroudsburg-pa.html">5580 Olde Mill Run</a><small>Stroudsburg, PA 18360</small></th>
+  <td class="number-cell"><b>91</b></td>
+  <td class="number-cell">3,044</td>
+  <td class="number-cell">1.29</td>
+  <td><span class="distance-value" title="Target · 155 Mountaineer Dr, Stroudsburg, PA 18360">0.7 mi</span><small>3 min</small></td>
+  <td><span class="distance-value" title="Walmart Supercenter · 355 Lincoln Ave, East Stroudsburg, PA 18301">4 mi</span><small>8–10 min</small></td>
+  <td><span class="distance-value" title="ShopRite + American Killer Bees · 344 Stroud Mall Rd, Stroudsburg, PA 18360">1.5 mi</span><small>4–6 min</small></td>
+  <td><span class="distance-value" title="Notre Dame Elementary · 60 Spangenburg Ave, East Stroudsburg, PA 18301">4.5 mi</span><small>9–12 min</small></td>
+  <td><span class="distance-value" title="PocoNoski Montessori · 2591 Milford Rd, East Stroudsburg, PA 18301">7 mi</span><small>12–16 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-value" title="International Gymnastics School · 100 Gymnastics Way, Stroudsburg, PA 18360">6 mi</span><small>10–13 min</small></td>
+  <td><span class="distance-value" title="Pocono Family YMCA · 809 Main St, Stroudsburg, PA 18360">3 mi</span><small>6–8 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 5580 Olde Mill Run"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 5580 Olde Mill Run" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="80-802-mcconnell-pkwy-hughesville-pa" data-region="West" data-status="unmarked" data-date-added="2026-10-11" data-search="802 mcconnell parkway hughesville, pa 17737 west">
+  <th scope="row"><a href="reports/80-802-mcconnell-pkwy-hughesville-pa.html">802 McConnell Parkway</a><small>Hughesville, PA 17737</small></th>
+  <td class="number-cell"><b>80</b></td>
+  <td class="number-cell">3,259</td>
+  <td class="number-cell">2.73</td>
+  <td><span class="distance-value" title="Target Williamsport · 170 S Lycoming Mall Rd, Muncy, PA 17756">8 mi</span><small>11 min</small></td>
+  <td><span class="distance-value" title="Walmart Montoursville Supercenter · 1015 N Loyalsock Ave, Montoursville, PA 17754">13 mi</span><small>18 min</small></td>
+  <td><span class="distance-value" title="Weis Markets Muncy · 1272 E Penn St, Muncy, PA 17756">5.5 mi</span><small>8 min</small></td>
+  <td><span class="distance-value" title="St. John Neumann Elementary School · 710 Franklin St, Williamsport, PA 17701">17 mi</span><small>24 min</small></td>
+  <td><span class="distance-value" title="New Growth Learning Company · 2100 W 3rd St, Williamsport, PA 17701">20 mi</span><small>28 min</small></td>
+  <td><span class="distance-value" title="D&amp;K’s Studio of Dance · 301 Cemetery St, Hughesville, PA 17737">1.1 mi</span><small>3 min</small></td>
+  <td><span class="distance-value" title="Dynamats Gymnastics Center · 221 Alexander Dr, Muncy, PA 17756">8 mi</span><small>12 min</small></td>
+  <td><span class="distance-value" title="Eastern Lycoming YMCA · 50 Fitness Dr, Muncy, PA 17756">8 mi</span><small>12 min</small></td>
+  <td><span class="distance-value" title="Tried and True Jiu Jitsu · 15 E Water St, Muncy, PA 17756">5.5 mi</span><small>8 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 802 McConnell Parkway"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 802 McConnell Parkway" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="83-9257-lyon-valley-rd-new-tripoli-pa" data-region="Allentown Area" data-status="unmarked" data-date-added="2026-10-11" data-search="9257 lyon valley road new tripoli, pa 18066 allentown area">
+  <th scope="row"><a href="reports/83-9257-lyon-valley-rd-new-tripoli-pa.html">9257 Lyon Valley Road</a><small>New Tripoli, PA 18066</small></th>
+  <td class="number-cell"><b>83</b></td>
+  <td class="number-cell">3,257</td>
+  <td class="number-cell">1.13</td>
+  <td><span class="distance-value" title="Target Allentown · 1600 N Cedar Crest Blvd, Allentown, PA 18104">12.0 mi</span><small>20 min</small></td>
+  <td><span class="distance-value" title="Walmart Allentown Supercenter · 1091 Millcreek Rd, Allentown, PA 18106">9.9 mi</span><small>18 min</small></td>
+  <td><span class="distance-value" title="Weis Markets Fogelsville · 7801 Glenlivet Dr W, Fogelsville, PA 18051">7.2 mi</span><small>13 min</small></td>
+  <td><span class="distance-value" title="Blue Mountain Christian Day School · 5469 Owl Valley Rd, New Tripoli, PA 18066">4.9 mi</span><small>12 min</small></td>
+  <td><span class="distance-value" title="Bright Beginnings Montessori Academy · 1044 Trexlertown Rd, Breinigsville, PA 18031">8.1 mi</span><small>14 min</small></td>
+  <td><span class="distance-value" title="Next Level Dance Academy · 6299 Route 309, New Tripoli, PA 18066">7.3 mi</span><small>14 min</small></td>
+  <td><span class="distance-value" title="Parkettes National Gymnastics · 401 Martin Luther King Jr Dr, Allentown, PA 18102">15.6 mi</span><small>26 min</small></td>
+  <td><span class="distance-value" title="Ambition Gym · 6299 Route 309, New Tripoli, PA 18066">7.3 mi</span><small>14 min</small></td>
+  <td><span class="distance-value" title="Prodigy Jiu-Jitsu Academy · 7720 Main St, Suite 5, Fogelsville, PA 18051">6.9 mi</span><small>13 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 9257 Lyon Valley Road"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 9257 Lyon Valley Road" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="69-298-scenic-dr-blakeslee-pa" data-region="Allentown Area" data-status="unmarked" data-date-added="2026-10-11" data-search="298 scenic drive blakeslee, pa 18610 allentown area">
+  <th scope="row"><a href="reports/69-298-scenic-dr-blakeslee-pa.html">298 Scenic Drive</a><small>Blakeslee, PA 18610</small></th>
+  <td class="number-cell"><b>69</b></td>
+  <td class="number-cell">2,764</td>
+  <td class="number-cell">2.02</td>
+  <td><span class="distance-value" title="Target Stroudsburg · 155 Mountaineer Dr, Stroudsburg, PA 18360">22.0 mi</span><small>35 min</small></td>
+  <td><span class="distance-value" title="Walmart Mount Pocono · 3271 PA-940, Mount Pocono, PA 18344">13.8 mi</span><small>25 min</small></td>
+  <td><span class="distance-value" title="Ahart’s Market Blakeslee · 248 PA-940, Blakeslee, PA 18610">3.0 mi</span><small>7 min</small></td>
+  <td><span class="distance-value" title="Pocono Adventist Christian School · 2001 W Main St, Stroudsburg, PA 18360">27.0 mi</span><small>40 min</small></td>
+  <td><span class="distance-value" title="The Growing Concern School · 539 Railroad Dr, Tannersville, PA 18372">18.0 mi</span><small>29 min</small></td>
+  <td><span class="distance-value" title="Mountain Dance Company · 906 Route 940, Suite 113, Pocono Lake, PA 18347">6.1 mi</span><small>11 min</small></td>
+  <td><span class="distance-value" title="International Gymnastics Camp · 100 Gymnastics Way, Stroudsburg, PA 18360">18.8 mi</span><small>29 min</small></td>
+  <td><span class="distance-value" title="Planet Fitness Mount Pocono · 3236 Route 940, Mount Pocono, PA 18344">14.0 mi</span><small>25 min</small></td>
+  <td><span class="distance-value" title="BlackWing Jiu Jitsu &amp; MMA · 2936 PA-611, Tannersville, PA 18372">18.4 mi</span><small>30 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 298 Scenic Drive"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 298 Scenic Drive" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="86-56-ealer-hill-rd-kintnersville-pa" data-region="Allentown Area" data-status="unmarked" data-date-added="2026-10-10" data-search="56 ealer hill road kintnersville, pa 18930 allentown area">
+  <th scope="row"><a href="reports/86-56-ealer-hill-rd-kintnersville-pa.html">56 Ealer Hill Road</a><small>Kintnersville, PA 18930</small></th>
+  <td class="number-cell"><b>86</b></td>
+  <td class="number-cell">3,596</td>
+  <td class="number-cell">1.12</td>
+  <td><span class="distance-value" title="Target · 610 N West End Blvd, Quakertown, PA 18951">15 mi</span><small>20–25 min</small></td>
+  <td><span class="distance-value" title="Walmart Supercenter · 195 N West End Blvd, Quakertown, PA 18951">14 mi</span><small>18–24 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-value" title="United Friends School · 1018 W Broad St, Quakertown, PA 18951">14 mi</span><small>18–24 min</small></td>
+  <td><span class="distance-value" title="Maria’s House Montessori · 601 New Britain Rd, Doylestown, PA 18901">24 mi</span><small>28–35 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-value" title="Power &amp; Grace Gymnastics and Dance · 122 Pacific Dr, Quakertown, PA 18951">16 mi</span><small>20–25 min</small></td>
+  <td><span class="distance-value" title="YMCA of Bucks County · 401 Fairview Ave, Quakertown, PA 18951">14 mi</span><small>18–24 min</small></td>
+  <td><span class="distance-value" title="Revelation Jiu-Jitsu · 315 W Broad St, Quakertown, PA 18951">14 mi</span><small>20–25 min</small></td>
+  <td><span class="distance-value" title="Quakertown Academy of MMA &amp; Fitness · Quakertown Academy of MMA and Fitness, Quakertown, PA">15 mi</span><small>20–25 min</small></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 56 Ealer Hill Road"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 56 Ealer Hill Road" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="79-271-s-main-st-bendersville-pa" data-region="West" data-status="unmarked" data-date-added="2026-10-10" data-search="271 south main street bendersville, pa 17304 west">
+  <th scope="row"><a href="reports/79-271-s-main-st-bendersville-pa.html">271 South Main Street</a><small>Bendersville, PA 17304</small></th>
+  <td class="number-cell"><b>79</b></td>
+  <td class="number-cell">3,092</td>
+  <td class="number-cell">1.04</td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 271 South Main Street"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 271 South Main Street" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="86-4-joe-pag-ln-dallas-pa" data-region="Scranton Area" data-status="unmarked" data-date-added="2026-10-10" data-search="4 joe-pag lane dallas, pa 18612 scranton area">
+  <th scope="row"><a href="reports/86-4-joe-pag-ln-dallas-pa.html">4 Joe-Pag Lane</a><small>Dallas, PA 18612</small></th>
+  <td class="number-cell"><b>86</b></td>
+  <td class="number-cell">3,666</td>
+  <td class="number-cell">1.36</td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 4 Joe-Pag Lane"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 4 Joe-Pag Lane" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="83-1988-timberline-ct-fogelsville-pa" data-region="Allentown Area" data-status="unmarked" data-date-added="2026-10-10" data-search="1988 timberline court fogelsville, pa 18051 allentown area">
+  <th scope="row"><a href="reports/83-1988-timberline-ct-fogelsville-pa.html">1988 Timberline Court</a><small>Fogelsville, PA 18051</small></th>
+  <td class="number-cell"><b>83</b></td>
+  <td class="number-cell">2,496</td>
+  <td class="number-cell">1</td>
+  <td><span class="distance-value" title="Target Allentown · 1600 N Cedar Crest Blvd, Allentown, PA 18104">11.5 mi</span><small>18 min</small></td>
+  <td><span class="distance-value" title="Walmart Allentown Supercenter · 1091 Millcreek Rd, Allentown, PA 18106">8.5 mi</span><small>13 min</small></td>
+  <td><span class="distance-value" title="Weis Markets Fogelsville · 7801 Glenlivet Dr W, Fogelsville, PA 18051">4.0 mi</span><small>8 min</small></td>
+  <td><span class="distance-value" title="Blue Mountain Christian Day School · 5469 Owl Valley Rd, New Tripoli, PA 18066">7.0 mi</span><small>12 min</small></td>
+  <td><span class="distance-value" title="Bright Beginnings Montessori Academy · 1044 Trexlertown Rd, Breinigsville, PA 18031">8.0 mi</span><small>13 min</small></td>
+  <td><span class="distance-value" title="Next Level Dance Academy · 6299 Route 309, New Tripoli, PA 18066">8.0 mi</span><small>13 min</small></td>
+  <td><span class="distance-value" title="Parkettes National Gymnastics · 401 Martin Luther King Jr Dr, Allentown, PA 18102">15.5 mi</span><small>22 min</small></td>
+  <td><span class="distance-value" title="Ambition Gym · 6299 Route 309, New Tripoli, PA 18066">8.0 mi</span><small>13 min</small></td>
+  <td><span class="distance-value" title="Prodigy Jiu-Jitsu · 7720 Main St, Suite 5, Fogelsville, PA 18051">3.7 mi</span><small>7 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 1988 Timberline Court"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 1988 Timberline Court" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="72-4243-willow-st-stewartstown-pa" data-region="West" data-status="unmarked" data-date-added="2026-10-10" data-search="4243 willow street stewartstown, pa 17363 west">
+  <th scope="row"><a href="reports/72-4243-willow-st-stewartstown-pa.html">4243 Willow Street</a><small>Stewartstown, PA 17363</small></th>
+  <td class="number-cell"><b>72</b></td>
+  <td class="number-cell">2,562</td>
+  <td class="number-cell">1</td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 4243 Willow Street"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 4243 Willow Street" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="67-222-martha-ln-blakeslee-pa" data-region="Allentown Area" data-status="unmarked" data-date-added="2026-10-09" data-search="222 martha lane blakeslee, pa 18610 allentown area">
+  <th scope="row"><a href="reports/67-222-martha-ln-blakeslee-pa.html">222 Martha Lane</a><small>Blakeslee, PA 18610</small></th>
+  <td class="number-cell"><b>67</b></td>
+  <td class="number-cell">3,024</td>
+  <td class="number-cell">1.05</td>
+  <td><span class="distance-value" title="Target Stroudsburg · 155 Mountaineer Dr, Stroudsburg, PA 18360">15.0 mi</span><small>30 min verified</small></td>
+  <td><span class="distance-value" title="Walmart Mount Pocono · 3271 PA-940, Mount Pocono, PA 18344">12.3 mi</span><small>26 min verified</small></td>
+  <td><span class="distance-value" title="Kinsley’s ShopRite · 107 Kinsley Dr, Brodheadsville, PA 18322">7.6 mi</span><small>13 min verified</small></td>
+  <td><span class="distance-value" title="Pocono Adventist Christian School · 2001 W Main St, Stroudsburg, PA 18360">19.4 mi</span><small>32 min verified</small></td>
+  <td><span class="distance-value" title="The Growing Concern School · 539 Railroad Dr, Tannersville, PA 18372">12.0 mi</span><small>23 min verified</small></td>
+  <td><span class="distance-value" title="Mountain Dance Company · 906 Route 940, Suite 113, Pocono Lake, PA 18347">12.2 mi</span><small>19 min verified</small></td>
+  <td><span class="distance-value" title="International Gymnastics Camp · 100 Gymnastics Way, Stroudsburg, PA 18360">9.4 mi</span><small>18 min verified</small></td>
+  <td><span class="distance-value" title="Planet Fitness Mount Pocono · 3236 Route 940, Mount Pocono, PA 18344">12.4 mi</span><small>26 min verified</small></td>
+  <td><span class="distance-value" title="BlackWing Jiu Jitsu &amp; MMA · 2936 PA-611, Tannersville, PA 18372">12.3 mi</span><small>23 min verified</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 222 Martha Lane"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 222 Martha Lane" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="84-340-sanderson-st-throop-pa" data-region="Scranton Area" data-status="unmarked" data-date-added="2026-10-08" data-search="340 sanderson street throop, pa 18512 scranton area">
+  <th scope="row"><a href="reports/84-340-sanderson-st-throop-pa.html">340 Sanderson Street</a><small>Throop, PA 18512</small></th>
+  <td class="number-cell"><b>84</b></td>
+  <td class="number-cell">3,174</td>
+  <td class="number-cell">0.78</td>
+  <td><span class="distance-value" title="Target Dickson City · 1140 Commerce Blvd, Dickson City, PA 18519">3.7 mi</span><small>11 min</small></td>
+  <td><span class="distance-value" title="Walmart Dickson City · 900 Commerce Blvd, Dickson City, PA 18519">4.1 mi</span><small>13 min</small></td>
+  <td><span class="distance-value" title="Gerrity&#39;s Supermarket · 320 Meadow Ave, Scranton, PA 18505">4.9 mi</span><small>11 min</small></td>
+  <td><span class="distance-value" title="La Salle Academy · 309 1st Ave, Jessup, PA 18434">4.7 mi</span><small>9 min</small></td>
+  <td><span class="distance-value" title="Discovery Montessori East Mountain · 1301 Beech St, Scranton, PA 18505">5.5 mi</span><small>12 min</small></td>
+  <td><span class="distance-value" title="Jeanne&#39;s Dance Studio · 1 Line St, Throop, PA 18512">0.9 mi</span><small>2 min</small></td>
+  <td><span class="distance-value" title="United Sports Academy · 1035 Reeves St, Dunmore, PA 18512">1.9 mi</span><small>6 min</small></td>
+  <td><span class="distance-value" title="Throop Civic Center · 500 Sanderson St, Throop, PA 18512">0.5 mi</span><small>2 min</small></td>
+  <td><span class="distance-value" title="Gracie NEPA · 943 Underwood Rd, Olyphant, PA 18447">1.9 mi</span><small>5 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 340 Sanderson Street"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 340 Sanderson Street" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="88-385-albright-rd-kutztown-pa" data-region="Allentown Area" data-status="unmarked" data-date-added="2026-10-07" data-search="385 albright road kutztown, pa 19530 allentown area">
+  <th scope="row"><a href="reports/88-385-albright-rd-kutztown-pa.html">385 Albright Road</a><small>Kutztown, PA 19530</small></th>
+  <td class="number-cell"><b>88</b></td>
+  <td class="number-cell">3,529</td>
+  <td class="number-cell">1.52</td>
+  <td><span class="distance-value" title="Target Lower Macungie Township · 749 N Krocks Rd, Allentown, PA 18106">9.1 mi</span><small>14 min verified</small></td>
+  <td><span class="distance-value" title="Walmart Allentown Supercenter · 1091 Mill Creek Rd, Allentown, PA 18106">7.3 mi</span><small>13 min verified</small></td>
+  <td><span class="distance-value" title="Weis Markets Kutztown · 15260 Kutztown Rd, Kutztown, PA 19530">4.8 mi</span><small>9 min verified</small></td>
+  <td><span class="distance-value" title="Hidden Valley Mennonite School · 149 High Rd, Kutztown, PA 19530">3.3 mi</span><small>6 min verified</small></td>
+  <td><span class="distance-value" title="Bright Beginnings Montessori Academy · 1044 Trexlertown Rd, Suite 101, Breinigsville, PA 18031">6.1 mi</span><small>10 min verified</small></td>
+  <td><span class="distance-value" title="Kutztown Dance Center · 242 N Whiteoak St, Kutztown, PA 19530">6.4 mi</span><small>10 min verified</small></td>
+  <td><span class="distance-value" title="Parkettes National Gymnastics Training Center · 401 Martin Luther King Jr Dr, Allentown, PA 18102">16.9 mi</span><small>25 min verified</small></td>
+  <td><span class="distance-value" title="Planet Fitness Kutztown · 15260 Kutztown Rd, Kutztown, PA 19530">4.7 mi</span><small>8 min verified</small></td>
+  <td><span class="distance-value" title="Gracie Jiu-Jitsu Kutztown · 240 W Walnut St, Kutztown, PA 19530">6.5 mi</span><small>11 min verified</small></td>
+  <td><span class="distance-value" title="Althouse Training Center · 445 Greenwich St, Kutztown, PA 19530">6.0 mi</span><small>9 min verified</small></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 385 Albright Road"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 385 Albright Road" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="87-336-sycamore-dr-east-stroudsburg-pa" data-region="Allentown Area" data-status="unmarked" data-date-added="2026-10-07" data-search="336 sycamore drive east stroudsburg, pa 18301 allentown area">
+  <th scope="row"><a href="reports/87-336-sycamore-dr-east-stroudsburg-pa.html">336 Sycamore Drive</a><small>East Stroudsburg, PA 18301</small></th>
+  <td class="number-cell"><b>87</b></td>
+  <td class="number-cell">4,514</td>
+  <td class="number-cell">2.01</td>
+  <td><span class="distance-value" title="Target Stroudsburg · 155 Mountaineer Dr, Stroudsburg, PA 18360">3.0 mi</span><small>6 min</small></td>
+  <td><span class="distance-value" title="Walmart East Stroudsburg Supercenter · 355 Lincoln Ave, East Stroudsburg, PA 18301">7.5 mi</span><small>14 min</small></td>
+  <td><span class="distance-value" title="Weis Markets Tannersville · 2836 Route 611, Tannersville, PA 18372">3.5 mi</span><small>7 min</small></td>
+  <td><span class="distance-value" title="Notre Dame Elementary School · 60 Spangenburg Ave, East Stroudsburg, PA 18301">8.0 mi</span><small>15 min</small></td>
+  <td><span class="distance-value" title="The Growing Concern School · 539 Railroad Dr, Tannersville, PA 18372">4.2 mi</span><small>8 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-value" title="International Gymnastics School · 100 Gymnastics Way, Stroudsburg, PA 18360">4.1 mi</span><small>8 min</small></td>
+  <td><span class="distance-value" title="St. Luke&#39;s Fitness at NCC · 2411 PA-715, Tannersville, PA 18372">4.5 mi</span><small>9 min</small></td>
+  <td><span class="distance-value" title="American Killer Bees PA · 344 Stroud Mall Rd, Suite 444, Stroudsburg, PA 18360">4.7 mi</span><small>10 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 336 Sycamore Drive"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 336 Sycamore Drive" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="79-112-candy-ct-stroudsburg-pa" data-region="Allentown Area" data-status="unmarked" data-date-added="2026-10-06" data-search="112 candy court stroudsburg, pa 18360 allentown area">
+  <th scope="row"><a href="reports/79-112-candy-ct-stroudsburg-pa.html">112 Candy Court</a><small>Stroudsburg, PA 18360</small></th>
+  <td class="number-cell"><b>79</b></td>
+  <td class="number-cell">3,335</td>
+  <td class="number-cell">1.67</td>
+  <td><span class="distance-value" title="Target Stroudsburg · 155 Mountaineer Dr, Stroudsburg, PA 18360">10.8 mi</span><small>20 min</small></td>
+  <td><span class="distance-value" title="Walmart East Stroudsburg Supercenter · 355 Lincoln Ave, East Stroudsburg, PA 18301">13.8 mi</span><small>24 min</small></td>
+  <td><span class="distance-value" title="Kinsley’s ShopRite · 107 Kinsley Dr, Brodheadsville, PA 18322">7.0 mi</span><small>14 min</small></td>
+  <td><span class="distance-value" title="Immaculate Conception School · 290 W Babbitt Ave, Pen Argyl, PA 18072">16.0 mi</span><small>28 min</small></td>
+  <td><span class="distance-value" title="The Growing Concern School · 539 Railroad Dr, Tannersville, PA 18372">8.0 mi</span><small>14 min</small></td>
+  <td><span class="distance-value" title="West End Academy of Dance · 137 Erin Ln, Brodheadsville, PA 18322">6.1 mi</span><small>12 min</small></td>
+  <td><span class="distance-value" title="International Gymnastics School · 100 Gymnastics Way, Stroudsburg, PA 18360">5.5 mi</span><small>11 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-value" title="American Killer Bees PA · 344 Stroud Mall Rd, Suite 444, Stroudsburg, PA 18360">11.8 mi</span><small>22 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 112 Candy Court"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 112 Candy Court" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="77-1503-grassy-run-saylorsburg-pa" data-region="Allentown Area" data-status="unmarked" data-date-added="2026-10-06" data-search="1503 grassy run saylorsburg, pa 18353 allentown area">
+  <th scope="row"><a href="reports/77-1503-grassy-run-saylorsburg-pa.html">1503 Grassy Run</a><small>Saylorsburg, PA 18353</small></th>
+  <td class="number-cell"><b>77</b></td>
+  <td class="number-cell">3,019</td>
+  <td class="number-cell">1.07</td>
+  <td><span class="distance-value" title="Target Stroudsburg · 155 Mountaineer Dr, Stroudsburg, PA 18360">11.2 mi</span><small>25 min</small></td>
+  <td><span class="distance-value" title="Walmart East Stroudsburg Supercenter · 355 Lincoln Ave, East Stroudsburg, PA 18301">14.0 mi</span><small>28 min</small></td>
+  <td><span class="distance-value" title="Kinsley’s ShopRite · 107 Kinsley Dr, Brodheadsville, PA 18322">3.9 mi</span><small>8 min</small></td>
+  <td><span class="distance-value" title="Immaculate Conception School · 290 W Babbitt Ave, Pen Argyl, PA 18072">13.0 mi</span><small>25 min</small></td>
+  <td><span class="distance-value" title="The Growing Concern School · 539 Railroad Dr, Tannersville, PA 18372">10.5 mi</span><small>19 min</small></td>
+  <td><span class="distance-value" title="West End Academy of Dance · 137 Erin Ln, Brodheadsville, PA 18322">2.5 mi</span><small>5 min</small></td>
+  <td><span class="distance-value" title="International Gymnastics School · 100 Gymnastics Way, Stroudsburg, PA 18360">6.7 mi</span><small>15 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-value" title="American Killer Bees PA · 344 Stroud Mall Rd, Suite 444, Stroudsburg, PA 18360">10.9 mi</span><small>26 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 1503 Grassy Run"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 1503 Grassy Run" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="92-384-henry-rd-nazareth-pa" data-region="Allentown Area" data-status="unmarked" data-date-added="2026-10-06" data-search="384 henry road nazareth, pa 18064 allentown area">
+  <th scope="row"><a href="reports/92-384-henry-rd-nazareth-pa.html">384 Henry Road</a><small>Nazareth, PA 18064</small></th>
+  <td class="number-cell"><b>92</b></td>
+  <td class="number-cell">2,945</td>
+  <td class="number-cell">5.17</td>
+  <td><span class="distance-value" title="Target Lower Nazareth · 3835 Dryland Way, Easton, PA 18045">6.2 mi</span><small>11 min</small></td>
+  <td><span class="distance-value" title="Walmart Easton Supercenter · 3722 Easton Nazareth Hwy, Easton, PA 18045">6.4 mi</span><small>11 min</small></td>
+  <td><span class="distance-value" title="GIANT Food Stores · 859 Nazareth Pike, Nazareth, PA 18064">4.0 mi</span><small>10 min</small></td>
+  <td><span class="distance-value" title="Holy Family School · 17 N Convent Ave, Nazareth, PA 18064">3.8 mi</span><small>10 min</small></td>
+  <td><span class="distance-value" title="Dragonfly Montessori School · 4 S Main St, Nazareth, PA 18064">3.1 mi</span><small>8 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-value" title="Jeannie Cardinal’s School of Dance · 181 Whitfield St, Unit 4A, Nazareth, PA 18064">3.3 mi</span><small>8 min</small></td>
+  <td><span class="distance-value" title="Planet Fitness Nazareth · 859 Nazareth Pike, Nazareth, PA 18064">4.0 mi</span><small>10 min</small></td>
+  <td><span class="distance-value" title="Spartan Warrior Combat MMA · 1350 Sullivan Trail, Easton, PA 18040">6.9 mi</span><small>14 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 384 Henry Road"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 384 Henry Road" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="78-7672-hilltop-ct-new-tripoli-pa" data-region="Allentown Area" data-status="unmarked" data-date-added="2026-10-06" data-search="7672 hilltop court new tripoli, pa 18066 allentown area">
+  <th scope="row"><a href="reports/78-7672-hilltop-ct-new-tripoli-pa.html">7672 Hilltop Court</a><small>New Tripoli, PA 18066</small></th>
+  <td class="number-cell"><b>78</b></td>
+  <td class="number-cell">2,890</td>
+  <td class="number-cell">1.04</td>
+  <td><span class="distance-value" title="Target Allentown · 1600 N Cedar Crest Blvd, Allentown, PA 18104">14.5 mi</span><small>22 min</small></td>
+  <td><span class="distance-value" title="Walmart Allentown Supercenter · 1091 Millcreek Rd, Allentown, PA 18106">15.0 mi</span><small>23 min</small></td>
+  <td><span class="distance-value" title="Weis Markets Schnecksville · 5020 PA-873, Schnecksville, PA 18078">9.0 mi</span><small>14 min</small></td>
+  <td><span class="distance-value" title="Blue Mountain Christian Day School · 5469 Owl Valley Rd, New Tripoli, PA 18066">1.6 mi</span><small>5 min</small></td>
+  <td><span class="distance-value" title="Bright Beginnings Montessori Academy · 1044 Trexlertown Rd, Breinigsville, PA 18031">14.5 mi</span><small>23 min</small></td>
+  <td><span class="distance-value" title="Northwestern Lehigh High School · 6493 Route 309, New Tripoli, PA 18066">2.0 mi</span><small>5 min</small></td>
+  <td><span class="distance-value" title="Parkettes National Gymnastics · 401 Martin Luther King Jr Dr, Allentown, PA 18102">19 mi</span><small>28 min</small></td>
+  <td><span class="distance-value" title="Ambition Gym · 6299 Route 309, New Tripoli, PA 18066">3.7 mi</span><small>7 min</small></td>
+  <td><span class="distance-value" title="Zombie Brazilian Jiu-Jitsu · 1801 Union Blvd, Suite H2, Allentown, PA 18109">21 mi</span><small>30 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 7672 Hilltop Court"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 7672 Hilltop Court" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="87-301-valley-ct-sinking-spring-pa" data-region="West" data-status="unmarked" data-date-added="2026-10-04" data-search="301 valley court sinking spring, pa 19608 west">
+  <th scope="row"><a href="reports/87-301-valley-ct-sinking-spring-pa.html">301 Valley Court</a><small>Sinking Spring, PA 19608</small></th>
+  <td class="number-cell"><b>87</b></td>
+  <td class="number-cell">3,913</td>
+  <td class="number-cell">0.36</td>
+  <td><span class="distance-value" title="Target Spring Township · 2769 Papermill Rd, Wyomissing, PA 19610">5.0 mi</span><small>13 min</small></td>
+  <td><span class="distance-value" title="Walmart Wyomissing Supercenter · 1135 Berkshire Blvd, Wyomissing, PA 19610">4.3 mi</span><small>11 min</small></td>
+  <td><span class="distance-value" title="Redner’s Fresh Market · 4870 Penn Ave, Sinking Spring, PA 19608">1.9 mi</span><small>6 min</small></td>
+  <td><span class="distance-value" title="St. Ignatius Loyola Regional School · 2700 St Albans Dr, West Lawn, PA 19609">2.7 mi</span><small>9 min</small></td>
+  <td><span class="distance-value" title="Montessori Country Day School · 53 Vermont Rd, Sinking Spring, PA 19608">6.7 mi</span><small>15 min</small></td>
+  <td><span class="distance-value" title="LimeLight Dance Studio · 220 N Park Rd, Building 7B, Wyomissing, PA 19610">5.8 mi</span><small>14 min</small></td>
+  <td><span class="distance-value" title="Berks Gymnastics Academy · 325 Morgantown Rd, Reading, PA 19611">7.9 mi</span><small>17 min</small></td>
+  <td><span class="distance-value" title="Hybrid IX Fitness · 1042 Columbia Ave, Sinking Spring, PA 19608">1.9 mi</span><small>7 min</small></td>
+  <td><span class="distance-value" title="CFS Academy · 6525 Shillington Plaza, Shillington, PA 19607">4.1 mi</span><small>13 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 301 Valley Court"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 301 Valley Court" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="80-18-arbor-rd-mohnton-pa" data-region="West" data-status="unmarked" data-date-added="2026-10-04" data-search="18 arbor road mohnton, pa 19540 west">
+  <th scope="row"><a href="reports/80-18-arbor-rd-mohnton-pa.html">18 Arbor Road</a><small>Mohnton, PA 19540</small></th>
+  <td class="number-cell"><b>80</b></td>
+  <td class="number-cell">2,930</td>
+  <td class="number-cell">1.33</td>
+  <td><span class="distance-value" title="Target Spring Township · 2769 Papermill Rd, Wyomissing, PA 19610">11.7 mi</span><small>24 min</small></td>
+  <td><span class="distance-value" title="Walmart Wyomissing Supercenter · 1135 Berkshire Blvd, Wyomissing, PA 19610">9.4 mi</span><small>21 min</small></td>
+  <td><span class="distance-value" title="GIANT Food Stores · 2641 Shillington Rd, Reading, PA 19609">7.9 mi</span><small>16 min</small></td>
+  <td><span class="distance-value" title="La Salle Academy · 440 Holland St, Shillington, PA 19607">7.1 mi</span><small>18 min</small></td>
+  <td><span class="distance-value" title="Montessori Country Day School · 53 Vermont Rd, Sinking Spring, PA 19608">4.3 mi</span><small>10 min</small></td>
+  <td><span class="distance-value" title="Dance Your Dreams · 340 Morgantown Rd, Reading, PA 19611">7.2 mi</span><small>16 min</small></td>
+  <td><span class="distance-value" title="Berks Gymnastics Academy · 325 Morgantown Rd, Reading, PA 19611">7.3 mi</span><small>16 min</small></td>
+  <td><span class="distance-value" title="Mifflin Area YMCA · 140 Chestnut St, Mohnton, PA 19540">5.9 mi</span><small>14 min</small></td>
+  <td><span class="distance-value" title="CFS Academy · 6525 Shillington Plaza, Shillington, PA 19607">7.7 mi</span><small>17 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 18 Arbor Road"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 18 Arbor Road" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="92-126-w-neversink-rd-reading-pa" data-region="West" data-status="unmarked" data-date-added="2026-10-04" data-search="126 west neversink road reading, pa 19606 west">
+  <th scope="row"><a href="reports/92-126-w-neversink-rd-reading-pa.html">126 West Neversink Road</a><small>Reading, PA 19606</small></th>
+  <td class="number-cell"><b>92</b></td>
+  <td class="number-cell">4,233</td>
+  <td class="number-cell">1.78</td>
+  <td><span class="distance-value" title="Target Exeter Township · 4599 Perkiomen Ave, Reading, PA 19606">1.8 mi</span><small>5 min</small></td>
+  <td><span class="distance-value" title="Walmart Reading Supercenter · 5900 Perkiomen Ave, Reading, PA 19606">3.3 mi</span><small>7 min</small></td>
+  <td><span class="distance-value" title="GIANT Food Stores · 4655 Perkiomen Ave, Reading, PA 19606">2.0 mi</span><small>5 min</small></td>
+  <td><span class="distance-value" title="St. Catharine of Siena School · 2330 Perkiomen Ave, Reading, PA 19606">0.9 mi</span><small>3 min</small></td>
+  <td><span class="distance-value" title="Montessori Country Day School · 53 Vermont Rd, Sinking Spring, PA 19608">10 mi</span><small>16 min</small></td>
+  <td><span class="distance-value" title="Aftershock Dance Studio · 2800A Perkiomen Ave, Reading, PA 19606">1.0 mi</span><small>3 min</small></td>
+  <td><span class="distance-value" title="Berks Gymnastics Academy · 325 Morgantown Rd, Reading, PA 19611">3.5 mi</span><small>8 min</small></td>
+  <td><span class="distance-value" title="Exeter Fitness · 4270 Perkiomen Ave, Reading, PA 19606">1.2 mi</span><small>4 min</small></td>
+  <td><span class="distance-value" title="Next Level Martial Arts · 4205 Perkiomen Ave, Reading, PA 19606">1.1 mi</span><small>4 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 126 West Neversink Road"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 126 West Neversink Road" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="88-400-walnut-rd-birdsboro-pa" data-region="West" data-status="unmarked" data-date-added="2026-10-04" data-search="400 walnut road birdsboro, pa 19508 west">
+  <th scope="row"><a href="reports/88-400-walnut-rd-birdsboro-pa.html">400 Walnut Road</a><small>Birdsboro, PA 19508</small></th>
+  <td class="number-cell"><b>88</b></td>
+  <td class="number-cell">3,214</td>
+  <td class="number-cell">2.90</td>
+  <td><span class="distance-value" title="Target Reading · 4599 Perkiomen Ave, Reading, PA 19606">3.3 mi</span><small>8 min</small></td>
+  <td><span class="distance-value" title="Walmart Reading Supercenter · 5900 Perkiomen Ave, Reading, PA 19606">2.6 mi</span><small>7 min</small></td>
+  <td><span class="distance-value" title="GIANT Food Stores · 4655 Perkiomen Ave, Reading, PA 19606">3.2 mi</span><small>8 min</small></td>
+  <td><span class="distance-value" title="Berks Christian School · 926 Philadelphia Ter, Birdsboro, PA 19508">2.7 mi</span><small>7 min</small></td>
+  <td><span class="distance-value" title="Brookeside Montessori · 1075 Route 100 N, Bechtelsville, PA 19505">13.5 mi</span><small>22 min</small></td>
+  <td><span class="distance-value" title="Turning Pointe Dance at BCMC · 201 E Main St, Birdsboro, PA 19508">4.6 mi</span><small>10 min</small></td>
+  <td><span class="distance-value" title="GymKix Gymnastics at BCMC · 201 E Main St, Birdsboro, PA 19508">4.6 mi</span><small>10 min</small></td>
+  <td><span class="distance-value" title="Exeter Fitness · 4270 Perkiomen Ave, Reading, PA 19606">3.4 mi</span><small>9 min</small></td>
+  <td><span class="distance-value" title="Next Level Martial Arts · 4205 Perkiomen Ave, Reading, PA 19606">3.5 mi</span><small>9 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 400 Walnut Road"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 400 Walnut Road" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="70-1007-hampstead-rd-bushkill-pa" data-region="Allentown Area" data-status="unmarked" data-date-added="2026-10-02" data-search="1007 hampstead road bushkill, pa 18324 allentown area">
+  <th scope="row"><a href="reports/70-1007-hampstead-rd-bushkill-pa.html">1007 Hampstead Road</a><small>Bushkill, PA 18324</small></th>
+  <td class="number-cell"><b>70</b></td>
+  <td class="number-cell">5,428</td>
+  <td class="number-cell">3.65</td>
+  <td><span class="distance-value" title="Target Stroudsburg · 155 Mountaineer Dr, Stroudsburg, PA 18360">22 mi</span><small>35 min</small></td>
+  <td><span class="distance-value" title="Walmart East Stroudsburg · 355 Lincoln Ave, East Stroudsburg, PA 18301">18.5 mi</span><small>30 min</small></td>
+  <td><span class="distance-value" title="Price Chopper Marshalls Creek · 4547 Milford Rd, East Stroudsburg, PA 18302">8.5 mi</span><small>15 min</small></td>
+  <td><span class="distance-value" title="Notre Dame Elementary · 78 Ridgeway St, East Stroudsburg, PA 18301">17.5 mi</span><small>29 min</small></td>
+  <td><span class="distance-value" title="PocoNoski Child Care · 2591 Milford Rd, East Stroudsburg, PA 18301">10.5 mi</span><small>18 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-value" title="Fusia Center for the Arts · 40 N 2nd St, Stroudsburg, PA 18360">19 mi</span><small>31 min</small></td>
+  <td><span class="distance-value" title="Saw Creek Fitness Center · 5728 Decker Rd, Bushkill, PA 18324">1 mi</span><small>4 min</small></td>
+  <td><span class="distance-value" title="American Killer Bees PA · 344 Stroud Mall Rd, Stroudsburg, PA 18360">21 mi</span><small>34 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 1007 Hampstead Road"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 1007 Hampstead Road" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="85-2525-us-highway-209-sciota-pa" data-region="Allentown Area" data-status="unmarked" data-date-added="2026-10-02" data-search="2525 us highway 209 sciota, pa 18354 allentown area">
+  <th scope="row"><a href="reports/85-2525-us-highway-209-sciota-pa.html">2525 US Highway 209</a><small>Sciota, PA 18354</small></th>
+  <td class="number-cell"><b>85</b></td>
+  <td class="number-cell">2,928</td>
+  <td class="number-cell">5.85</td>
+  <td><span class="distance-value" title="Target Stroudsburg · 155 Mountaineer Dr, Stroudsburg, PA 18360">8.5 mi</span><small>16 min</small></td>
+  <td><span class="distance-value" title="Walmart East Stroudsburg · 355 Lincoln Ave, East Stroudsburg, PA 18301">11.2 mi</span><small>20 min</small></td>
+  <td><span class="distance-value" title="Weis Markets Brodheadsville · 924 Weir Lake Rd, Brodheadsville, PA 18322">6.1 mi</span><small>13 min</small></td>
+  <td><span class="distance-value" title="Notre Dame Elementary · 60 Spangenburg Ave, East Stroudsburg, PA 18301">12.8 mi</span><small>23 min</small></td>
+  <td><span class="distance-value" title="The Growing Concern School · 539 Railroad Dr, Tannersville, PA 18372">9.7 mi</span><small>18 min</small></td>
+  <td><span class="distance-value" title="West End Academy of Dance · 137 Erin Ln, Brodheadsville, PA 18322">4.5 mi</span><small>11 min</small></td>
+  <td><span class="distance-value" title="International Gymnastics · 100 Gymnastics Way, Stroudsburg, PA 18360">6.1 mi</span><small>13 min</small></td>
+  <td><span class="distance-value" title="Signature Health &amp; Fitness · 137 Erin Ln, Brodheadsville, PA 18322">4.5 mi</span><small>11 min</small></td>
+  <td><span class="distance-value" title="American Killer Bees PA · 344 Stroud Mall Rd, Stroudsburg, PA 18360">9.0 mi</span><small>17 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 2525 US Highway 209"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 2525 US Highway 209" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="84-113-ponder-ln-scotrun-pa" data-region="Allentown Area" data-status="unmarked" data-date-added="2026-10-02" data-search="113 ponder lane scotrun, pa 18355 allentown area">
+  <th scope="row"><a href="reports/84-113-ponder-ln-scotrun-pa.html">113 Ponder Lane</a><small>Scotrun, PA 18355</small></th>
+  <td class="number-cell"><b>84</b></td>
+  <td class="number-cell">4,262</td>
+  <td class="number-cell">1.19</td>
+  <td><span class="distance-value" title="Target Stroudsburg · 155 Mountaineer Dr, Stroudsburg, PA 18360">9.0 mi</span><small>17 min</small></td>
+  <td><span class="distance-value" title="Walmart Mount Pocono · 3271 Route 940, Mount Pocono, PA 18344">5.1 mi</span><small>11 min</small></td>
+  <td><span class="distance-value" title="Weis Markets Tannersville · 2836 Route 611, Tannersville, PA 18372">3.7 mi</span><small>9 min</small></td>
+  <td><span class="distance-value" title="Notre Dame Elementary · 60 Spangenburg Ave, East Stroudsburg, PA 18301">12.2 mi</span><small>22 min</small></td>
+  <td><span class="distance-value" title="The Growing Concern School · 539 Railroad Dr, Tannersville, PA 18372">3.8 mi</span><small>10 min</small></td>
+  <td><span class="distance-value" title="Reach for the Stars Dance Studio · 1150 Pocono Blvd, Mount Pocono, PA 18344">5.5 mi</span><small>12 min</small></td>
+  <td><span class="distance-value" title="International Gymnastics · 100 Gymnastics Way, Stroudsburg, PA 18360">7.5 mi</span><small>15 min</small></td>
+  <td><span class="distance-value" title="St. Luke’s Fitness at NCC · 2411 PA-715, Tannersville, PA 18372">4.0 mi</span><small>10 min</small></td>
+  <td><span class="distance-value" title="American Killer Bees PA · 344 Stroud Mall Rd, Stroudsburg, PA 18360">10.3 mi</span><small>19 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 113 Ponder Lane"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 113 Ponder Lane" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="80-2775-kuter-rd-bath-pa" data-region="Allentown Area" data-status="unmarked" data-date-added="2026-09-30" data-search="2775 kuter road bath, pa 18014 allentown area">
+  <th scope="row"><a href="reports/80-2775-kuter-rd-bath-pa.html">2775 Kuter Road</a><small>Bath, PA 18014</small></th>
+  <td class="number-cell"><b>80</b></td>
+  <td class="number-cell">2,365</td>
+  <td class="number-cell">1.63</td>
+  <td><span class="distance-value" title="Target Lower Nazareth · 3835 Dryland Way, Easton, PA 18045">8.3 mi</span><small>18 min</small></td>
+  <td><span class="distance-value" title="Walmart Easton Supercenter · 3722 Easton Nazareth Hwy, Easton, PA 18045">8.4 mi</span><small>18 min</small></td>
+  <td><span class="distance-value" title="Wegmans Nazareth · 3791 Easton Nazareth Hwy, Easton, PA 18045">8.2 mi</span><small>18 min</small></td>
+  <td><span class="distance-value" title="Holy Family School · 17 N Convent Ave, Nazareth, PA 18064">6.3 mi</span><small>15 min</small></td>
+  <td><span class="distance-value" title="Dragonfly Montessori · 4 S Main St, Nazareth, PA 18064">7.0 mi</span><small>16 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-value" title="Force Gymnastics · 550 S Green St, Nazareth, PA 18064">6.1 mi</span><small>13 min</small></td>
+  <td><span class="distance-value" title="In The Zone · 6870 Chrisphalt Dr, Bath, PA 18014">2.6 mi</span><small>8 min</small></td>
+  <td><span class="distance-value" title="Zombie Brazilian Jiu-Jitsu · 1801 Union Blvd Suite H2, Allentown, PA 18109">9.6 mi</span><small>18 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 2775 Kuter Road"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 2775 Kuter Road" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="82-30-robin-lea-ln-fleetwood-pa" data-region="West" data-status="unmarked" data-date-added="2026-09-29" data-search="30 robin lea lane fleetwood, pa 19522 west">
+  <th scope="row"><a href="reports/82-30-robin-lea-ln-fleetwood-pa.html">30 Robin Lea Lane</a><small>Fleetwood, PA 19522</small></th>
+  <td class="number-cell"><b>82</b></td>
+  <td class="number-cell">4,455</td>
+  <td class="number-cell">2.74</td>
+  <td><span class="distance-value" title="Target Muhlenberg Township · 4220 N 5th Street Hwy, Temple, PA 19560">5.8 mi</span><small>11 min</small></td>
+  <td><span class="distance-value" title="Walmart Temple Supercenter · 5370 Allentown Pike, Temple, PA 19560">4.4 mi</span><small>9 min</small></td>
+  <td><span class="distance-value" title="Boyer’s Food Market · 408 Park Rd, Fleetwood, PA 19522">4.2 mi</span><small>9 min</small></td>
+  <td><span class="distance-value" title="Fleetwood Christian Day School · 1038 Richmond Rd, Fleetwood, PA 19522">4.8 mi</span><small>12 min</small></td>
+  <td><span class="distance-value" title="YMCA Richmond Early Learning · 14432 Kutztown Rd, Fleetwood, PA 19522">5–6 mi</span><small>11–13 min</small></td>
+  <td><span class="distance-value" title="Dance Dynamics · 562 Blandon Rd, Fleetwood, PA 19522">1.6 mi</span><small>3 min</small></td>
+  <td><span class="distance-value" title="Stallone Gymnastics · 3135 Pricetown Rd, Fleetwood, PA 19522">2.9 mi</span><small>5 min</small></td>
+  <td><span class="distance-value" title="Garage Strength · 8832 Allentown Pike, Fleetwood, PA 19522">3.5 mi</span><small>8 min</small></td>
+  <td><span class="distance-value" title="Gracie Jiu-Jitsu Kutztown · 240 W Walnut St, Kutztown, PA 19530">11.5 mi</span><small>20 min</small></td>
+  <td><span class="distance-value" title="Next Level Martial Arts · 4205 Perkiomen Ave, Reading, PA 19606">11.2 mi</span><small>23 min</small></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 30 Robin Lea Lane"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 30 Robin Lea Lane" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="67-93-old-church-ln-south-williamsport-pa" data-region="West" data-status="unmarked" data-date-added="2026-09-29" data-search="93 old church lane south williamsport, pa 17702 west">
+  <th scope="row"><a href="reports/67-93-old-church-ln-south-williamsport-pa.html">93 Old Church Lane</a><small>South Williamsport, PA 17702</small></th>
+  <td class="number-cell"><b>67</b></td>
+  <td class="number-cell">3,216</td>
+  <td class="number-cell">4.17</td>
+  <td><span class="distance-value" title="Target Williamsport · 170 S Lycoming Mall Rd, Muncy, PA 17756">20–23 mi</span><small>27–32 min</small></td>
+  <td><span class="distance-value" title="Walmart Montoursville · 1015 N Loyalsock Ave, Montoursville, PA 17754">16–19 mi</span><small>24–29 min</small></td>
+  <td><span class="distance-value" title="GIANT Food Stores · 1969 E 3rd St, Williamsport, PA 17701">12–14 mi</span><small>19–24 min</small></td>
+  <td><span class="distance-value" title="Mountain View Christian School · 470 E Southern Ave, South Williamsport, PA 17702">9–11 mi</span><small>14–19 min</small></td>
+  <td><span class="distance-value" title="Bostley’s Williamsport · 918 Walnut St, Williamsport, PA 17701">11–13 mi</span><small>17–22 min</small></td>
+  <td><span class="distance-value" title="Milissa Augustine Dance &amp; Fitness · 2510 Northway Rd, Williamsport, PA 17701">13–15 mi</span><small>20–25 min</small></td>
+  <td><span class="distance-value" title="Dynamats Gymnastics Center · 221 Alexander Dr, Muncy, PA 17756">20–23 mi</span><small>27–32 min</small></td>
+  <td><span class="distance-value" title="Williamsport Branch YMCA · 641 Walnut St, Williamsport, PA 17701">11–13 mi</span><small>17–22 min</small></td>
+  <td><span class="distance-value" title="570 Jiu Jitsu · 1307 Park Ave, Suite 210, Williamsport, PA 17701">10–12 mi</span><small>16–21 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 93 Old Church Lane"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 93 Old Church Lane" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="78-1901-potato-valley-rd-harrisburg-pa" data-region="West" data-status="unmarked" data-date-added="2026-09-29" data-search="1901 potato valley road harrisburg, pa 17112 west">
+  <th scope="row"><a href="reports/78-1901-potato-valley-rd-harrisburg-pa.html">1901 Potato Valley Road</a><small>Harrisburg, PA 17112</small></th>
+  <td class="number-cell"><b>78</b></td>
+  <td class="number-cell">3,971</td>
+  <td class="number-cell">3.63</td>
+  <td><span class="distance-value" title="Target Harrisburg North · 5125 Jonestown Rd Ste 331, Harrisburg, PA 17112">12 mi</span><small>18–23 min</small></td>
+  <td><span class="distance-value" title="Walmart Harrisburg · 6535 Grayson Rd, Harrisburg, PA 17111">16 mi</span><small>23–28 min</small></td>
+  <td><span class="distance-value" title="Weis Markets Linglestown · 4300 Linglestown Rd, Harrisburg, PA 17112">9 mi</span><small>14–18 min</small></td>
+  <td><span class="distance-value" title="Harrisburg Christian School · 2000 Blue Mountain Pkwy, Harrisburg, PA 17112">8 mi</span><small>13–17 min</small></td>
+  <td><span class="distance-value" title="East Shore Montessori · 6130 Jonestown Rd, Harrisburg, PA 17112">10 mi</span><small>16–21 min</small></td>
+  <td><span class="distance-value" title="Richie School of Dance · 95 Shannon Rd Ste 107, Harrisburg, PA 17112">10 mi</span><small>16–20 min</small></td>
+  <td><span class="distance-value" title="Artistic Sports Academy Plus · 20 Bradford Blvd, Harrisburg, PA 17112">11 mi</span><small>17–21 min</small></td>
+  <td><span class="distance-value" title="Platinum Fitness Harrisburg · 7015 Jonestown Rd, Harrisburg, PA 17112">10 mi</span><small>15–19 min</small></td>
+  <td><span class="distance-value" title="Deep Water BJJ Academy · 1001 N Mountain Rd, Harrisburg, PA 17112">9 mi</span><small>14–18 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 1901 Potato Valley Road"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 1901 Potato Valley Road" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="88-436-gravel-pond-rd-clarks-summit-pa" data-region="Scranton Area" data-status="unmarked" data-date-added="2026-09-28" data-search="436 gravel pond road clarks summit, pa 18411 scranton area">
+  <th scope="row"><a href="reports/88-436-gravel-pond-rd-clarks-summit-pa.html">436 Gravel Pond Road</a><small>Clarks Summit, PA 18411</small></th>
+  <td class="number-cell"><b>88</b></td>
+  <td class="number-cell">3,110</td>
+  <td class="number-cell">2.60</td>
+  <td><span class="distance-value" title="Target Dickson City · 1140 Commerce Blvd, Dickson City, PA 18519">8 mi</span><small>12–16 min</small></td>
+  <td><span class="distance-value" title="Walmart Dickson City · 900 Commerce Blvd, Dickson City, PA 18519">8 mi</span><small>12–16 min</small></td>
+  <td><span class="distance-value" title="Gerrity&#39;s Supermarket · 100 Old Lackawanna Trail, Clarks Summit, PA 18411">1.5 mi</span><small>3–5 min</small></td>
+  <td><span class="distance-value" title="Our Lady of Peace School · 410 N Abington Rd, Clarks Green, PA 18411">2.5 mi</span><small>5–7 min</small></td>
+  <td><span class="distance-value" title="Discovery Montessori Providence · 1733 N Main Ave, Scranton, PA 18508">8 mi</span><small>13–17 min</small></td>
+  <td><span class="distance-value" title="Civic League Dance Academy · 115 Colburn Ave, Clarks Summit, PA 18411">2 mi</span><small>4–6 min</small></td>
+  <td><span class="distance-value" title="Summit Gymnastics Academy · 31 Green Grove Rd, Scott Township, PA 18447">7 mi</span><small>12–15 min</small></td>
+  <td><span class="distance-value" title="Summit Sports Complex · 538 Venard Rd, Clarks Summit, PA 18411">3 mi</span><small>6–8 min</small></td>
+  <td><span class="distance-value" title="Scranton MMA · 1000 Dunham Dr, Suite C, Dunmore, PA 18512">12 mi</span><small>18–22 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 436 Gravel Pond Road"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 436 Gravel Pond Road" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="86-5832-kernsville-rd-orefield-pa" data-region="Allentown Area" data-status="unmarked" data-date-added="2026-09-24" data-search="5832 kernsville road orefield, pa 18069 allentown area">
+  <th scope="row"><a href="reports/86-5832-kernsville-rd-orefield-pa.html">5832 Kernsville Road</a><small>Orefield, PA 18069</small></th>
+  <td class="number-cell"><b>86</b></td>
+  <td class="number-cell">3,720</td>
+  <td class="number-cell">1.11</td>
+  <td><span class="distance-value" title="Target Allentown · 1600 N Cedar Crest Blvd, Allentown, PA 18104">7 mi</span><small>11–14 min</small></td>
+  <td><span class="distance-value" title="Walmart Whitehall · 2601 MacArthur Rd, Whitehall, PA 18052">10 mi</span><small>16–20 min</small></td>
+  <td><span class="distance-value" title="Wegmans Allentown · 3900 Tilghman St, Allentown, PA 18104">7 mi</span><small>11–14 min</small></td>
+  <td><span class="distance-value" title="St. Joseph the Worker School · 1858 Applewood Dr, Orefield, PA 18069">3.5 mi</span><small>6–9 min</small></td>
+  <td><span class="distance-value" title="Datzyk Montessori School · 3300 Broadway, Allentown, PA 18104">8 mi</span><small>13–17 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-value" title="Steps at Faith · 3356 Route 309, Orefield, PA 18069">2.5 mi</span><small>5–7 min</small></td>
+  <td><span class="distance-value" title="Steel Fitness Premier · 250 Cetronia Rd #100, Allentown, PA 18104">9 mi</span><small>14–18 min</small></td>
+  <td><span class="distance-value" title="Prodigy Jiu-Jitsu · 7720 Main St, Suite 5, Fogelsville, PA 18051">7 mi</span><small>12–16 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 5832 Kernsville Road"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 5832 Kernsville Road" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="88-7458-s-main-st-coopersburg-pa" data-region="Allentown Area" data-status="unmarked" data-date-added="2026-09-20" data-search="7458 south main street coopersburg, pa 18036 allentown area">
+  <th scope="row"><a href="reports/88-7458-s-main-st-coopersburg-pa.html">7458 South Main Street</a><small>Coopersburg, PA 18036</small></th>
+  <td class="number-cell"><b>88</b></td>
+  <td class="number-cell">2,521</td>
+  <td class="number-cell">1.16</td>
+  <td><span class="distance-value" title="Target Richland Township · 610 N West End Blvd, Quakertown, PA 18951">8 mi</span><small>12–15 min</small></td>
+  <td><span class="distance-value" title="Walmart Quakertown · 195 N West End Blvd, Quakertown, PA 18951">7 mi</span><small>11–14 min</small></td>
+  <td><span class="distance-value" title="GIANT Food Stores · 216 E Fairmount St, Coopersburg, PA 18036">1.8 mi</span><small>4–6 min</small></td>
+  <td><span class="distance-value" title="St. Michael the Archangel · 5040 St Joseph Rd, Coopersburg, PA 18036">0.6 mi</span><small>2–4 min</small></td>
+  <td><span class="distance-value" title="Datzyk Montessori School · 3300 Broadway, Allentown, PA 18104">15 mi</span><small>20–25 min</small></td>
+  <td><span class="distance-value" title="In Motion Academy of Dance · 21 N Main St, Coopersburg, PA 18036">1.4 mi</span><small>4–6 min</small></td>
+  <td><span class="distance-value" title="Power &amp; Grace Gymnastics · 122 Pacific Dr, Quakertown, PA 18951">8 mi</span><small>12–15 min</small></td>
+  <td><span class="distance-value" title="The Refinery Fitness · 112 Springfield St, Coopersburg, PA 18036">1.7 mi</span><small>5–7 min</small></td>
+  <td><span class="distance-value" title="ZEN Brazilian Jiu-Jitsu · 7001 Route 309 N, Store 15, Coopersburg, PA 18036">3.5 mi</span><small>7–10 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 7458 South Main Street"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 7458 South Main Street" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="72-237-footprint-rd-east-stroudsburg-pa" data-region="Allentown Area" data-status="unmarked" data-date-added="2026-09-20" data-search="237 footprint road east stroudsburg, pa 18302 allentown area">
+  <th scope="row"><a href="reports/72-237-footprint-rd-east-stroudsburg-pa.html">237 Footprint Road</a><small>East Stroudsburg, PA 18302</small></th>
+  <td class="number-cell"><b>72</b></td>
+  <td class="number-cell">2,964</td>
+  <td class="number-cell">1.52</td>
+  <td><span class="distance-value" title="Target Stroudsburg · 155 Mountaineer Dr, Stroudsburg, PA 18360">12 mi</span><small>20–25 min</small></td>
+  <td><span class="distance-value" title="Walmart East Stroudsburg · 355 Lincoln Ave, East Stroudsburg, PA 18301">9 mi</span><small>15–20 min</small></td>
+  <td><span class="distance-value" title="Price Chopper · 4547 Milford Rd, East Stroudsburg, PA 18302">5 mi</span><small>8–12 min</small></td>
+  <td><span class="distance-value" title="Notre Dame Elementary · 60 Spangenburg Ave, East Stroudsburg, PA 18301">8 mi</span><small>15–20 min</small></td>
+  <td><span class="distance-value" title="PocoNoski · 2591 Milford Rd, East Stroudsburg, PA 18301">5 mi</span><small>8–12 min</small></td>
+  <td><span class="distance-value" title="Fusia Center for the Arts · 40 N 2nd St, Stroudsburg, PA 18360">10 mi</span><small>18–22 min</small></td>
+  <td><span class="distance-value" title="International Gymnastics School · 100 Gymnastics Way, Stroudsburg, PA 18360">15 mi</span><small>22–28 min</small></td>
+  <td><span class="distance-value" title="Pocono Kidz Zone · 247 Fox Run Ln, East Stroudsburg, PA 18302">6 mi</span><small>10–14 min</small></td>
+  <td><span class="distance-value" title="American Killer Bees PA · 344 Stroud Mall Rd, Suite 444, Stroudsburg, PA 18360">12 mi</span><small>18–22 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 237 Footprint Road"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 237 Footprint Road" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="74-214-terrace-dr-saylorsburg-pa" data-region="Allentown Area" data-status="unmarked" data-date-added="2026-09-18" data-search="214 terrace drive saylorsburg, pa 18353 allentown area">
+  <th scope="row"><a href="reports/74-214-terrace-dr-saylorsburg-pa.html">214 Terrace Drive</a><small>Saylorsburg, PA 18353</small></th>
+  <td class="number-cell"><b>74</b></td>
+  <td class="number-cell">2,851</td>
+  <td class="number-cell">1.18</td>
+  <td><span class="distance-value" title="Target Stroudsburg · 155 Mountaineer Dr, Stroudsburg, PA 18360">12 mi</span><small>18–22 min</small></td>
+  <td><span class="distance-value" title="Walmart East Stroudsburg · 355 Lincoln Ave, East Stroudsburg, PA 18301">15 mi</span><small>22–27 min</small></td>
+  <td><span class="distance-value" title="Kinsley&#39;s ShopRite · 107 Kinsley Dr, Brodheadsville, PA 18322">5 mi</span><small>8–12 min</small></td>
+  <td><span class="distance-value" title="Immaculate Conception School · 290 W Babbitt Ave, Pen Argyl, PA 18072">13 mi</span><small>18–22 min</small></td>
+  <td><span class="distance-value" title="Sunny Day Preschool · Brodheadsville, PA 18322">6 mi</span><small>10–14 min</small></td>
+  <td><span class="distance-value" title="West End Academy of Dance · 137 Erin Ln, Brodheadsville, PA 18322">6 mi</span><small>10–14 min</small></td>
+  <td><span class="distance-value" title="International Gymnastics School · 100 Gymnastics Way, Stroudsburg, PA 18360">8 mi</span><small>12–16 min</small></td>
+  <td><span class="distance-value" title="Signature Health &amp; Fitness · 137 Erin Ln, Brodheadsville, PA 18322">6 mi</span><small>10–14 min</small></td>
+  <td><span class="distance-value" title="American Killer Bees PA · 344 Stroud Mall Rd, Suite 444, Stroudsburg, PA 18360">11 mi</span><small>16–20 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 214 Terrace Drive"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 214 Terrace Drive" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="80-184-main-st-delaware-water-gap-pa" data-region="Allentown Area" data-status="unmarked" data-date-added="2026-09-18" data-search="184 main street delaware water gap, pa 18327 allentown area">
+  <th scope="row"><a href="reports/80-184-main-st-delaware-water-gap-pa.html">184 Main Street</a><small>Delaware Water Gap, PA 18327</small></th>
+  <td class="number-cell"><b>80</b></td>
+  <td class="number-cell">1,648</td>
+  <td class="number-cell">1.17</td>
+  <td><span class="distance-value" title="Target Stroudsburg · 155 Mountaineer Dr, Stroudsburg, PA 18360">7 mi</span><small>12–15 min</small></td>
+  <td><span class="distance-value" title="Walmart East Stroudsburg · 355 Lincoln Ave, East Stroudsburg, PA 18301">5 mi</span><small>10–12 min</small></td>
+  <td><span class="distance-value" title="GIANT Food Store · 65 N 9th St, Stroudsburg, PA 18360">4 mi</span><small>8–10 min</small></td>
+  <td><span class="distance-value" title="Notre Dame Elementary · 60 Spangenburg Ave, East Stroudsburg, PA 18301">5 mi</span><small>8–10 min</small></td>
+  <td><span class="distance-value" title="PocoNoski Child Care · 2591 Milford Rd, East Stroudsburg, PA 18301">9 mi</span><small>15–18 min</small></td>
+  <td><span class="distance-value" title="Gigi &amp; Company Dance Studio · 564 Main St, Stroudsburg, PA 18360">4 mi</span><small>8–10 min</small></td>
+  <td><span class="distance-value" title="International Gymnastics School · 100 Gymnastics Way, Stroudsburg, PA 18360">13 mi</span><small>18–22 min</small></td>
+  <td><span class="distance-value" title="Youth Movement Kids Fitness · 427 Main St, Stroudsburg, PA 18360">4 mi</span><small>8–10 min</small></td>
+  <td><span class="distance-value" title="American Killer Bees PA · 344 Stroud Mall Rd, Suite 444, Stroudsburg, PA 18360">7 mi</span><small>12–15 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 184 Main Street"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 184 Main Street" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="67-207-stacia-way-saylorsburg-pa" data-region="Allentown Area" data-status="unmarked" data-date-added="2026-09-18" data-search="207 stacia way saylorsburg, pa 18353 allentown area">
+  <th scope="row"><a href="reports/67-207-stacia-way-saylorsburg-pa.html">207 Stacia Way</a><small>Saylorsburg, PA 18353</small></th>
+  <td class="number-cell"><b>67</b></td>
+  <td class="number-cell">2,670</td>
+  <td class="number-cell">2.41</td>
+  <td><span class="distance-value" title="Target Stroudsburg · 155 Mountaineer Dr, Stroudsburg, PA 18360">18 mi</span><small>25–30 min</small></td>
+  <td><span class="distance-value" title="Walmart East Stroudsburg · 355 Lincoln Ave, East Stroudsburg, PA 18301">23 mi</span><small>30–35 min</small></td>
+  <td><span class="distance-value" title="Kinsley&#39;s ShopRite · 107 Kinsley Dr, Brodheadsville, PA 18322">9 mi</span><small>15–18 min</small></td>
+  <td><span class="distance-value" title="Immaculate Conception School · 290 W Babbitt Ave, Pen Argyl, PA 18072">9 mi</span><small>15–18 min</small></td>
+  <td><span class="distance-value" title="Sunny Day Preschool · Brodheadsville, PA 18322">9 mi</span><small>15–18 min</small></td>
+  <td><span class="distance-value" title="Pleasant Valley Elementary · 476 Polk Township Rd, Kunkletown, PA 18058">7 mi</span><small>12–16 min</small></td>
+  <td><span class="distance-value" title="International Gymnastics School · 100 Gymnastics Way, Stroudsburg, PA 18360">17 mi</span><small>25–30 min</small></td>
+  <td><span class="distance-value" title="Signature Health &amp; Fitness · 137 Erin Ln, Brodheadsville, PA 18322">10 mi</span><small>16–20 min</small></td>
+  <td><span class="distance-value" title="American Killer Bees PA · 344 Stroud Mall Rd, Suite 444, Stroudsburg, PA 18360">18 mi</span><small>25–30 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 207 Stacia Way"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 207 Stacia Way" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="84-1170-n-manor-rd-honey-brook-pa" data-region="West" data-status="unmarked" data-date-added="2026-09-13" data-search="1170 north manor road honey brook, pa 19344 west">
+  <th scope="row"><a href="reports/84-1170-n-manor-rd-honey-brook-pa.html">1170 North Manor Road</a><small>Honey Brook, PA 19344</small></th>
+  <td class="number-cell"><b>84</b></td>
+  <td class="number-cell">2,862</td>
+  <td class="number-cell">2.10</td>
+  <td><span class="distance-value" title="Target Uwchlan Township · 180 Eagleview Blvd, Exton, PA 19341">10.9 mi</span><small>24 min</small></td>
+  <td><span class="distance-value" title="Walmart Elverson · 100 Crossings Blvd, Elverson, PA 19520">7.3 mi</span><small>15 min</small></td>
+  <td><span class="distance-value" title="Crop&#39;s Fresh Marketplace · 1257 Horseshoe Pike, Downingtown, PA 19335">4.4 mi</span><small>10 min</small></td>
+  <td><span class="distance-value" title="Pope John Paul II Regional Catholic · 2875 Manor Rd, Coatesville, PA 19320">3.1 mi</span><small>8 min</small></td>
+  <td><span class="distance-value" title="Ducklings Early Learning Glenmoore · 1556 Horseshoe Pike, Glenmoore, PA 19343">2.6 mi</span><small>5 min</small></td>
+  <td><span class="distance-value" title="Springton Manor Elementary · 400 Fairview Rd, Glenmoore, PA 19343">2.8 mi</span><small>8 min</small></td>
+  <td><span class="distance-value" title="Metzler&#39;s Gymnastics · 472 Acorn Ln, Downingtown, PA 19335">10.3 mi</span><small>20 min</small></td>
+  <td><span class="distance-value" title="Anytime Fitness Thorndale · 3227 Lincoln Hwy E, Thorndale, PA 19372">7.9 mi</span><small>18 min</small></td>
+  <td><span class="distance-value" title="Paramount Brazilian Jiu-Jitsu · 530 Trestle Pl, Downingtown, PA 19335">9.4 mi</span><small>20 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 1170 North Manor Road"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 1170 North Manor Road" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="72-219-hudson-st-hawley-pa" data-region="Scranton Area" data-status="unmarked" data-date-added="2026-09-13" data-search="219 hudson street hawley, pa scranton area">
+  <th scope="row"><a href="reports/72-219-hudson-st-hawley-pa.html">219 Hudson Street</a><small>Hawley, PA</small></th>
+  <td class="number-cell"><b>72</b></td>
+  <td class="number-cell">3,890</td>
+  <td class="number-cell">1.42</td>
+  <td><span class="distance-value" title="Target Dickson City · 1140 Commerce Blvd, Dickson City, PA 18519">35.8 mi</span><small>62 min</small></td>
+  <td><span class="distance-value" title="Walmart Honesdale · 723A Old Willow Ave, Honesdale, PA 18431">6.6 mi</span><small>15 min</small></td>
+  <td><span class="distance-value" title="Lake Region IGA · 52 Welwood Ave, Hawley, PA 18428">2.0 mi</span><small>6 min</small></td>
+  <td><span class="distance-value" title="Canaan Christian Academy · 30 Hemlock Rd, Lake Ariel, PA 18436">17.8 mi</span><small>38 min</small></td>
+  <td><span class="distance-value" title="Bethany Children’s House · 827 Church St, Honesdale, PA 18431">8.4 mi</span><small>19 min</small></td>
+  <td><span class="distance-value" title="The Hawley Hub / Eddy Studio · 318 Main Ave, Hawley, PA 18428">0.5 mi</span><small>2 min</small></td>
+  <td><span class="distance-value" title="Balance Gymnastics &amp; Wellness · 785 Texas Palmyra Hwy, Hawley, PA 18428">4.0 mi</span><small>8 min</small></td>
+  <td><span class="distance-value" title="Lake Region Fitness · 8 Silk Mill Dr, Hawley, PA 18428">1.3 mi</span><small>5 min</small></td>
+  <td><span class="distance-value" title="Macarra BJJ / Simrell Muay Thai · 717 Capouse Ave, Scranton, PA 18509">33.8 mi</span><small>60 min</small></td>
+  <td><span class="distance-value" title="Wallenpaupack Area North Primary · 158 Atlantic Ave, Hawley, PA 18428">3.1 mi</span><small>11 min</small></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 219 Hudson Street"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 219 Hudson Street" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="88-83-flint-ridge-dr-reading-pa" data-region="West" data-status="unmarked" data-date-added="2026-09-13" data-search="83 flint ridge drive reading, pa west">
+  <th scope="row"><a href="reports/88-83-flint-ridge-dr-reading-pa.html">83 Flint Ridge Drive</a><small>Reading, PA</small></th>
+  <td class="number-cell"><b>88</b></td>
+  <td class="number-cell">2,884</td>
+  <td class="number-cell">0.80</td>
+  <td><span class="distance-value" title="Target Spring Township · 2769 Papermill Rd, Wyomissing, PA 19610">7.6 mi</span><small>14 min</small></td>
+  <td><span class="distance-value" title="Walmart Wyomissing · 1135 Berkshire Blvd, Wyomissing, PA 19610">5.1 mi</span><small>12 min</small></td>
+  <td><span class="distance-value" title="GIANT Food Stores · 2641 Shillington Rd, Reading, PA 19609">3.4 mi</span><small>10 min</small></td>
+  <td><span class="distance-value" title="La Salle Academy · 440 Holland St, Shillington, PA 19607">2.5 mi</span><small>8 min</small></td>
+  <td><span class="distance-value" title="Montessori Country Day School · 53 Vermont Rd, Sinking Spring, PA 19608">4.5 mi</span><small>13 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-value" title="Dance Your Dreams · 340 Morgantown Rd, Suite 3, Reading, PA 19611">3.3 mi</span><small>8 min</small></td>
+  <td><span class="distance-value" title="Planet Fitness Shillington · 510 E Lancaster Ave, Shillington, PA 19607">1.6 mi</span><small>6 min</small></td>
+  <td><span class="distance-value" title="CFS Academy · 6525 Shillington Plaza, Shillington, PA 19607">2.5 mi</span><small>8 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 83 Flint Ridge Drive"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 83 Flint Ridge Drive" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="68-1-heidelberg-ct-bernville-pa" data-region="West" data-status="unmarked" data-date-added="2026-09-11" data-search="1 heidelberg court bernville, pa 19506 west">
+  <th scope="row"><a href="reports/68-1-heidelberg-ct-bernville-pa.html">1 Heidelberg Court</a><small>Bernville, PA 19506</small></th>
+  <td class="number-cell"><b>68</b></td>
+  <td class="number-cell">3,264</td>
+  <td class="number-cell">1.91</td>
+  <td><span class="distance-value" title="Target Muhlenberg Township · 4220 N 5th Street Hwy, Temple, PA 19560">14.1 mi</span><small>26 min</small></td>
+  <td><span class="distance-value" title="Walmart Hamburg · 1800 Tilden Ridge, Hamburg, PA 19526">16.0 mi</span><small>31 min</small></td>
+  <td><span class="distance-value" title="Boyer’s Food Market · 7166 Bernville Rd, Bernville, PA 19506">3.3 mi</span><small>8 min</small></td>
+  <td><span class="distance-value" title="Summer Mountain School · 36 Seigfried Rd, Bernville, PA 19506">6.9 mi</span><small>15 min</small></td>
+  <td><span class="distance-value" title="Montessori Country Day School · 53 Vermont Rd, Sinking Spring, PA 19608">19.3 mi</span><small>32 min</small></td>
+  <td><span class="distance-value" title="Penn-Bernville Elementary School · 24 Shartlesville Rd, Bernville, PA 19506">2.7 mi</span><small>7 min</small></td>
+  <td><span class="distance-value" title="Berks Gymnastics Academy · 325 Morgantown Rd, Reading, PA 19611">15.4 mi</span><small>26 min</small></td>
+  <td><span class="distance-value" title="Anytime Fitness Leesport · 5479 Pottsville Pike, Leesport, PA 19533">12.6 mi</span><small>26 min</small></td>
+  <td><span class="distance-value" title="Berks County Brazilian Jiu-Jitsu · 4700 N 5th Street Hwy, Temple, PA 19560">13.7 mi</span><small>24 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 1 Heidelberg Court"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 1 Heidelberg Court" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="81-176-imperial-dr-mohnton-pa" data-region="West" data-status="unmarked" data-date-added="2026-09-11" data-search="176 imperial drive mohnton, pa 19540 west">
+  <th scope="row"><a href="reports/81-176-imperial-dr-mohnton-pa.html">176 Imperial Drive</a><small>Mohnton, PA 19540</small></th>
+  <td class="number-cell"><b>81</b></td>
+  <td class="number-cell">3,381</td>
+  <td class="number-cell">1.78</td>
+  <td><span class="distance-value" title="Target Spring Township · 2769 Papermill Rd, Wyomissing, PA 19610">9.7 mi</span><small>19 min</small></td>
+  <td><span class="distance-value" title="Walmart Wyomissing · 1135 Berkshire Blvd, Wyomissing, PA 19610">7.5 mi</span><small>17 min</small></td>
+  <td><span class="distance-value" title="GIANT Food Stores · 2641 Shillington Rd, Reading, PA 19609">6.5 mi</span><small>15 min</small></td>
+  <td><span class="distance-value" title="La Salle Academy · 440 Holland St, Shillington, PA 19607">5.2 mi</span><small>14 min</small></td>
+  <td><span class="distance-value" title="Montessori Country Day School · 53 Vermont Rd, Sinking Spring, PA 19608">6.2 mi</span><small>15 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td><span class="distance-value" title="Dance Your Dreams · 340 Morgantown Rd, Suite 3, Reading, PA 19611">4.6 mi</span><small>12 min</small></td>
+  <td><span class="distance-value" title="Nolde Forest Environmental Education Center · 2910 New Holland Rd, Reading, PA 19607">4.5 mi</span><small>10 min</small></td>
+  <td><span class="distance-value" title="CFS Academy · 6525 Shillington Plaza, Shillington, PA 19607">5.6 mi</span><small>14 min</small></td>
+  <td><span class="distance-missing">—</span></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 176 Imperial Drive"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 176 Imperial Drive" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="85-19-woods-ln-barto-pa" data-region="Allentown Area" data-status="unmarked" data-date-added="2026-09-10" data-search="19 woods lane barto, pa 19504 allentown area">
+  <th scope="row"><a href="reports/85-19-woods-ln-barto-pa.html">19 Woods Lane</a><small>Barto, PA 19504</small></th>
+  <td class="number-cell"><b>85</b></td>
+  <td class="number-cell">2,865</td>
+  <td class="number-cell">5.15</td>
+  <td><span class="distance-value" title="Target Pottstown · 100 Upland Square Dr, Pottstown, PA 19464">14 mi</span><small>22 min</small></td>
+  <td><span class="distance-value" title="Walmart Supercenter · 567 Route 100 N, Bechtelsville, PA 19505">6.5 mi</span><small>11 min</small></td>
+  <td><span class="distance-value" title="Redner’s Warehouse Market · 116 County Line Rd, Boyertown, PA 19512">7.7 mi</span><small>13 min</small></td>
+  <td><span class="distance-value" title="Saint Francis Classical Catholic Academy · 668 Pine St, Bally, PA 19503">3 mi</span><small>6 min</small></td>
+  <td><span class="distance-value" title="Brookeside Montessori School · 1075 Route 100, Bechtelsville, PA 19505">4.8 mi</span><small>9 min</small></td>
+  <td><span class="distance-value" title="Washington Elementary School · 1406 Route 100, Barto, PA 19504">2.4 mi</span><small>5 min</small></td>
+  <td><span class="distance-value" title="CE Tumbling · 1090B N Reading Ave, Boyertown, PA 19512">7.5 mi</span><small>13 min</small></td>
+  <td><span class="distance-value" title="Bear’s Den Fitness · 400 E 2nd St, Boyertown, PA 19512">8 mi</span><small>14 min</small></td>
+  <td><span class="distance-value" title="Sentry Jiu-Jitsu · 311 County Line Rd, Gilbertsville, PA 19525">7.5 mi</span><small>13 min</small></td>
+  <td><span class="distance-value" title="Kingstreet Kickboxing &amp; Muay Thai · 26 E 8th St, Pottstown, PA 19464">15 mi</span><small>23 min</small></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 19 Woods Lane"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 19 Woods Lane" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr>
+<tr data-house-id="83-214-grouse-hill-rd-barto-pa" data-region="Allentown Area" data-status="unmarked" data-date-added="2026-09-10" data-search="214 grouse hill road barto, pa 19504 allentown area">
+  <th scope="row"><a href="reports/83-214-grouse-hill-rd-barto-pa.html">214 Grouse Hill Road</a><small>Barto, PA 19504</small></th>
+  <td class="number-cell"><b>83</b></td>
+  <td class="number-cell">2,486</td>
+  <td class="number-cell">4.80</td>
+  <td><span class="distance-value" title="Target Pottstown · 100 Upland Square Dr, Pottstown, PA 19464">16 mi</span><small>24 min</small></td>
+  <td><span class="distance-value" title="Walmart Supercenter · 620 Gravel Pike, East Greenville, PA 18041">5.8 mi</span><small>10 min</small></td>
+  <td><span class="distance-value" title="Redner’s Warehouse Market · 116 County Line Rd, Boyertown, PA 19512">9.5 mi</span><small>16 min</small></td>
+  <td><span class="distance-value" title="Salem Christian School · 8031 Salem Bible Church Rd, Macungie, PA 18062">3.1 mi</span><small>6 min</small></td>
+  <td><span class="distance-value" title="Brookeside Montessori School · 1075 Route 100, Bechtelsville, PA 19505">6.5 mi</span><small>11 min</small></td>
+  <td><span class="distance-value" title="Hereford Elementary School · 1043 Gravel Pike, Hereford, PA 18056">1.8 mi</span><small>4 min</small></td>
+  <td><span class="distance-value" title="CE Tumbling · 1090B N Reading Ave, Boyertown, PA 19512">9.2 mi</span><small>15 min</small></td>
+  <td><span class="distance-value" title="Bear’s Den Fitness · 400 E 2nd St, Boyertown, PA 19512">10.2 mi</span><small>17 min</small></td>
+  <td><span class="distance-value" title="Sentry Jiu-Jitsu · 311 County Line Rd, Gilbertsville, PA 19525">9.4 mi</span><small>15 min</small></td>
+  <td><span class="distance-value" title="Kingstreet Kickboxing &amp; Muay Thai · 26 E 8th St, Pottstown, PA 19464">16.4 mi</span><small>25 min</small></td>
+  <td class="inlaw-cell"><select class="inlaw-select" aria-label="In-law capability for 214 Grouse Hill Road"><option value="unreviewed">Not reviewed</option><option value="dedicated_suite">Dedicated suite</option><option value="separate_apartment">Separate apartment</option><option value="finished_basement">Finished basement</option><option value="main_floor_room">Main-floor room</option><option value="convert_existing">Convert existing space</option><option value="garage_conversion">Garage / outbuilding</option><option value="addition_potential">Addition potential</option><option value="no_clear_option">No clear option</option></select><input class="inlaw-detail" maxlength="240" aria-label="In-law living plan for 214 Grouse Hill Road" placeholder="Where would she live?"><span class="table-save-state" aria-live="polite"></span></td>
+  <td><span class="comparison-status">Not marked</span></td>
+</tr></tbody></table></div><p class="comparison-note">A dash means that category was not captured in that report—not that no option exists. In-law classifications and details are manual shared fields and are never guessed from a listing.</p></section>
     <div class="cards" id="cards"><article class="card" data-house-id="93-365-arnolds-rd-jermyn-pa" data-region="Scranton Area" data-status="unmarked" data-score="93" data-date-added="2026-10-24" data-search="365 arnolds road jermyn, pa 18433 scranton area 2026-10-24 3598 sq ft 2.7 acres">
           <div class="rank">01</div>
           <div class="score score-high"><strong>93</strong><span>/100</span></div>
@@ -689,19 +1769,23 @@
     const SUPABASE_KEY='sb_publishable_Xkd3jWDdW1Nljts2B0_ZjQ_OoFFsAAi';
     const API=SUPABASE_URL+'/rest/v1/house_tracking';
     const API_HEADERS={apikey:SUPABASE_KEY,'Content-Type':'application/json'};
-    const cards=[...document.querySelectorAll('.card')], search=document.getElementById('search'), dateFilter=document.getElementById('date-filter'), empty=document.getElementById('empty'), syncMessage=document.getElementById('sync-message');
+    const cards=[...document.querySelectorAll('.card')], comparisonRows=[...document.querySelectorAll('#comparison-body tr')], rowsById=new Map(comparisonRows.map(row=>[row.dataset.houseId,row])), cardsById=new Map(cards.map(card=>[card.dataset.houseId,card])), search=document.getElementById('search'), dateFilter=document.getElementById('date-filter'), empty=document.getElementById('empty'), syncMessage=document.getElementById('sync-message');
     let activeRegion='all', activeStatus='all', activeDate='all';
     const statusLabels={unmarked:'Not marked',want_to_view:'Want to view',viewed:'Viewed',off_market:'Off market',not_interested:'Not interested'};
-    const terminalStatusPrefix='[[family-radius-status:', terminalStatusDivider=']]'+String.fromCharCode(10);
-    function decodeSharedRow(row){const notes=row?.notes||'', dividerAt=notes.indexOf(terminalStatusDivider), tagged=notes.startsWith(terminalStatusPrefix)&&dividerAt>terminalStatusPrefix.length?notes.slice(terminalStatusPrefix.length,dividerAt):'', valid=tagged==='off_market'||tagged==='not_interested';return{status:valid?tagged:row?.status||'unmarked',notes:valid?notes.slice(dividerAt+terminalStatusDivider.length):notes}}
-    function encodeSharedState(card){const status=card.dataset.status,notes=card.querySelector('textarea').value;return status==='off_market'||status==='not_interested'?{status:'unmarked',notes:terminalStatusPrefix+status+terminalStatusDivider+notes}:{status,notes}}
-    function update(){const q=search.value.trim().toLowerCase();let shown=0;cards.forEach(card=>{const visible=(activeRegion==='all'||card.dataset.region===activeRegion)&&(activeStatus==='all'||card.dataset.status===activeStatus)&&(activeDate==='all'||card.dataset.dateAdded===activeDate)&&(!q||card.dataset.search.includes(q));card.classList.toggle('hidden',!visible);if(visible)shown++});empty.style.display=shown?'none':'block'}
-    function renderCard(card,status,notes){card.dataset.status=status||'unmarked';card.querySelector('.status-badge').textContent=statusLabels[card.dataset.status]||statusLabels.unmarked;card.querySelectorAll('[data-set-status]').forEach(button=>button.classList.toggle('active',button.dataset.setStatus===card.dataset.status));const textarea=card.querySelector('textarea');if(document.activeElement!==textarea)textarea.value=notes||''}
-    async function loadShared(showMessage=true){if(showMessage){syncMessage.textContent='Loading shared statuses and notes…';syncMessage.classList.remove('error')}try{const response=await fetch(API+'?select=house_id,status,notes',{headers:API_HEADERS});if(!response.ok)throw new Error('Unable to load shared data');const rows=await response.json(), byId=new Map(rows.map(row=>[row.house_id,row]));cards.forEach(card=>{const shared=decodeSharedRow(byId.get(card.dataset.houseId));renderCard(card,shared.status,shared.notes)});syncMessage.textContent='Shared list is up to date.';update()}catch(error){syncMessage.textContent='Shared statuses could not be loaded. Check your connection and refresh.';syncMessage.classList.add('error')}}
-    async function saveCard(card){const state=card.querySelector('.save-state'), shared=encodeSharedState(card), payload={house_id:card.dataset.houseId,status:shared.status,notes:shared.notes,updated_at:new Date().toISOString()};state.textContent='Saving…';try{const response=await fetch(API+'?on_conflict=house_id',{method:'POST',headers:{...API_HEADERS,Prefer:'resolution=merge-duplicates,return=minimal'},body:JSON.stringify(payload)});if(!response.ok)throw new Error('Save failed');state.textContent='Saved';setTimeout(()=>{if(state.textContent==='Saved')state.textContent=''},1800)}catch(error){state.textContent='Not saved';syncMessage.textContent='A change could not be saved. Check your connection and try again.';syncMessage.classList.add('error')}}
+    const metaPrefix='[[family-radius-meta:',metaDivider=']]'+String.fromCharCode(10),terminalStatusPrefix='[[family-radius-status:',terminalStatusDivider=']]'+String.fromCharCode(10);
+    function decodeSharedRow(row){let notes=row?.notes||'',meta={};if(notes.startsWith(metaPrefix)){const at=notes.indexOf(metaDivider);if(at>metaPrefix.length){try{meta=JSON.parse(decodeURIComponent(notes.slice(metaPrefix.length,at)));notes=notes.slice(at+metaDivider.length)}catch(error){meta={}}}}else if(notes.startsWith(terminalStatusPrefix)){const at=notes.indexOf(terminalStatusDivider);if(at>terminalStatusPrefix.length){meta.status=notes.slice(terminalStatusPrefix.length,at);notes=notes.slice(at+terminalStatusDivider.length)}}const tagged=meta.status==='off_market'||meta.status==='not_interested'?meta.status:'';return{status:tagged||row?.status||'unmarked',notes,inLaw:meta.inLaw||'unreviewed',inLawDetails:meta.inLawDetails||''}}
+    function domState(card){const row=rowsById.get(card.dataset.houseId);return{status:card.dataset.status||'unmarked',notes:card.querySelector('textarea').value,inLaw:row?.querySelector('.inlaw-select').value||'unreviewed',inLawDetails:row?.querySelector('.inlaw-detail').value||''}}
+    function encodeSharedState(card){const shared=domState(card),meta={inLaw:shared.inLaw,inLawDetails:shared.inLawDetails},terminal=shared.status==='off_market'||shared.status==='not_interested';if(terminal)meta.status=shared.status;const hasMeta=terminal||shared.inLaw!=='unreviewed'||shared.inLawDetails.trim();return{status:terminal?'unmarked':shared.status,notes:(hasMeta?metaPrefix+encodeURIComponent(JSON.stringify(meta))+metaDivider:'')+shared.notes}}
+    function update(){const q=search.value.trim().toLowerCase();let shown=0;cards.forEach(card=>{const visible=(activeRegion==='all'||card.dataset.region===activeRegion)&&(activeStatus==='all'||card.dataset.status===activeStatus)&&(activeDate==='all'||card.dataset.dateAdded===activeDate)&&(!q||card.dataset.search.includes(q));card.classList.toggle('hidden',!visible);const row=rowsById.get(card.dataset.houseId);if(row)row.classList.toggle('hidden',!visible);if(visible)shown++});empty.style.display=shown?'none':'block'}
+    function renderCard(card,shared){const status=shared.status||'unmarked',row=rowsById.get(card.dataset.houseId);card.dataset.status=status;card.querySelector('.status-badge').textContent=statusLabels[status]||statusLabels.unmarked;card.querySelectorAll('[data-set-status]').forEach(button=>button.classList.toggle('active',button.dataset.setStatus===status));const textarea=card.querySelector('textarea');if(document.activeElement!==textarea)textarea.value=shared.notes||'';if(row){row.dataset.status=status;row.querySelector('.comparison-status').textContent=statusLabels[status]||statusLabels.unmarked;const select=row.querySelector('.inlaw-select'),detail=row.querySelector('.inlaw-detail');if(document.activeElement!==select)select.value=shared.inLaw||'unreviewed';if(document.activeElement!==detail)detail.value=shared.inLawDetails||''}}
+    function showSaveState(card,value){const row=rowsById.get(card.dataset.houseId),targets=[card.querySelector('.save-state'),row?.querySelector('.table-save-state')].filter(Boolean);targets.forEach(target=>target.textContent=value);return targets}
+    async function loadShared(showMessage=true){if(showMessage){syncMessage.textContent='Loading shared statuses, notes and in-law plans…';syncMessage.classList.remove('error')}try{const response=await fetch(API+'?select=house_id,status,notes',{headers:API_HEADERS});if(!response.ok)throw new Error('Unable to load shared data');const rows=await response.json(),byId=new Map(rows.map(row=>[row.house_id,row]));cards.forEach(card=>renderCard(card,decodeSharedRow(byId.get(card.dataset.houseId))));syncMessage.textContent='Shared list is up to date.';update()}catch(error){syncMessage.textContent='Shared data could not be loaded. Check your connection and refresh.';syncMessage.classList.add('error')}}
+    async function saveCard(card){const targets=showSaveState(card,'Saving…'),shared=encodeSharedState(card),payload={house_id:card.dataset.houseId,status:shared.status,notes:shared.notes,updated_at:new Date().toISOString()};try{const response=await fetch(API+'?on_conflict=house_id',{method:'POST',headers:{...API_HEADERS,Prefer:'resolution=merge-duplicates,return=minimal'},body:JSON.stringify(payload)});if(!response.ok)throw new Error('Save failed');targets.forEach(target=>target.textContent='Saved');setTimeout(()=>targets.forEach(target=>{if(target.textContent==='Saved')target.textContent=''}),1800)}catch(error){targets.forEach(target=>target.textContent='Not saved');syncMessage.textContent='A change could not be saved. Check your connection and try again.';syncMessage.classList.add('error')}}
     document.querySelectorAll('[data-region-filter]').forEach(button=>button.addEventListener('click',()=>{document.querySelector('[data-region-filter].active').classList.remove('active');button.classList.add('active');activeRegion=button.dataset.regionFilter;update()}));
     document.querySelectorAll('[data-status-filter]').forEach(button=>button.addEventListener('click',()=>{document.querySelector('[data-status-filter].active').classList.remove('active');button.classList.add('active');activeStatus=button.dataset.statusFilter;update()}));
-    cards.forEach(card=>{card.querySelectorAll('[data-set-status]').forEach(button=>button.addEventListener('click',()=>{renderCard(card,button.dataset.setStatus,card.querySelector('textarea').value);update();saveCard(card)}));let timer;card.querySelector('textarea').addEventListener('input',()=>{clearTimeout(timer);card.querySelector('.save-state').textContent='Typing…';timer=setTimeout(()=>saveCard(card),700)})});
+    const saveTimers=new Map();function queueSave(card){clearTimeout(saveTimers.get(card.dataset.houseId));showSaveState(card,'Typing…');saveTimers.set(card.dataset.houseId,setTimeout(()=>saveCard(card),700))}
+    cards.forEach(card=>{card.querySelectorAll('[data-set-status]').forEach(button=>button.addEventListener('click',()=>{const shared=domState(card);shared.status=button.dataset.setStatus;renderCard(card,shared);update();saveCard(card)}));card.querySelector('textarea').addEventListener('input',()=>queueSave(card))});
+    comparisonRows.forEach(row=>{const card=cardsById.get(row.dataset.houseId),select=row.querySelector('.inlaw-select'),detail=row.querySelector('.inlaw-detail');select.addEventListener('change',()=>saveCard(card));detail.addEventListener('input',()=>queueSave(card))});
     search.addEventListener('input',update);
     dateFilter.addEventListener('change',()=>{activeDate=dateFilter.value;update()});
     window.addEventListener('focus',()=>loadShared(false));
